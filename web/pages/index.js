@@ -1,17 +1,17 @@
 import client from '../client'
 import Link from 'next/link'
-// import groq from 'groq'
-import Header from '../components/Header'
+import HeaderLayout from '../components/HeaderLayout'
+import "../globalStyles.css"
 
 const Index = (props) => {
-    console.log('props: ', props)
+    // console.log('props: ', props)
     const propsArray = Object.values(props)
     const posts = propsArray.slice(0, propsArray.length - 1)
     console.log('posts: ', posts)
     return (
         <div>
-            <Header />
-            <h1>Welcome to my blog!</h1>
+            <HeaderLayout />
+            <h2>Posts:</h2>
 
             {posts.map(
                 ({ _id, title = '', slug = '', _createdAt = '' }) => (
@@ -22,7 +22,7 @@ const Index = (props) => {
                         >
                             <a>{title}</a>
                         </Link>
-                        <p>{_createdAt}</p>
+                        <span>{_createdAt}</span>
                     </li>
                 )
             )}

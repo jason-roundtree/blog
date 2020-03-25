@@ -1,5 +1,5 @@
 import client from '../../client'
-import Header from '../../components/Header'
+import Header from '../../components/HeaderLayout'
 
 const Post = (props) => {
     return (
