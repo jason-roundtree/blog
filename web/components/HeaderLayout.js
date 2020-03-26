@@ -8,6 +8,11 @@ const Header = styled.header`
     padding: 1em 1.5em;
     background: rgb(250, 223, 147);
 `
+const Span = styled.span`
+    /* display: block; */
+    /* font-size: .2em; */
+    margin-left: 1em;
+`
 
 function HeaderLayout(props) {
     return (
@@ -23,10 +28,10 @@ function HeaderLayout(props) {
                 <nav>
                     <h1>
                         <Link href='/'>
-                            <a>Blog</a>
+                            <a>Goober's Trundle</a>
                         </Link>
                     </h1>
-                    <a href='http://jasonroundtree.info/' target="_blank">http://jasonroundtree.info/</a>
+                    <Span>a web dev blog, by </Span><a href='http://jasonroundtree.info/' target="_blank">jason roundtree</a>
                 </nav>
             </Header>
 

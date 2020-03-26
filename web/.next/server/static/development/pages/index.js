@@ -138,25 +138,28 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
  // import styles from './Header.module.css'
 
 
-const Header = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.header`
-    /* margin-bottom: 2em; */
-    padding: 1em 1.5em;
-    background: rgb(250, 223, 147);
-`;
+const Header = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.header.withConfig({
+  displayName: "HeaderLayout__Header",
+  componentId: "sc-2bs9km-0"
+})(["padding:1em 1.5em;background:rgb(250,223,147);"]);
+const Span = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.span.withConfig({
+  displayName: "HeaderLayout__Span",
+  componentId: "sc-2bs9km-1"
+})(["margin-left:1em;"]);
 
 function HeaderLayout(props) {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15,
+      lineNumber: 20,
       columnNumber: 13
     }
   }, __jsx("title", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 21,
       columnNumber: 17
     }
   }, "Blog - Jason Roundtree"), __jsx("meta", {
@@ -165,7 +168,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 22,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -174,28 +177,28 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 23,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 27,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 28,
       columnNumber: 17
     }
   }, __jsx("h1", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 29,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -203,30 +206,37 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 30,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 31,
       columnNumber: 29
     }
-  }, "Blog"))), __jsx("a", {
+  }, "Goober's Trundle"))), __jsx(Span, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34,
+      columnNumber: 21
+    }
+  }, "a web dev blog, by "), __jsx("a", {
     href: "http://jasonroundtree.info/",
     target: "_blank",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
-      columnNumber: 21
+      lineNumber: 34,
+      columnNumber: 53
     }
-  }, "http://jasonroundtree.info/"))), __jsx("main", {
+  }, "jason roundtree"))), __jsx("main", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 38,
       columnNumber: 13
     }
   }, props.children));
@@ -1939,8 +1949,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_HeaderLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/HeaderLayout */ "./components/HeaderLayout.js");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _globalStyles_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../globalStyles.css */ "./globalStyles.css");
-/* harmony import */ var _globalStyles_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_globalStyles_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "moment");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _globalStyles_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../globalStyles.css */ "./globalStyles.css");
+/* harmony import */ var _globalStyles_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_globalStyles_css__WEBPACK_IMPORTED_MODULE_6__);
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/pages/index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -1949,13 +1961,13 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-const ListItem = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.li`
-    margin: 1em 0;
-    font-size: 1.75em;
-`;
-const DateSpan = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.span`
-    margin-left: 1.5em;
-`;
+
+const ListItem = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.li.withConfig({
+  displayName: "pages__ListItem",
+  componentId: "nuslkc-0"
+})(["margin:1em 0;font-size:1.75em;"]); // const DateSpan = styled.span`
+//     margin-left: 1.5em;
+// `
 
 const Index = props => {
   // console.log('props: ', props)
@@ -1967,19 +1979,20 @@ const Index = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 23,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 24,
       columnNumber: 13
     }
   }, "Posts:"), posts.map(({
     _id,
     title,
+    description,
     slug,
     _createdAt
   }) => __jsx(ListItem, {
@@ -1987,7 +2000,7 @@ const Index = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 27,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -1996,24 +2009,31 @@ const Index = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 28,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 32,
       columnNumber: 29
     }
-  }, title)), __jsx(DateSpan, {
+  }, title)), __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 34,
       columnNumber: 25
     }
-  }, _createdAt))));
+  }, description), __jsx("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35,
+      columnNumber: 25
+    }
+  }, moment__WEBPACK_IMPORTED_MODULE_5___default.a.utc(_createdAt).format("MM-DD-YYYY")))));
 };
 
 Index.getInitialProps = async function () {
@@ -2046,6 +2066,17 @@ module.exports = __webpack_require__(/*! /Users/jasonroundtree/projects/blog/web
 /***/ (function(module, exports) {
 
 module.exports = require("@sanity/client");
+
+/***/ }),
+
+/***/ "moment":
+/*!*************************!*\
+  !*** external "moment" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("moment");
 
 /***/ }),
 

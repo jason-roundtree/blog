@@ -2,15 +2,16 @@ import client from '../client'
 import Link from 'next/link'
 import HeaderLayout from '../components/HeaderLayout'
 import styled from 'styled-components'
+import moment from 'moment'
 import "../globalStyles.css"
 
 const ListItem = styled.li`
     margin: 1em 0;
     font-size: 1.75em;
 `
-const DateSpan = styled.span`
-    margin-left: 1.5em;
-`
+// const DateSpan = styled.span`
+//     margin-left: 1.5em;
+// `
 
 const Index = (props) => {
     // console.log('props: ', props)
@@ -22,7 +23,7 @@ const Index = (props) => {
         <HeaderLayout>
             <h2>Posts:</h2>
             {posts.map(
-                ({ _id, title, slug, _createdAt }) => (
+                ({ _id, title, description, slug, _createdAt }) => (
                     <ListItem key={_id}>
                         <Link
                             href='/post/[slug]'
@@ -30,8 +31,8 @@ const Index = (props) => {
                         >
                             <a>{title}</a>
                         </Link>
-
-                        <DateSpan>{_createdAt}</DateSpan>
+                        <p>{description}</p>
+                        <p>{moment.utc(_createdAt).format("MM-DD-YYYY")}</p>
                     </ListItem>
                 )
             )}
