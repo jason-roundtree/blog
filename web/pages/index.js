@@ -7,20 +7,14 @@ import moment from 'moment'
 import '../globalStyles.css'
 
 const ListItem = styled.li`
-    margin: 1em 0;
+    margin: 15px 0 0 15px;;
     font-size: 1.75em;
 `
 const DateP = styled.p`
     font-size: .85em;
 `
 
-const Index = (props) => {
-    // console.log('props: ', props)
-    const propsArray = Object.values(props)
-    // last item in props is next.js url metadata
-    const posts = propsArray.slice(
-        0, propsArray.length - 1
-    )
+const Index = ({ posts }) => {
     // TODO: there's gotta be a more straightforward way to get these counts, right? Maybe just do it from query?
     const tags = posts.reduce((tagCount, post) => {
         // TODO: is this check necessary or will there always be tags even when empty array?
@@ -70,13 +64,17 @@ const Index = (props) => {
     )
 }
 
-Index.getInitialProps = async function() {
-    return await client.fetch(`
+export async function getStaticProps() {
+    const posts = await client.fetch(`
         *[ _type == "post" ]{
             ..., 
             tags[]->{_id, name}
         }
     `)
+
+    return {
+        props: { posts }
+    }
 }
 
 export default Index

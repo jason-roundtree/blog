@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -272,13 +272,10 @@ var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/components/KeywordTa
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
-const TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.button`
-    padding: 10px;
-    margin: 10px;
-    font-family: 'Lustria', serif;
-    color: rgb(16, 46, 36);
-    font-size: 1.2em;
-`;
+const TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.button.withConfig({
+  displayName: "KeywordTags__TagBtn",
+  componentId: "sc-1eepvlk-0"
+})(["padding:10px;margin:15px 0 0 15px;color:rgb(250,223,147);font-size:1.2em;background-color:rgb(3,152,252);border:3px solid;font-family:'Lustria',serif;"]);
 
 function KeywordTags(props) {
   const tagCountsArray = [];
@@ -295,7 +292,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 28,
       columnNumber: 9
     }
   }, tagCountsArray.map(tag => __jsx(TagBtn, {
@@ -303,7 +300,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 30,
       columnNumber: 17
     }
   }, tag.name, ":", tag.count)));
@@ -2003,11 +2000,12 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 /*!************************!*\
   !*** ./pages/index.js ***!
   \************************/
-/*! exports provided: default */
+/*! exports provided: getStaticProps, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStaticProps", function() { return getStaticProps; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../client */ "./client.js");
@@ -2034,18 +2032,16 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const ListItem = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.li.withConfig({
   displayName: "pages__ListItem",
   componentId: "nuslkc-0"
-})(["margin:1em 0;font-size:1.75em;"]);
+})(["margin:15px 0 0 15px;;font-size:1.75em;"]);
 const DateP = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.p.withConfig({
   displayName: "pages__DateP",
   componentId: "nuslkc-1"
 })(["font-size:.85em;"]);
 
-const Index = props => {
-  // console.log('props: ', props)
-  const propsArray = Object.values(props); // last item in props is next.js url metadata
-
-  const posts = propsArray.slice(0, propsArray.length - 1); // TODO: there's gotta be a more straightforward way to get these counts, right? Maybe just do it from query?
-
+const Index = ({
+  posts
+}) => {
+  // TODO: there's gotta be a more straightforward way to get these counts, right? Maybe just do it from query?
   const tags = posts.reduce((tagCount, post) => {
     // TODO: is this check necessary or will there always be tags even when empty array?
     const postTags = post.tags && post.tags; // console.log('postTags: ', postTags)
@@ -2063,14 +2059,14 @@ const Index = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 34,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 35,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -2078,14 +2074,14 @@ const Index = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 36,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 40,
       columnNumber: 13
     }
   }, "Posts:"), posts.map(({
@@ -2099,7 +2095,7 @@ const Index = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 49,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -2108,47 +2104,51 @@ const Index = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 50,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60,
+      lineNumber: 54,
       columnNumber: 29
     }
   }, title)), __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 56,
       columnNumber: 25
     }
   }, description), __jsx(DateP, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 57,
       columnNumber: 25
     }
   }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")))));
 };
 
-Index.getInitialProps = async function () {
-  return await _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
+async function getStaticProps() {
+  const posts = await _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
         *[ _type == "post" ]{
             ..., 
             tags[]->{_id, name}
         }
     `);
-};
-
+  return {
+    props: {
+      posts
+    }
+  };
+}
 /* harmony default export */ __webpack_exports__["default"] = (Index);
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
