@@ -152,14 +152,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 17,
       columnNumber: 13
     }
   }, __jsx("title", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 18,
       columnNumber: 17
     }
   }, "Blog - Jason Roundtree"), __jsx("meta", {
@@ -168,7 +168,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 19,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -177,28 +177,37 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 20,
+      columnNumber: 17
+    }
+  }), __jsx("link", {
+    href: "https://fonts.googleapis.com/css?family=Lustria&display=swap",
+    rel: "stylesheet",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 25,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 26,
       columnNumber: 17
     }
   }, __jsx("h1", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 27,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -206,21 +215,21 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 28,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 29,
       columnNumber: 29
     }
   }, "Goober's Trundle"))), __jsx(Span, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 32,
       columnNumber: 21
     }
   }, "a web dev blog, by "), __jsx("a", {
@@ -229,14 +238,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 32,
       columnNumber: 53
     }
   }, "jason roundtree"))), __jsx("main", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 36,
       columnNumber: 13
     }
   }, props.children));
@@ -1965,42 +1974,44 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const ListItem = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.li.withConfig({
   displayName: "pages__ListItem",
   componentId: "nuslkc-0"
-})(["margin:1em 0;font-size:1.75em;"]); // const DateSpan = styled.span`
-//     margin-left: 1.5em;
-// `
+})(["margin:1em 0;font-size:1.75em;"]);
+const DateP = styled_components__WEBPACK_IMPORTED_MODULE_4___default.a.p.withConfig({
+  displayName: "pages__DateP",
+  componentId: "nuslkc-1"
+})(["font-size:.85em;"]);
 
 const Index = props => {
   // console.log('props: ', props)
-  const propsArray = Object.values(props); // last item in props is next.js/sanity metadata
+  const propsArray = Object.values(props); // last item in props is next.js metadata
 
-  const posts = propsArray.slice(0, propsArray.length - 1);
-  console.log('posts: ', posts);
+  const posts = propsArray.slice(0, propsArray.length - 1); // console.log('posts: ', posts)
+
   return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 25,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 26,
       columnNumber: 13
     }
   }, "Posts:"), posts.map(({
     _id,
-    title,
-    description,
+    _createdAt,
     slug,
-    _createdAt
+    title,
+    description
   }) => __jsx(ListItem, {
     key: _id,
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 35,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -2009,31 +2020,31 @@ const Index = props => {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 36,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 40,
       columnNumber: 29
     }
   }, title)), __jsx("p", {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 42,
       columnNumber: 25
     }
-  }, description), __jsx("p", {
+  }, description), __jsx(DateP, {
     __self: undefined,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 43,
       columnNumber: 25
     }
-  }, moment__WEBPACK_IMPORTED_MODULE_5___default.a.utc(_createdAt).format("MM-DD-YYYY")))));
+  }, moment__WEBPACK_IMPORTED_MODULE_5___default.a.utc(_createdAt).format("LL")))));
 };
 
 Index.getInitialProps = async function () {

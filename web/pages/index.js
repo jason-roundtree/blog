@@ -3,27 +3,35 @@ import Link from 'next/link'
 import HeaderLayout from '../components/HeaderLayout'
 import styled from 'styled-components'
 import moment from 'moment'
-import "../globalStyles.css"
+import '../globalStyles.css'
 
 const ListItem = styled.li`
     margin: 1em 0;
     font-size: 1.75em;
 `
-// const DateSpan = styled.span`
-//     margin-left: 1.5em;
-// `
+const DateP = styled.p`
+    font-size: .85em;
+`
 
 const Index = (props) => {
     // console.log('props: ', props)
     const propsArray = Object.values(props)
-    // last item in props is next.js/sanity metadata
-    const posts = propsArray.slice(0, propsArray.length - 1)
-    console.log('posts: ', posts)
+    // last item in props is next.js metadata
+    const posts = propsArray.slice(
+        0, propsArray.length - 1
+    )
+    // console.log('posts: ', posts)
     return (
         <HeaderLayout>
             <h2>Posts:</h2>
             {posts.map(
-                ({ _id, title, description, slug, _createdAt }) => (
+                ({ 
+                    _id, 
+                    _createdAt,
+                    slug, 
+                    title, 
+                    description, 
+                }) => (
                     <ListItem key={_id}>
                         <Link
                             href='/post/[slug]'
@@ -32,7 +40,9 @@ const Index = (props) => {
                             <a>{title}</a>
                         </Link>
                         <p>{description}</p>
-                        <p>{moment.utc(_createdAt).format("MM-DD-YYYY")}</p>
+                        <DateP>
+                            {moment.utc(_createdAt).format("LL")}
+                        </DateP>
                     </ListItem>
                 )
             )}

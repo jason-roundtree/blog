@@ -1,14 +1,20 @@
 import client from '../../client'
 import HeaderLayout from '../../components/HeaderLayout'
+import styled from 'styled-components'
+import moment from 'moment'
+
+const P = styled.p`
+    margin-top: 1.5em;
+`
 
 const Post = (props) => {
     return (
         <HeaderLayout>
             <article>
                 <h2>{props.title}</h2>
-                <p>{props.description}</p>
-                <p>{props.body}</p>
-                <p>{props._createdAt}</p>
+                <P>{moment.utc(props._createdAt).format("LL")}</P>
+                <P>{props.description}</P>
+                <P>{props.body}</P>
             </article>
         </HeaderLayout>
     )
