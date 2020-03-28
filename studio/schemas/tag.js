@@ -3,8 +3,8 @@ export default {
     name: 'tag',
     type: 'document',
     fields: [{
-        title: 'name',
-        name: 'Name',
+        title: 'Name',
+        name: 'name',
         type: 'string'
     }]
 }
