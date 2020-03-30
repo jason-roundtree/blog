@@ -1,38 +1,43 @@
 import styled from 'styled-components'
 
 const TagBtn = styled.button`
-    padding: 10px;
+    padding: 10px 15px;
     margin: 15px 0 0 15px;
     color: rgb(250, 223, 147);
     font-size: 1.2em;
+    border: none;
     background-color: rgb(3, 152, 252);
-    border: 3px solid;
     font-family: 'Lustria', serif;
+    &:hover {
+        cursor: pointer;
+    }
+`
+const Span = styled.span`
+    margin: 0 5px;
+    color: rgb(250, 223, 147);
 `
 
 function KeywordTags(props) {
-    const tagCountsArray = []
-    for (const [
-        tag, 
-        count
-    ] of Object.entries(props.tags)) {
-        tagCountsArray.push({
-            'name': tag,
-            'count': count
-        })
-
-    }
-    console.log('tagCountsArray: ', tagCountsArray)
+    console.log('props: ', props)
+    
+    
+    // tagCountsArray.sort((a, b) => {
+    //     return (a.name > b.name) ? 1 : -1
+    // })
 
     return (
-        <div>
-            {tagCountsArray.map(tag => (
-                <TagBtn key={tag.name}>
-                    {tag.name}:
-                    {tag.count}
-                </TagBtn>
-            ))}
-        </div>
+        null
+        // <div>
+        //     {tagCountsArray.map(tag => (
+        //         <TagBtn 
+        //             key={tag.name}
+        //             onClick={props.handleTagFilter}
+        //         >   
+        //             {tag.name}
+        //             <Span>({tag.count})</Span>
+        //         </TagBtn>
+        //     ))}
+        // </div>
     )
 }
 

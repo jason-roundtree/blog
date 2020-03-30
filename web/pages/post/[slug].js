@@ -7,7 +7,7 @@ const P = styled.p`
     margin-top: 1.5em;
 `
 
-const Post = (props) => {
+function Post(props) {
     return (
         <HeaderLayout>
             <article>
@@ -29,6 +29,6 @@ Post.getInitialProps = async function(context) {
     `, { slug })
     // console.log('data: ', data)
     return data
-  }
+}
 
 export default Post

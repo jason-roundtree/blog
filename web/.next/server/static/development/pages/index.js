@@ -135,7 +135,6 @@ var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/components/HeaderLay
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
- // import styles from './Header.module.css'
 
 
 const Header = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.header.withConfig({
@@ -145,21 +144,21 @@ const Header = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.header.w
 const Span = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.span.withConfig({
   displayName: "HeaderLayout__Span",
   componentId: "sc-2bs9km-1"
-})(["margin-left:1em;"]);
+})(["margin-left:20px;"]);
 
 function HeaderLayout(props) {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 16,
       columnNumber: 13
     }
   }, __jsx("title", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 17,
       columnNumber: 17
     }
   }, "Blog - Jason Roundtree"), __jsx("meta", {
@@ -168,7 +167,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 18,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -177,7 +176,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 19,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -186,28 +185,28 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 21,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 24,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 25,
       columnNumber: 17
     }
   }, __jsx("h1", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 26,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -215,21 +214,21 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 27,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 28,
       columnNumber: 29
     }
   }, "Goober's Trundle"))), __jsx(Span, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 31,
       columnNumber: 21
     }
   }, "a web dev blog, by "), __jsx("a", {
@@ -238,14 +237,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 31,
       columnNumber: 53
     }
   }, "jason roundtree"))), __jsx("main", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 35,
       columnNumber: 13
     }
   }, props.children));
@@ -264,46 +263,35 @@ function HeaderLayout(props) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/components/KeywordTags.js";
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-const TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.button.withConfig({
+const TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.button.withConfig({
   displayName: "KeywordTags__TagBtn",
   componentId: "sc-1eepvlk-0"
-})(["padding:10px;margin:15px 0 0 15px;color:rgb(250,223,147);font-size:1.2em;background-color:rgb(3,152,252);border:3px solid;font-family:'Lustria',serif;"]);
+})(["padding:10px 15px;margin:15px 0 0 15px;color:rgb(250,223,147);font-size:1.2em;border:none;background-color:rgb(3,152,252);font-family:'Lustria',serif;&:hover{cursor:pointer;}"]);
+const Span = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.span.withConfig({
+  displayName: "KeywordTags__Span",
+  componentId: "sc-1eepvlk-1"
+})(["margin:0 5px;color:rgb(250,223,147);"]);
 
 function KeywordTags(props) {
-  const tagCountsArray = [];
+  console.log('props: ', props); // tagCountsArray.sort((a, b) => {
+  //     return (a.name > b.name) ? 1 : -1
+  // })
 
-  for (const [tag, count] of Object.entries(props.tags)) {
-    tagCountsArray.push({
-      'name': tag,
-      'count': count
-    });
-  }
-
-  console.log('tagCountsArray: ', tagCountsArray);
-  return __jsx("div", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 28,
-      columnNumber: 9
-    }
-  }, tagCountsArray.map(tag => __jsx(TagBtn, {
-    key: tag.name,
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 30,
-      columnNumber: 17
-    }
-  }, tag.name, ":", tag.count)));
+  return null // <div>
+  //     {tagCountsArray.map(tag => (
+  //         <TagBtn 
+  //             key={tag.name}
+  //             onClick={props.handleTagFilter}
+  //         >   
+  //             {tag.name}
+  //             <Span>({tag.count})</Span>
+  //         </TagBtn>
+  //     ))}
+  // </div>
+  ;
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (KeywordTags);
@@ -2011,12 +1999,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../client */ "./client.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_HeaderLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/HeaderLayout */ "./components/HeaderLayout.js");
-/* harmony import */ var _components_KeywordTags__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/KeywordTags */ "./components/KeywordTags.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "moment");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "moment");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_HeaderLayout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/HeaderLayout */ "./components/HeaderLayout.js");
+/* harmony import */ var _components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/KeywordTags */ "./components/KeywordTags.js");
 /* harmony import */ var _globalStyles_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../globalStyles.css */ "./globalStyles.css");
 /* harmony import */ var _globalStyles_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_globalStyles_css__WEBPACK_IMPORTED_MODULE_7__);
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/pages/index.js";
@@ -2024,123 +2012,187 @@ var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
+ // import useSWR from 'swr'
 
 
 
 
 
-const ListItem = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.li.withConfig({
+
+const ListItem = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.li.withConfig({
   displayName: "pages__ListItem",
   componentId: "nuslkc-0"
-})(["margin:15px 0 0 15px;;font-size:1.75em;"]);
-const DateP = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.p.withConfig({
+})(["margin:15px 0 0 15px;padding:10px 15px;font-size:1.75em;border:1px solid rgb(250,223,147);"]);
+const DateP = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withConfig({
   displayName: "pages__DateP",
   componentId: "nuslkc-1"
-})(["font-size:.85em;"]);
+})(["font-size:.75em;"]);
 
-const Index = ({
-  posts
-}) => {
-  // TODO: there's gotta be a more straightforward way to get these counts, right? Maybe just do it from query?
-  const tags = posts.reduce((tagCount, post) => {
-    // TODO: is this check necessary or will there always be tags even when empty array?
-    const postTags = post.tags && post.tags; // console.log('postTags: ', postTags)
+function Index({
+  posts,
+  tags
+}) {
+  console.log('posts: ', posts);
+  console.log('tags: ', tags);
+  const {
+    0: allPosts,
+    1: setAllPosts
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(posts);
+  const {
+    0: filteredPosts,
+    1: setFilteredPosts
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(posts); // const [ allTags, setAllTags ] = useState(tags)
 
-    postTags.forEach(tag => {
-      if (!tagCount[tag.name]) {
-        tagCount[tag.name] = 1;
-      } else {
-        tagCount[tag.name] = tagCount[tag.name] + 1;
-      }
+  const {
+    0: tagCounts,
+    1: setTagCounts
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: filteredKeywords,
+    1: setFilteredKeywords
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  console.log('tagCounts: ', tagCounts);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const tagCounts = [];
+    tags.forEach(async tag => {
+      const count = await _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
+                count(*[ _type == "post" && $tagID in tags[]._ref ])
+            `, {
+        tagID: tag._id
+      });
+      const tagCount = {
+        _id: tag._id,
+        name: tag.name,
+        count
+      }; // console.log('tagCount: ', tagCount)
+      // setTagCounts(state => [...state, tagCount])
+      // tagCounts.push(tagCount)
+
+      setTagCountsState(tagCount);
     });
-    return tagCount;
-  }, {});
-  return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    __self: undefined,
+  }, []);
+
+  function setTagCountsState(tagCount) {
+    setTagCounts(state => [...state, tagCount]);
+  }
+
+  async function getFilteredPosts() {
+    const posts = await _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
+            *[ _type == "post" && $tagID in tags[]._ref ]
+        `, {});
+    console.log('posts: ', posts);
+    setFilteredPosts(posts);
+  }
+
+  function handleTagFilter(e) {
+    const selectedKeyword = e.target.firstChild.data; // console.log('selectedKeyword: ', selectedKeyword)
+
+    if (!filteredKeywords.includes(selectedKeyword)) {
+      setFilteredKeywords([...filteredKeywords, selectedKeyword]);
+    } else {
+      setFilteredKeywords(filteredKeywords.filter(keyword => {
+        return keyword !== selectedKeyword;
+      }));
+    }
+
+    console.log('filteredKeywords: ', filteredKeywords);
+    getFilteredPosts();
+  }
+
+  return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 79,
       columnNumber: 9
     }
   }, __jsx("h2", {
-    __self: undefined,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 80,
       columnNumber: 13
     }
-  }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    tags: tags,
-    __self: undefined,
+  }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    tags: allPosts,
+    handleTagFilter: handleTagFilter,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 81,
       columnNumber: 13
     }
   }), __jsx("h2", {
-    __self: undefined,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40,
+      lineNumber: 86,
       columnNumber: 13
     }
-  }, "Posts:"), posts.map(({
+  }, "Posts:"), filteredPosts.map(({
     _id,
     _createdAt,
+    description,
     slug,
-    title,
-    description
+    title
   }) => __jsx(ListItem, {
     key: _id,
-    __self: undefined,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 95,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
     href: "/post/[slug]",
     as: `/post/${slug.current}`,
-    __self: undefined,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 96,
       columnNumber: 25
     }
   }, __jsx("a", {
-    __self: undefined,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 100,
       columnNumber: 29
     }
   }, title)), __jsx("p", {
-    __self: undefined,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 102,
       columnNumber: 25
     }
   }, description), __jsx(DateP, {
-    __self: undefined,
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 103,
       columnNumber: 25
     }
-  }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")))));
-};
+  }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(_createdAt).format("LL")))));
+}
 
 async function getStaticProps() {
+  // TODO: should these be chained somehow?
   const posts = await _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
         *[ _type == "post" ]{
             ..., 
             tags[]->{_id, name}
         }
     `);
+  const tags = await _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
+        *[ _type == "tag" ]{
+            _id, name
+        }
+    `);
   return {
     props: {
-      posts
+      posts,
+      tags
     }
   };
 }

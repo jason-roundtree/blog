@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Link from 'next/link'
-// import styles from './Header.module.css'
 import styled from 'styled-components'
 
 const Header = styled.header`
@@ -8,7 +7,7 @@ const Header = styled.header`
     background: rgb(250, 223, 147);
 `
 const Span = styled.span`
-    margin-left: 1em;
+    margin-left: 20px;
 `
 
 function HeaderLayout(props) {
