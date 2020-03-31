@@ -21,11 +21,13 @@ const DateP = styled.p`
 function Index({ posts, tags }) {
     console.log('posts: ', posts)
     console.log('tags: ', tags)
-    // const [ allPosts, setAllPosts ] = useState(posts)
-    const [ filteredPosts, setFilteredPosts ] = useState(posts)
+    const [ allPosts, setAllPosts ] = useState(posts)
+    const [ filteredPosts, setFilteredPosts ] = useState([])
     const [ tagCounts, setTagCounts ] = useState([])
-    const [ filteredKeywords, setFilteredKeywords ] = useState([])
+    const [ filteredTags, setFilteredTags ] = useState([])
     console.log('tagCounts: ', tagCounts)
+    console.log('filteredTags global: ', filteredTags)
+    console.log('filteredPosts global: ', filteredPosts)
     
     useEffect(() => {
         tags.forEach(async tag => {
@@ -39,34 +41,45 @@ function Index({ posts, tags }) {
                     name: tag.name,
                     count
                 }
+                // TODO: Should i call all these at once??
                 setTagCounts(state => [...state, tagCount])
             }
         })
     }, [])
 
-    async function getFilteredPosts() {
-        const posts = await client.fetch(`
-            *[ _type == "post" && $tagID in tags[]._ref ]
-        `, { })
-        console.log('posts: ', posts)
-        setFilteredPosts(posts)
-    }
+    useEffect(() => {
+        // console.log('getFilteredPosts')
+        // console.log('filteredTags: ', filteredTags)
+        if (filteredTags.length > 0) {
+            // const postsWithFilteredTag = []
+            filteredTags.forEach(async tag => {
+                const matchedPosts = await client.fetch(`
+                    *[ _type == "post" && $tagID in tags[]._ref ]{
+                        ..., 
+                        tags[]->{_id, name}
+                    }
+                `, { tagID: tag })
+                console.log('matchedPosts: ', matchedPosts)
+                setFilteredPosts(matchedPosts)
+            })
+            
+        }
+    }, [filteredTags])
 
     function handleTagFilter(e) {
-        const selectedKeyword = e.target.firstChild.data
+        // console.log('e: ', e.target.id);
+        const selectedTagID = e.target.id
         // console.log('selectedKeyword: ', selectedKeyword)
-        if (!filteredKeywords.includes(selectedKeyword)) {
-            setFilteredKeywords([...filteredKeywords, selectedKeyword])
+        if (!filteredTags.includes(selectedTagID)) {
+            setFilteredTags(state => [...state, selectedTagID])
         } else {
-            setFilteredKeywords(filteredKeywords.filter(keyword => {
-               return keyword !== selectedKeyword
+            setFilteredTags(filteredTags.filter(tag => {
+               return tag !== selectedTagID
             }))
         }
-        console.log('filteredKeywords: ', filteredKeywords)
-        getFilteredPosts()
     }
 
-
+    const postsToRender = filteredPosts.length > 0 ? filteredPosts : allPosts
     return (
         <HeaderLayout>
             <h2>Tags:</h2>
@@ -76,7 +89,8 @@ function Index({ posts, tags }) {
             />
 
             <h2>Posts:</h2>
-            {filteredPosts.map(
+
+            {postsToRender.map(
                 ({ 
                     _id, 
                     _createdAt,
@@ -112,9 +126,9 @@ export async function getStaticProps() {
     `)
 
     const tags = await client.fetch(`
-        *[ _type == "tag" ]  {
+        *[ _type == "tag" ] {
             _id, name
-        } | order(name asc)
+        }
     `)
 
     return { 

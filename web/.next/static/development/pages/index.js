@@ -189,9 +189,9 @@ function KeywordTags(props) {
   var _this = this;
 
   // console.log('props: ', props)
-  // props.tags.sort((a, b) => {
-  //     return (a.name > b.name) ? 1 : -1
-  // })
+  props.tags.sort(function (a, b) {
+    return a.name > b.name ? 1 : -1;
+  });
   return __jsx("div", {
     __self: this,
     __source: {
@@ -202,6 +202,7 @@ function KeywordTags(props) {
   }, props.tags.map(function (tag) {
     return tag.count && __jsx(TagBtn, {
       key: tag.name,
+      id: tag._id,
       onClick: props.handleTagFilter,
       __self: _this,
       __source: {
@@ -213,7 +214,7 @@ function KeywordTags(props) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35,
+        lineNumber: 36,
         columnNumber: 25
       }
     }, "(", tag.count, ")"));
@@ -31410,21 +31411,27 @@ function Index(_ref) {
   var posts = _ref.posts,
       tags = _ref.tags;
   console.log('posts: ', posts);
-  console.log('tags: ', tags); // const [ allPosts, setAllPosts ] = useState(posts)
+  console.log('tags: ', tags);
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(posts),
-      filteredPosts = _useState[0],
-      setFilteredPosts = _useState[1];
+      allPosts = _useState[0],
+      setAllPosts = _useState[1];
 
   var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
-      tagCounts = _useState2[0],
-      setTagCounts = _useState2[1];
+      filteredPosts = _useState2[0],
+      setFilteredPosts = _useState2[1];
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
-      filteredKeywords = _useState3[0],
-      setFilteredKeywords = _useState3[1];
+      tagCounts = _useState3[0],
+      setTagCounts = _useState3[1];
+
+  var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
+      filteredTags = _useState4[0],
+      setFilteredTags = _useState4[1];
 
   console.log('tagCounts: ', tagCounts);
+  console.log('filteredTags global: ', filteredTags);
+  console.log('filteredPosts global: ', filteredPosts);
   Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
     tags.forEach(function _callee(tag) {
       var count, tagCount;
@@ -31445,7 +31452,8 @@ function Index(_ref) {
                   _id: tag._id,
                   name: tag.name,
                   count: count
-                };
+                }; // TODO: Should i call all these at once??
+
                 setTagCounts(function (state) {
                   return [].concat(Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(state), [tagCount]);
                 });
@@ -31459,56 +31467,65 @@ function Index(_ref) {
       }, null, null, null, Promise);
     });
   }, []);
+  Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
+    // console.log('getFilteredPosts')
+    // console.log('filteredTags: ', filteredTags)
+    if (filteredTags.length > 0) {
+      // const postsWithFilteredTag = []
+      filteredTags.forEach(function _callee2(tag) {
+        var matchedPosts;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(_client__WEBPACK_IMPORTED_MODULE_3__["default"].fetch("\n                    *[ _type == \"post\" && $tagID in tags[]._ref ]{\n                        ..., \n                        tags[]->{_id, name}\n                    }\n                ", {
+                  tagID: tag
+                }));
 
-  function getFilteredPosts() {
-    var posts;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getFilteredPosts$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.next = 2;
-            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(_client__WEBPACK_IMPORTED_MODULE_3__["default"].fetch("\n            *[ _type == \"post\" && $tagID in tags[]._ref ]\n        ", {}));
+              case 2:
+                matchedPosts = _context2.sent;
+                console.log('matchedPosts: ', matchedPosts);
+                setFilteredPosts(matchedPosts);
 
-          case 2:
-            posts = _context2.sent;
-            console.log('posts: ', posts);
-            setFilteredPosts(posts);
-
-          case 5:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    }, null, null, null, Promise);
-  }
+              case 5:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, null, null, null, Promise);
+      });
+    }
+  }, [filteredTags]);
 
   function handleTagFilter(e) {
-    var selectedKeyword = e.target.firstChild.data; // console.log('selectedKeyword: ', selectedKeyword)
+    // console.log('e: ', e.target.id);
+    var selectedTagID = e.target.id; // console.log('selectedKeyword: ', selectedKeyword)
 
-    if (!filteredKeywords.includes(selectedKeyword)) {
-      setFilteredKeywords([].concat(Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(filteredKeywords), [selectedKeyword]));
+    if (!filteredTags.includes(selectedTagID)) {
+      setFilteredTags(function (state) {
+        return [].concat(Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(state), [selectedTagID]);
+      });
     } else {
-      setFilteredKeywords(filteredKeywords.filter(function (keyword) {
-        return keyword !== selectedKeyword;
+      setFilteredTags(filteredTags.filter(function (tag) {
+        return tag !== selectedTagID;
       }));
     }
-
-    console.log('filteredKeywords: ', filteredKeywords);
-    getFilteredPosts();
   }
 
+  var postsToRender = filteredPosts.length > 0 ? filteredPosts : allPosts;
   return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_7__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 84,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 85,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -31517,17 +31534,17 @@ function Index(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 86,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 91,
       columnNumber: 13
     }
-  }, "Posts:"), filteredPosts.map(function (_ref2) {
+  }, "Posts:"), postsToRender.map(function (_ref2) {
     var _id = _ref2._id,
         _createdAt = _ref2._createdAt,
         description = _ref2.description,
@@ -31538,7 +31555,7 @@ function Index(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 87,
+        lineNumber: 101,
         columnNumber: 21
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -31547,28 +31564,28 @@ function Index(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 88,
+        lineNumber: 102,
         columnNumber: 25
       }
     }, __jsx("a", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 92,
+        lineNumber: 106,
         columnNumber: 29
       }
     }, title)), __jsx("p", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 94,
+        lineNumber: 108,
         columnNumber: 25
       }
     }, description), __jsx(DateP, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 95,
+        lineNumber: 109,
         columnNumber: 25
       }
     }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")));

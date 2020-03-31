@@ -282,9 +282,9 @@ const Span = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.span.withC
 
 function KeywordTags(props) {
   // console.log('props: ', props)
-  // props.tags.sort((a, b) => {
-  //     return (a.name > b.name) ? 1 : -1
-  // })
+  props.tags.sort((a, b) => {
+    return a.name > b.name ? 1 : -1;
+  });
   return __jsx("div", {
     __self: this,
     __source: {
@@ -294,6 +294,7 @@ function KeywordTags(props) {
     }
   }, props.tags.map(tag => tag.count && __jsx(TagBtn, {
     key: tag.name,
+    id: tag._id,
     onClick: props.handleTagFilter,
     __self: this,
     __source: {
@@ -305,7 +306,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 36,
       columnNumber: 25
     }
   }, "(", tag.count, ")"))));
@@ -2050,21 +2051,26 @@ function Index({
   tags
 }) {
   console.log('posts: ', posts);
-  console.log('tags: ', tags); // const [ allPosts, setAllPosts ] = useState(posts)
-
+  console.log('tags: ', tags);
+  const {
+    0: allPosts,
+    1: setAllPosts
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(posts);
   const {
     0: filteredPosts,
     1: setFilteredPosts
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(posts);
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const {
     0: tagCounts,
     1: setTagCounts
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   const {
-    0: filteredKeywords,
-    1: setFilteredKeywords
+    0: filteredTags,
+    1: setFilteredTags
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   console.log('tagCounts: ', tagCounts);
+  console.log('filteredTags global: ', filteredTags);
+  console.log('filteredPosts global: ', filteredPosts);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     tags.forEach(async tag => {
       const count = await _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
@@ -2078,47 +2084,58 @@ function Index({
           _id: tag._id,
           name: tag.name,
           count
-        };
+        }; // TODO: Should i call all these at once??
+
         setTagCounts(state => [...state, tagCount]);
       }
     });
   }, []);
-
-  async function getFilteredPosts() {
-    const posts = await _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
-            *[ _type == "post" && $tagID in tags[]._ref ]
-        `, {});
-    console.log('posts: ', posts);
-    setFilteredPosts(posts);
-  }
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    // console.log('getFilteredPosts')
+    // console.log('filteredTags: ', filteredTags)
+    if (filteredTags.length > 0) {
+      // const postsWithFilteredTag = []
+      filteredTags.forEach(async tag => {
+        const matchedPosts = await _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
+                    *[ _type == "post" && $tagID in tags[]._ref ]{
+                        ..., 
+                        tags[]->{_id, name}
+                    }
+                `, {
+          tagID: tag
+        });
+        console.log('matchedPosts: ', matchedPosts);
+        setFilteredPosts(matchedPosts);
+      });
+    }
+  }, [filteredTags]);
 
   function handleTagFilter(e) {
-    const selectedKeyword = e.target.firstChild.data; // console.log('selectedKeyword: ', selectedKeyword)
+    // console.log('e: ', e.target.id);
+    const selectedTagID = e.target.id; // console.log('selectedKeyword: ', selectedKeyword)
 
-    if (!filteredKeywords.includes(selectedKeyword)) {
-      setFilteredKeywords([...filteredKeywords, selectedKeyword]);
+    if (!filteredTags.includes(selectedTagID)) {
+      setFilteredTags(state => [...state, selectedTagID]);
     } else {
-      setFilteredKeywords(filteredKeywords.filter(keyword => {
-        return keyword !== selectedKeyword;
+      setFilteredTags(filteredTags.filter(tag => {
+        return tag !== selectedTagID;
       }));
     }
-
-    console.log('filteredKeywords: ', filteredKeywords);
-    getFilteredPosts();
   }
 
+  const postsToRender = filteredPosts.length > 0 ? filteredPosts : allPosts;
   return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_5__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 84,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 85,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -2127,17 +2144,17 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 86,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78,
+      lineNumber: 91,
       columnNumber: 13
     }
-  }, "Posts:"), filteredPosts.map(({
+  }, "Posts:"), postsToRender.map(({
     _id,
     _createdAt,
     description,
@@ -2148,7 +2165,7 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 87,
+      lineNumber: 101,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -2157,28 +2174,28 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 102,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92,
+      lineNumber: 106,
       columnNumber: 29
     }
   }, title)), __jsx("p", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94,
+      lineNumber: 108,
       columnNumber: 25
     }
   }, description), __jsx(DateP, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95,
+      lineNumber: 109,
       columnNumber: 25
     }
   }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(_createdAt).format("LL")))));
@@ -2193,9 +2210,9 @@ async function getStaticProps() {
         }
     `);
   const tags = await _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
-        *[ _type == "tag" ]  {
+        *[ _type == "tag" ] {
             _id, name
-        } | order(name asc)
+        }
     `);
   return {
     props: {

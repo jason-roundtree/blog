@@ -19,9 +19,9 @@ const Span = styled.span`
 
 function KeywordTags(props) {
     // console.log('props: ', props)
-    // props.tags.sort((a, b) => {
-    //     return (a.name > b.name) ? 1 : -1
-    // })
+    props.tags.sort((a, b) => {
+        return (a.name > b.name) ? 1 : -1
+    })
 
     return (
         <div>
@@ -29,6 +29,7 @@ function KeywordTags(props) {
                 tag.count && (
                     <TagBtn 
                         key={tag.name}
+                        id={tag._id}
                         onClick={props.handleTagFilter}
                     >   
                         {tag.name}
