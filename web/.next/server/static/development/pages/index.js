@@ -2107,6 +2107,8 @@ function Index({
         console.log('matchedPosts: ', matchedPosts);
         setFilteredPosts(matchedPosts);
       });
+    } else {
+      setFilteredPosts([]);
     }
   }, [filteredTags]);
 
@@ -2128,14 +2130,14 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 85,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85,
+      lineNumber: 86,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -2144,14 +2146,14 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 87,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91,
+      lineNumber: 92,
       columnNumber: 13
     }
   }, "Posts:"), postsToRender.map(({
@@ -2165,7 +2167,7 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101,
+      lineNumber: 102,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -2174,28 +2176,28 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 103,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106,
+      lineNumber: 107,
       columnNumber: 29
     }
   }, title)), __jsx("p", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108,
+      lineNumber: 109,
       columnNumber: 25
     }
   }, description), __jsx(DateP, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109,
+      lineNumber: 110,
       columnNumber: 25
     }
   }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(_createdAt).format("LL")))));

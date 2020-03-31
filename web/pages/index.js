@@ -62,7 +62,8 @@ function Index({ posts, tags }) {
                 console.log('matchedPosts: ', matchedPosts)
                 setFilteredPosts(matchedPosts)
             })
-            
+        } else {
+            setFilteredPosts([])
         }
     }, [filteredTags])
 
