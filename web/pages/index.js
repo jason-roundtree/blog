@@ -19,38 +19,31 @@ const DateP = styled.p`
 `
 
 function Index({ posts, tags }) {
-    
     console.log('posts: ', posts)
     console.log('tags: ', tags)
     const [ allPosts, setAllPosts ] = useState(posts)
     const [ filteredPosts, setFilteredPosts ] = useState(posts)
-    // const [ allTags, setAllTags ] = useState(tags)
     const [ tagCounts, setTagCounts ] = useState([])
     const [ filteredKeywords, setFilteredKeywords ] = useState([])
     console.log('tagCounts: ', tagCounts)
     
     useEffect(() => {
-        const tagCounts = []
-        tags.forEach(async (tag) => {
+        tags.forEach(async tag => {
             const count = await client.fetch(`
                 count(*[ _type == "post" && $tagID in tags[]._ref ])
             `, { tagID: tag._id })
-            const tagCount = {
-                _id: tag._id,
-                name: tag.name,
-                count
+            let tagCount
+            if (count > 0) {
+                tagCount = {
+                    _id: tag._id,
+                    name: tag.name,
+                    count
+                }
+                setTagCounts(state => [...state, tagCount])
             }
-            // console.log('tagCount: ', tagCount)
-            // setTagCounts(state => [...state, tagCount])
-            // tagCounts.push(tagCount)
-            setTagCountsState(tagCount)
             
         })
     }, [])
-    
-    function setTagCountsState(tagCount) {
-        setTagCounts(state => [...state, tagCount])
-    }
 
     async function getFilteredPosts() {
         const posts = await client.fetch(`
@@ -79,7 +72,7 @@ function Index({ posts, tags }) {
         <HeaderLayout>
             <h2>Tags:</h2>
             <KeywordTags 
-                tags={allPosts}
+                tags={tagCounts}
                 handleTagFilter={handleTagFilter}
             />
 

@@ -263,35 +263,52 @@ function HeaderLayout(props) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/components/KeywordTags.js";
 
-const TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.button.withConfig({
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+const TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.button.withConfig({
   displayName: "KeywordTags__TagBtn",
   componentId: "sc-1eepvlk-0"
 })(["padding:10px 15px;margin:15px 0 0 15px;color:rgb(250,223,147);font-size:1.2em;border:none;background-color:rgb(3,152,252);font-family:'Lustria',serif;&:hover{cursor:pointer;}"]);
-const Span = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.span.withConfig({
+const Span = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.span.withConfig({
   displayName: "KeywordTags__Span",
   componentId: "sc-1eepvlk-1"
 })(["margin:0 5px;color:rgb(250,223,147);"]);
 
 function KeywordTags(props) {
-  console.log('props: ', props); // tagCountsArray.sort((a, b) => {
-  //     return (a.name > b.name) ? 1 : -1
-  // })
-
-  return null // <div>
-  //     {tagCountsArray.map(tag => (
-  //         <TagBtn 
-  //             key={tag.name}
-  //             onClick={props.handleTagFilter}
-  //         >   
-  //             {tag.name}
-  //             <Span>({tag.count})</Span>
-  //         </TagBtn>
-  //     ))}
-  // </div>
-  ;
+  // console.log('props: ', props)
+  props.tags.sort((a, b) => {
+    return a.name > b.name ? 1 : -1;
+  });
+  return __jsx("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27,
+      columnNumber: 9
+    }
+  }, props.tags.map(tag => tag.count && __jsx(TagBtn, {
+    key: tag.name,
+    onClick: props.handleTagFilter,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30,
+      columnNumber: 21
+    }
+  }, tag.name, __jsx(Span, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35,
+      columnNumber: 25
+    }
+  }, "(", tag.count, ")"))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (KeywordTags);
@@ -2041,8 +2058,7 @@ function Index({
   const {
     0: filteredPosts,
     1: setFilteredPosts
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(posts); // const [ allTags, setAllTags ] = useState(tags)
-
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(posts);
   const {
     0: tagCounts,
     1: setTagCounts
@@ -2053,28 +2069,24 @@ function Index({
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
   console.log('tagCounts: ', tagCounts);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    const tagCounts = [];
     tags.forEach(async tag => {
       const count = await _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
                 count(*[ _type == "post" && $tagID in tags[]._ref ])
             `, {
         tagID: tag._id
       });
-      const tagCount = {
-        _id: tag._id,
-        name: tag.name,
-        count
-      }; // console.log('tagCount: ', tagCount)
-      // setTagCounts(state => [...state, tagCount])
-      // tagCounts.push(tagCount)
+      let tagCount;
 
-      setTagCountsState(tagCount);
+      if (count > 0) {
+        tagCount = {
+          _id: tag._id,
+          name: tag.name,
+          count
+        };
+        setTagCounts(state => [...state, tagCount]);
+      }
     });
   }, []);
-
-  function setTagCountsState(tagCount) {
-    setTagCounts(state => [...state, tagCount]);
-  }
 
   async function getFilteredPosts() {
     const posts = await _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
@@ -2103,30 +2115,30 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 72,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
+      lineNumber: 73,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    tags: allPosts,
+    tags: tagCounts,
     handleTagFilter: handleTagFilter,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 74,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 79,
       columnNumber: 13
     }
   }, "Posts:"), filteredPosts.map(({
@@ -2140,7 +2152,7 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95,
+      lineNumber: 88,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -2149,28 +2161,28 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 89,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100,
+      lineNumber: 93,
       columnNumber: 29
     }
   }, title)), __jsx("p", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 95,
       columnNumber: 25
     }
   }, description), __jsx(DateP, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103,
+      lineNumber: 96,
       columnNumber: 25
     }
   }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(_createdAt).format("LL")))));

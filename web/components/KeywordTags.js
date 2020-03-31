@@ -18,26 +18,25 @@ const Span = styled.span`
 `
 
 function KeywordTags(props) {
-    console.log('props: ', props)
-    
-    
-    // tagCountsArray.sort((a, b) => {
-    //     return (a.name > b.name) ? 1 : -1
-    // })
+    // console.log('props: ', props)
+    props.tags.sort((a, b) => {
+        return (a.name > b.name) ? 1 : -1
+    })
 
     return (
-        null
-        // <div>
-        //     {tagCountsArray.map(tag => (
-        //         <TagBtn 
-        //             key={tag.name}
-        //             onClick={props.handleTagFilter}
-        //         >   
-        //             {tag.name}
-        //             <Span>({tag.count})</Span>
-        //         </TagBtn>
-        //     ))}
-        // </div>
+        <div>
+            {props.tags.map(tag => (
+                tag.count && (
+                    <TagBtn 
+                        key={tag.name}
+                        onClick={props.handleTagFilter}
+                    >   
+                        {tag.name}
+                        <Span>({tag.count})</Span>
+                    </TagBtn>
+                )
+            ))}
+        </div>
     )
 }
 

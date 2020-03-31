@@ -169,34 +169,55 @@ function HeaderLayout(props) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/components/KeywordTags.js";
 
-var TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].button.withConfig({
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+var TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button.withConfig({
   displayName: "KeywordTags__TagBtn",
   componentId: "sc-1eepvlk-0"
 })(["padding:10px 15px;margin:15px 0 0 15px;color:rgb(250,223,147);font-size:1.2em;border:none;background-color:rgb(3,152,252);font-family:'Lustria',serif;&:hover{cursor:pointer;}"]);
-var Span = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].span.withConfig({
+var Span = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].span.withConfig({
   displayName: "KeywordTags__Span",
   componentId: "sc-1eepvlk-1"
 })(["margin:0 5px;color:rgb(250,223,147);"]);
 
 function KeywordTags(props) {
-  console.log('props: ', props); // tagCountsArray.sort((a, b) => {
-  //     return (a.name > b.name) ? 1 : -1
-  // })
+  var _this = this;
 
-  return null // <div>
-  //     {tagCountsArray.map(tag => (
-  //         <TagBtn 
-  //             key={tag.name}
-  //             onClick={props.handleTagFilter}
-  //         >   
-  //             {tag.name}
-  //             <Span>({tag.count})</Span>
-  //         </TagBtn>
-  //     ))}
-  // </div>
-  ;
+  // console.log('props: ', props)
+  props.tags.sort(function (a, b) {
+    return a.name > b.name ? 1 : -1;
+  });
+  return __jsx("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27,
+      columnNumber: 9
+    }
+  }, props.tags.map(function (tag) {
+    return tag.count && __jsx(TagBtn, {
+      key: tag.name,
+      onClick: props.handleTagFilter,
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30,
+        columnNumber: 21
+      }
+    }, tag.name, __jsx(Span, {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35,
+        columnNumber: 25
+      }
+    }, "(", tag.count, ")"));
+  }));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (KeywordTags);
@@ -31345,9 +31366,9 @@ module.exports = function(module) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__N_SSG", function() { return __N_SSG; });
-/* harmony import */ var _babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../client */ "./client.js");
@@ -31397,8 +31418,7 @@ function Index(_ref) {
 
   var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(posts),
       filteredPosts = _useState2[0],
-      setFilteredPosts = _useState2[1]; // const [ allTags, setAllTags ] = useState(tags)
-
+      setFilteredPosts = _useState2[1];
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
       tagCounts = _useState3[0],
@@ -31410,31 +31430,32 @@ function Index(_ref) {
 
   console.log('tagCounts: ', tagCounts);
   Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
-    var tagCounts = [];
     tags.forEach(function _callee(tag) {
       var count, tagCount;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.async(function _callee$(_context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(_client__WEBPACK_IMPORTED_MODULE_3__["default"].fetch("\n                count(*[ _type == \"post\" && $tagID in tags[]._ref ])\n            ", {
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(_client__WEBPACK_IMPORTED_MODULE_3__["default"].fetch("\n                count(*[ _type == \"post\" && $tagID in tags[]._ref ])\n            ", {
                 tagID: tag._id
               }));
 
             case 2:
               count = _context.sent;
-              tagCount = {
-                _id: tag._id,
-                name: tag.name,
-                count: count
-              }; // console.log('tagCount: ', tagCount)
-              // setTagCounts(state => [...state, tagCount])
-              // tagCounts.push(tagCount)
 
-              setTagCountsState(tagCount);
+              if (count > 0) {
+                tagCount = {
+                  _id: tag._id,
+                  name: tag.name,
+                  count: count
+                };
+                setTagCounts(function (state) {
+                  return [].concat(Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(state), [tagCount]);
+                });
+              }
 
-            case 5:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -31443,20 +31464,14 @@ function Index(_ref) {
     });
   }, []);
 
-  function setTagCountsState(tagCount) {
-    setTagCounts(function (state) {
-      return [].concat(Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(state), [tagCount]);
-    });
-  }
-
   function getFilteredPosts() {
     var posts;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.async(function getFilteredPosts$(_context2) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getFilteredPosts$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.next = 2;
-            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.awrap(_client__WEBPACK_IMPORTED_MODULE_3__["default"].fetch("\n            *[ _type == \"post\" && $tagID in tags[]._ref ]\n        ", {}));
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(_client__WEBPACK_IMPORTED_MODULE_3__["default"].fetch("\n            *[ _type == \"post\" && $tagID in tags[]._ref ]\n        ", {}));
 
           case 2:
             posts = _context2.sent;
@@ -31475,7 +31490,7 @@ function Index(_ref) {
     var selectedKeyword = e.target.firstChild.data; // console.log('selectedKeyword: ', selectedKeyword)
 
     if (!filteredKeywords.includes(selectedKeyword)) {
-      setFilteredKeywords([].concat(Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(filteredKeywords), [selectedKeyword]));
+      setFilteredKeywords([].concat(Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(filteredKeywords), [selectedKeyword]));
     } else {
       setFilteredKeywords(filteredKeywords.filter(function (keyword) {
         return keyword !== selectedKeyword;
@@ -31490,30 +31505,30 @@ function Index(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 72,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
+      lineNumber: 73,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    tags: allPosts,
+    tags: tagCounts,
     handleTagFilter: handleTagFilter,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 74,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 79,
       columnNumber: 13
     }
   }, "Posts:"), filteredPosts.map(function (_ref2) {
@@ -31527,7 +31542,7 @@ function Index(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 95,
+        lineNumber: 88,
         columnNumber: 21
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -31536,28 +31551,28 @@ function Index(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 96,
+        lineNumber: 89,
         columnNumber: 25
       }
     }, __jsx("a", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 100,
+        lineNumber: 93,
         columnNumber: 29
       }
     }, title)), __jsx("p", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 102,
+        lineNumber: 95,
         columnNumber: 25
       }
     }, description), __jsx(DateP, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 103,
+        lineNumber: 96,
         columnNumber: 25
       }
     }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")));
