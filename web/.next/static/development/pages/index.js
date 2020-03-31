@@ -189,9 +189,9 @@ function KeywordTags(props) {
   var _this = this;
 
   // console.log('props: ', props)
-  props.tags.sort(function (a, b) {
-    return a.name > b.name ? 1 : -1;
-  });
+  // props.tags.sort((a, b) => {
+  //     return (a.name > b.name) ? 1 : -1
+  // })
   return __jsx("div", {
     __self: this,
     __source: {
@@ -31410,23 +31410,19 @@ function Index(_ref) {
   var posts = _ref.posts,
       tags = _ref.tags;
   console.log('posts: ', posts);
-  console.log('tags: ', tags);
+  console.log('tags: ', tags); // const [ allPosts, setAllPosts ] = useState(posts)
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(posts),
-      allPosts = _useState[0],
-      setAllPosts = _useState[1];
+      filteredPosts = _useState[0],
+      setFilteredPosts = _useState[1];
 
-  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(posts),
-      filteredPosts = _useState2[0],
-      setFilteredPosts = _useState2[1];
+  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
+      tagCounts = _useState2[0],
+      setTagCounts = _useState2[1];
 
   var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
-      tagCounts = _useState3[0],
-      setTagCounts = _useState3[1];
-
-  var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
-      filteredKeywords = _useState4[0],
-      setFilteredKeywords = _useState4[1];
+      filteredKeywords = _useState3[0],
+      setFilteredKeywords = _useState3[1];
 
   console.log('tagCounts: ', tagCounts);
   Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
@@ -31505,14 +31501,14 @@ function Index(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 71,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 72,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -31521,14 +31517,14 @@ function Index(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74,
+      lineNumber: 73,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 78,
       columnNumber: 13
     }
   }, "Posts:"), filteredPosts.map(function (_ref2) {
@@ -31542,7 +31538,7 @@ function Index(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 88,
+        lineNumber: 87,
         columnNumber: 21
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -31551,28 +31547,28 @@ function Index(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 89,
+        lineNumber: 88,
         columnNumber: 25
       }
     }, __jsx("a", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 93,
+        lineNumber: 92,
         columnNumber: 29
       }
     }, title)), __jsx("p", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 95,
+        lineNumber: 94,
         columnNumber: 25
       }
     }, description), __jsx(DateP, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 96,
+        lineNumber: 95,
         columnNumber: 25
       }
     }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")));

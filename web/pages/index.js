@@ -21,7 +21,7 @@ const DateP = styled.p`
 function Index({ posts, tags }) {
     console.log('posts: ', posts)
     console.log('tags: ', tags)
-    const [ allPosts, setAllPosts ] = useState(posts)
+    // const [ allPosts, setAllPosts ] = useState(posts)
     const [ filteredPosts, setFilteredPosts ] = useState(posts)
     const [ tagCounts, setTagCounts ] = useState([])
     const [ filteredKeywords, setFilteredKeywords ] = useState([])
@@ -32,16 +32,15 @@ function Index({ posts, tags }) {
             const count = await client.fetch(`
                 count(*[ _type == "post" && $tagID in tags[]._ref ])
             `, { tagID: tag._id })
-            let tagCount
+
             if (count > 0) {
-                tagCount = {
+                const tagCount = {
                     _id: tag._id,
                     name: tag.name,
                     count
                 }
                 setTagCounts(state => [...state, tagCount])
             }
-            
         })
     }, [])
 
@@ -113,9 +112,9 @@ export async function getStaticProps() {
     `)
 
     const tags = await client.fetch(`
-        *[ _type == "tag" ]{
+        *[ _type == "tag" ]  {
             _id, name
-        }
+        } | order(name asc)
     `)
 
     return { 

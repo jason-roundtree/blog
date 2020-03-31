@@ -282,9 +282,9 @@ const Span = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.span.withC
 
 function KeywordTags(props) {
   // console.log('props: ', props)
-  props.tags.sort((a, b) => {
-    return a.name > b.name ? 1 : -1;
-  });
+  // props.tags.sort((a, b) => {
+  //     return (a.name > b.name) ? 1 : -1
+  // })
   return __jsx("div", {
     __self: this,
     __source: {
@@ -2050,11 +2050,8 @@ function Index({
   tags
 }) {
   console.log('posts: ', posts);
-  console.log('tags: ', tags);
-  const {
-    0: allPosts,
-    1: setAllPosts
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(posts);
+  console.log('tags: ', tags); // const [ allPosts, setAllPosts ] = useState(posts)
+
   const {
     0: filteredPosts,
     1: setFilteredPosts
@@ -2075,10 +2072,9 @@ function Index({
             `, {
         tagID: tag._id
       });
-      let tagCount;
 
       if (count > 0) {
-        tagCount = {
+        const tagCount = {
           _id: tag._id,
           name: tag.name,
           count
@@ -2115,14 +2111,14 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 71,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 72,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -2131,14 +2127,14 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74,
+      lineNumber: 73,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79,
+      lineNumber: 78,
       columnNumber: 13
     }
   }, "Posts:"), filteredPosts.map(({
@@ -2152,7 +2148,7 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 87,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -2161,28 +2157,28 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 89,
+      lineNumber: 88,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93,
+      lineNumber: 92,
       columnNumber: 29
     }
   }, title)), __jsx("p", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95,
+      lineNumber: 94,
       columnNumber: 25
     }
   }, description), __jsx(DateP, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 96,
+      lineNumber: 95,
       columnNumber: 25
     }
   }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(_createdAt).format("LL")))));
@@ -2197,9 +2193,9 @@ async function getStaticProps() {
         }
     `);
   const tags = await _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
-        *[ _type == "tag" ]{
+        *[ _type == "tag" ]  {
             _id, name
-        }
+        } | order(name asc)
     `);
   return {
     props: {
