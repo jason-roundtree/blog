@@ -20,12 +20,12 @@ const DateP = styled.p`
 
 function Index({ posts, tags }) {
     console.log('posts: ', posts)
-    console.log('tags: ', tags)
+    // console.log('tags: ', tags)
     const [ allPosts, setAllPosts ] = useState(posts)
     const [ filteredPosts, setFilteredPosts ] = useState([])
     const [ tagCounts, setTagCounts ] = useState([])
     const [ filteredTags, setFilteredTags ] = useState([])
-    console.log('tagCounts: ', tagCounts)
+    // console.log('tagCounts: ', tagCounts)
     console.log('filteredTags global: ', filteredTags)
     console.log('filteredPosts global: ', filteredPosts)
     
@@ -34,7 +34,7 @@ function Index({ posts, tags }) {
             const count = await client.fetch(`
                 count(*[ _type == "post" && $tagID in tags[]._ref ])
             `, { tagID: tag._id })
-
+            // TODO: this check is in case i've added a tag in sanity studio but haven't assigned it to a post yet:
             if (count > 0) {
                 const tagCount = {
                     _id: tag._id,
@@ -47,30 +47,55 @@ function Index({ posts, tags }) {
         })
     }, [])
 
+    
     useEffect(() => {
-        // console.log('getFilteredPosts')
-        // console.log('filteredTags: ', filteredTags)
+        console.log('getFilteredPosts')
+        console.log('filteredTags useEffect: ', filteredTags)
+
+        // TODO: not totally sure how this mounted variable 
+        // and the cleanup function at the end are working
+        // to prevent react's memory leak warning:
+        // https://www.debuggr.io/react-update-unmounted-component/
+        // let mounted = true
+        // if (filteredTags.length > 0 && mounted) {
         if (filteredTags.length > 0) {
-            // const postsWithFilteredTag = []
-            filteredTags.forEach(async tag => {
-                const matchedPosts = await client.fetch(`
+            // const allUniquePosts = []
+            const allMatchedPosts = filteredTags.map(tag => {
+                return client.fetch(`
                     *[ _type == "post" && $tagID in tags[]._ref ]{
                         ..., 
                         tags[]->{_id, name}
                     }
                 `, { tagID: tag })
-                console.log('matchedPosts: ', matchedPosts)
-                setFilteredPosts(matchedPosts)
+                // console.log('matchedPosts after query: ', matchedPosts)
+                // const uniquePosts = matchedPosts.filter(matchedPost => {
+                //     console.log('matchedPost: ', matchedPost)
+                //     return filteredPosts.map(filteredPost => {
+                //         console.log('filteredPost: ', filteredPost)
+                //         return matchedPost._id !== filteredPost._id
+                //     })
+                // })
+                // console.log('uniquePosts: ', uniquePosts)
+                // allUniquePosts.push(...uniquePosts)
             })
+            Promise.all(allMatchedPosts).then(data => {
+                // console.log('then', data)
+                const flattenedPosts = data.flat()
+                const uniqueArray = (posts) => [
+                    ...new Set(posts.map(obj => JSON.stringify(obj)))].map(s => JSON.parse(s));
+                const uniquePosts = uniqueArray(flattenedPosts)
+                console.log('uniquePosts: ', uniquePosts)
+                setFilteredPosts(uniquePosts)
+            })
+            console.log('sadsadszddsa')
         } else {
             setFilteredPosts([])
         }
+        // return () => mounted = false
     }, [filteredTags])
 
     function handleTagFilter(e) {
-        // console.log('e: ', e.target.id);
         const selectedTagID = e.target.id
-        // console.log('selectedKeyword: ', selectedKeyword)
         if (!filteredTags.includes(selectedTagID)) {
             setFilteredTags(state => [...state, selectedTagID])
         } else {
@@ -80,13 +105,17 @@ function Index({ posts, tags }) {
         }
     }
 
-    const postsToRender = filteredPosts.length > 0 ? filteredPosts : allPosts
+    const postsToRender = filteredPosts.length > 0 
+        ? filteredPosts 
+        : allPosts
+
     return (
         <HeaderLayout>
             <h2>Tags:</h2>
             <KeywordTags 
                 tags={tagCounts}
                 handleTagFilter={handleTagFilter}
+                filteredTags={filteredTags}
             />
 
             <h2>Posts:</h2>
@@ -98,6 +127,7 @@ function Index({ posts, tags }) {
                     description, 
                     slug,
                     title, 
+                    tags
                 }) => (
                     <ListItem key={_id}>
                         <Link
@@ -110,6 +140,11 @@ function Index({ posts, tags }) {
                         <DateP>
                             {moment.utc(_createdAt).format("LL")}
                         </DateP>
+                        <p>
+                            {tags.map(tag => {
+                                return tag.name
+                            })}
+                        </p>
                     </ListItem>
                 )
             )}

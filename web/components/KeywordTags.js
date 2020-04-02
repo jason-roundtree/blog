@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import styled from 'styled-components'
+import '../globalStyles.css'
 
 const TagBtn = styled.button`
     padding: 10px 15px;
@@ -12,10 +14,13 @@ const TagBtn = styled.button`
         cursor: pointer;
     }
 `
+
+
 const Span = styled.span`
     margin: 0 5px;
     color: rgb(250, 223, 147);
 `
+
 
 function KeywordTags(props) {
     // console.log('props: ', props)
@@ -31,6 +36,10 @@ function KeywordTags(props) {
                         key={tag.name}
                         id={tag._id}
                         onClick={props.handleTagFilter}
+                        className={props.filteredTags.includes(tag._id) 
+                            ? 'selectedTag'
+                            : ''
+                        }
                     >   
                         {tag.name}
                         <Span>({tag.count})</Span>

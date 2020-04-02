@@ -38,3 +38,7 @@ p {
     line-height: 1.75em;
     color: rgb(16, 46, 36);
 }
+
+.selectedTag.selectedTag {
+    background-color: rgb(0, 85, 143);
+}
