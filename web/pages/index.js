@@ -21,18 +21,34 @@ const TagListItem = styled.li`
     font-size: .5em;
     background-color: rgb(250, 223, 147);
 `
-const DateP = styled.p`
-    font-size: .75em;
+const DescP = styled.p`
+    font-size: .85em;
 `
+const DateP = styled.p`
+    font-size: .7em;
+`
+
+// removes duplicate post objects by converting
+// each post into a JSON string so that they can be
+// compared and filtered using Set, then parsing the final 
+// unique array of posts back to a normal array of objects
+function uniquePostsArray(posts) {
+    return [
+        ...new Set(posts.map(postObj => {
+            return JSON.stringify(postObj)
+        }))
+    ].map(postStr => {
+       return JSON.parse(postStr)
+    })
+}
 
 function Index({ posts, tags }) {
     console.log('posts: ', posts)
-    // console.log('tags: ', tags)
+    console.log('tags: ', tags)
     const [ allPosts, setAllPosts ] = useState(posts)
     const [ filteredPosts, setFilteredPosts ] = useState([])
     const [ tagCounts, setTagCounts ] = useState([])
     const [ filteredTags, setFilteredTags ] = useState([])
-    // console.log('tagCounts: ', tagCounts)
     console.log('filteredTags global: ', filteredTags)
     console.log('filteredPosts global: ', filteredPosts)
     
@@ -41,7 +57,8 @@ function Index({ posts, tags }) {
             const count = await client.fetch(`
                 count(*[ _type == "post" && $tagID in tags[]._ref ])
             `, { tagID: tag._id })
-            // TODO: this check is in case i've added a tag in sanity studio but haven't assigned it to a post yet:
+            // TODO: this check is in case i've added a tag in 
+            // sanity studio but haven't assigned it to a post yet:
             if (count > 0) {
                 const tagCount = {
                     _id: tag._id,
@@ -54,46 +71,25 @@ function Index({ posts, tags }) {
         })
     }, [])
 
-    
     useEffect(() => {
-        console.log('getFilteredPosts')
-        console.log('filteredTags useEffect: ', filteredTags)
-
-        // TODO: not totally sure how this mounted variable 
-        // and the cleanup function at the end are working
-        // to prevent react's memory leak warning:
-        // https://www.debuggr.io/react-update-unmounted-component/
-        let mounted = true
-        if (filteredTags.length > 0 && mounted) {
-        // if (filteredTags.length > 0) {
-            const allMatchedPosts = filteredTags.map(tag => {
-                return client.fetch(`
-                    *[ _type == "post" && $tagID in tags[]._ref ]{
-                        ..., 
-                        tags[]->{_id, name}
+        if (filteredTags.length > 0) {
+            const _filteredPosts = []
+            allPosts.forEach(post => {
+                post.tags.forEach(tag => {
+                    if (filteredTags.includes(tag._id)) {
+                        _filteredPosts.push(post)
                     }
-                `, { tagID: tag })
+                })
             })
-            Promise.all(allMatchedPosts).then(data => {
-                // console.log('then', data)
-                const flattenedPosts = data.flat()
-                const uniqueArray = (posts) => [
-                    ...new Set(posts.map(postObj => JSON.stringify(postObj)))
-                ].map(postStr => JSON.parse(postStr))
-                const uniquePosts = uniqueArray(flattenedPosts)
-                console.log('uniquePosts: ', uniquePosts)
-                setFilteredPosts(uniquePosts)
-            })
-            console.log('sadsadszddsa')
+            // console.log('_filteredPosts: ', _filteredPosts)
+            setFilteredPosts(uniquePostsArray(_filteredPosts))
         } else {
             setFilteredPosts([])
         }
-        return () => mounted = false
     }, [filteredTags])
 
     function handleTagFilter(e) {
         const selectedTagID = e.target.id
-        console.log('selectedTagID: ', selectedTagID)
         if (!filteredTags.includes(selectedTagID)) {
             setFilteredTags(state => [...state, selectedTagID])
         } else {
@@ -134,7 +130,7 @@ function Index({ posts, tags }) {
                         >
                             <a>{title}</a>
                         </Link>
-                        <p>{description}</p>
+                        <DescP>{description}</DescP>
                         <DateP>
                             {moment.utc(_createdAt).format("LL")}
                         </DateP>

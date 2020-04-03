@@ -31401,17 +31401,33 @@ var TagListItem = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].li.w
   displayName: "pages__TagListItem",
   componentId: "nuslkc-1"
 })(["display:inline-block;margin-right:5px;padding:3px 5px;font-size:.5em;background-color:rgb(250,223,147);"]);
+var DescP = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
+  displayName: "pages__DescP",
+  componentId: "nuslkc-2"
+})(["font-size:.85em;"]);
 var DateP = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
   displayName: "pages__DateP",
-  componentId: "nuslkc-2"
-})(["font-size:.75em;"]);
+  componentId: "nuslkc-3"
+})(["font-size:.7em;"]); // removes duplicate post objects by converting
+// each post into a JSON string so that they can be
+// compared and filtered using Set, then parsing the final 
+// unique array of posts back to a normal array of objects
+
+function uniquePostsArray(posts) {
+  return Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(new Set(posts.map(function (postObj) {
+    return JSON.stringify(postObj);
+  }))).map(function (postStr) {
+    return JSON.parse(postStr);
+  });
+}
 
 function Index(_ref) {
   var _this = this;
 
   var posts = _ref.posts,
       tags = _ref.tags;
-  console.log('posts: ', posts); // console.log('tags: ', tags)
+  console.log('posts: ', posts);
+  console.log('tags: ', tags);
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(posts),
       allPosts = _useState[0],
@@ -31427,8 +31443,7 @@ function Index(_ref) {
 
   var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
       filteredTags = _useState4[0],
-      setFilteredTags = _useState4[1]; // console.log('tagCounts: ', tagCounts)
-
+      setFilteredTags = _useState4[1];
 
   console.log('filteredTags global: ', filteredTags);
   console.log('filteredPosts global: ', filteredPosts);
@@ -31447,7 +31462,8 @@ function Index(_ref) {
             case 2:
               count = _context.sent;
 
-              // TODO: this check is in case i've added a tag in sanity studio but haven't assigned it to a post yet:
+              // TODO: this check is in case i've added a tag in 
+              // sanity studio but haven't assigned it to a post yet:
               if (count > 0) {
                 tagCount = {
                   _id: tag._id,
@@ -31469,50 +31485,24 @@ function Index(_ref) {
     });
   }, []);
   Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
-    console.log('getFilteredPosts');
-    console.log('filteredTags useEffect: ', filteredTags); // TODO: not totally sure how this mounted variable 
-    // and the cleanup function at the end are working
-    // to prevent react's memory leak warning:
-    // https://www.debuggr.io/react-update-unmounted-component/
-
-    var mounted = true;
-
-    if (filteredTags.length > 0 && mounted) {
-      // if (filteredTags.length > 0) {
-      var allMatchedPosts = filteredTags.map(function (tag) {
-        return _client__WEBPACK_IMPORTED_MODULE_3__["default"].fetch("\n                    *[ _type == \"post\" && $tagID in tags[]._ref ]{\n                        ..., \n                        tags[]->{_id, name}\n                    }\n                ", {
-          tagID: tag
+    if (filteredTags.length > 0) {
+      var _filteredPosts = [];
+      allPosts.forEach(function (post) {
+        post.tags.forEach(function (tag) {
+          if (filteredTags.includes(tag._id)) {
+            _filteredPosts.push(post);
+          }
         });
-      });
-      Promise.all(allMatchedPosts).then(function (data) {
-        // console.log('then', data)
-        var flattenedPosts = data.flat();
+      }); // console.log('_filteredPosts: ', _filteredPosts)
 
-        var uniqueArray = function uniqueArray(posts) {
-          return Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(new Set(posts.map(function (postObj) {
-            return JSON.stringify(postObj);
-          }))).map(function (postStr) {
-            return JSON.parse(postStr);
-          });
-        };
-
-        var uniquePosts = uniqueArray(flattenedPosts);
-        console.log('uniquePosts: ', uniquePosts);
-        setFilteredPosts(uniquePosts);
-      });
-      console.log('sadsadszddsa');
+      setFilteredPosts(uniquePostsArray(_filteredPosts));
     } else {
       setFilteredPosts([]);
     }
-
-    return function () {
-      return mounted = false;
-    };
   }, [filteredTags]);
 
   function handleTagFilter(e) {
     var selectedTagID = e.target.id;
-    console.log('selectedTagID: ', selectedTagID);
 
     if (!filteredTags.includes(selectedTagID)) {
       setFilteredTags(function (state) {
@@ -31530,14 +31520,14 @@ function Index(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 107,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 112,
+      lineNumber: 108,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -31547,14 +31537,14 @@ function Index(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 113,
+      lineNumber: 109,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 119,
+      lineNumber: 115,
       columnNumber: 13
     }
   }, "Posts:"), postsToRender.map(function (_ref2) {
@@ -31569,7 +31559,7 @@ function Index(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 130,
+        lineNumber: 126,
         columnNumber: 21
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -31578,35 +31568,35 @@ function Index(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 131,
+        lineNumber: 127,
         columnNumber: 25
       }
     }, __jsx("a", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 135,
+        lineNumber: 131,
         columnNumber: 29
       }
-    }, title)), __jsx("p", {
+    }, title)), __jsx(DescP, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 137,
+        lineNumber: 133,
         columnNumber: 25
       }
     }, description), __jsx(DateP, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 138,
+        lineNumber: 134,
         columnNumber: 25
       }
     }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 141,
+        lineNumber: 137,
         columnNumber: 25
       }
     }, tags.map(function (tag) {
@@ -31615,7 +31605,7 @@ function Index(_ref) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 144,
+          lineNumber: 140,
           columnNumber: 37
         }
       }, tag.name);
