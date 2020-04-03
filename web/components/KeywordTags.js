@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import styled from 'styled-components'
 import '../globalStyles.css'
 
@@ -15,12 +14,10 @@ const TagBtn = styled.button`
     }
 `
 
-
 const Span = styled.span`
     margin: 0 5px;
     color: rgb(250, 223, 147);
 `
-
 
 function KeywordTags(props) {
     // console.log('props: ', props)
@@ -42,7 +39,8 @@ function KeywordTags(props) {
                         }
                     >   
                         {tag.name}
-                        <Span>({tag.count})</Span>
+                        &nbsp;
+                        ({tag.count})
                     </TagBtn>
                 )
             ))}

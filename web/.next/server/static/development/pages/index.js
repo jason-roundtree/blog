@@ -274,7 +274,6 @@ var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/components/KeywordTa
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
-
 const TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.button.withConfig({
   displayName: "KeywordTags__TagBtn",
   componentId: "sc-1eepvlk-0"
@@ -293,7 +292,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 29,
       columnNumber: 9
     }
   }, props.tags.map(tag => tag.count && __jsx(TagBtn, {
@@ -304,17 +303,10 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 32,
       columnNumber: 21
     }
-  }, tag.name, __jsx(Span, {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 45,
-      columnNumber: 25
-    }
-  }, "(", tag.count, ")"))));
+  }, tag.name, "\xA0 (", tag.count, ")")));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (KeywordTags);
@@ -2105,11 +2097,11 @@ function Index({
     // and the cleanup function at the end are working
     // to prevent react's memory leak warning:
     // https://www.debuggr.io/react-update-unmounted-component/
-    // let mounted = true
-    // if (filteredTags.length > 0 && mounted) {
 
-    if (filteredTags.length > 0) {
-      // const allUniquePosts = []
+    let mounted = true;
+
+    if (filteredTags.length > 0 && mounted) {
+      // if (filteredTags.length > 0) {
       const allMatchedPosts = filteredTags.map(tag => {
         return _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
                     *[ _type == "post" && $tagID in tags[]._ref ]{
@@ -2118,22 +2110,13 @@ function Index({
                     }
                 `, {
           tagID: tag
-        }); // console.log('matchedPosts after query: ', matchedPosts)
-        // const uniquePosts = matchedPosts.filter(matchedPost => {
-        //     console.log('matchedPost: ', matchedPost)
-        //     return filteredPosts.map(filteredPost => {
-        //         console.log('filteredPost: ', filteredPost)
-        //         return matchedPost._id !== filteredPost._id
-        //     })
-        // })
-        // console.log('uniquePosts: ', uniquePosts)
-        // allUniquePosts.push(...uniquePosts)
+        });
       });
       Promise.all(allMatchedPosts).then(data => {
         // console.log('then', data)
         const flattenedPosts = data.flat();
 
-        const uniqueArray = posts => [...new Set(posts.map(obj => JSON.stringify(obj)))].map(s => JSON.parse(s));
+        const uniqueArray = posts => [...new Set(posts.map(postObj => JSON.stringify(postObj)))].map(postStr => JSON.parse(postStr));
 
         const uniquePosts = uniqueArray(flattenedPosts);
         console.log('uniquePosts: ', uniquePosts);
@@ -2142,12 +2125,14 @@ function Index({
       console.log('sadsadszddsa');
     } else {
       setFilteredPosts([]);
-    } // return () => mounted = false
+    }
 
+    return () => mounted = false;
   }, [filteredTags]);
 
   function handleTagFilter(e) {
     const selectedTagID = e.target.id;
+    console.log('selectedTagID: ', selectedTagID);
 
     if (!filteredTags.includes(selectedTagID)) {
       setFilteredTags(state => [...state, selectedTagID]);
@@ -2163,14 +2148,14 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 121,
+      lineNumber: 111,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122,
+      lineNumber: 112,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -2180,14 +2165,14 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 123,
+      lineNumber: 113,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129,
+      lineNumber: 119,
       columnNumber: 13
     }
   }, "Posts:"), postsToRender.map(({
@@ -2202,7 +2187,7 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 140,
+      lineNumber: 130,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -2211,44 +2196,45 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 141,
+      lineNumber: 131,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 145,
+      lineNumber: 135,
       columnNumber: 29
     }
   }, title)), __jsx("p", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 147,
+      lineNumber: 137,
       columnNumber: 25
     }
   }, description), __jsx(DateP, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 148,
+      lineNumber: 138,
       columnNumber: 25
     }
   }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 151,
+      lineNumber: 141,
       columnNumber: 25
     }
   }, tags.map(tag => {
     return __jsx(TagListItem, {
+      key: tag._id,
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 153,
-        columnNumber: 40
+        lineNumber: 144,
+        columnNumber: 37
       }
     }, tag.name);
   })))));

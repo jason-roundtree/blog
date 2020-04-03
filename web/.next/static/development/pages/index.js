@@ -179,7 +179,6 @@ var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/components/KeywordTa
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
-
 var TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button.withConfig({
   displayName: "KeywordTags__TagBtn",
   componentId: "sc-1eepvlk-0"
@@ -200,7 +199,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 29,
       columnNumber: 9
     }
   }, props.tags.map(function (tag) {
@@ -212,17 +211,10 @@ function KeywordTags(props) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35,
+        lineNumber: 32,
         columnNumber: 21
       }
-    }, tag.name, __jsx(Span, {
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 45,
-        columnNumber: 25
-      }
-    }, "(", tag.count, ")"));
+    }, tag.name, "\xA0 (", tag.count, ")");
   }));
 }
 
@@ -31482,34 +31474,25 @@ function Index(_ref) {
     // and the cleanup function at the end are working
     // to prevent react's memory leak warning:
     // https://www.debuggr.io/react-update-unmounted-component/
-    // let mounted = true
-    // if (filteredTags.length > 0 && mounted) {
 
-    if (filteredTags.length > 0) {
-      // const allUniquePosts = []
+    var mounted = true;
+
+    if (filteredTags.length > 0 && mounted) {
+      // if (filteredTags.length > 0) {
       var allMatchedPosts = filteredTags.map(function (tag) {
         return _client__WEBPACK_IMPORTED_MODULE_3__["default"].fetch("\n                    *[ _type == \"post\" && $tagID in tags[]._ref ]{\n                        ..., \n                        tags[]->{_id, name}\n                    }\n                ", {
           tagID: tag
-        }); // console.log('matchedPosts after query: ', matchedPosts)
-        // const uniquePosts = matchedPosts.filter(matchedPost => {
-        //     console.log('matchedPost: ', matchedPost)
-        //     return filteredPosts.map(filteredPost => {
-        //         console.log('filteredPost: ', filteredPost)
-        //         return matchedPost._id !== filteredPost._id
-        //     })
-        // })
-        // console.log('uniquePosts: ', uniquePosts)
-        // allUniquePosts.push(...uniquePosts)
+        });
       });
       Promise.all(allMatchedPosts).then(function (data) {
         // console.log('then', data)
         var flattenedPosts = data.flat();
 
         var uniqueArray = function uniqueArray(posts) {
-          return Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(new Set(posts.map(function (obj) {
-            return JSON.stringify(obj);
-          }))).map(function (s) {
-            return JSON.parse(s);
+          return Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(new Set(posts.map(function (postObj) {
+            return JSON.stringify(postObj);
+          }))).map(function (postStr) {
+            return JSON.parse(postStr);
           });
         };
 
@@ -31520,12 +31503,16 @@ function Index(_ref) {
       console.log('sadsadszddsa');
     } else {
       setFilteredPosts([]);
-    } // return () => mounted = false
+    }
 
+    return function () {
+      return mounted = false;
+    };
   }, [filteredTags]);
 
   function handleTagFilter(e) {
     var selectedTagID = e.target.id;
+    console.log('selectedTagID: ', selectedTagID);
 
     if (!filteredTags.includes(selectedTagID)) {
       setFilteredTags(function (state) {
@@ -31543,14 +31530,14 @@ function Index(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 121,
+      lineNumber: 111,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 122,
+      lineNumber: 112,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -31560,14 +31547,14 @@ function Index(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 123,
+      lineNumber: 113,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129,
+      lineNumber: 119,
       columnNumber: 13
     }
   }, "Posts:"), postsToRender.map(function (_ref2) {
@@ -31582,7 +31569,7 @@ function Index(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 140,
+        lineNumber: 130,
         columnNumber: 21
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -31591,44 +31578,45 @@ function Index(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 141,
+        lineNumber: 131,
         columnNumber: 25
       }
     }, __jsx("a", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 145,
+        lineNumber: 135,
         columnNumber: 29
       }
     }, title)), __jsx("p", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 147,
+        lineNumber: 137,
         columnNumber: 25
       }
     }, description), __jsx(DateP, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 148,
+        lineNumber: 138,
         columnNumber: 25
       }
     }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 151,
+        lineNumber: 141,
         columnNumber: 25
       }
     }, tags.map(function (tag) {
       return __jsx(TagListItem, {
+        key: tag._id,
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 153,
-          columnNumber: 40
+          lineNumber: 144,
+          columnNumber: 37
         }
       }, tag.name);
     })));

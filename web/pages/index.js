@@ -12,7 +12,6 @@ const ListItem = styled.li`
     margin: 15px 0 0 15px;
     padding: 10px 15px;
     font-size: 1.75em;
-    /* border: 1px solid rgb(250, 223, 147); */
     border: 1px solid rgb(0, 85, 143);
 `
 const TagListItem = styled.li`
@@ -64,10 +63,9 @@ function Index({ posts, tags }) {
         // and the cleanup function at the end are working
         // to prevent react's memory leak warning:
         // https://www.debuggr.io/react-update-unmounted-component/
-        // let mounted = true
-        // if (filteredTags.length > 0 && mounted) {
-        if (filteredTags.length > 0) {
-            // const allUniquePosts = []
+        let mounted = true
+        if (filteredTags.length > 0 && mounted) {
+        // if (filteredTags.length > 0) {
             const allMatchedPosts = filteredTags.map(tag => {
                 return client.fetch(`
                     *[ _type == "post" && $tagID in tags[]._ref ]{
@@ -75,22 +73,13 @@ function Index({ posts, tags }) {
                         tags[]->{_id, name}
                     }
                 `, { tagID: tag })
-                // console.log('matchedPosts after query: ', matchedPosts)
-                // const uniquePosts = matchedPosts.filter(matchedPost => {
-                //     console.log('matchedPost: ', matchedPost)
-                //     return filteredPosts.map(filteredPost => {
-                //         console.log('filteredPost: ', filteredPost)
-                //         return matchedPost._id !== filteredPost._id
-                //     })
-                // })
-                // console.log('uniquePosts: ', uniquePosts)
-                // allUniquePosts.push(...uniquePosts)
             })
             Promise.all(allMatchedPosts).then(data => {
                 // console.log('then', data)
                 const flattenedPosts = data.flat()
                 const uniqueArray = (posts) => [
-                    ...new Set(posts.map(obj => JSON.stringify(obj)))].map(s => JSON.parse(s));
+                    ...new Set(posts.map(postObj => JSON.stringify(postObj)))
+                ].map(postStr => JSON.parse(postStr))
                 const uniquePosts = uniqueArray(flattenedPosts)
                 console.log('uniquePosts: ', uniquePosts)
                 setFilteredPosts(uniquePosts)
@@ -99,11 +88,12 @@ function Index({ posts, tags }) {
         } else {
             setFilteredPosts([])
         }
-        // return () => mounted = false
+        return () => mounted = false
     }, [filteredTags])
 
     function handleTagFilter(e) {
         const selectedTagID = e.target.id
+        console.log('selectedTagID: ', selectedTagID)
         if (!filteredTags.includes(selectedTagID)) {
             setFilteredTags(state => [...state, selectedTagID])
         } else {
@@ -150,7 +140,12 @@ function Index({ posts, tags }) {
                         </DateP>
                         <ul>
                             {tags.map(tag => {
-                                return <TagListItem>{tag.name}</TagListItem>
+                                return (
+                                    <TagListItem key={tag._id}>
+                                        {tag.name}
+                                    </TagListItem>
+                                )
+                                
                             })}
                         </ul>
                     </ListItem>
