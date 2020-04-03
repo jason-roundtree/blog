@@ -31404,10 +31404,14 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 var ListItem = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].li.withConfig({
   displayName: "pages__ListItem",
   componentId: "nuslkc-0"
-})(["margin:15px 0 0 15px;padding:10px 15px;font-size:1.75em;border:1px solid rgb(250,223,147);"]);
+})(["margin:15px 0 0 15px;padding:10px 15px;font-size:1.75em;border:1px solid rgb(0,85,143);"]);
+var TagListItem = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].li.withConfig({
+  displayName: "pages__TagListItem",
+  componentId: "nuslkc-1"
+})(["display:inline-block;margin-right:5px;padding:3px 5px;font-size:.5em;background-color:rgb(250,223,147);"]);
 var DateP = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
   displayName: "pages__DateP",
-  componentId: "nuslkc-1"
+  componentId: "nuslkc-2"
 })(["font-size:.75em;"]);
 
 function Index(_ref) {
@@ -31539,14 +31543,14 @@ function Index(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 113,
+      lineNumber: 121,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 114,
+      lineNumber: 122,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -31556,14 +31560,14 @@ function Index(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 115,
+      lineNumber: 123,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 121,
+      lineNumber: 129,
       columnNumber: 13
     }
   }, "Posts:"), postsToRender.map(function (_ref2) {
@@ -31578,7 +31582,7 @@ function Index(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 132,
+        lineNumber: 140,
         columnNumber: 21
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -31587,39 +31591,46 @@ function Index(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 133,
+        lineNumber: 141,
         columnNumber: 25
       }
     }, __jsx("a", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 137,
+        lineNumber: 145,
         columnNumber: 29
       }
     }, title)), __jsx("p", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 139,
+        lineNumber: 147,
         columnNumber: 25
       }
     }, description), __jsx(DateP, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 140,
+        lineNumber: 148,
         columnNumber: 25
       }
-    }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")), __jsx("p", {
+    }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 143,
+        lineNumber: 151,
         columnNumber: 25
       }
     }, tags.map(function (tag) {
-      return tag.name;
+      return __jsx(TagListItem, {
+        __self: _this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 153,
+          columnNumber: 40
+        }
+      }, tag.name);
     })));
   }));
 }

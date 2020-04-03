@@ -12,7 +12,15 @@ const ListItem = styled.li`
     margin: 15px 0 0 15px;
     padding: 10px 15px;
     font-size: 1.75em;
-    border: 1px solid rgb(250, 223, 147);
+    /* border: 1px solid rgb(250, 223, 147); */
+    border: 1px solid rgb(0, 85, 143);
+`
+const TagListItem = styled.li`
+    display: inline-block;
+    margin-right: 5px;
+    padding: 3px 5px;
+    font-size: .5em;
+    background-color: rgb(250, 223, 147);
 `
 const DateP = styled.p`
     font-size: .75em;
@@ -140,11 +148,11 @@ function Index({ posts, tags }) {
                         <DateP>
                             {moment.utc(_createdAt).format("LL")}
                         </DateP>
-                        <p>
+                        <ul>
                             {tags.map(tag => {
-                                return tag.name
+                                return <TagListItem>{tag.name}</TagListItem>
                             })}
-                        </p>
+                        </ul>
                     </ListItem>
                 )
             )}
