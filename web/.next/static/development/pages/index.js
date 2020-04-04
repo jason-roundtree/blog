@@ -182,11 +182,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 var TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button.withConfig({
   displayName: "KeywordTags__TagBtn",
   componentId: "sc-1eepvlk-0"
-})(["padding:10px 15px;margin:15px 0 0 15px;color:rgb(250,223,147);font-size:1.2em;border:none;background-color:rgb(3,152,252);font-family:'Lustria',serif;&:hover{cursor:pointer;}"]);
-var Span = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].span.withConfig({
-  displayName: "KeywordTags__Span",
-  componentId: "sc-1eepvlk-1"
-})(["margin:0 5px;color:rgb(250,223,147);"]);
+})(["padding:10px 15px;margin:15px 0 0 15px;color:var(--secondary-color);font-size:1.2em;border:none;background-color:var(--primary-color);font-family:'Lustria',serif;&:hover{cursor:pointer;}"]);
 
 function KeywordTags(props) {
   var _this = this;
@@ -199,7 +195,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 24,
       columnNumber: 9
     }
   }, __jsx(TagBtn, {
@@ -209,7 +205,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 25,
       columnNumber: 13
     }
   }, "All Posts"), props.tags.map(function (tag) {
@@ -221,7 +217,7 @@ function KeywordTags(props) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42,
+        lineNumber: 38,
         columnNumber: 21
       }
     }, tag.name, "\xA0 (", tag.count, ")");
@@ -31406,11 +31402,11 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 var ListItem = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].li.withConfig({
   displayName: "pages__ListItem",
   componentId: "nuslkc-0"
-})(["margin:15px 0 0 15px;padding:10px 15px;font-size:1.75em;border:1px solid rgb(0,85,143);"]);
+})(["margin:15px 0 0 15px;padding:10px 15px;font-size:1.75em;border:1px solid var(--primary-darker);"]);
 var TagListItem = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].li.withConfig({
   displayName: "pages__TagListItem",
   componentId: "nuslkc-1"
-})(["display:inline-block;margin-right:5px;padding:3px 5px;font-size:.5em;background-color:rgb(250,223,147);"]);
+})(["display:inline-block;margin-right:5px;padding:3px 5px;font-size:.5em;background-color:var(--secondary-color);"]);
 var DescP = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
   displayName: "pages__DescP",
   componentId: "nuslkc-2"

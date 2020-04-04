@@ -1,9 +1,16 @@
+:root {
+    --primary-color: rgb(3, 152, 252);
+    --primary-darker: rgb(0, 85, 143);
+    --secondary-color: rgb(250, 223, 147);
+    --tertiary-color: rgb(16, 46, 36);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Archivo Narrow', sans-serif;
-    color: rgb(3, 152, 252);
+    color: var(--primary-color)
 }
 
 h1 a {
@@ -36,11 +43,11 @@ li {
 p {
     font-family: 'Lustria', serif;
     line-height: 1.75em;
-    color: rgb(16, 46, 36);
+    color: var(--tertiary-color)
 }
 
 .selectedTag.selectedTag {
-    background-color: rgb(0, 85, 143);
+    background-color: var(--primary-darker)
 }
 
 /*# sourceMappingURL=styles.chunk.css.map*/
