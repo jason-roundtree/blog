@@ -27,6 +27,16 @@ function KeywordTags(props) {
 
     return (
         <div>
+            <TagBtn
+                onClick={props.handleTagFilter}
+                id='clearFilter'
+                className={props.filteredTags.length > 0 
+                    ? ''
+                    : 'selectedTag'
+                }
+            >
+                All Posts
+            </TagBtn>
             {props.tags.map(tag => (
                 tag.count && (
                     <TagBtn 

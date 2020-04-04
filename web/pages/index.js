@@ -57,7 +57,7 @@ function Index({ posts, tags }) {
             const count = await client.fetch(`
                 count(*[ _type == "post" && $tagID in tags[]._ref ])
             `, { tagID: tag._id })
-            // TODO: this check is in case i've added a tag in 
+            // this check is in case i've added a tag in 
             // sanity studio but haven't assigned it to a post yet:
             if (count > 0) {
                 const tagCount = {
@@ -65,7 +65,7 @@ function Index({ posts, tags }) {
                     name: tag.name,
                     count
                 }
-                // TODO: Should i call all these at once??
+                // TODO: what's a good way to set these all these at once??
                 setTagCounts(state => [...state, tagCount])
             }
         })
@@ -90,7 +90,9 @@ function Index({ posts, tags }) {
 
     function handleTagFilter(e) {
         const selectedTagID = e.target.id
-        if (!filteredTags.includes(selectedTagID)) {
+        if (selectedTagID === 'clearFilter') {
+            setFilteredTags([])
+        } else if (!filteredTags.includes(selectedTagID)) {
             setFilteredTags(state => [...state, selectedTagID])
         } else {
             setFilteredTags(filteredTags.filter(tag => {

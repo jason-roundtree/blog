@@ -295,7 +295,17 @@ function KeywordTags(props) {
       lineNumber: 29,
       columnNumber: 9
     }
-  }, props.tags.map(tag => tag.count && __jsx(TagBtn, {
+  }, __jsx(TagBtn, {
+    onClick: props.handleTagFilter,
+    id: "clearFilter",
+    className: props.filteredTags.length > 0 ? '' : 'selectedTag',
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30,
+      columnNumber: 13
+    }
+  }, "All Posts"), props.tags.map(tag => tag.count && __jsx(TagBtn, {
     key: tag.name,
     id: tag._id,
     onClick: props.handleTagFilter,
@@ -303,7 +313,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 42,
       columnNumber: 21
     }
   }, tag.name, "\xA0 (", tag.count, ")")));
@@ -2092,7 +2102,7 @@ function Index({
                 count(*[ _type == "post" && $tagID in tags[]._ref ])
             `, {
         tagID: tag._id
-      }); // TODO: this check is in case i've added a tag in 
+      }); // this check is in case i've added a tag in 
       // sanity studio but haven't assigned it to a post yet:
 
       if (count > 0) {
@@ -2100,7 +2110,7 @@ function Index({
           _id: tag._id,
           name: tag.name,
           count
-        }; // TODO: Should i call all these at once??
+        }; // TODO: what's a good way to set these all these at once??
 
         setTagCounts(state => [...state, tagCount]);
       }
@@ -2126,7 +2136,9 @@ function Index({
   function handleTagFilter(e) {
     const selectedTagID = e.target.id;
 
-    if (!filteredTags.includes(selectedTagID)) {
+    if (selectedTagID === 'clearFilter') {
+      setFilteredTags([]);
+    } else if (!filteredTags.includes(selectedTagID)) {
       setFilteredTags(state => [...state, selectedTagID]);
     } else {
       setFilteredTags(filteredTags.filter(tag => {
@@ -2140,14 +2152,14 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107,
+      lineNumber: 109,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108,
+      lineNumber: 110,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -2157,14 +2169,14 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109,
+      lineNumber: 111,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 115,
+      lineNumber: 117,
       columnNumber: 13
     }
   }, "Posts:"), postsToRender.map(({
@@ -2179,7 +2191,7 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 126,
+      lineNumber: 128,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -2188,35 +2200,35 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 127,
+      lineNumber: 129,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131,
+      lineNumber: 133,
       columnNumber: 29
     }
   }, title)), __jsx(DescP, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133,
+      lineNumber: 135,
       columnNumber: 25
     }
   }, description), __jsx(DateP, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 134,
+      lineNumber: 136,
       columnNumber: 25
     }
   }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 137,
+      lineNumber: 139,
       columnNumber: 25
     }
   }, tags.map(tag => {
@@ -2225,7 +2237,7 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 140,
+        lineNumber: 142,
         columnNumber: 37
       }
     }, tag.name);
