@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -185,28 +185,28 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 20,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 23,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 24,
       columnNumber: 17
     }
   }, __jsx("h1", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 25,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -214,21 +214,21 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 26,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 27,
       columnNumber: 29
     }
   }, "Goober's Trundle"))), __jsx(Span, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 30,
       columnNumber: 21
     }
   }, "a web dev blog, by "), __jsx("a", {
@@ -237,14 +237,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 30,
       columnNumber: 53
     }
   }, "jason roundtree"))), __jsx("main", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 34,
       columnNumber: 13
     }
   }, props.children));
@@ -280,7 +280,7 @@ const TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.button.w
 })(["padding:10px 15px;margin:15px 0 0 15px;color:var(--secondary-color);font-size:1.2em;border:none;background-color:var(--primary-color);font-family:'Lustria',serif;&:hover{cursor:pointer;}"]);
 
 function KeywordTags(props) {
-  // console.log('props: ', props)
+  console.log('props: ', props);
   props.tags.sort((a, b) => {
     return a.name > b.name ? 1 : -1;
   });
@@ -301,7 +301,7 @@ function KeywordTags(props) {
       lineNumber: 25,
       columnNumber: 13
     }
-  }, "All Posts"), props.tags.map(tag => tag.count && __jsx(TagBtn, {
+  }, "All Posts"), props.tags.map(tag => tag.tagCount > 0 && __jsx(TagBtn, {
     key: tag.name,
     id: tag._id,
     onClick: props.handleTagFilter,
@@ -312,7 +312,7 @@ function KeywordTags(props) {
       lineNumber: 38,
       columnNumber: 21
     }
-  }, tag.name, "\xA0 (", tag.count, ")")));
+  }, tag.name, "\xA0 (", tag.tagCount, ")")));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (KeywordTags);
@@ -2055,10 +2055,7 @@ const DescP = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withCon
 const DateP = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withConfig({
   displayName: "pages__DateP",
   componentId: "nuslkc-3"
-})(["font-size:.7em;"]); // removes duplicate post objects by converting
-// each post into a JSON string so that they can be
-// compared and filtered using Set, then parsing the final 
-// unique array of posts back to a normal array of objects
+})(["font-size:.7em;"]); // removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using Set, then parsing the final unique array of posts back to a normal array of objects
 
 function uniquePostsArray(posts) {
   return [...new Set(posts.map(postObj => {
@@ -2068,12 +2065,28 @@ function uniquePostsArray(posts) {
   });
 }
 
+async function getTagCountsData(tags) {
+  return Promise.all(tags.map(async tag => {
+    return await _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
+                *[ _id == $tagID ]{
+                    name,
+                    _id,
+                    "tagCount": count(
+                        *[ _type == "post" && $tagID in tags[]._ref ]
+                    )
+                }[0]
+            `, {
+      tagID: tag._id
+    });
+  }));
+}
+
 function Index({
   posts,
   tags
 }) {
-  console.log('posts: ', posts);
-  console.log('tags: ', tags);
+  // console.log('posts: ', posts)
+  // console.log('tags: ', tags)
   const {
     0: allPosts,
     1: setAllPosts
@@ -2089,28 +2102,27 @@ function Index({
   const {
     0: filteredTags,
     1: setFilteredTags
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
-  console.log('filteredTags global: ', filteredTags);
-  console.log('filteredPosts global: ', filteredPosts);
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]); // console.log('filteredTags global: ', filteredTags)
+  // console.log('filteredPosts global: ', filteredPosts)
+  // console.log('tagCounts global: ', tagCounts)
+
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    tags.forEach(async tag => {
-      const count = await _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
-                count(*[ _type == "post" && $tagID in tags[]._ref ])
-            `, {
-        tagID: tag._id
-      }); // this check is in case i've added a tag in 
-      // sanity studio but haven't assigned it to a post yet:
-
-      if (count > 0) {
-        const tagCount = {
-          _id: tag._id,
-          name: tag.name,
-          count
-        }; // TODO: what's a good way to set these all these at once??
-
-        setTagCounts(state => [...state, tagCount]);
-      }
-    });
+    getTagCountsData(tags).then(tagCounts => {
+      setTagCounts(tagCounts);
+    }).catch(err => console.log('error getting tag counts: ', err)); // tags.forEach(async tag => {
+    //     const count = await client.fetch(`
+    //         count(*[ _type == "post" && $tagID in tags[]._ref ])
+    //     `, { tagID: tag._id })
+    //     // this check is in case i've added a tag in sanity studio but haven't assigned it to a post yet:
+    //     if (count > 0) {
+    //         const tagCount = {
+    //             _id: tag._id,
+    //             name: tag.name,
+    //             count
+    //         }
+    //         setTagCounts(state => [...state, tagCount])
+    //     }
+    // })
   }, []);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     if (filteredTags.length > 0) {
@@ -2148,14 +2160,14 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109,
+      lineNumber: 131,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
+      lineNumber: 132,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -2165,14 +2177,14 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 133,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 117,
+      lineNumber: 139,
       columnNumber: 13
     }
   }, "Posts:"), postsToRender.map(({
@@ -2187,7 +2199,7 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 128,
+      lineNumber: 149,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -2196,35 +2208,35 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 129,
+      lineNumber: 150,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133,
+      lineNumber: 154,
       columnNumber: 29
     }
   }, title)), __jsx(DescP, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 135,
+      lineNumber: 156,
       columnNumber: 25
     }
   }, description), __jsx(DateP, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 136,
+      lineNumber: 157,
       columnNumber: 25
     }
   }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 139,
+      lineNumber: 160,
       columnNumber: 25
     }
   }, tags.map(tag => {
@@ -2233,7 +2245,7 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 142,
+        lineNumber: 163,
         columnNumber: 37
       }
     }, tag.name);
@@ -2264,7 +2276,7 @@ async function getStaticProps() {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

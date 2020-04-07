@@ -91,28 +91,28 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 20,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 23,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 24,
       columnNumber: 17
     }
   }, __jsx("h1", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 25,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -120,21 +120,21 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 26,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 27,
       columnNumber: 29
     }
   }, "Goober's Trundle"))), __jsx(Span, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 30,
       columnNumber: 21
     }
   }, "a web dev blog, by "), __jsx("a", {
@@ -143,14 +143,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 30,
       columnNumber: 53
     }
   }, "jason roundtree"))), __jsx("main", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 34,
       columnNumber: 13
     }
   }, props.children));
@@ -187,7 +187,7 @@ var TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button.wi
 function KeywordTags(props) {
   var _this = this;
 
-  // console.log('props: ', props)
+  console.log('props: ', props);
   props.tags.sort(function (a, b) {
     return a.name > b.name ? 1 : -1;
   });
@@ -209,7 +209,7 @@ function KeywordTags(props) {
       columnNumber: 13
     }
   }, "All Posts"), props.tags.map(function (tag) {
-    return tag.count && __jsx(TagBtn, {
+    return tag.tagCount > 0 && __jsx(TagBtn, {
       key: tag.name,
       id: tag._id,
       onClick: props.handleTagFilter,
@@ -220,7 +220,7 @@ function KeywordTags(props) {
         lineNumber: 38,
         columnNumber: 21
       }
-    }, tag.name, "\xA0 (", tag.count, ")");
+    }, tag.name, "\xA0 (", tag.tagCount, ")");
   }));
 }
 
@@ -31414,10 +31414,7 @@ var DescP = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConf
 var DateP = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
   displayName: "pages__DateP",
   componentId: "nuslkc-3"
-})(["font-size:.7em;"]); // removes duplicate post objects by converting
-// each post into a JSON string so that they can be
-// compared and filtered using Set, then parsing the final 
-// unique array of posts back to a normal array of objects
+})(["font-size:.7em;"]); // removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using Set, then parsing the final unique array of posts back to a normal array of objects
 
 function uniquePostsArray(posts) {
   return Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(new Set(posts.map(function (postObj) {
@@ -31427,14 +31424,48 @@ function uniquePostsArray(posts) {
   });
 }
 
+function getTagCountsData(tags) {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getTagCountsData$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          return _context2.abrupt("return", Promise.all(tags.map(function _callee(tag) {
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    _context.next = 2;
+                    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(_client__WEBPACK_IMPORTED_MODULE_3__["default"].fetch("\n                *[ _id == $tagID ]{\n                    name,\n                    _id,\n                    \"tagCount\": count(\n                        *[ _type == \"post\" && $tagID in tags[]._ref ]\n                    )\n                }[0]\n            ", {
+                      tagID: tag._id
+                    }));
+
+                  case 2:
+                    return _context.abrupt("return", _context.sent);
+
+                  case 3:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, null, null, null, Promise);
+          })));
+
+        case 1:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  }, null, null, null, Promise);
+}
+
 function Index(_ref) {
   var _this = this;
 
   var posts = _ref.posts,
       tags = _ref.tags;
-  console.log('posts: ', posts);
-  console.log('tags: ', tags);
 
+  // console.log('posts: ', posts)
+  // console.log('tags: ', tags)
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(posts),
       allPosts = _useState[0],
       setAllPosts = _useState[1];
@@ -31449,46 +31480,30 @@ function Index(_ref) {
 
   var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
       filteredTags = _useState4[0],
-      setFilteredTags = _useState4[1];
+      setFilteredTags = _useState4[1]; // console.log('filteredTags global: ', filteredTags)
+  // console.log('filteredPosts global: ', filteredPosts)
+  // console.log('tagCounts global: ', tagCounts)
 
-  console.log('filteredTags global: ', filteredTags);
-  console.log('filteredPosts global: ', filteredPosts);
+
   Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
-    tags.forEach(function _callee(tag) {
-      var count, tagCount;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(_client__WEBPACK_IMPORTED_MODULE_3__["default"].fetch("\n                count(*[ _type == \"post\" && $tagID in tags[]._ref ])\n            ", {
-                tagID: tag._id
-              }));
-
-            case 2:
-              count = _context.sent;
-
-              // this check is in case i've added a tag in 
-              // sanity studio but haven't assigned it to a post yet:
-              if (count > 0) {
-                tagCount = {
-                  _id: tag._id,
-                  name: tag.name,
-                  count: count
-                }; // TODO: what's a good way to set these all these at once??
-
-                setTagCounts(function (state) {
-                  return [].concat(Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(state), [tagCount]);
-                });
-              }
-
-            case 4:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, null, null, null, Promise);
-    });
+    getTagCountsData(tags).then(function (tagCounts) {
+      setTagCounts(tagCounts);
+    })["catch"](function (err) {
+      return console.log('error getting tag counts: ', err);
+    }); // tags.forEach(async tag => {
+    //     const count = await client.fetch(`
+    //         count(*[ _type == "post" && $tagID in tags[]._ref ])
+    //     `, { tagID: tag._id })
+    //     // this check is in case i've added a tag in sanity studio but haven't assigned it to a post yet:
+    //     if (count > 0) {
+    //         const tagCount = {
+    //             _id: tag._id,
+    //             name: tag.name,
+    //             count
+    //         }
+    //         setTagCounts(state => [...state, tagCount])
+    //     }
+    // })
   }, []);
   Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
     if (filteredTags.length > 0) {
@@ -31528,14 +31543,14 @@ function Index(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109,
+      lineNumber: 131,
       columnNumber: 9
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
+      lineNumber: 132,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -31545,14 +31560,14 @@ function Index(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 133,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 117,
+      lineNumber: 139,
       columnNumber: 13
     }
   }, "Posts:"), postsToRender.map(function (_ref2) {
@@ -31567,7 +31582,7 @@ function Index(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 128,
+        lineNumber: 149,
         columnNumber: 21
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -31576,35 +31591,35 @@ function Index(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 129,
+        lineNumber: 150,
         columnNumber: 25
       }
     }, __jsx("a", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 133,
+        lineNumber: 154,
         columnNumber: 29
       }
     }, title)), __jsx(DescP, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 135,
+        lineNumber: 156,
         columnNumber: 25
       }
     }, description), __jsx(DateP, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 136,
+        lineNumber: 157,
         columnNumber: 25
       }
     }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 139,
+        lineNumber: 160,
         columnNumber: 25
       }
     }, tags.map(function (tag) {
@@ -31613,7 +31628,7 @@ function Index(_ref) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 142,
+          lineNumber: 163,
           columnNumber: 37
         }
       }, tag.name);
@@ -31626,7 +31641,7 @@ var __N_SSG = true;
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!*************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fjasonroundtree%2Fprojects%2Fblog%2Fweb%2Fpages%2Findex.js ***!
   \*************************************************************************************************************************************/
@@ -31649,5 +31664,5 @@ module.exports = dll_c2e10d183b950a67d9e7;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

@@ -28,10 +28,7 @@ const DateP = styled.p`
     font-size: .7em;
 `
 
-// removes duplicate post objects by converting
-// each post into a JSON string so that they can be
-// compared and filtered using Set, then parsing the final 
-// unique array of posts back to a normal array of objects
+// removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using Set, then parsing the final unique array of posts back to a normal array of objects
 function uniquePostsArray(posts) {
     return [
         ...new Set(posts.map(postObj => {
@@ -42,33 +39,55 @@ function uniquePostsArray(posts) {
     })
 }
 
+async function getTagCountsData(tags) {
+    return Promise.all(
+        tags.map(async tag => {
+            return await client.fetch(`
+                *[ _id == $tagID ]{
+                    name,
+                    _id,
+                    "tagCount": count(
+                        *[ _type == "post" && $tagID in tags[]._ref ]
+                    )
+                }[0]
+            `, { tagID: tag._id })
+        })
+    )
+}
+
 function Index({ posts, tags }) {
-    console.log('posts: ', posts)
-    console.log('tags: ', tags)
+    // console.log('posts: ', posts)
+    // console.log('tags: ', tags)
     const [ allPosts, setAllPosts ] = useState(posts)
     const [ filteredPosts, setFilteredPosts ] = useState([])
     const [ tagCounts, setTagCounts ] = useState([])
     const [ filteredTags, setFilteredTags ] = useState([])
-    console.log('filteredTags global: ', filteredTags)
-    console.log('filteredPosts global: ', filteredPosts)
+    // console.log('filteredTags global: ', filteredTags)
+    // console.log('filteredPosts global: ', filteredPosts)
+    // console.log('tagCounts global: ', tagCounts)
     
+    
+
     useEffect(() => {
-        tags.forEach(async tag => {
-            const count = await client.fetch(`
-                count(*[ _type == "post" && $tagID in tags[]._ref ])
-            `, { tagID: tag._id })
-            // this check is in case i've added a tag in 
-            // sanity studio but haven't assigned it to a post yet:
-            if (count > 0) {
-                const tagCount = {
-                    _id: tag._id,
-                    name: tag.name,
-                    count
-                }
-                // TODO: what's a good way to set these all these at once??
-                setTagCounts(state => [...state, tagCount])
-            }
-        })
+        getTagCountsData(tags)
+            .then(tagCounts => {
+                setTagCounts(tagCounts)
+            })
+            .catch(err => console.log('error getting tag counts: ', err))
+        // tags.forEach(async tag => {
+        //     const count = await client.fetch(`
+        //         count(*[ _type == "post" && $tagID in tags[]._ref ])
+        //     `, { tagID: tag._id })
+        //     // this check is in case i've added a tag in sanity studio but haven't assigned it to a post yet:
+        //     if (count > 0) {
+        //         const tagCount = {
+        //             _id: tag._id,
+        //             name: tag.name,
+        //             count
+        //         }
+        //         setTagCounts(state => [...state, tagCount])
+        //     }
+        // })
     }, [])
 
     useEffect(() => {
@@ -82,7 +101,10 @@ function Index({ posts, tags }) {
                 })
             })
             // console.log('_filteredPosts: ', _filteredPosts)
-            setFilteredPosts(uniquePostsArray(_filteredPosts))
+            setFilteredPosts(
+                uniquePostsArray(_filteredPosts)
+            )
+
         } else {
             setFilteredPosts([])
         }
@@ -115,7 +137,6 @@ function Index({ posts, tags }) {
             />
 
             <h2>Posts:</h2>
-
             {postsToRender.map(
                 ({ 
                     _id, 

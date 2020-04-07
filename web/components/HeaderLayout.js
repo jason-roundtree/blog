@@ -17,7 +17,6 @@ function HeaderLayout(props) {
                 <title>Blog - Jason Roundtree</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:400,500,600,700&display=swap" rel="stylesheet"></link>
-                {/* <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet"></link> */}
                 <link href="https://fonts.googleapis.com/css?family=Lustria&display=swap" rel="stylesheet"></link>
             </Head>
 

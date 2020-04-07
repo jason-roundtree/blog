@@ -15,7 +15,7 @@ const TagBtn = styled.button`
 `
 
 function KeywordTags(props) {
-    // console.log('props: ', props)
+    console.log('props: ', props)
     props.tags.sort((a, b) => {
         return (a.name > b.name) ? 1 : -1
     })
@@ -34,7 +34,7 @@ function KeywordTags(props) {
             </TagBtn>
 
             {props.tags.map(tag => (
-                tag.count && (
+                tag.tagCount > 0 && (
                     <TagBtn 
                         key={tag.name}
                         id={tag._id}
@@ -47,7 +47,7 @@ function KeywordTags(props) {
                     >   
                         {tag.name}
                         &nbsp;
-                        ({tag.count})
+                        ({tag.tagCount})
                     </TagBtn>
                 )
             ))}
