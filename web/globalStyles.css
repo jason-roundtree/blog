@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --primary-color: rgb(3, 152, 252);
     --primary-darker: rgb(0, 85, 143);
     --secondary-color: rgb(250, 223, 147);
@@ -13,16 +13,12 @@
     color: var(--primary-color)
 }
 
-h1 a {
-    font-size: 3em;
-}
-
 h2 {
-    font-size: 2.5em;
+    font-size: 2em;
     margin-top: .75em;
 }
 
-h1, h2 {
+h2 {
     font-weight: 700;
 }
 
@@ -46,4 +42,4 @@ p {
 
 .selectedTag.selectedTag {
     background-color: var(--primary-darker)
-}
+} */

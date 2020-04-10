@@ -46,34 +46,34 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 var Header = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].header.withConfig({
   displayName: "HeaderLayout__Header",
   componentId: "sc-2bs9km-0"
-})(["padding:1em 1.5em;background:rgb(250,223,147);"]);
-var Span = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].span.withConfig({
-  displayName: "HeaderLayout__Span",
+})(["padding:1em 40px;background:rgb(250,223,147);"]);
+var H1 = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].h1.withConfig({
+  displayName: "HeaderLayout__H1",
   componentId: "sc-2bs9km-1"
-})(["margin-left:20px;"]);
+})(["font-weight:normal;font-size:2em;"]);
 
 function HeaderLayout(props) {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 17,
       columnNumber: 13
     }
   }, __jsx("title", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 18,
       columnNumber: 17
     }
-  }, "Blog - Jason Roundtree"), __jsx("meta", {
+  }, "Jason Roundtree - Blog"), __jsx("meta", {
     name: "viewport",
     content: "initial-scale=1.0, width=device-width",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 19,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -82,7 +82,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 20,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -91,28 +91,28 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 21,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 24,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 25,
       columnNumber: 17
     }
-  }, __jsx("h1", {
+  }, __jsx(H1, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 26,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -120,37 +120,21 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 27,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 28,
       columnNumber: 29
     }
-  }, "Goober's Trundle"))), __jsx(Span, {
+  }, "Jason Roundtree"))))), __jsx("main", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
-      columnNumber: 21
-    }
-  }, "a web dev blog, by "), __jsx("a", {
-    href: "http://jasonroundtree.info/",
-    target: "_blank",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 30,
-      columnNumber: 53
-    }
-  }, "jason roundtree"))), __jsx("main", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 35,
       columnNumber: 13
     }
   }, props.children));
@@ -172,12 +156,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _globalStyles_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../globalStyles.css */ "./globalStyles.css");
-/* harmony import */ var _globalStyles_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_globalStyles_css__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/components/KeywordTags.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
 
 var TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button.withConfig({
   displayName: "KeywordTags__TagBtn",
@@ -195,7 +176,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 23,
       columnNumber: 9
     }
   }, __jsx(TagBtn, {
@@ -205,11 +186,11 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 24,
       columnNumber: 13
     }
   }, "All Posts"), props.tags.map(function (tag) {
-    return tag.tagCount > 0 && __jsx(TagBtn, {
+    return tag.count > 0 && __jsx(TagBtn, {
       key: tag.name,
       id: tag._id,
       onClick: props.handleTagFilter,
@@ -217,10 +198,10 @@ function KeywordTags(props) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38,
+        lineNumber: 37,
         columnNumber: 21
       }
-    }, tag.name, "\xA0 (", tag.tagCount, ")");
+    }, tag.name, "\xA0 (", tag.count, ")");
   }));
 }
 
@@ -31383,8 +31364,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _components_HeaderLayout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/HeaderLayout */ "./components/HeaderLayout.js");
 /* harmony import */ var _components_KeywordTags__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/KeywordTags */ "./components/KeywordTags.js");
-/* harmony import */ var _globalStyles_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../globalStyles.css */ "./globalStyles.css");
-/* harmony import */ var _globalStyles_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_globalStyles_css__WEBPACK_IMPORTED_MODULE_9__);
 
 
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/pages/index.js";
@@ -31393,7 +31372,6 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
  // import useSWR from 'swr'
-
 
 
 
@@ -31414,7 +31392,7 @@ var DescP = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConf
 var DateP = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
   displayName: "pages__DateP",
   componentId: "nuslkc-3"
-})(["font-size:.7em;"]); // removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using Set, then parsing the final unique array of posts back to a normal array of objects
+})(["font-size:.7em;"]); // (due to objects being by ref) removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
 
 function uniquePostsArray(posts) {
   return Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(new Set(posts.map(function (postObj) {
@@ -31425,38 +31403,39 @@ function uniquePostsArray(posts) {
 }
 
 function getTagCountsData(tags) {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getTagCountsData$(_context2) {
-    while (1) {
-      switch (_context2.prev = _context2.next) {
-        case 0:
-          return _context2.abrupt("return", Promise.all(tags.map(function _callee(tag) {
-            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee$(_context) {
-              while (1) {
-                switch (_context.prev = _context.next) {
-                  case 0:
-                    _context.next = 2;
-                    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(_client__WEBPACK_IMPORTED_MODULE_3__["default"].fetch("\n                *[ _id == $tagID ]{\n                    name,\n                    _id,\n                    \"tagCount\": count(\n                        *[ _type == \"post\" && $tagID in tags[]._ref ]\n                    )\n                }[0]\n            ", {
-                      tagID: tag._id
-                    }));
+  return Promise.all(tags.map(function _callee(tag) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(_client__WEBPACK_IMPORTED_MODULE_3__["default"].fetch("\n                *[ _id == $tagID ]{\n                    name,\n                    _id,\n                    \"count\": count(\n                        *[ \n                            _type == \"post\" && \n                            $tagID in tags[]._ref \n                        ]\n                    )\n                }[0]\n            ", {
+              tagID: tag._id
+            }));
 
-                  case 2:
-                    return _context.abrupt("return", _context.sent);
+          case 2:
+            return _context.abrupt("return", _context.sent);
 
-                  case 3:
-                  case "end":
-                    return _context.stop();
-                }
-              }
-            }, null, null, null, Promise);
-          })));
-
-        case 1:
-        case "end":
-          return _context2.stop();
+          case 3:
+          case "end":
+            return _context.stop();
+        }
       }
-    }
-  }, null, null, null, Promise);
-}
+    }, null, null, null, Promise);
+  }));
+} // const _theme = {
+//     body: '#363537',
+//     text: '#FAFAFA',
+//     toggleBorder: '#6B8096',
+//     gradient: 'linear-gradient(#091236, #1E215D)',
+// }
+// const lightTheme = {
+//     body: '#E2E2E2',
+//     text: '#363537',
+//     toggleBorder: '#FFF',
+//     gradient: 'linear-gradient(#39598A, #79D7ED)',
+//   }
+
 
 function Index(_ref) {
   var _this = this;
@@ -31480,30 +31459,18 @@ function Index(_ref) {
 
   var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
       filteredTags = _useState4[0],
-      setFilteredTags = _useState4[1]; // console.log('filteredTags global: ', filteredTags)
-  // console.log('filteredPosts global: ', filteredPosts)
-  // console.log('tagCounts global: ', tagCounts)
+      setFilteredTags = _useState4[1];
 
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])('light'),
+      theme = _useState5[0],
+      setTheme = _useState5[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
     getTagCountsData(tags).then(function (tagCounts) {
       setTagCounts(tagCounts);
     })["catch"](function (err) {
       return console.log('error getting tag counts: ', err);
-    }); // tags.forEach(async tag => {
-    //     const count = await client.fetch(`
-    //         count(*[ _type == "post" && $tagID in tags[]._ref ])
-    //     `, { tagID: tag._id })
-    //     // this check is in case i've added a tag in sanity studio but haven't assigned it to a post yet:
-    //     if (count > 0) {
-    //         const tagCount = {
-    //             _id: tag._id,
-    //             name: tag.name,
-    //             count
-    //         }
-    //         setTagCounts(state => [...state, tagCount])
-    //     }
-    // })
+    });
   }, []);
   Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
     if (filteredTags.length > 0) {
@@ -31514,8 +31481,7 @@ function Index(_ref) {
             _filteredPosts.push(post);
           }
         });
-      }); // console.log('_filteredPosts: ', _filteredPosts)
-
+      });
       setFilteredPosts(uniquePostsArray(_filteredPosts));
     } else {
       setFilteredPosts([]);
@@ -31539,19 +31505,19 @@ function Index(_ref) {
   }
 
   var postsToRender = filteredPosts.length > 0 ? filteredPosts : allPosts;
-  return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_7__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131,
-      columnNumber: 9
+      lineNumber: 130,
+      columnNumber: 13
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 132,
-      columnNumber: 13
+      columnNumber: 17
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_8__["default"], {
     tags: tagCounts,
@@ -31561,14 +31527,14 @@ function Index(_ref) {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 133,
-      columnNumber: 13
+      columnNumber: 17
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 139,
-      columnNumber: 13
+      columnNumber: 17
     }
   }, "Posts:"), postsToRender.map(function (_ref2) {
     var _id = _ref2._id,
@@ -31583,7 +31549,7 @@ function Index(_ref) {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 149,
-        columnNumber: 21
+        columnNumber: 25
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
       href: "/post/[slug]",
@@ -31592,35 +31558,35 @@ function Index(_ref) {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 150,
-        columnNumber: 25
+        columnNumber: 29
       }
     }, __jsx("a", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 154,
-        columnNumber: 29
+        columnNumber: 33
       }
     }, title)), __jsx(DescP, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 156,
-        columnNumber: 25
+        columnNumber: 29
       }
     }, description), __jsx(DateP, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 157,
-        columnNumber: 25
+        columnNumber: 29
       }
     }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 160,
-        columnNumber: 25
+        columnNumber: 29
       }
     }, tags.map(function (tag) {
       return __jsx(TagListItem, {
@@ -31629,11 +31595,11 @@ function Index(_ref) {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 163,
-          columnNumber: 37
+          columnNumber: 41
         }
       }, tag.name);
     })));
-  }));
+  })));
 }
 
 var __N_SSG = true;
@@ -31664,5 +31630,5 @@ module.exports = dll_c2e10d183b950a67d9e7;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

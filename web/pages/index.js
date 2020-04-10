@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import moment from 'moment'
 import HeaderLayout from '../components/HeaderLayout'
 import KeywordTags from '../components/KeywordTags'
-import '../globalStyles.css'
 
 const ListItem = styled.li`
     margin: 15px 0 0 15px;
@@ -28,7 +27,7 @@ const DateP = styled.p`
     font-size: .7em;
 `
 
-// removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using Set, then parsing the final unique array of posts back to a normal array of objects
+// (due to objects being by ref) removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
 function uniquePostsArray(posts) {
     return [
         ...new Set(posts.map(postObj => {
@@ -39,21 +38,37 @@ function uniquePostsArray(posts) {
     })
 }
 
-async function getTagCountsData(tags) {
+function getTagCountsData(tags) {
     return Promise.all(
         tags.map(async tag => {
             return await client.fetch(`
                 *[ _id == $tagID ]{
                     name,
                     _id,
-                    "tagCount": count(
-                        *[ _type == "post" && $tagID in tags[]._ref ]
+                    "count": count(
+                        *[ 
+                            _type == "post" && 
+                            $tagID in tags[]._ref 
+                        ]
                     )
                 }[0]
             `, { tagID: tag._id })
         })
     )
 }
+// const _theme = {
+//     body: '#363537',
+//     text: '#FAFAFA',
+//     toggleBorder: '#6B8096',
+//     gradient: 'linear-gradient(#091236, #1E215D)',
+// }
+
+// const lightTheme = {
+//     body: '#E2E2E2',
+//     text: '#363537',
+//     toggleBorder: '#FFF',
+//     gradient: 'linear-gradient(#39598A, #79D7ED)',
+//   }
 
 function Index({ posts, tags }) {
     // console.log('posts: ', posts)
@@ -62,32 +77,14 @@ function Index({ posts, tags }) {
     const [ filteredPosts, setFilteredPosts ] = useState([])
     const [ tagCounts, setTagCounts ] = useState([])
     const [ filteredTags, setFilteredTags ] = useState([])
-    // console.log('filteredTags global: ', filteredTags)
-    // console.log('filteredPosts global: ', filteredPosts)
-    // console.log('tagCounts global: ', tagCounts)
+    const [ theme, setTheme ] = useState('light');
     
-    
-
     useEffect(() => {
         getTagCountsData(tags)
             .then(tagCounts => {
                 setTagCounts(tagCounts)
             })
             .catch(err => console.log('error getting tag counts: ', err))
-        // tags.forEach(async tag => {
-        //     const count = await client.fetch(`
-        //         count(*[ _type == "post" && $tagID in tags[]._ref ])
-        //     `, { tagID: tag._id })
-        //     // this check is in case i've added a tag in sanity studio but haven't assigned it to a post yet:
-        //     if (count > 0) {
-        //         const tagCount = {
-        //             _id: tag._id,
-        //             name: tag.name,
-        //             count
-        //         }
-        //         setTagCounts(state => [...state, tagCount])
-        //     }
-        // })
     }, [])
 
     useEffect(() => {
@@ -99,8 +96,7 @@ function Index({ posts, tags }) {
                         _filteredPosts.push(post)
                     }
                 })
-            })
-            // console.log('_filteredPosts: ', _filteredPosts)
+            })  
             setFilteredPosts(
                 uniquePostsArray(_filteredPosts)
             )
@@ -109,6 +105,7 @@ function Index({ posts, tags }) {
             setFilteredPosts([])
         }
     }, [filteredTags])
+
 
     function handleTagFilter(e) {
         const selectedTagID = e.target.id
@@ -128,54 +125,56 @@ function Index({ posts, tags }) {
         : allPosts
 
     return (
-        <HeaderLayout>
-            <h2>Tags:</h2>
-            <KeywordTags 
-                tags={tagCounts}
-                handleTagFilter={handleTagFilter}
-                filteredTags={filteredTags}
-            />
+        <>
+            
+            <HeaderLayout>
 
-            <h2>Posts:</h2>
-            {postsToRender.map(
-                ({ 
-                    _id, 
-                    _createdAt,
-                    description, 
-                    slug,
-                    title, 
-                    tags
-                }) => (
-                    <ListItem key={_id}>
-                        <Link
-                            href='/post/[slug]'
-                            as={`/post/${slug.current}`}
-                        >
-                            <a>{title}</a>
-                        </Link>
-                        <DescP>{description}</DescP>
-                        <DateP>
-                            {moment.utc(_createdAt).format("LL")}
-                        </DateP>
-                        <ul>
-                            {tags.map(tag => {
-                                return (
-                                    <TagListItem key={tag._id}>
-                                        {tag.name}
-                                    </TagListItem>
-                                )
-                                
-                            })}
-                        </ul>
-                    </ListItem>
-                )
-            )}
-        </HeaderLayout>
+                <h2>Tags:</h2>
+                <KeywordTags 
+                    tags={tagCounts}
+                    handleTagFilter={handleTagFilter}
+                    filteredTags={filteredTags}
+                />
+
+                <h2>Posts:</h2>
+                {postsToRender.map(
+                    ({ 
+                        _id, 
+                        _createdAt,
+                        description, 
+                        slug,
+                        title, 
+                        tags
+                    }) => (
+                        <ListItem key={_id}>
+                            <Link
+                                href='/post/[slug]'
+                                as={`/post/${slug.current}`}
+                            >
+                                <a>{title}</a>
+                            </Link>
+                            <DescP>{description}</DescP>
+                            <DateP>
+                                {moment.utc(_createdAt).format("LL")}
+                            </DateP>
+                            <ul>
+                                {tags.map(tag => {
+                                    return (
+                                        <TagListItem key={tag._id}>
+                                            {tag.name}
+                                        </TagListItem>
+                                    )
+                                })}
+                            </ul>
+                        </ListItem>
+                    )
+                )}
+            </HeaderLayout>
+        </>
     )
 }
 
 export async function getStaticProps() {
-    // TODO: should these be chained somehow?
     const posts = await client.fetch(`
         *[ _type == "post" ]{
             ..., 

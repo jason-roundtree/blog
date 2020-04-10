@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import '../globalStyles.css'
 
 const TagBtn = styled.button`
     padding: 10px 15px;
@@ -34,7 +33,7 @@ function KeywordTags(props) {
             </TagBtn>
 
             {props.tags.map(tag => (
-                tag.tagCount > 0 && (
+                tag.count > 0 && (
                     <TagBtn 
                         key={tag.name}
                         id={tag._id}
@@ -47,7 +46,7 @@ function KeywordTags(props) {
                     >   
                         {tag.name}
                         &nbsp;
-                        ({tag.tagCount})
+                        ({tag.count})
                     </TagBtn>
                 )
             ))}

@@ -6,14 +6,26 @@ import moment from 'moment'
 const P = styled.p`
     margin-top: 1.5em;
 `
+const H3 = styled.h3`
+    font-size: 1.5em;
+    font-family: 'Lustria', serif;
+    color: ${({theme}) => theme.secondaryColor};
+    /* color: var(--tertiary-color); */
+    margin: 3px 0;
+`
+const DateH3 = styled(H3)`
+    font-size: 1em;
+    font-weight: normal;
+`
 
 function Post(props) {
+    console.log('propsss: ', props)
     return (
         <HeaderLayout>
             <article>
                 <h2>{props.title}</h2>
-                <P>{moment.utc(props._createdAt).format("LL")}</P>
-                <P>{props.description}</P>
+                <H3>{props.description}</H3>
+                <DateH3>{moment.utc(props._createdAt).format("LL")}</DateH3>
                 <P>{props.body}</P>
             </article>
         </HeaderLayout>
