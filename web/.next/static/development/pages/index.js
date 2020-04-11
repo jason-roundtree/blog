@@ -168,7 +168,7 @@ var TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button.wi
 function KeywordTags(props) {
   var _this = this;
 
-  // console.log('props: ', props)
+  console.log('props: ', props);
   props.tags.sort(function (a, b) {
     return a.name > b.name ? 1 : -1;
   });
@@ -179,15 +179,15 @@ function KeywordTags(props) {
       lineNumber: 24,
       columnNumber: 9
     }
-  }, __jsx(TagBtn, {
+  }, props.tags.length > 0 && __jsx(TagBtn, {
     onClick: props.handleTagFilter,
     id: "clearFilter",
     className: props.filteredTags.length > 0 ? '' : 'selectedTag',
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
-      columnNumber: 13
+      lineNumber: 27,
+      columnNumber: 17
     }
   }, "All Posts"), props.tags.map(function (tag) {
     return tag.count > 0 && __jsx(TagBtn, {
@@ -198,7 +198,7 @@ function KeywordTags(props) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38,
+        lineNumber: 43,
         columnNumber: 21
       }
     }, tag.name, "\xA0 (", tag.count, ")");
@@ -31401,7 +31401,7 @@ var DescP = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConf
 var DateP = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
   displayName: "pages__DateP",
   componentId: "nuslkc-3"
-})(["font-size:.7em;"]); // (due to objects being by ref) removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
+})(["font-size:.7em;"]); // removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
 
 function uniquePostsArray(posts) {
   return Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(new Set(posts.map(function (postObj) {
@@ -31441,12 +31441,10 @@ function Index(_ref4) {
       tags = _ref4.tags,
       onToggleThemeClick = _ref4.onToggleThemeClick;
 
-  // console.log('onToggleThemeClick: ', onToggleThemeClick)
   // console.log('posts: ', posts)
   // console.log('tags: ', tags)
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(posts),
-      allPosts = _useState[0],
-      setAllPosts = _useState[1];
+      allPosts = _useState[0];
 
   var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
       filteredPosts = _useState2[0],
@@ -31460,6 +31458,7 @@ function Index(_ref4) {
       filteredTags = _useState4[0],
       setFilteredTags = _useState4[1];
 
+  console.log('tagCounts: ', tagCounts);
   Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
     getTagCountsData(tags).then(function (tagCounts) {
       setTagCounts(tagCounts);
@@ -31512,14 +31511,14 @@ function Index(_ref4) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 120,
+      lineNumber: 121,
       columnNumber: 13
     }
   }, "toggle mode"), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 126,
+      lineNumber: 125,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -31529,14 +31528,14 @@ function Index(_ref4) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 127,
+      lineNumber: 126,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133,
+      lineNumber: 132,
       columnNumber: 13
     }
   }, "Posts:"), postsToRender.map(function (_ref5) {
@@ -31551,7 +31550,7 @@ function Index(_ref4) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 143,
+        lineNumber: 142,
         columnNumber: 21
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -31560,35 +31559,35 @@ function Index(_ref4) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 144,
+        lineNumber: 143,
         columnNumber: 25
       }
     }, __jsx("a", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 148,
+        lineNumber: 147,
         columnNumber: 29
       }
     }, title)), __jsx(DescP, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 150,
+        lineNumber: 149,
         columnNumber: 25
       }
     }, description), __jsx(DateP, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 151,
+        lineNumber: 150,
         columnNumber: 25
       }
     }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 154,
+        lineNumber: 153,
         columnNumber: 25
       }
     }, tags.map(function (tag) {
@@ -31597,7 +31596,7 @@ function Index(_ref4) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 157,
+          lineNumber: 156,
           columnNumber: 37
         }
       }, tag.name);

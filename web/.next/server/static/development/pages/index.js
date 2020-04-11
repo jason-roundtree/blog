@@ -261,7 +261,7 @@ const TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.button.w
 })(["padding:10px 15px;margin:15px 0 0 15px;color:var(--secondary-color);font-size:1.2em;border:none;background-color:var(--primary-color);font-family:'Lustria',serif;&:hover{cursor:pointer;background-color:var(--primary-darker);}"]);
 
 function KeywordTags(props) {
-  // console.log('props: ', props)
+  console.log('props: ', props);
   props.tags.sort((a, b) => {
     return a.name > b.name ? 1 : -1;
   });
@@ -272,15 +272,15 @@ function KeywordTags(props) {
       lineNumber: 24,
       columnNumber: 9
     }
-  }, __jsx(TagBtn, {
+  }, props.tags.length > 0 && __jsx(TagBtn, {
     onClick: props.handleTagFilter,
     id: "clearFilter",
     className: props.filteredTags.length > 0 ? '' : 'selectedTag',
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
-      columnNumber: 13
+      lineNumber: 27,
+      columnNumber: 17
     }
   }, "All Posts"), props.tags.map(tag => tag.count > 0 && __jsx(TagBtn, {
     key: tag.name,
@@ -290,7 +290,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 43,
       columnNumber: 21
     }
   }, tag.name, "\xA0 (", tag.count, ")")));
@@ -2028,7 +2028,7 @@ const DescP = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withCon
 const DateP = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withConfig({
   displayName: "pages__DateP",
   componentId: "nuslkc-3"
-})(["font-size:.7em;"]); // (due to objects being by ref) removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
+})(["font-size:.7em;"]); // removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
 
 function uniquePostsArray(posts) {
   return [...new Set(posts.map(postObj => {
@@ -2062,12 +2062,10 @@ function Index({
   tags,
   onToggleThemeClick
 }) {
-  // console.log('onToggleThemeClick: ', onToggleThemeClick)
   // console.log('posts: ', posts)
   // console.log('tags: ', tags)
   const {
-    0: allPosts,
-    1: setAllPosts
+    0: allPosts
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(posts);
   const {
     0: filteredPosts,
@@ -2081,6 +2079,7 @@ function Index({
     0: filteredTags,
     1: setFilteredTags
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  console.log('tagCounts: ', tagCounts);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     getTagCountsData(tags).then(tagCounts => {
       setTagCounts(tagCounts);
@@ -2129,14 +2128,14 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 120,
+      lineNumber: 121,
       columnNumber: 13
     }
   }, "toggle mode"), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 126,
+      lineNumber: 125,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -2146,14 +2145,14 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 127,
+      lineNumber: 126,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133,
+      lineNumber: 132,
       columnNumber: 13
     }
   }, "Posts:"), postsToRender.map(({
@@ -2168,7 +2167,7 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 143,
+      lineNumber: 142,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -2177,35 +2176,35 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 144,
+      lineNumber: 143,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 148,
+      lineNumber: 147,
       columnNumber: 29
     }
   }, title)), __jsx(DescP, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 150,
+      lineNumber: 149,
       columnNumber: 25
     }
   }, description), __jsx(DateP, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 151,
+      lineNumber: 150,
       columnNumber: 25
     }
   }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 154,
+      lineNumber: 153,
       columnNumber: 25
     }
   }, tags.map(tag => {
@@ -2214,7 +2213,7 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 157,
+        lineNumber: 156,
         columnNumber: 37
       }
     }, tag.name);

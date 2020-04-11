@@ -29,7 +29,7 @@ const DateP = styled.p`
     font-size: .7em;
 `
 
-// (due to objects being by ref) removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
+// removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
 function uniquePostsArray(posts) {
     return [
         ...new Set(posts.map(postObj => {
@@ -64,14 +64,14 @@ function Index({
     tags, 
     onToggleThemeClick
 }) {
-    // console.log('onToggleThemeClick: ', onToggleThemeClick)
     // console.log('posts: ', posts)
     // console.log('tags: ', tags)
-    const [ allPosts, setAllPosts ] = useState(posts)
+    const [ allPosts ] = useState(posts)
     const [ filteredPosts, setFilteredPosts ] = useState([])
     const [ tagCounts, setTagCounts ] = useState([])
     const [ filteredTags, setFilteredTags ] = useState([])
-    
+    console.log('tagCounts: ', tagCounts)
+
     useEffect(() => {
         getTagCountsData(tags)
             .then(tagCounts => {
@@ -117,9 +117,8 @@ function Index({
 
     return (
         <HeaderLayout>
-            <button
-                onClick={onToggleThemeClick}
-            >
+            {/* TODO: move to header? Add icons */}
+            <button onClick={onToggleThemeClick}>
                 toggle mode
             </button>
 

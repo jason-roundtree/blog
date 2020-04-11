@@ -15,23 +15,28 @@ const TagBtn = styled.button`
 `
 
 function KeywordTags(props) {
-    // console.log('props: ', props)
+    console.log('props: ', props)
     props.tags.sort((a, b) => {
         return (a.name > b.name) ? 1 : -1
     })
     
     return (
         <div>
-            <TagBtn
-                onClick={props.handleTagFilter}
-                id='clearFilter'
-                className={props.filteredTags.length > 0 
-                    ? ''
-                    : 'selectedTag'
-                }
-            >
-                All Posts
-            </TagBtn>
+            {/* this length check prevents `All Posts` button from rendering prior to the rest of the tag buttons */}
+            {props.tags.length > 0 && (
+                <TagBtn
+                    onClick={props.handleTagFilter}
+                    id='clearFilter'
+                    className={
+                        props.filteredTags.length > 0 
+                            ? ''
+                            : 'selectedTag'
+                    }
+                >
+                    All Posts
+                </TagBtn>
+            )}
+            
 
             {props.tags.map(tag => (
                 tag.count > 0 && (

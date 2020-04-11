@@ -9,13 +9,13 @@ const P = styled.p`
 const H3 = styled.h3`
     font-size: 1.5em;
     font-family: 'Lustria', serif;
-    color: ${({theme}) => theme.primaryColor};
+    color: ${({ theme }) => theme.primaryColor};
     margin: 3px 0;
 `
 const DateH3 = styled(H3)`
     font-size: 1em;
     font-weight: normal;
-    color: ${({theme}) => theme.text};
+    color: ${({ theme }) => theme.text};
 `
 
 function Post(props) {
