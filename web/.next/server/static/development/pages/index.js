@@ -258,10 +258,10 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.button.withConfig({
   displayName: "KeywordTags__TagBtn",
   componentId: "sc-1eepvlk-0"
-})(["padding:10px 15px;margin:15px 0 0 15px;color:var(--secondary-color);font-size:1.2em;border:none;background-color:var(--primary-color);font-family:'Lustria',serif;&:hover{cursor:pointer;}"]);
+})(["padding:10px 15px;margin:15px 0 0 15px;color:var(--secondary-color);font-size:1.2em;border:none;background-color:var(--primary-color);font-family:'Lustria',serif;&:hover{cursor:pointer;background-color:var(--primary-darker);}"]);
 
 function KeywordTags(props) {
-  console.log('props: ', props);
+  // console.log('props: ', props)
   props.tags.sort((a, b) => {
     return a.name > b.name ? 1 : -1;
   });
@@ -269,7 +269,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 24,
       columnNumber: 9
     }
   }, __jsx(TagBtn, {
@@ -279,7 +279,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 25,
       columnNumber: 13
     }
   }, "All Posts"), props.tags.map(tag => tag.count > 0 && __jsx(TagBtn, {
@@ -290,7 +290,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 38,
       columnNumber: 21
     }
   }, tag.name, "\xA0 (", tag.count, ")")));
@@ -2121,7 +2121,7 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 117,
+      lineNumber: 119,
       columnNumber: 9
     }
   }, __jsx("button", {
@@ -2129,14 +2129,14 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 118,
+      lineNumber: 120,
       columnNumber: 13
     }
   }, "toggle mode"), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 124,
+      lineNumber: 126,
       columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -2146,14 +2146,14 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 125,
+      lineNumber: 127,
       columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131,
+      lineNumber: 133,
       columnNumber: 13
     }
   }, "Posts:"), postsToRender.map(({
@@ -2168,7 +2168,7 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 141,
+      lineNumber: 143,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -2177,35 +2177,35 @@ function Index({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 142,
+      lineNumber: 144,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 146,
+      lineNumber: 148,
       columnNumber: 29
     }
   }, title)), __jsx(DescP, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 148,
+      lineNumber: 150,
       columnNumber: 25
     }
   }, description), __jsx(DateP, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 149,
+      lineNumber: 151,
       columnNumber: 25
     }
   }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 152,
+      lineNumber: 154,
       columnNumber: 25
     }
   }, tags.map(tag => {
@@ -2214,7 +2214,7 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 155,
+        lineNumber: 157,
         columnNumber: 37
       }
     }, tag.name);

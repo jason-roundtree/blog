@@ -97,16 +97,16 @@ module.exports =
 /*!************************!*\
   !*** ./colorScheme.js ***!
   \************************/
-/*! exports provided: default */
+/*! exports provided: default, colors */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return modes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "colors", function() { return colors; });
 const colors = {
-  darkThemeColorText: `rgb(250,250,250)`,
-  darkThemeColorBg: `rgb(54, 53, 55)`,
-  lightThemeColorText: `rgb(54, 53, 55)`,
-  lightThemeColorBg: `rgb(250,250,250)`,
+  white: `rgb(250,250,250)`,
+  darkGrey: `rgb(54, 53, 55)`,
   primaryColor: `rgb(3, 152, 252)`,
   primaryColorDarker: `rgb(0, 85, 143)`,
   secondaryColor: `rgb(250, 223, 147)`,
@@ -114,19 +114,19 @@ const colors = {
 };
 const modes = {
   dark: {
-    body: `${colors.darkThemeColorBg}`,
-    text: `${colors.darkThemeColorText}`,
+    body: `${colors.darkGrey}`,
+    text: `${colors.white}`,
     primaryColor: `${colors.secondaryColor}`,
     secondaryColor: `${colors.primaryColorDarker}`
   },
   light: {
-    body: `${colors.lightThemeColorBg}`,
-    text: `${colors.lightThemeColorText}`,
+    body: `${colors.white}`,
+    text: `${colors.darkGrey}`,
     primaryColor: `${colors.primaryColorDarker}`,
     secondaryColor: `${colors.secondaryColor}`
   }
 };
-/* harmony default export */ __webpack_exports__["default"] = (modes);
+
 
 /***/ }),
 
@@ -142,14 +142,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GlobalStyles", function() { return GlobalStyles; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _colorScheme__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../colorScheme */ "./colorScheme.js");
+
 
 const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["createGlobalStyle"]`
     :root {
-        --primary-color: rgb(3, 152, 252);
-        --primary-darker: rgb(0, 85, 143);
-        --secondary-color: rgb(250, 223, 147);
-        --tertiary-color: rgb(16, 46, 36);
+        --primary-color: ${_colorScheme__WEBPACK_IMPORTED_MODULE_1__["colors"].primaryColor};
+        --primary-darker: ${_colorScheme__WEBPACK_IMPORTED_MODULE_1__["colors"].primaryColorDarker};
+        --secondary-color: ${_colorScheme__WEBPACK_IMPORTED_MODULE_1__["colors"].secondaryColor};
+        --tertiary-color: ${_colorScheme__WEBPACK_IMPORTED_MODULE_1__["colors"].tertiaryColor};
     }
+
     body {
         background: ${({
   theme
@@ -191,7 +194,6 @@ const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["createGloba
         color: ${({
   theme
 }) => theme.text};
-        /* color: var(--tertiary-color) */
     }
 
     .selectedTag.selectedTag {

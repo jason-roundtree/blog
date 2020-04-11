@@ -59,7 +59,11 @@ function getTagCountsData(tags) {
     )
 }
 
-function Index({ posts, tags, onToggleThemeClick }) {
+function Index({ 
+    posts, 
+    tags, 
+    onToggleThemeClick
+}) {
     // console.log('onToggleThemeClick: ', onToggleThemeClick)
     // console.log('posts: ', posts)
     // console.log('tags: ', tags)
@@ -89,12 +93,10 @@ function Index({ posts, tags, onToggleThemeClick }) {
             setFilteredPosts(
                 uniquePostsArray(_filteredPosts)
             )
-
         } else {
             setFilteredPosts([])
         }
     }, [filteredTags])
-
 
     function handleTagFilter(e) {
         const selectedTagID = e.target.id

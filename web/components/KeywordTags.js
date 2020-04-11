@@ -10,11 +10,12 @@ const TagBtn = styled.button`
     font-family: 'Lustria', serif;
     &:hover {
         cursor: pointer;
+        background-color: var(--primary-darker);
     }
 `
 
 function KeywordTags(props) {
-    console.log('props: ', props)
+    // console.log('props: ', props)
     props.tags.sort((a, b) => {
         return (a.name > b.name) ? 1 : -1
     })
