@@ -1,22 +1,33 @@
 import { useState, useEffect } from 'react'
-import styled, { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from '../components/GlobalStyles'
-
-const testDarkTheme = {
-    body: '#363537',
-    text: '#FAFAFA',
-    secondaryColor: 'rgb(250, 223, 147)',
-    toggleBorder: '#6B8096',
-    gradient: 'linear-gradient(#091236, #1E215D)',
-}
+import modes from '../colorScheme'
 
 function MyApp({ Component, pageProps }) {
-    const [ userTheme, setUserTheme ] = useState('lightMode')
+    const [ userThemeStr, setUserThemeStr ] = useState('light')
+    const [ userThemeObj, setUserThemeObj ] = useState(modes[userThemeStr])
+    // console.log('userThemeStr: ', userThemeStr)
+    // console.log('userThemeObj: ', userThemeObj)
+
+    useEffect(() => {
+        setUserThemeObj(modes[userThemeStr])
+    }, [userThemeStr])
+    
+    function handleThemeToggle() {
+        setUserThemeStr(
+            userThemeStr === 'dark'
+                ? 'light'
+                : 'dark'
+        )
+    }
 
     return (
-        <ThemeProvider theme={testDarkTheme}>
+        <ThemeProvider theme={userThemeObj}>
             <GlobalStyles />
-            <Component {...pageProps} />
+            <Component 
+                {...pageProps} 
+                onToggleThemeClick={handleThemeToggle}
+            />
         </ThemeProvider>
     )
 }

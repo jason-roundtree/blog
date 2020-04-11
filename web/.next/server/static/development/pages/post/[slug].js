@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1946,54 +1946,55 @@ const H3 = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.h3.withConfi
   componentId: "sc-1e354jq-1"
 })(["font-size:1.5em;font-family:'Lustria',serif;color:", ";margin:3px 0;"], ({
   theme
-}) => theme.secondaryColor);
+}) => theme.primaryColor);
 const DateH3 = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(H3).withConfig({
   displayName: "slug__DateH3",
   componentId: "sc-1e354jq-2"
-})(["font-size:1em;font-weight:normal;"]);
+})(["font-size:1em;font-weight:normal;color:", ";"], ({
+  theme
+}) => theme.text);
 
 function Post(props) {
-  console.log('propsss: ', props);
   return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 23,
       columnNumber: 9
     }
   }, __jsx("article", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 24,
       columnNumber: 13
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 25,
       columnNumber: 17
     }
   }, props.title), __jsx(H3, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 26,
       columnNumber: 17
     }
   }, props.description), __jsx(DateH3, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 27,
       columnNumber: 17
     }
   }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(props._createdAt).format("LL")), __jsx(P, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 28,
       columnNumber: 17
     }
   }, props.body)));
@@ -2009,8 +2010,7 @@ Post.getInitialProps = async function (context) {
         *[_type == "post" && slug.current == $slug][0]
     `, {
     slug
-  }); // console.log('data: ', data)
-
+  });
   return data;
 };
 
@@ -2018,7 +2018,7 @@ Post.getInitialProps = async function (context) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!************************************!*\
   !*** multi ./pages/post/[slug].js ***!
   \************************************/

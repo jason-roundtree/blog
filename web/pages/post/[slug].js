@@ -9,17 +9,16 @@ const P = styled.p`
 const H3 = styled.h3`
     font-size: 1.5em;
     font-family: 'Lustria', serif;
-    color: ${({theme}) => theme.secondaryColor};
-    /* color: var(--tertiary-color); */
+    color: ${({theme}) => theme.primaryColor};
     margin: 3px 0;
 `
 const DateH3 = styled(H3)`
     font-size: 1em;
     font-weight: normal;
+    color: ${({theme}) => theme.text};
 `
 
 function Post(props) {
-    console.log('propsss: ', props)
     return (
         <HeaderLayout>
             <article>
@@ -39,7 +38,6 @@ Post.getInitialProps = async function(context) {
     const data = await client.fetch(`
         *[_type == "post" && slug.current == $slug][0]
     `, { slug })
-    // console.log('data: ', data)
     return data
 }
 

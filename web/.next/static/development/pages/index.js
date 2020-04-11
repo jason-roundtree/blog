@@ -31384,11 +31384,20 @@ var ListItem = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].li.with
 var TagListItem = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].li.withConfig({
   displayName: "pages__TagListItem",
   componentId: "nuslkc-1"
-})(["display:inline-block;margin-right:5px;padding:3px 5px;font-size:.5em;background-color:var(--secondary-color);"]);
+})(["display:inline-block;margin-right:5px;padding:3px 5px;font-size:.5em;color:", ";background:", ";"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.secondaryColor;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.primaryColor;
+});
 var DescP = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
   displayName: "pages__DescP",
   componentId: "nuslkc-2"
-})(["font-size:.85em;"]);
+})(["font-size:.85em;color:", ";"], function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.primaryColor;
+});
 var DateP = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
   displayName: "pages__DateP",
   componentId: "nuslkc-3"
@@ -31423,26 +31432,16 @@ function getTagCountsData(tags) {
       }
     }, null, null, null, Promise);
   }));
-} // const _theme = {
-//     body: '#363537',
-//     text: '#FAFAFA',
-//     toggleBorder: '#6B8096',
-//     gradient: 'linear-gradient(#091236, #1E215D)',
-// }
-// const lightTheme = {
-//     body: '#E2E2E2',
-//     text: '#363537',
-//     toggleBorder: '#FFF',
-//     gradient: 'linear-gradient(#39598A, #79D7ED)',
-//   }
+}
 
-
-function Index(_ref) {
+function Index(_ref4) {
   var _this = this;
 
-  var posts = _ref.posts,
-      tags = _ref.tags;
+  var posts = _ref4.posts,
+      tags = _ref4.tags,
+      onToggleThemeClick = _ref4.onToggleThemeClick;
 
+  // console.log('onToggleThemeClick: ', onToggleThemeClick)
   // console.log('posts: ', posts)
   // console.log('tags: ', tags)
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(posts),
@@ -31460,10 +31459,6 @@ function Index(_ref) {
   var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
       filteredTags = _useState4[0],
       setFilteredTags = _useState4[1];
-
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])('light'),
-      theme = _useState5[0],
-      setTheme = _useState5[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
     getTagCountsData(tags).then(function (tagCounts) {
@@ -31505,19 +31500,27 @@ function Index(_ref) {
   }
 
   var postsToRender = filteredPosts.length > 0 ? filteredPosts : allPosts;
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_7__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 130,
+      lineNumber: 117,
+      columnNumber: 9
+    }
+  }, __jsx("button", {
+    onClick: onToggleThemeClick,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 118,
       columnNumber: 13
     }
-  }, __jsx("h2", {
+  }, "toggle mode"), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 132,
-      columnNumber: 17
+      lineNumber: 124,
+      columnNumber: 13
     }
   }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_8__["default"], {
     tags: tagCounts,
@@ -31526,30 +31529,30 @@ function Index(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133,
-      columnNumber: 17
+      lineNumber: 125,
+      columnNumber: 13
     }
   }), __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 139,
-      columnNumber: 17
+      lineNumber: 131,
+      columnNumber: 13
     }
-  }, "Posts:"), postsToRender.map(function (_ref2) {
-    var _id = _ref2._id,
-        _createdAt = _ref2._createdAt,
-        description = _ref2.description,
-        slug = _ref2.slug,
-        title = _ref2.title,
-        tags = _ref2.tags;
+  }, "Posts:"), postsToRender.map(function (_ref5) {
+    var _id = _ref5._id,
+        _createdAt = _ref5._createdAt,
+        description = _ref5.description,
+        slug = _ref5.slug,
+        title = _ref5.title,
+        tags = _ref5.tags;
     return __jsx(ListItem, {
       key: _id,
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 149,
-        columnNumber: 25
+        lineNumber: 141,
+        columnNumber: 21
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
       href: "/post/[slug]",
@@ -31557,36 +31560,36 @@ function Index(_ref) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 150,
-        columnNumber: 29
+        lineNumber: 142,
+        columnNumber: 25
       }
     }, __jsx("a", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 154,
-        columnNumber: 33
+        lineNumber: 146,
+        columnNumber: 29
       }
     }, title)), __jsx(DescP, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 156,
-        columnNumber: 29
+        lineNumber: 148,
+        columnNumber: 25
       }
     }, description), __jsx(DateP, {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 157,
-        columnNumber: 29
+        lineNumber: 149,
+        columnNumber: 25
       }
     }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 160,
-        columnNumber: 29
+        lineNumber: 152,
+        columnNumber: 25
       }
     }, tags.map(function (tag) {
       return __jsx(TagListItem, {
@@ -31594,12 +31597,12 @@ function Index(_ref) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 163,
-          columnNumber: 41
+          lineNumber: 155,
+          columnNumber: 37
         }
       }, tag.name);
     })));
-  })));
+  }));
 }
 
 var __N_SSG = true;

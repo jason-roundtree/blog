@@ -1,5 +1,42 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/_app.js"],{
 
+/***/ "./colorScheme.js":
+/*!************************!*\
+  !*** ./colorScheme.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var colors = {
+  darkThemeColorText: "rgb(250,250,250)",
+  darkThemeColorBg: "rgb(54, 53, 55)",
+  lightThemeColorText: "rgb(54, 53, 55)",
+  lightThemeColorBg: "rgb(250,250,250)",
+  primaryColor: "rgb(3, 152, 252)",
+  primaryColorDarker: "rgb(0, 85, 143)",
+  secondaryColor: "rgb(250, 223, 147)",
+  tertiaryColor: "rgb(16, 46, 36)"
+};
+var modes = {
+  dark: {
+    body: "".concat(colors.darkThemeColorBg),
+    text: "".concat(colors.darkThemeColorText),
+    primaryColor: "".concat(colors.secondaryColor),
+    secondaryColor: "".concat(colors.primaryColorDarker)
+  },
+  light: {
+    body: "".concat(colors.lightThemeColorBg),
+    text: "".concat(colors.lightThemeColorText),
+    primaryColor: "".concat(colors.primaryColorDarker),
+    secondaryColor: "".concat(colors.secondaryColor)
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (modes);
+
+/***/ }),
+
 /***/ "./components/GlobalStyles.js":
 /*!************************************!*\
   !*** ./components/GlobalStyles.js ***!
@@ -6140,6 +6177,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _components_GlobalStyles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/GlobalStyles */ "./components/GlobalStyles.js");
+/* harmony import */ var _colorScheme__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../colorScheme */ "./colorScheme.js");
 
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/pages/_app.js";
 
@@ -6147,42 +6185,51 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
-var testDarkTheme = {
-  body: '#363537',
-  text: '#FAFAFA',
-  secondaryColor: 'rgb(250, 223, 147)',
-  toggleBorder: '#6B8096',
-  gradient: 'linear-gradient(#091236, #1E215D)'
-};
+
 
 function MyApp(_ref) {
   var Component = _ref.Component,
       pageProps = _ref.pageProps;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])('lightMode'),
-      userTheme = _useState[0],
-      setUserTheme = _useState[1];
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])('light'),
+      userThemeStr = _useState[0],
+      setUserThemeStr = _useState[1];
+
+  var _useState2 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(_colorScheme__WEBPACK_IMPORTED_MODULE_4__["default"][userThemeStr]),
+      userThemeObj = _useState2[0],
+      setUserThemeObj = _useState2[1]; // console.log('userThemeStr: ', userThemeStr)
+  // console.log('userThemeObj: ', userThemeObj)
+
+
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    setUserThemeObj(_colorScheme__WEBPACK_IMPORTED_MODULE_4__["default"][userThemeStr]);
+  }, [userThemeStr]);
+
+  function handleThemeToggle() {
+    setUserThemeStr(userThemeStr === 'dark' ? 'light' : 'dark');
+  }
 
   return __jsx(styled_components__WEBPACK_IMPORTED_MODULE_2__["ThemeProvider"], {
-    theme: testDarkTheme,
+    theme: userThemeObj,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 25,
       columnNumber: 9
     }
   }, __jsx(_components_GlobalStyles__WEBPACK_IMPORTED_MODULE_3__["GlobalStyles"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 26,
       columnNumber: 13
     }
   }), __jsx(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
+    onToggleThemeClick: handleThemeToggle,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 27,
       columnNumber: 13
     }
   })));

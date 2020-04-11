@@ -18,10 +18,12 @@ const TagListItem = styled.li`
     margin-right: 5px;
     padding: 3px 5px;
     font-size: .5em;
-    background-color: var(--secondary-color);
+    color: ${({ theme }) => theme.secondaryColor};
+    background: ${({ theme }) => theme.primaryColor};
 `
 const DescP = styled.p`
     font-size: .85em;
+    color: ${({ theme }) => theme.primaryColor};
 `
 const DateP = styled.p`
     font-size: .7em;
@@ -56,28 +58,15 @@ function getTagCountsData(tags) {
         })
     )
 }
-// const _theme = {
-//     body: '#363537',
-//     text: '#FAFAFA',
-//     toggleBorder: '#6B8096',
-//     gradient: 'linear-gradient(#091236, #1E215D)',
-// }
 
-// const lightTheme = {
-//     body: '#E2E2E2',
-//     text: '#363537',
-//     toggleBorder: '#FFF',
-//     gradient: 'linear-gradient(#39598A, #79D7ED)',
-//   }
-
-function Index({ posts, tags }) {
+function Index({ posts, tags, onToggleThemeClick }) {
+    // console.log('onToggleThemeClick: ', onToggleThemeClick)
     // console.log('posts: ', posts)
     // console.log('tags: ', tags)
     const [ allPosts, setAllPosts ] = useState(posts)
     const [ filteredPosts, setFilteredPosts ] = useState([])
     const [ tagCounts, setTagCounts ] = useState([])
     const [ filteredTags, setFilteredTags ] = useState([])
-    const [ theme, setTheme ] = useState('light');
     
     useEffect(() => {
         getTagCountsData(tags)
@@ -125,52 +114,54 @@ function Index({ posts, tags }) {
         : allPosts
 
     return (
-        <>
-            
-            <HeaderLayout>
+        <HeaderLayout>
+            <button
+                onClick={onToggleThemeClick}
+            >
+                toggle mode
+            </button>
 
-                <h2>Tags:</h2>
-                <KeywordTags 
-                    tags={tagCounts}
-                    handleTagFilter={handleTagFilter}
-                    filteredTags={filteredTags}
-                />
+            <h2>Tags:</h2>
+            <KeywordTags 
+                tags={tagCounts}
+                handleTagFilter={handleTagFilter}
+                filteredTags={filteredTags}
+            />
 
-                <h2>Posts:</h2>
-                {postsToRender.map(
-                    ({ 
-                        _id, 
-                        _createdAt,
-                        description, 
-                        slug,
-                        title, 
-                        tags
-                    }) => (
-                        <ListItem key={_id}>
-                            <Link
-                                href='/post/[slug]'
-                                as={`/post/${slug.current}`}
-                            >
-                                <a>{title}</a>
-                            </Link>
-                            <DescP>{description}</DescP>
-                            <DateP>
-                                {moment.utc(_createdAt).format("LL")}
-                            </DateP>
-                            <ul>
-                                {tags.map(tag => {
-                                    return (
-                                        <TagListItem key={tag._id}>
-                                            {tag.name}
-                                        </TagListItem>
-                                    )
-                                })}
-                            </ul>
-                        </ListItem>
-                    )
-                )}
-            </HeaderLayout>
-        </>
+            <h2>Posts:</h2>
+            {postsToRender.map(
+                ({ 
+                    _id, 
+                    _createdAt,
+                    description, 
+                    slug,
+                    title, 
+                    tags
+                }) => (
+                    <ListItem key={_id}>
+                        <Link
+                            href='/post/[slug]'
+                            as={`/post/${slug.current}`}
+                        >
+                            <a>{title}</a>
+                        </Link>
+                        <DescP>{description}</DescP>
+                        <DateP>
+                            {moment.utc(_createdAt).format("LL")}
+                        </DateP>
+                        <ul>
+                            {tags.map(tag => {
+                                return (
+                                    <TagListItem key={tag._id}>
+                                        {tag.name}
+                                    </TagListItem>
+                                )
+                            })}
+                        </ul>
+                    </ListItem>
+                )
+            )}
+        </HeaderLayout>
     )
 }
 

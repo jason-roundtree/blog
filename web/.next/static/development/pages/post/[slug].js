@@ -31235,55 +31235,57 @@ var H3 = styled_components__WEBPACK_IMPORTED_MODULE_4__["default"].h3.withConfig
   componentId: "sc-1e354jq-1"
 })(["font-size:1.5em;font-family:'Lustria',serif;color:", ";margin:3px 0;"], function (_ref) {
   var theme = _ref.theme;
-  return theme.secondaryColor;
+  return theme.primaryColor;
 });
 var DateH3 = Object(styled_components__WEBPACK_IMPORTED_MODULE_4__["default"])(H3).withConfig({
   displayName: "slug__DateH3",
   componentId: "sc-1e354jq-2"
-})(["font-size:1em;font-weight:normal;"]);
+})(["font-size:1em;font-weight:normal;color:", ";"], function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.text;
+});
 
 function Post(props) {
-  console.log('propsss: ', props);
   return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 23,
       columnNumber: 9
     }
   }, __jsx("article", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 24,
       columnNumber: 13
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 25,
       columnNumber: 17
     }
   }, props.title), __jsx(H3, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 26,
       columnNumber: 17
     }
   }, props.description), __jsx(DateH3, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 27,
       columnNumber: 17
     }
   }, moment__WEBPACK_IMPORTED_MODULE_5___default.a.utc(props._createdAt).format("LL")), __jsx(P, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 28,
       columnNumber: 17
     }
   }, props.body)));
@@ -31320,7 +31322,7 @@ Post.getInitialProps = function _callee(context) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!******************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fpost%2F%5Bslug%5D&absolutePagePath=%2FUsers%2Fjasonroundtree%2Fprojects%2Fblog%2Fweb%2Fpages%2Fpost%2F%5Bslug%5D.js ***!
   \******************************************************************************************************************************************************************/
@@ -31343,5 +31345,5 @@ module.exports = dll_c2e10d183b950a67d9e7;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=[slug].js.map
