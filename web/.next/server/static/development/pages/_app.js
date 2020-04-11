@@ -248,6 +248,7 @@ function MyApp({
   }, [userThemeStr]);
 
   function handleThemeToggle() {
+    console.log('event ran');
     setUserThemeStr(userThemeStr === 'dark' ? 'light' : 'dark');
   }
 
@@ -256,14 +257,14 @@ function MyApp({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 24,
       columnNumber: 9
     }
   }, __jsx(_components_GlobalStyles__WEBPACK_IMPORTED_MODULE_2__["GlobalStyles"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 25,
       columnNumber: 13
     }
   }), __jsx(Component, _extends({}, pageProps, {
@@ -271,7 +272,7 @@ function MyApp({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 26,
       columnNumber: 13
     }
   })));

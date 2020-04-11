@@ -43,28 +43,34 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
 var Header = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].header.withConfig({
   displayName: "HeaderLayout__Header",
   componentId: "sc-2bs9km-0"
-})(["padding:1em 40px;background:rgb(250,223,147);"]);
+})(["padding:1em 40px;background:rgb(250,223,147);display:flex;justify-content:space-between;align-items:center;"]);
 var H1 = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].h1.withConfig({
   displayName: "HeaderLayout__H1",
   componentId: "sc-2bs9km-1"
 })(["font-weight:normal;font-size:2em;"]);
+var ToggleBtn = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].img.withConfig({
+  displayName: "HeaderLayout__ToggleBtn",
+  componentId: "sc-2bs9km-2"
+})(["height:2em;width:2em;"]);
 
 function HeaderLayout(props) {
+  console.log('propsaaa: ', props);
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 27,
       columnNumber: 13
     }
   }, __jsx("title", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 28,
       columnNumber: 17
     }
   }, "Jason Roundtree - Blog"), __jsx("meta", {
@@ -73,7 +79,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 29,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -82,7 +88,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 30,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -91,28 +97,28 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 31,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 34,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 35,
       columnNumber: 17
     }
   }, __jsx(H1, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 36,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -120,21 +126,30 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 37,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 38,
       columnNumber: 29
     }
-  }, "Jason Roundtree"))))), __jsx("main", {
+  }, "Jason Roundtree")))), __jsx("button", {
+    // src='/images/029-moon-6.png'
+    onClick: props.onToggleThemeClick,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 45,
+      columnNumber: 17
+    }
+  }, "toggle")), __jsx("main", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
       columnNumber: 13
     }
   }, props.children));
@@ -31247,6 +31262,7 @@ var DateH3 = Object(styled_components__WEBPACK_IMPORTED_MODULE_4__["default"])(H
 
 function Post(props) {
   return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    onToggleThemeClick: props.onToggleThemeClick,
     __self: this,
     __source: {
       fileName: _jsxFileName,

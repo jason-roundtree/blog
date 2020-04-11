@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }) {
     }, [userThemeStr])
     
     function handleThemeToggle() {
+        console.log('event ran')
         setUserThemeStr(
             userThemeStr === 'dark' ? 'light' : 'dark'
         )

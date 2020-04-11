@@ -20,7 +20,7 @@ const DateH3 = styled(H3)`
 
 function Post(props) {
     return (
-        <HeaderLayout>
+        <HeaderLayout onToggleThemeClick={props.onToggleThemeClick}>
             <article>
                 <h2>{props.title}</h2>
                 <H3>{props.description}</H3>

@@ -43,28 +43,34 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
 var Header = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].header.withConfig({
   displayName: "HeaderLayout__Header",
   componentId: "sc-2bs9km-0"
-})(["padding:1em 40px;background:rgb(250,223,147);"]);
+})(["padding:1em 40px;background:rgb(250,223,147);display:flex;justify-content:space-between;align-items:center;"]);
 var H1 = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].h1.withConfig({
   displayName: "HeaderLayout__H1",
   componentId: "sc-2bs9km-1"
 })(["font-weight:normal;font-size:2em;"]);
+var ToggleBtn = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].img.withConfig({
+  displayName: "HeaderLayout__ToggleBtn",
+  componentId: "sc-2bs9km-2"
+})(["height:2em;width:2em;"]);
 
 function HeaderLayout(props) {
+  console.log('propsaaa: ', props);
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 27,
       columnNumber: 13
     }
   }, __jsx("title", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18,
+      lineNumber: 28,
       columnNumber: 17
     }
   }, "Jason Roundtree - Blog"), __jsx("meta", {
@@ -73,7 +79,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 29,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -82,7 +88,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 30,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -91,28 +97,28 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21,
+      lineNumber: 31,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 34,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 35,
       columnNumber: 17
     }
   }, __jsx(H1, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 36,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -120,21 +126,30 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 37,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 38,
       columnNumber: 29
     }
-  }, "Jason Roundtree"))))), __jsx("main", {
+  }, "Jason Roundtree")))), __jsx("button", {
+    // src='/images/029-moon-6.png'
+    onClick: props.onToggleThemeClick,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 45,
+      columnNumber: 17
+    }
+  }, "toggle")), __jsx("main", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
       columnNumber: 13
     }
   }, props.children));
@@ -31456,9 +31471,9 @@ function Index(_ref4) {
 
   var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
       filteredTags = _useState4[0],
-      setFilteredTags = _useState4[1];
+      setFilteredTags = _useState4[1]; // console.log('tagCounts: ', tagCounts)
 
-  console.log('tagCounts: ', tagCounts);
+
   Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
     getTagCountsData(tags).then(function (tagCounts) {
       setTagCounts(tagCounts);
@@ -31499,109 +31514,104 @@ function Index(_ref4) {
   }
 
   var postsToRender = filteredPosts.length > 0 ? filteredPosts : allPosts;
-  return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 119,
-      columnNumber: 9
-    }
-  }, __jsx("button", {
-    onClick: onToggleThemeClick,
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 121,
-      columnNumber: 13
-    }
-  }, "toggle mode"), __jsx("h2", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 125,
-      columnNumber: 13
-    }
-  }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    tags: tagCounts,
-    handleTagFilter: handleTagFilter,
-    filteredTags: filteredTags,
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 126,
-      columnNumber: 13
-    }
-  }), __jsx("h2", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 132,
-      columnNumber: 13
-    }
-  }, "Posts:"), postsToRender.map(function (_ref5) {
-    var _id = _ref5._id,
-        _createdAt = _ref5._createdAt,
-        description = _ref5.description,
-        slug = _ref5.slug,
-        title = _ref5.title,
-        tags = _ref5.tags;
-    return __jsx(ListItem, {
-      key: _id,
-      __self: _this,
+  return (// TODO: is there a better way to render HeaderLayout instead of using in here and in [slug] (and any other separate pages that I add? Checkout next.js _document)
+    __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      onToggleThemeClick: onToggleThemeClick,
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 142,
-        columnNumber: 21
+        lineNumber: 120,
+        columnNumber: 9
       }
-    }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
-      href: "/post/[slug]",
-      as: "/post/".concat(slug.current),
-      __self: _this,
+    }, __jsx("h2", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 143,
-        columnNumber: 25
+        lineNumber: 122,
+        columnNumber: 13
       }
-    }, __jsx("a", {
-      __self: _this,
+    }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      tags: tagCounts,
+      handleTagFilter: handleTagFilter,
+      filteredTags: filteredTags,
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 147,
-        columnNumber: 29
+        lineNumber: 123,
+        columnNumber: 13
       }
-    }, title)), __jsx(DescP, {
-      __self: _this,
+    }), __jsx("h2", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 149,
-        columnNumber: 25
+        lineNumber: 129,
+        columnNumber: 13
       }
-    }, description), __jsx(DateP, {
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 150,
-        columnNumber: 25
-      }
-    }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
-      __self: _this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 153,
-        columnNumber: 25
-      }
-    }, tags.map(function (tag) {
-      return __jsx(TagListItem, {
-        key: tag._id,
+    }, "Posts:"), postsToRender.map(function (_ref5) {
+      var _id = _ref5._id,
+          _createdAt = _ref5._createdAt,
+          description = _ref5.description,
+          slug = _ref5.slug,
+          title = _ref5.title,
+          tags = _ref5.tags;
+      return __jsx(ListItem, {
+        key: _id,
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 156,
-          columnNumber: 37
+          lineNumber: 139,
+          columnNumber: 21
         }
-      }, tag.name);
-    })));
-  }));
+      }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
+        href: "/post/[slug]",
+        as: "/post/".concat(slug.current),
+        __self: _this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 140,
+          columnNumber: 25
+        }
+      }, __jsx("a", {
+        __self: _this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 144,
+          columnNumber: 29
+        }
+      }, title)), __jsx(DescP, {
+        __self: _this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 146,
+          columnNumber: 25
+        }
+      }, description), __jsx(DateP, {
+        __self: _this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 147,
+          columnNumber: 25
+        }
+      }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
+        __self: _this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 150,
+          columnNumber: 25
+        }
+      }, tags.map(function (tag) {
+        return __jsx(TagListItem, {
+          key: tag._id,
+          __self: _this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 153,
+            columnNumber: 37
+          }
+        }, tag.name);
+      })));
+    }))
+  );
 }
 
 var __N_SSG = true;

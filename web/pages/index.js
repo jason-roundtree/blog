@@ -70,7 +70,7 @@ function Index({
     const [ filteredPosts, setFilteredPosts ] = useState([])
     const [ tagCounts, setTagCounts ] = useState([])
     const [ filteredTags, setFilteredTags ] = useState([])
-    console.log('tagCounts: ', tagCounts)
+    // console.log('tagCounts: ', tagCounts)
 
     useEffect(() => {
         getTagCountsData(tags)
@@ -116,12 +116,9 @@ function Index({
         : allPosts
 
     return (
-        <HeaderLayout>
-            {/* TODO: move to header? Add icons */}
-            <button onClick={onToggleThemeClick}>
-                toggle mode
-            </button>
-
+        // TODO: is there a better way to render HeaderLayout instead of using in here and in [slug] (and any other separate pages that I add? Checkout next.js _document)
+        <HeaderLayout onToggleThemeClick={onToggleThemeClick}>
+            
             <h2>Tags:</h2>
             <KeywordTags 
                 tags={tagCounts}

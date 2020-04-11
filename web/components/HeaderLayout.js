@@ -1,17 +1,27 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useState } from 'react'
 import styled from 'styled-components'
 
 const Header = styled.header`
     padding: 1em 40px;
     background: rgb(250, 223, 147);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `
 const H1 = styled.h1`
     font-weight: normal;
     font-size: 2em;
+    
+`
+const ToggleBtn = styled.img`
+    height: 2em;
+    width: 2em;
 `
 
 function HeaderLayout(props) {
+    console.log('propsaaa: ', props)
     return (
         <>
             <Head>
@@ -27,9 +37,15 @@ function HeaderLayout(props) {
                         <Link href='/'>
                             <a>Jason Roundtree</a>
                         </Link>
+                        
                     </H1>
                     {/* <Span>a web dev blog, by </Span><a href='http://jasonroundtree.info/' target="_blank">jason roundtree</a> */}
+                    
                 </nav>
+                <button
+                    // src='/images/029-moon-6.png'
+                    onClick={props.onToggleThemeClick}
+                >toggle</button>
             </Header>
 
             <main>{props.children}</main>
