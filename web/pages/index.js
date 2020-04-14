@@ -110,7 +110,8 @@ function Index({
     }, [filteredTags])
 
     function handleTagFilter(e) {
-        const selectedTagID = e.target.id
+        // console.log('e.currentTarget.id: ', e.currentTarget.id)
+        const selectedTagID = e.currentTarget.id
         if (selectedTagID === 'clearFilter') {
             setFilteredTags([])
         } else if (!filteredTags.includes(selectedTagID)) {
@@ -130,7 +131,7 @@ function Index({
         // TODO: is there a better way to render HeaderLayout instead of using in here and in [slug] (and any other separate pages that I add? Checkout next.js _document)
         <HeaderLayout onToggleThemeClick={onToggleThemeClick}>
             
-            <h2>Tags:</h2>
+            <h2>Filter by Tags:</h2>
             <KeywordTags 
                 tags={tagCounts}
                 handleTagFilter={handleTagFilter}

@@ -46,7 +46,6 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     p {
-        /* font-family: 'Lustria', serif;    */
         line-height: 1.5em;
         color: ${({ theme }) => theme.text};
     }

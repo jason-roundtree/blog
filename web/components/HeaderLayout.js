@@ -3,6 +3,10 @@ import Link from 'next/link'
 import { useState } from 'react'
 import styled from 'styled-components'
 
+const Main = styled.main`
+    max-width: 750px;
+    margin: 0 auto;
+`
 const Header = styled.header`
     padding: 1em 40px;
     background: rgb(250, 223, 147);
@@ -14,14 +18,15 @@ const Header = styled.header`
 `
 const H1 = styled.h1`
     /* font-weight: normal; */
-    font-size: 2em;
-    
+    font-size: 1.5em;
 `
 const ToggleBtn = styled.img`
     height: 2em;
     width: 2em;
-    &:hover {
-        cursor: pointer;
+    &:hover { cursor: pointer; }
+    &:active {
+        height: 1.8em;
+        width: 1.8em;
     }
 `
 
@@ -61,7 +66,7 @@ function HeaderLayout(props) {
 
             </Header>
 
-            <main>{props.children}</main>
+            <Main>{props.children}</Main>
         </>
     )
 }

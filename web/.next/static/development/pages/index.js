@@ -44,9 +44,13 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+var Main = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].main.withConfig({
+  displayName: "HeaderLayout__Main",
+  componentId: "sc-2bs9km-0"
+})(["max-width:750px;margin:0 auto;"]);
 var Header = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].header.withConfig({
   displayName: "HeaderLayout__Header",
-  componentId: "sc-2bs9km-0"
+  componentId: "sc-2bs9km-1"
 })(["padding:1em 40px;background:rgb(250,223,147);color:", ";background:", ";display:flex;justify-content:space-between;align-items:center;"], function (_ref) {
   var theme = _ref.theme;
   return theme.primaryColor;
@@ -56,12 +60,12 @@ var Header = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].header.wi
 });
 var H1 = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].h1.withConfig({
   displayName: "HeaderLayout__H1",
-  componentId: "sc-2bs9km-1"
-})(["font-size:2em;"]);
+  componentId: "sc-2bs9km-2"
+})(["font-size:1.5em;"]);
 var ToggleBtn = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].img.withConfig({
   displayName: "HeaderLayout__ToggleBtn",
-  componentId: "sc-2bs9km-2"
-})(["height:2em;width:2em;&:hover{cursor:pointer;}"]);
+  componentId: "sc-2bs9km-3"
+})(["height:2em;width:2em;&:hover{cursor:pointer;}&:active{height:1.8em;width:1.8em;}"]);
 
 function HeaderLayout(props) {
   console.log('propsaaa: ', props);
@@ -69,14 +73,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 37,
       columnNumber: 13
     }
   }, __jsx("title", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 38,
       columnNumber: 17
     }
   }, "Jason Roundtree - Blog"), __jsx("meta", {
@@ -85,7 +89,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 39,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -94,7 +98,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 46,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -103,7 +107,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 47,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -112,28 +116,28 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 48,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 51,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 52,
       columnNumber: 17
     }
   }, __jsx(H1, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 53,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -141,14 +145,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 54,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 55,
       columnNumber: 29
     }
   }, "Jason Roundtree")))), __jsx(ToggleBtn, {
@@ -157,14 +161,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 62,
       columnNumber: 17
     }
-  })), __jsx("main", {
+  })), __jsx(Main, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 69,
       columnNumber: 13
     }
   }, props.children));
@@ -190,23 +194,31 @@ var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/components/KeywordTa
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+var TagsContainer = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "KeywordTags__TagsContainer",
+  componentId: "sc-1eepvlk-0"
+})(["display:flex;justify-content:center;flex-wrap:wrap;"]);
 var TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button.withConfig({
   displayName: "KeywordTags__TagBtn",
-  componentId: "sc-1eepvlk-0"
-})(["padding:10px 15px;margin:15px 0 0 15px;color:var(--secondary-color);font-size:1.2em;border:none;background-color:var(--primary-color);font-family:'Nanum Gothic Coding',monospace;&:hover{cursor:pointer;background-color:var(--primary-darker);}"]);
+  componentId: "sc-1eepvlk-1"
+})(["padding:7px 10px;margin:15px 0 0 15px;color:var(--secondary-color);font-size:1em;border:none;background-color:var(--primary-color);font-family:'Nanum Gothic Coding',monospace;&:hover{cursor:pointer;background-color:var(--primary-darker);}"]);
+var TagCount = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].span.withConfig({
+  displayName: "KeywordTags__TagCount",
+  componentId: "sc-1eepvlk-2"
+})(["font-family:'Fjalla One',sans-serif;color:var(--secondary-color);font-size:.8em;"]);
 
 function KeywordTags(props) {
   var _this = this;
 
-  console.log('props: ', props);
+  // console.log('props: ', props)
   props.tags.sort(function (a, b) {
     return a.name > b.name ? 1 : -1;
   });
-  return __jsx("div", {
+  return __jsx(TagsContainer, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 35,
       columnNumber: 9
     }
   }, props.tags.length > 0 && __jsx(TagBtn, {
@@ -216,7 +228,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 38,
       columnNumber: 17
     }
   }, "All Posts"), props.tags.map(function (tag) {
@@ -228,10 +240,17 @@ function KeywordTags(props) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 44,
+        lineNumber: 53,
         columnNumber: 21
       }
-    }, tag.name, "\xA0 (", tag.count, ")");
+    }, tag.name, "\xA0", __jsx(TagCount, {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 65,
+        columnNumber: 25
+      }
+    }, "(", tag.count, ")"));
   }));
 }
 
@@ -31520,7 +31539,8 @@ function Index(_ref5) {
   }, [filteredTags]);
 
   function handleTagFilter(e) {
-    var selectedTagID = e.target.id;
+    // console.log('e.currentTarget.id: ', e.currentTarget.id)
+    var selectedTagID = e.currentTarget.id;
 
     if (selectedTagID === 'clearFilter') {
       setFilteredTags([]);
@@ -31542,31 +31562,31 @@ function Index(_ref5) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 131,
+        lineNumber: 132,
         columnNumber: 9
       }
     }, __jsx("h2", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 133,
+        lineNumber: 134,
         columnNumber: 13
       }
-    }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }, "Filter by Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_8__["default"], {
       tags: tagCounts,
       handleTagFilter: handleTagFilter,
       filteredTags: filteredTags,
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 134,
+        lineNumber: 135,
         columnNumber: 13
       }
     }), __jsx("h2", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 140,
+        lineNumber: 141,
         columnNumber: 13
       }
     }, "Posts:"), postsToRender.map(function (_ref6) {
@@ -31581,7 +31601,7 @@ function Index(_ref5) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 150,
+          lineNumber: 151,
           columnNumber: 21
         }
       }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -31590,35 +31610,35 @@ function Index(_ref5) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 151,
+          lineNumber: 152,
           columnNumber: 25
         }
       }, __jsx(ListItemLink, {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 155,
+          lineNumber: 156,
           columnNumber: 29
         }
       }, title)), __jsx(DescP, {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 157,
+          lineNumber: 158,
           columnNumber: 25
         }
       }, description), __jsx(DateP, {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 158,
+          lineNumber: 159,
           columnNumber: 25
         }
       }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 161,
+          lineNumber: 162,
           columnNumber: 25
         }
       }, tags.map(function (tag) {
@@ -31627,7 +31647,7 @@ function Index(_ref5) {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 164,
+            lineNumber: 165,
             columnNumber: 37
           }
         }, tag.name);

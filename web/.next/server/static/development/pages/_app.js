@@ -194,7 +194,6 @@ const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["createGloba
     }
 
     p {
-        /* font-family: 'Lustria', serif;    */
         line-height: 1.5em;
         color: ${({
   theme

@@ -1,10 +1,15 @@
 import styled from 'styled-components'
 
+const TagsContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+`
 const TagBtn = styled.button`
-    padding: 10px 15px;
+    padding: 7px 10px;
     margin: 15px 0 0 15px;
     color: var(--secondary-color);
-    font-size: 1.2em;
+    font-size: 1em;
     border: none;
     background-color: var(--primary-color);
     /* font-family: 'Lustria', serif; */
@@ -14,15 +19,20 @@ const TagBtn = styled.button`
         background-color: var(--primary-darker);
     }
 `
+const TagCount = styled.span`
+    font-family: 'Fjalla One', sans-serif;
+    color: var(--secondary-color);
+    font-size: .8em;
+`
 
 function KeywordTags(props) {
-    console.log('props: ', props)
+    // console.log('props: ', props)
     props.tags.sort((a, b) => {
         return (a.name > b.name) ? 1 : -1
     })
     
     return (
-        <div>
+        <TagsContainer>
             {/* this length check prevents `All Posts` button from rendering prior to the rest of the tag buttons */}
             {props.tags.length > 0 && (
                 <TagBtn
@@ -38,7 +48,6 @@ function KeywordTags(props) {
                 </TagBtn>
             )}
             
-
             {props.tags.map(tag => (
                 tag.count > 0 && (
                     <TagBtn 
@@ -53,11 +62,11 @@ function KeywordTags(props) {
                     >   
                         {tag.name}
                         &nbsp;
-                        ({tag.count})
+                        <TagCount>({tag.count})</TagCount>
                     </TagBtn>
                 )
             ))}
-        </div>
+        </TagsContainer>
     )
 }
 

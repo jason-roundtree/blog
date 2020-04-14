@@ -138,9 +138,13 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+const Main = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.main.withConfig({
+  displayName: "HeaderLayout__Main",
+  componentId: "sc-2bs9km-0"
+})(["max-width:750px;margin:0 auto;"]);
 const Header = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.header.withConfig({
   displayName: "HeaderLayout__Header",
-  componentId: "sc-2bs9km-0"
+  componentId: "sc-2bs9km-1"
 })(["padding:1em 40px;background:rgb(250,223,147);color:", ";background:", ";display:flex;justify-content:space-between;align-items:center;"], ({
   theme
 }) => theme.primaryColor, ({
@@ -148,12 +152,12 @@ const Header = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.header.w
 }) => theme.secondaryColor);
 const H1 = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.h1.withConfig({
   displayName: "HeaderLayout__H1",
-  componentId: "sc-2bs9km-1"
-})(["font-size:2em;"]);
+  componentId: "sc-2bs9km-2"
+})(["font-size:1.5em;"]);
 const ToggleBtn = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.img.withConfig({
   displayName: "HeaderLayout__ToggleBtn",
-  componentId: "sc-2bs9km-2"
-})(["height:2em;width:2em;&:hover{cursor:pointer;}"]);
+  componentId: "sc-2bs9km-3"
+})(["height:2em;width:2em;&:hover{cursor:pointer;}&:active{height:1.8em;width:1.8em;}"]);
 
 function HeaderLayout(props) {
   console.log('propsaaa: ', props);
@@ -161,14 +165,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32,
+      lineNumber: 37,
       columnNumber: 13
     }
   }, __jsx("title", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33,
+      lineNumber: 38,
       columnNumber: 17
     }
   }, "Jason Roundtree - Blog"), __jsx("meta", {
@@ -177,7 +181,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 39,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -186,7 +190,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 46,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -195,7 +199,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 47,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -204,28 +208,28 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 48,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 51,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 52,
       columnNumber: 17
     }
   }, __jsx(H1, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 53,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -233,14 +237,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 54,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 55,
       columnNumber: 29
     }
   }, "Jason Roundtree")))), __jsx(ToggleBtn, {
@@ -249,14 +253,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 62,
       columnNumber: 17
     }
-  })), __jsx("main", {
+  })), __jsx(Main, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 69,
       columnNumber: 13
     }
   }, props.children));
