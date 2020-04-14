@@ -47,15 +47,21 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 var Header = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].header.withConfig({
   displayName: "HeaderLayout__Header",
   componentId: "sc-2bs9km-0"
-})(["padding:1em 40px;background:rgb(250,223,147);display:flex;justify-content:space-between;align-items:center;"]);
+})(["padding:1em 40px;background:rgb(250,223,147);color:", ";background:", ";display:flex;justify-content:space-between;align-items:center;"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.primaryColor;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.secondaryColor;
+});
 var H1 = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].h1.withConfig({
   displayName: "HeaderLayout__H1",
   componentId: "sc-2bs9km-1"
-})(["font-weight:normal;font-size:2em;"]);
+})(["font-size:2em;"]);
 var ToggleBtn = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].img.withConfig({
   displayName: "HeaderLayout__ToggleBtn",
   componentId: "sc-2bs9km-2"
-})(["height:2em;width:2em;"]);
+})(["height:2em;width:2em;&:hover{cursor:pointer;}"]);
 
 function HeaderLayout(props) {
   console.log('propsaaa: ', props);
@@ -63,14 +69,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 32,
       columnNumber: 13
     }
   }, __jsx("title", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 33,
       columnNumber: 17
     }
   }, "Jason Roundtree - Blog"), __jsx("meta", {
@@ -79,46 +85,55 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 34,
       columnNumber: 17
     }
   }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css?family=Archivo+Narrow:400,500,600,700&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Open+Sans300,400,600&display=swap",
     rel: "stylesheet",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 41,
       columnNumber: 17
     }
   }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css?family=Lustria&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap",
     rel: "stylesheet",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 42,
+      columnNumber: 17
+    }
+  }), __jsx("link", {
+    href: "https://fonts.googleapis.com/css2?family=Cuprum&family=Fjalla+One&display=swap",
+    rel: "stylesheet",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 46,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 47,
       columnNumber: 17
     }
   }, __jsx(H1, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 48,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -126,30 +141,30 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 49,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 50,
       columnNumber: 29
     }
-  }, "Jason Roundtree")))), __jsx("button", {
-    // src='/images/029-moon-6.png'
+  }, "Jason Roundtree")))), __jsx(ToggleBtn, {
+    src: "/images/029-moon-6.svg",
     onClick: props.onToggleThemeClick,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 57,
       columnNumber: 17
     }
-  }, "toggle")), __jsx("main", {
+  })), __jsx("main", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 64,
       columnNumber: 13
     }
   }, props.children));
@@ -178,7 +193,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 var TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button.withConfig({
   displayName: "KeywordTags__TagBtn",
   componentId: "sc-1eepvlk-0"
-})(["padding:10px 15px;margin:15px 0 0 15px;color:var(--secondary-color);font-size:1.2em;border:none;background-color:var(--primary-color);font-family:'Lustria',serif;&:hover{cursor:pointer;background-color:var(--primary-darker);}"]);
+})(["padding:10px 15px;margin:15px 0 0 15px;color:var(--secondary-color);font-size:1.2em;border:none;background-color:var(--primary-color);font-family:'Nanum Gothic Coding',monospace;&:hover{cursor:pointer;background-color:var(--primary-darker);}"]);
 
 function KeywordTags(props) {
   var _this = this;
@@ -191,7 +206,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 25,
       columnNumber: 9
     }
   }, props.tags.length > 0 && __jsx(TagBtn, {
@@ -201,7 +216,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 28,
       columnNumber: 17
     }
   }, "All Posts"), props.tags.map(function (tag) {
@@ -213,7 +228,7 @@ function KeywordTags(props) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43,
+        lineNumber: 44,
         columnNumber: 21
       }
     }, tag.name, "\xA0 (", tag.count, ")");
@@ -31396,27 +31411,34 @@ var ListItem = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].li.with
   displayName: "pages__ListItem",
   componentId: "nuslkc-0"
 })(["margin:15px 0 0 15px;padding:10px 15px;font-size:1.75em;border:1px solid var(--primary-darker);"]);
+var ListItemLink = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].a.withConfig({
+  displayName: "pages__ListItemLink",
+  componentId: "nuslkc-1"
+})(["font-family:'Fjalla One',sans-serif;font-weight:400;&:hover{cursor:pointer;color:", ";}"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.primaryColor;
+});
 var TagListItem = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].li.withConfig({
   displayName: "pages__TagListItem",
-  componentId: "nuslkc-1"
-})(["display:inline-block;margin-right:5px;padding:3px 5px;font-size:.5em;color:", ";background:", ";"], function (_ref) {
-  var theme = _ref.theme;
-  return theme.secondaryColor;
-}, function (_ref2) {
+  componentId: "nuslkc-2"
+})(["display:inline-block;margin-right:5px;padding:3px 5px;font-family:'Nanum Gothic Coding',monospace;font-size:.5em;color:", ";background:", ";"], function (_ref2) {
   var theme = _ref2.theme;
+  return theme.secondaryColor;
+}, function (_ref3) {
+  var theme = _ref3.theme;
   return theme.primaryColor;
 });
 var DescP = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
   displayName: "pages__DescP",
-  componentId: "nuslkc-2"
-})(["font-size:.85em;color:", ";"], function (_ref3) {
-  var theme = _ref3.theme;
+  componentId: "nuslkc-3"
+})(["font-size:.7em;color:", ";"], function (_ref4) {
+  var theme = _ref4.theme;
   return theme.primaryColor;
 });
 var DateP = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
   displayName: "pages__DateP",
-  componentId: "nuslkc-3"
-})(["font-size:.7em;"]); // removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
+  componentId: "nuslkc-4"
+})(["font-size:.55em;"]); // removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
 
 function uniquePostsArray(posts) {
   return Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(new Set(posts.map(function (postObj) {
@@ -31449,12 +31471,12 @@ function getTagCountsData(tags) {
   }));
 }
 
-function Index(_ref4) {
+function Index(_ref5) {
   var _this = this;
 
-  var posts = _ref4.posts,
-      tags = _ref4.tags,
-      onToggleThemeClick = _ref4.onToggleThemeClick;
+  var posts = _ref5.posts,
+      tags = _ref5.tags,
+      onToggleThemeClick = _ref5.onToggleThemeClick;
 
   // console.log('posts: ', posts)
   // console.log('tags: ', tags)
@@ -31520,14 +31542,14 @@ function Index(_ref4) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 120,
+        lineNumber: 131,
         columnNumber: 9
       }
     }, __jsx("h2", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 122,
+        lineNumber: 133,
         columnNumber: 13
       }
     }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -31537,29 +31559,29 @@ function Index(_ref4) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 123,
+        lineNumber: 134,
         columnNumber: 13
       }
     }), __jsx("h2", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 129,
+        lineNumber: 140,
         columnNumber: 13
       }
-    }, "Posts:"), postsToRender.map(function (_ref5) {
-      var _id = _ref5._id,
-          _createdAt = _ref5._createdAt,
-          description = _ref5.description,
-          slug = _ref5.slug,
-          title = _ref5.title,
-          tags = _ref5.tags;
+    }, "Posts:"), postsToRender.map(function (_ref6) {
+      var _id = _ref6._id,
+          _createdAt = _ref6._createdAt,
+          description = _ref6.description,
+          slug = _ref6.slug,
+          title = _ref6.title,
+          tags = _ref6.tags;
       return __jsx(ListItem, {
         key: _id,
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 139,
+          lineNumber: 150,
           columnNumber: 21
         }
       }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -31568,35 +31590,35 @@ function Index(_ref4) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 140,
+          lineNumber: 151,
           columnNumber: 25
         }
-      }, __jsx("a", {
+      }, __jsx(ListItemLink, {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 144,
+          lineNumber: 155,
           columnNumber: 29
         }
       }, title)), __jsx(DescP, {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 146,
+          lineNumber: 157,
           columnNumber: 25
         }
       }, description), __jsx(DateP, {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 147,
+          lineNumber: 158,
           columnNumber: 25
         }
       }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 150,
+          lineNumber: 161,
           columnNumber: 25
         }
       }, tags.map(function (tag) {
@@ -31605,7 +31627,7 @@ function Index(_ref4) {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 153,
+            lineNumber: 164,
             columnNumber: 37
           }
         }, tag.name);

@@ -7,7 +7,8 @@ const TagBtn = styled.button`
     font-size: 1.2em;
     border: none;
     background-color: var(--primary-color);
-    font-family: 'Lustria', serif;
+    /* font-family: 'Lustria', serif; */
+    font-family: 'Nanum Gothic Coding', monospace;
     &:hover {
         cursor: pointer;
         background-color: var(--primary-darker);

@@ -141,15 +141,19 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const Header = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.header.withConfig({
   displayName: "HeaderLayout__Header",
   componentId: "sc-2bs9km-0"
-})(["padding:1em 40px;background:rgb(250,223,147);display:flex;justify-content:space-between;align-items:center;"]);
+})(["padding:1em 40px;background:rgb(250,223,147);color:", ";background:", ";display:flex;justify-content:space-between;align-items:center;"], ({
+  theme
+}) => theme.primaryColor, ({
+  theme
+}) => theme.secondaryColor);
 const H1 = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.h1.withConfig({
   displayName: "HeaderLayout__H1",
   componentId: "sc-2bs9km-1"
-})(["font-weight:normal;font-size:2em;"]);
+})(["font-size:2em;"]);
 const ToggleBtn = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.img.withConfig({
   displayName: "HeaderLayout__ToggleBtn",
   componentId: "sc-2bs9km-2"
-})(["height:2em;width:2em;"]);
+})(["height:2em;width:2em;&:hover{cursor:pointer;}"]);
 
 function HeaderLayout(props) {
   console.log('propsaaa: ', props);
@@ -157,14 +161,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 32,
       columnNumber: 13
     }
   }, __jsx("title", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28,
+      lineNumber: 33,
       columnNumber: 17
     }
   }, "Jason Roundtree - Blog"), __jsx("meta", {
@@ -173,46 +177,55 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29,
+      lineNumber: 34,
       columnNumber: 17
     }
   }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css?family=Archivo+Narrow:400,500,600,700&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Open+Sans300,400,600&display=swap",
     rel: "stylesheet",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30,
+      lineNumber: 41,
       columnNumber: 17
     }
   }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css?family=Lustria&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap",
     rel: "stylesheet",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31,
+      lineNumber: 42,
+      columnNumber: 17
+    }
+  }), __jsx("link", {
+    href: "https://fonts.googleapis.com/css2?family=Cuprum&family=Fjalla+One&display=swap",
+    rel: "stylesheet",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34,
+      lineNumber: 46,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 47,
       columnNumber: 17
     }
   }, __jsx(H1, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36,
+      lineNumber: 48,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -220,30 +233,30 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 49,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 50,
       columnNumber: 29
     }
-  }, "Jason Roundtree")))), __jsx("button", {
-    // src='/images/029-moon-6.png'
+  }, "Jason Roundtree")))), __jsx(ToggleBtn, {
+    src: "/images/029-moon-6.svg",
     onClick: props.onToggleThemeClick,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 57,
       columnNumber: 17
     }
-  }, "toggle")), __jsx("main", {
+  })), __jsx("main", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 64,
       columnNumber: 13
     }
   }, props.children));
@@ -273,7 +286,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.button.withConfig({
   displayName: "KeywordTags__TagBtn",
   componentId: "sc-1eepvlk-0"
-})(["padding:10px 15px;margin:15px 0 0 15px;color:var(--secondary-color);font-size:1.2em;border:none;background-color:var(--primary-color);font-family:'Lustria',serif;&:hover{cursor:pointer;background-color:var(--primary-darker);}"]);
+})(["padding:10px 15px;margin:15px 0 0 15px;color:var(--secondary-color);font-size:1.2em;border:none;background-color:var(--primary-color);font-family:'Nanum Gothic Coding',monospace;&:hover{cursor:pointer;background-color:var(--primary-darker);}"]);
 
 function KeywordTags(props) {
   console.log('props: ', props);
@@ -284,7 +297,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 25,
       columnNumber: 9
     }
   }, props.tags.length > 0 && __jsx(TagBtn, {
@@ -294,7 +307,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27,
+      lineNumber: 28,
       columnNumber: 17
     }
   }, "All Posts"), props.tags.map(tag => tag.count > 0 && __jsx(TagBtn, {
@@ -305,7 +318,7 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 44,
       columnNumber: 21
     }
   }, tag.name, "\xA0 (", tag.count, ")")));
@@ -2026,24 +2039,30 @@ const ListItem = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.li.wit
   displayName: "pages__ListItem",
   componentId: "nuslkc-0"
 })(["margin:15px 0 0 15px;padding:10px 15px;font-size:1.75em;border:1px solid var(--primary-darker);"]);
+const ListItemLink = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.a.withConfig({
+  displayName: "pages__ListItemLink",
+  componentId: "nuslkc-1"
+})(["font-family:'Fjalla One',sans-serif;font-weight:400;&:hover{cursor:pointer;color:", ";}"], ({
+  theme
+}) => theme.primaryColor);
 const TagListItem = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.li.withConfig({
   displayName: "pages__TagListItem",
-  componentId: "nuslkc-1"
-})(["display:inline-block;margin-right:5px;padding:3px 5px;font-size:.5em;color:", ";background:", ";"], ({
+  componentId: "nuslkc-2"
+})(["display:inline-block;margin-right:5px;padding:3px 5px;font-family:'Nanum Gothic Coding',monospace;font-size:.5em;color:", ";background:", ";"], ({
   theme
 }) => theme.secondaryColor, ({
   theme
 }) => theme.primaryColor);
 const DescP = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withConfig({
   displayName: "pages__DescP",
-  componentId: "nuslkc-2"
-})(["font-size:.85em;color:", ";"], ({
+  componentId: "nuslkc-3"
+})(["font-size:.7em;color:", ";"], ({
   theme
 }) => theme.primaryColor);
 const DateP = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withConfig({
   displayName: "pages__DateP",
-  componentId: "nuslkc-3"
-})(["font-size:.7em;"]); // removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
+  componentId: "nuslkc-4"
+})(["font-size:.55em;"]); // removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
 
 function uniquePostsArray(posts) {
   return [...new Set(posts.map(postObj => {
@@ -2137,14 +2156,14 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 120,
+        lineNumber: 131,
         columnNumber: 9
       }
     }, __jsx("h2", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 122,
+        lineNumber: 133,
         columnNumber: 13
       }
     }, "Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -2154,14 +2173,14 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 123,
+        lineNumber: 134,
         columnNumber: 13
       }
     }), __jsx("h2", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 129,
+        lineNumber: 140,
         columnNumber: 13
       }
     }, "Posts:"), postsToRender.map(({
@@ -2176,7 +2195,7 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 139,
+        lineNumber: 150,
         columnNumber: 21
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -2185,35 +2204,35 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 140,
+        lineNumber: 151,
         columnNumber: 25
       }
-    }, __jsx("a", {
+    }, __jsx(ListItemLink, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 144,
+        lineNumber: 155,
         columnNumber: 29
       }
     }, title)), __jsx(DescP, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 146,
+        lineNumber: 157,
         columnNumber: 25
       }
     }, description), __jsx(DateP, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 147,
+        lineNumber: 158,
         columnNumber: 25
       }
     }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 150,
+        lineNumber: 161,
         columnNumber: 25
       }
     }, tags.map(tag => {
@@ -2222,7 +2241,7 @@ function Index({
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 153,
+          lineNumber: 164,
           columnNumber: 37
         }
       }, tag.name);

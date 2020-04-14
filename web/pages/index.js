@@ -13,20 +13,31 @@ const ListItem = styled.li`
     font-size: 1.75em;
     border: 1px solid var(--primary-darker);
 `
+const ListItemLink = styled.a`
+/* font-family: 'Cuprum', sans-serif; */
+font-family: 'Fjalla One', sans-serif;
+    font-weight: 400;
+    &:hover {
+        cursor: pointer;
+        color: ${({ theme }) => theme.primaryColor};
+    }
+`
 const TagListItem = styled.li`
     display: inline-block;
     margin-right: 5px;
     padding: 3px 5px;
+    font-family: 'Nanum Gothic Coding', monospace;
     font-size: .5em;
     color: ${({ theme }) => theme.secondaryColor};
     background: ${({ theme }) => theme.primaryColor};
 `
 const DescP = styled.p`
-    font-size: .85em;
+    font-size: .7em;
+    /* font-family: 'Cuprum', sans-serif; */
     color: ${({ theme }) => theme.primaryColor};
 `
 const DateP = styled.p`
-    font-size: .7em;
+    font-size: .55em;
 `
 
 // removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
@@ -141,7 +152,7 @@ function Index({
                             href='/post/[slug]'
                             as={`/post/${slug.current}`}
                         >
-                            <a>{title}</a>
+                            <ListItemLink>{title}</ListItemLink>
                         </Link>
                         <DescP>{description}</DescP>
                         <DateP>

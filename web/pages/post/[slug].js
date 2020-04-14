@@ -3,18 +3,21 @@ import HeaderLayout from '../../components/HeaderLayout'
 import styled from 'styled-components'
 import moment from 'moment'
 
-const P = styled.p`
+const PBody = styled.p`
     margin-top: 1.5em;
+    font-size: 1.15em;
+    /* font-weight: 300; */
+    line-height: 1.75em;
 `
-const H3 = styled.h3`
-    font-size: 1.5em;
-    font-family: 'Lustria', serif;
+const PDesc = styled.p`
+    font-size: 1.25em;
+    /* font-family: 'Lustria', serif; */
     color: ${({ theme }) => theme.primaryColor};
-    margin: 3px 0;
+    margin: 3px 0 0;
 `
-const DateH3 = styled(H3)`
-    font-size: 1em;
-    font-weight: normal;
+const PDate = styled(PDesc)`
+    font-size: 1.15em;
+    /* font-weight: normal; */
     color: ${({ theme }) => theme.text};
 `
 
@@ -23,9 +26,9 @@ function Post(props) {
         <HeaderLayout onToggleThemeClick={props.onToggleThemeClick}>
             <article>
                 <h2>{props.title}</h2>
-                <H3>{props.description}</H3>
-                <DateH3>{moment.utc(props._createdAt).format("LL")}</DateH3>
-                <P>{props.body}</P>
+                <PDesc>{props.description}</PDesc>
+                <PDate>{moment.utc(props._createdAt).format("LL")}</PDate>
+                <PBody>{props.body}</PBody>
             </article>
         </HeaderLayout>
     )

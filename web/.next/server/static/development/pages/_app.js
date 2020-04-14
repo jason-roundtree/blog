@@ -166,14 +166,19 @@ const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["createGloba
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Archivo Narrow', sans-serif;
+        /* font-family: 'Archivo Narrow', sans-serif; */
+        /* font-family: 'Nanum Gothic', sans-serif; */
+        /* font-family: 'Lato', sans-serif; */
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
         color: var(--primary-color)
     }
 
     h2 {
-        font-size: 2em;
-        font-weight: 700;
-        margin-top: .75em;
+        font-size: 1.5em;
+        margin-top: 1.5em;
+        font-family: 'Cuprum', sans-serif;
+        font-family: 'Fjalla One', sans-serif;
     }
 
     main {
@@ -189,8 +194,8 @@ const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["createGloba
     }
 
     p {
-        font-family: 'Lustria', serif;
-        line-height: 1.75em;
+        /* font-family: 'Lustria', serif;    */
+        line-height: 1.5em;
         color: ${({
   theme
 }) => theme.text};
