@@ -32,32 +32,16 @@ const ToggleBtn = styled.img`
 `
 
 function HeaderLayout(props) {
-    console.log('propsaaa: ', props)
-    // const themeInfo = {
-    //     dark: {
-    //         iconSrc: '/images/023-moon-3.svg',
-    //         alt: 'Icon of moon for "Dark Mode"'
-    //     },
-    //     light: {
-    //         src: '/images/023-moon-3.svg',
-    //         alt: 'Icon of sun for "Light Mode"'
-    //     }
-    // }
+    // console.log('HeaderLayout props: ', props)
+    const theme = props.themeString === 'light'
+        ? themes['light']
+        : themes['dark']
 
-    // props.themeString === 'light'
-    //     ? mode['light']
-    //     : 
     return (
         <>
             <Head>
                 <title>Jason Roundtree - Blog</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                {/* <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:400,500,600,700&display=swap" rel="stylesheet"></link>
-                <link href="https://fonts.googleapis.com/css?family=Lustria&display=swap" rel="stylesheet"></link>
-                
-
-                <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet"></link> */}
-                {/* <link href="https://fonts.googleapis.com/css2?family=Lato:300,400,700&display=swap" rel="stylesheet"></link> */}
                 <link href="https://fonts.googleapis.com/css2?family=Open+Sans300,400,600&display=swap" rel="stylesheet"></link>
                 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet"></link>
                 <link href="https://fonts.googleapis.com/css2?family=Cuprum&family=Fjalla+One&display=swap" rel="stylesheet"></link>
@@ -73,14 +57,8 @@ function HeaderLayout(props) {
                     {/* <Span>a web dev blog, by </Span><a href='http://jasonroundtree.info/' target="_blank">jason roundtree</a> */}
                 </nav>
                 <ToggleBtn
-                    src={props.themeString === 'light'
-                        ? `${themes['light'].iconSrc}`
-                        : `${themes['dark'].iconSrc}`
-                    }
-                    alt={props.themeString === 'light'
-                        ? `${themes['light'].iconAlt}`
-                        : `${themes['dark'].iconAlt}`
-                    }
+                    src={`${theme.iconSrc}`}
+                    alt={`${theme.iconAlt}`}
                     onClick={props.onToggleThemeClick}
                 ></ToggleBtn>
             </Header>

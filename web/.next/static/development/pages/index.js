@@ -111,32 +111,20 @@ var ToggleBtn = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].img.wi
 })(["height:1.8em;width:1.8em;&:hover{cursor:pointer;}"]);
 
 function HeaderLayout(props) {
-  console.log('propsaaa: ', props); // const themeInfo = {
-  //     dark: {
-  //         iconSrc: '/images/023-moon-3.svg',
-  //         alt: 'Icon of moon for "Dark Mode"'
-  //     },
-  //     light: {
-  //         src: '/images/023-moon-3.svg',
-  //         alt: 'Icon of sun for "Light Mode"'
-  //     }
-  // }
-  // props.themeString === 'light'
-  //     ? mode['light']
-  //     : 
-
+  // console.log('HeaderLayout props: ', props)
+  var theme = props.themeString === 'light' ? _colorsAndThemes__WEBPACK_IMPORTED_MODULE_4__["default"]['light'] : _colorsAndThemes__WEBPACK_IMPORTED_MODULE_4__["default"]['dark'];
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 42,
       columnNumber: 13
     }
   }, __jsx("title", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 43,
       columnNumber: 17
     }
   }, "Jason Roundtree - Blog"), __jsx("meta", {
@@ -145,7 +133,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 44,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -154,7 +142,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61,
+      lineNumber: 45,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -163,7 +151,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 46,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -172,28 +160,28 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 47,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 50,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 51,
       columnNumber: 17
     }
   }, __jsx(H1, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68,
+      lineNumber: 52,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -201,31 +189,31 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 53,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 54,
       columnNumber: 29
     }
   }, "Jason Roundtree - Blog")))), __jsx(ToggleBtn, {
-    src: props.themeString === 'light' ? "".concat(_colorsAndThemes__WEBPACK_IMPORTED_MODULE_4__["default"]['light'].iconSrc) : "".concat(_colorsAndThemes__WEBPACK_IMPORTED_MODULE_4__["default"]['dark'].iconSrc),
-    alt: props.themeString === 'light' ? "".concat(_colorsAndThemes__WEBPACK_IMPORTED_MODULE_4__["default"]['light'].iconAlt) : "".concat(_colorsAndThemes__WEBPACK_IMPORTED_MODULE_4__["default"]['dark'].iconAlt),
+    src: "".concat(theme.iconSrc),
+    alt: "".concat(theme.iconAlt),
     onClick: props.onToggleThemeClick,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75,
+      lineNumber: 59,
       columnNumber: 17
     }
   })), __jsx(Main, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 88,
+      lineNumber: 66,
       columnNumber: 13
     }
   }, props.children));
