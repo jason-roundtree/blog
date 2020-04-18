@@ -93,16 +93,16 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "./colorScheme.js":
-/*!************************!*\
-  !*** ./colorScheme.js ***!
-  \************************/
+/***/ "./colorsAndThemes.js":
+/*!****************************!*\
+  !*** ./colorsAndThemes.js ***!
+  \****************************/
 /*! exports provided: default, colors */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return modes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return themes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "colors", function() { return colors; });
 const colors = {
   white: `rgb(250,250,250)`,
@@ -112,18 +112,22 @@ const colors = {
   secondaryColor: `rgb(250, 223, 147)`,
   tertiaryColor: `rgb(16, 46, 36)`
 };
-const modes = {
+const themes = {
   dark: {
     body: `${colors.darkGrey}`,
     text: `${colors.white}`,
     primaryColor: `${colors.secondaryColor}`,
-    secondaryColor: `${colors.primaryColorDarker}`
+    secondaryColor: `${colors.primaryColorDarker}`,
+    iconSrc: '/images/sun.svg',
+    iconAlt: 'Icon of moon for "Dark Mode" theme'
   },
   light: {
     body: `${colors.white}`,
     text: `${colors.darkGrey}`,
     primaryColor: `${colors.primaryColorDarker}`,
-    secondaryColor: `${colors.secondaryColor}`
+    secondaryColor: `${colors.secondaryColor}`,
+    iconSrc: '/images/moon.svg',
+    iconAlt: 'Icon of sun for "Light Mode" theme'
   }
 };
 
@@ -142,15 +146,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GlobalStyles", function() { return GlobalStyles; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _colorScheme__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../colorScheme */ "./colorScheme.js");
+/* harmony import */ var _colorsAndThemes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../colorsAndThemes */ "./colorsAndThemes.js");
 
 
 const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["createGlobalStyle"]`
     :root {
-        --primary-color: ${_colorScheme__WEBPACK_IMPORTED_MODULE_1__["colors"].primaryColor};
-        --primary-darker: ${_colorScheme__WEBPACK_IMPORTED_MODULE_1__["colors"].primaryColorDarker};
-        --secondary-color: ${_colorScheme__WEBPACK_IMPORTED_MODULE_1__["colors"].secondaryColor};
-        --tertiary-color: ${_colorScheme__WEBPACK_IMPORTED_MODULE_1__["colors"].tertiaryColor};
+        --primary-color: ${_colorsAndThemes__WEBPACK_IMPORTED_MODULE_1__["colors"].primaryColor};
+        --primary-darker: ${_colorsAndThemes__WEBPACK_IMPORTED_MODULE_1__["colors"].primaryColorDarker};
+        --secondary-color: ${_colorsAndThemes__WEBPACK_IMPORTED_MODULE_1__["colors"].secondaryColor};
+        --tertiary-color: ${_colorsAndThemes__WEBPACK_IMPORTED_MODULE_1__["colors"].tertiaryColor};
     }
 
     body {
@@ -221,7 +225,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_GlobalStyles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/GlobalStyles */ "./components/GlobalStyles.js");
-/* harmony import */ var _colorScheme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../colorScheme */ "./colorScheme.js");
+/* harmony import */ var _colorsAndThemes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../colorsAndThemes */ "./colorsAndThemes.js");
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/pages/_app.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -244,11 +248,9 @@ function MyApp({
   const {
     0: userThemeObj,
     1: setUserThemeObj
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(_colorScheme__WEBPACK_IMPORTED_MODULE_3__["default"][userThemeStr]); // console.log('userThemeStr: ', userThemeStr)
-  // console.log('userThemeObj: ', userThemeObj)
-
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(_colorsAndThemes__WEBPACK_IMPORTED_MODULE_3__["default"][userThemeStr]);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
-    setUserThemeObj(_colorScheme__WEBPACK_IMPORTED_MODULE_3__["default"][userThemeStr]);
+    setUserThemeObj(_colorsAndThemes__WEBPACK_IMPORTED_MODULE_3__["default"][userThemeStr]);
   }, [userThemeStr]);
 
   function handleThemeToggle() {
@@ -261,22 +263,23 @@ function MyApp({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 22,
       columnNumber: 9
     }
   }, __jsx(_components_GlobalStyles__WEBPACK_IMPORTED_MODULE_2__["GlobalStyles"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 23,
       columnNumber: 13
     }
   }), __jsx(Component, _extends({}, pageProps, {
     onToggleThemeClick: handleThemeToggle,
+    themeString: userThemeStr,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26,
+      lineNumber: 24,
       columnNumber: 13
     }
   })));

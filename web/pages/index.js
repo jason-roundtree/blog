@@ -73,6 +73,7 @@ function getTagCountsData(tags) {
 function Index({ 
     posts, 
     tags, 
+    themeString,
     onToggleThemeClick
 }) {
     // console.log('posts: ', posts)
@@ -129,7 +130,10 @@ function Index({
 
     return (
         // TODO: is there a better way to render HeaderLayout instead of using in here and in [slug] (and any other separate pages that I add? Checkout next.js _document)
-        <HeaderLayout onToggleThemeClick={onToggleThemeClick}>
+        <HeaderLayout 
+            onToggleThemeClick={onToggleThemeClick} 
+            themeString={themeString}
+        >
             
             <h2>Filter by Tags:</h2>
             <KeywordTags 

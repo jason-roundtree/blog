@@ -114,6 +114,47 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./colorsAndThemes.js":
+/*!****************************!*\
+  !*** ./colorsAndThemes.js ***!
+  \****************************/
+/*! exports provided: default, colors */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return themes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "colors", function() { return colors; });
+const colors = {
+  white: `rgb(250,250,250)`,
+  darkGrey: `rgb(54, 53, 55)`,
+  primaryColor: `rgb(3, 152, 252)`,
+  primaryColorDarker: `rgb(0, 85, 143)`,
+  secondaryColor: `rgb(250, 223, 147)`,
+  tertiaryColor: `rgb(16, 46, 36)`
+};
+const themes = {
+  dark: {
+    body: `${colors.darkGrey}`,
+    text: `${colors.white}`,
+    primaryColor: `${colors.secondaryColor}`,
+    secondaryColor: `${colors.primaryColorDarker}`,
+    iconSrc: '/images/sun.svg',
+    iconAlt: 'Icon of moon for "Dark Mode" theme'
+  },
+  light: {
+    body: `${colors.white}`,
+    text: `${colors.darkGrey}`,
+    primaryColor: `${colors.primaryColorDarker}`,
+    secondaryColor: `${colors.secondaryColor}`,
+    iconSrc: '/images/moon.svg',
+    iconAlt: 'Icon of sun for "Light Mode" theme'
+  }
+};
+
+
+/***/ }),
+
 /***/ "./components/HeaderLayout.js":
 /*!************************************!*\
   !*** ./components/HeaderLayout.js ***!
@@ -131,9 +172,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _colorsAndThemes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../colorsAndThemes */ "./colorsAndThemes.js");
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/components/HeaderLayout.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 
@@ -157,22 +200,35 @@ const H1 = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.h1.withConfi
 const ToggleBtn = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.img.withConfig({
   displayName: "HeaderLayout__ToggleBtn",
   componentId: "sc-2bs9km-3"
-})(["height:2em;width:2em;&:hover{cursor:pointer;}&:active{height:1.8em;width:1.8em;}"]);
+})(["height:1.8em;width:1.8em;&:hover{cursor:pointer;}"]);
 
 function HeaderLayout(props) {
-  console.log('propsaaa: ', props);
+  console.log('propsaaa: ', props); // const themeInfo = {
+  //     dark: {
+  //         iconSrc: '/images/023-moon-3.svg',
+  //         alt: 'Icon of moon for "Dark Mode"'
+  //     },
+  //     light: {
+  //         src: '/images/023-moon-3.svg',
+  //         alt: 'Icon of sun for "Light Mode"'
+  //     }
+  // }
+  // props.themeString === 'light'
+  //     ? mode['light']
+  //     : 
+
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37,
+      lineNumber: 52,
       columnNumber: 13
     }
   }, __jsx("title", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 53,
       columnNumber: 17
     }
   }, "Jason Roundtree - Blog"), __jsx("meta", {
@@ -181,7 +237,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39,
+      lineNumber: 54,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -190,7 +246,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 61,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -199,7 +255,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 62,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -208,28 +264,28 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 63,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 66,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 67,
       columnNumber: 17
     }
   }, __jsx(H1, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 68,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -237,30 +293,31 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 69,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 70,
       columnNumber: 29
     }
-  }, "Jason Roundtree")))), __jsx(ToggleBtn, {
-    src: "/images/029-moon-6.svg",
+  }, "Jason Roundtree - Blog")))), __jsx(ToggleBtn, {
+    src: props.themeString === 'light' ? `${_colorsAndThemes__WEBPACK_IMPORTED_MODULE_4__["default"]['light'].iconSrc}` : `${_colorsAndThemes__WEBPACK_IMPORTED_MODULE_4__["default"]['dark'].iconSrc}`,
+    alt: props.themeString === 'light' ? `${_colorsAndThemes__WEBPACK_IMPORTED_MODULE_4__["default"]['light'].iconAlt}` : `${_colorsAndThemes__WEBPACK_IMPORTED_MODULE_4__["default"]['dark'].iconAlt}`,
     onClick: props.onToggleThemeClick,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62,
+      lineNumber: 75,
       columnNumber: 17
     }
   })), __jsx(Main, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 88,
       columnNumber: 13
     }
   }, props.children));
@@ -286,18 +343,19 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/components/KeywordTags.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+ // const TagsContainer = styled.div`
+//     display: flex;
+//     justify-content: center;
+//     flex-wrap: wrap;
+// `
 
-const TagsContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
-  displayName: "KeywordTags__TagsContainer",
-  componentId: "sc-1eepvlk-0"
-})(["display:flex;justify-content:center;flex-wrap:wrap;"]);
 const TagBtn = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.button.withConfig({
   displayName: "KeywordTags__TagBtn",
-  componentId: "sc-1eepvlk-1"
+  componentId: "sc-1eepvlk-0"
 })(["padding:7px 10px;margin:15px 0 0 15px;color:var(--secondary-color);font-size:1em;border:none;background-color:var(--primary-color);font-family:'Nanum Gothic Coding',monospace;&:hover{cursor:pointer;background-color:var(--primary-darker);}"]);
 const TagCount = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.span.withConfig({
   displayName: "KeywordTags__TagCount",
-  componentId: "sc-1eepvlk-2"
+  componentId: "sc-1eepvlk-1"
 })(["font-family:'Fjalla One',sans-serif;color:var(--secondary-color);font-size:.8em;"]);
 
 function KeywordTags(props) {
@@ -305,7 +363,7 @@ function KeywordTags(props) {
   props.tags.sort((a, b) => {
     return a.name > b.name ? 1 : -1;
   });
-  return __jsx(TagsContainer, {
+  return __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -2113,6 +2171,7 @@ function getTagCountsData(tags) {
 function Index({
   posts,
   tags,
+  themeString,
   onToggleThemeClick
 }) {
   // console.log('posts: ', posts)
@@ -2173,17 +2232,18 @@ function Index({
   return (// TODO: is there a better way to render HeaderLayout instead of using in here and in [slug] (and any other separate pages that I add? Checkout next.js _document)
     __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_5__["default"], {
       onToggleThemeClick: onToggleThemeClick,
+      themeString: themeString,
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 132,
+        lineNumber: 133,
         columnNumber: 9
       }
     }, __jsx("h2", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 134,
+        lineNumber: 138,
         columnNumber: 13
       }
     }, "Filter by Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -2193,14 +2253,14 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 135,
+        lineNumber: 139,
         columnNumber: 13
       }
     }), __jsx("h2", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 141,
+        lineNumber: 145,
         columnNumber: 13
       }
     }, "Posts:"), postsToRender.map(({
@@ -2215,7 +2275,7 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 151,
+        lineNumber: 155,
         columnNumber: 21
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -2224,35 +2284,35 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 152,
+        lineNumber: 156,
         columnNumber: 25
       }
     }, __jsx(ListItemLink, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 156,
+        lineNumber: 160,
         columnNumber: 29
       }
     }, title)), __jsx(DescP, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 158,
+        lineNumber: 162,
         columnNumber: 25
       }
     }, description), __jsx(DateP, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 159,
+        lineNumber: 163,
         columnNumber: 25
       }
     }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 162,
+        lineNumber: 166,
         columnNumber: 25
       }
     }, tags.map(tag => {
@@ -2261,7 +2321,7 @@ function Index({
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 165,
+          lineNumber: 169,
           columnNumber: 37
         }
       }, tag.name);

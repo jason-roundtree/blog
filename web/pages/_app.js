@@ -1,16 +1,14 @@
 import { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from '../components/GlobalStyles'
-import modes from '../colorScheme'
+import themes from '../colorsAndThemes'
 
 function MyApp({ Component, pageProps }) {
     const [ userThemeStr, setUserThemeStr ] = useState('light')
-    const [ userThemeObj, setUserThemeObj ] = useState(modes[userThemeStr])
-    // console.log('userThemeStr: ', userThemeStr)
-    // console.log('userThemeObj: ', userThemeObj)
+    const [ userThemeObj, setUserThemeObj ] = useState(themes[userThemeStr])
 
     useEffect(() => {
-        setUserThemeObj(modes[userThemeStr])
+        setUserThemeObj(themes[userThemeStr])
     }, [userThemeStr])
     
     function handleThemeToggle() {
@@ -26,6 +24,7 @@ function MyApp({ Component, pageProps }) {
             <Component 
                 {...pageProps} 
                 onToggleThemeClick={handleThemeToggle}
+                themeString={userThemeStr}
             />
         </ThemeProvider>
     )

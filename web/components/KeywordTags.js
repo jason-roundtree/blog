@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-const TagsContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-`
+// const TagsContainer = styled.div`
+//     display: flex;
+//     justify-content: center;
+//     flex-wrap: wrap;
+// `
 const TagBtn = styled.button`
     padding: 7px 10px;
     margin: 15px 0 0 15px;
@@ -32,7 +32,7 @@ function KeywordTags(props) {
     })
     
     return (
-        <TagsContainer>
+        <div>
             {/* this length check prevents `All Posts` button from rendering prior to the rest of the tag buttons */}
             {props.tags.length > 0 && (
                 <TagBtn
@@ -66,7 +66,7 @@ function KeywordTags(props) {
                     </TagBtn>
                 )
             ))}
-        </TagsContainer>
+        </div>
     )
 }
 

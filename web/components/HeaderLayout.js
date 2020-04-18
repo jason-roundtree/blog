@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useState } from 'react'
 import styled from 'styled-components'
+import themes from '../colorsAndThemes'
 
 const Main = styled.main`
     max-width: 750px;
@@ -21,17 +22,31 @@ const H1 = styled.h1`
     font-size: 1.5em;
 `
 const ToggleBtn = styled.img`
-    height: 2em;
-    width: 2em;
+    height: 1.8em;
+    width: 1.8em;
     &:hover { cursor: pointer; }
-    &:active {
-        height: 1.8em;
-        width: 1.8em;
-    }
+    /* &:active {
+        height: 1.6em;
+        width: 1.6em;
+    } */
 `
 
 function HeaderLayout(props) {
     console.log('propsaaa: ', props)
+    // const themeInfo = {
+    //     dark: {
+    //         iconSrc: '/images/023-moon-3.svg',
+    //         alt: 'Icon of moon for "Dark Mode"'
+    //     },
+    //     light: {
+    //         src: '/images/023-moon-3.svg',
+    //         alt: 'Icon of sun for "Light Mode"'
+    //     }
+    // }
+
+    // props.themeString === 'light'
+    //     ? mode['light']
+    //     : 
     return (
         <>
             <Head>
@@ -52,18 +67,22 @@ function HeaderLayout(props) {
                 <nav>
                     <H1>
                         <Link href='/'>
-                            <a>Jason Roundtree</a>
+                            <a>Jason Roundtree - Blog</a>
                         </Link>
-                        
                     </H1>
                     {/* <Span>a web dev blog, by </Span><a href='http://jasonroundtree.info/' target="_blank">jason roundtree</a> */}
-                    
                 </nav>
                 <ToggleBtn
-                    src='/images/029-moon-6.svg'
+                    src={props.themeString === 'light'
+                        ? `${themes['light'].iconSrc}`
+                        : `${themes['dark'].iconSrc}`
+                    }
+                    alt={props.themeString === 'light'
+                        ? `${themes['light'].iconAlt}`
+                        : `${themes['dark'].iconAlt}`
+                    }
                     onClick={props.onToggleThemeClick}
                 ></ToggleBtn>
-
             </Header>
 
             <Main>{props.children}</Main>
