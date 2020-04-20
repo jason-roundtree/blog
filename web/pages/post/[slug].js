@@ -20,15 +20,45 @@ const PDate = styled(PDesc)`
     /* font-weight: normal; */
     color: ${({ theme }) => theme.text};
 `
+{/* <pre>
+    <code className="language-js">
+        ${section.code}
+    </code>
+</pre> */}
 
 function Post(props) {
+    console.log('propsPost: ', props.body)
+    // let postContent = ''
+    // props.body.forEach(section => {
+    //         if (section._type === 'block') {
+    //             postContent += section.children[0].text
+    //         } else if (section._type === 'code') {
+    //             postContent += section.code
+    //         }
+    // })
+
     return (
-        <HeaderLayout onToggleThemeClick={props.onToggleThemeClick}>
+        <HeaderLayout 
+            onToggleThemeClick={props.onToggleThemeClick}
+            themeString={props.themeString}
+        >
             <article>
                 <h2>{props.title}</h2>
                 <PDesc>{props.description}</PDesc>
                 <PDate>{moment.utc(props._createdAt).format("LL")}</PDate>
-                <PBody>{props.body}</PBody>
+                {/* <PBody>{props.body.map(section => section.children)}</PBody> */}
+                {/* <PBody>
+                    {postContent}
+                </PBody>
+                <pre>
+                    <code className="language-js">
+                        {`
+        function test() { 
+            return 'hello hello!'
+        }
+                        `}
+                    </code>
+                </pre> */}
             </article>
         </HeaderLayout>
     )

@@ -11,13 +11,37 @@ export default {
         {
             title: 'Description',
             name: 'description',
-            type: 'text'
+            type: 'text',
+            rows: 3
         },
+        // {
+        //     name: 'codeExample',
+        //     title: 'Code Example',
+        //     type: 'code',
+        //     options: {
+        //         language: 'js',
+        //         theme: 'monokai'
+        //     }
+        // },
         {
             title: 'Body',
             name: 'body',
-            type: 'text',
+            type: 'array',
+            of: [
+                { type: 'block' },
+                { type: 'code' }
+            ]
         },
+                // { 
+                //     name: 'codeExample',
+                //     type: 'code',
+                //     options: {
+                //         language: 'js',
+                //         theme: 'tomorrow'
+                //     }
+                // }
+        //     ]
+        // },
         {
             title: 'Published',
             name: 'published',
