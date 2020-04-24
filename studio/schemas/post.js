@@ -14,15 +14,6 @@ export default {
             type: 'text',
             rows: 3
         },
-        // {
-        //     name: 'codeExample',
-        //     title: 'Code Example',
-        //     type: 'code',
-        //     options: {
-        //         language: 'js',
-        //         theme: 'monokai'
-        //     }
-        // },
         {
             title: 'Body',
             name: 'body',
@@ -32,16 +23,6 @@ export default {
                 { type: 'code' }
             ]
         },
-                // { 
-                //     name: 'codeExample',
-                //     type: 'code',
-                //     options: {
-                //         language: 'js',
-                //         theme: 'tomorrow'
-                //     }
-                // }
-        //     ]
-        // },
         {
             title: 'Published',
             name: 'published',

@@ -14,8 +14,8 @@ const ListItem = styled.li`
     border: 1px solid var(--primary-darker);
 `
 const ListItemLink = styled.a`
-/* font-family: 'Cuprum', sans-serif; */
-font-family: 'Fjalla One', sans-serif;
+    /* font-family: 'Cuprum', sans-serif; */
+    font-family: 'Fjalla One', sans-serif;
     font-weight: 400;
     &:hover {
         cursor: pointer;
@@ -33,7 +33,6 @@ const TagListItem = styled.li`
 `
 const DescP = styled.p`
     font-size: .7em;
-    /* font-family: 'Cuprum', sans-serif; */
     color: ${({ theme }) => theme.primaryColor};
 `
 const DateP = styled.p`

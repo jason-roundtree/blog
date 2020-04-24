@@ -164,6 +164,7 @@ const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["createGloba
         color: ${({
   theme
 }) => theme.text};
+        font-family: 'Open Sans', sans-serif;
     }
 
     * {
@@ -173,7 +174,7 @@ const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["createGloba
         /* font-family: 'Archivo Narrow', sans-serif; */
         /* font-family: 'Nanum Gothic', sans-serif; */
         /* font-family: 'Lato', sans-serif; */
-        font-family: 'Open Sans', sans-serif;
+        
         font-weight: 300;
         color: var(--primary-color)
     }
@@ -206,6 +207,9 @@ const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["createGloba
 
     .selectedTag.selectedTag {
         background-color: var(--primary-darker)
+    }
+    pre {
+        font-family: 'Courier Prime', monospace;
     }
 `;
 
@@ -254,7 +258,6 @@ function MyApp({
   }, [userThemeStr]);
 
   function handleThemeToggle() {
-    console.log('event ran');
     setUserThemeStr(userThemeStr === 'dark' ? 'light' : 'dark');
   }
 
@@ -263,14 +266,14 @@ function MyApp({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 21,
       columnNumber: 9
     }
   }, __jsx(_components_GlobalStyles__WEBPACK_IMPORTED_MODULE_2__["GlobalStyles"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 22,
       columnNumber: 13
     }
   }), __jsx(Component, _extends({}, pageProps, {
@@ -279,7 +282,7 @@ function MyApp({
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 23,
       columnNumber: 13
     }
   })));

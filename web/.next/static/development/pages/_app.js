@@ -57,7 +57,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function _templateObject() {
-  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    :root {\n        --primary-color: ", ";\n        --primary-darker: ", ";\n        --secondary-color: ", ";\n        --tertiary-color: ", ";\n    }\n\n    body {\n        background: ", ";\n        color: ", ";\n    }\n\n    * {\n        margin: 0;\n        padding: 0;\n        box-sizing: border-box;\n        /* font-family: 'Archivo Narrow', sans-serif; */\n        /* font-family: 'Nanum Gothic', sans-serif; */\n        /* font-family: 'Lato', sans-serif; */\n        font-family: 'Open Sans', sans-serif;\n        font-weight: 300;\n        color: var(--primary-color)\n    }\n\n    h2 {\n        font-size: 1.5em;\n        margin-top: 1.5em;\n        font-family: 'Cuprum', sans-serif;\n        font-family: 'Fjalla One', sans-serif;\n    }\n\n    main {\n        padding: 0 2.5em 2.5em 2.5em;\n    }\n\n    a {\n        text-decoration: none;\n    }\n\n    li {\n        list-style: none;\n    }\n\n    p {\n        line-height: 1.5em;\n        color: ", ";\n    }\n\n    .selectedTag.selectedTag {\n        background-color: var(--primary-darker)\n    }\n"]);
+  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    :root {\n        --primary-color: ", ";\n        --primary-darker: ", ";\n        --secondary-color: ", ";\n        --tertiary-color: ", ";\n    }\n\n    body {\n        background: ", ";\n        color: ", ";\n        font-family: 'Open Sans', sans-serif;\n    }\n\n    * {\n        margin: 0;\n        padding: 0;\n        box-sizing: border-box;\n        /* font-family: 'Archivo Narrow', sans-serif; */\n        /* font-family: 'Nanum Gothic', sans-serif; */\n        /* font-family: 'Lato', sans-serif; */\n        \n        font-weight: 300;\n        color: var(--primary-color)\n    }\n\n    h2 {\n        font-size: 1.5em;\n        margin-top: 1.5em;\n        font-family: 'Cuprum', sans-serif;\n        font-family: 'Fjalla One', sans-serif;\n    }\n\n    main {\n        padding: 0 2.5em 2.5em 2.5em;\n    }\n\n    a {\n        text-decoration: none;\n    }\n\n    li {\n        list-style: none;\n    }\n\n    p {\n        line-height: 1.5em;\n        color: ", ";\n    }\n\n    .selectedTag.selectedTag {\n        background-color: var(--primary-darker)\n    }\n    pre {\n        font-family: 'Courier Prime', monospace;\n    }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -6210,7 +6210,6 @@ function MyApp(_ref) {
   }, [userThemeStr]);
 
   function handleThemeToggle() {
-    console.log('event ran');
     setUserThemeStr(userThemeStr === 'dark' ? 'light' : 'dark');
   }
 
@@ -6219,14 +6218,14 @@ function MyApp(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 21,
       columnNumber: 9
     }
   }, __jsx(_components_GlobalStyles__WEBPACK_IMPORTED_MODULE_3__["GlobalStyles"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23,
+      lineNumber: 22,
       columnNumber: 13
     }
   }), __jsx(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
@@ -6235,7 +6234,7 @@ function MyApp(_ref) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 23,
       columnNumber: 13
     }
   })));

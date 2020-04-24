@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -180,7 +180,6 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-
 const Main = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.main.withConfig({
   displayName: "HeaderLayout__Main",
   componentId: "sc-2bs9km-0"
@@ -209,14 +208,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 40,
       columnNumber: 13
     }
   }, __jsx("title", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43,
+      lineNumber: 41,
       columnNumber: 17
     }
   }, "Jason Roundtree - Blog"), __jsx("meta", {
@@ -225,7 +224,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44,
+      lineNumber: 42,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -234,7 +233,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 43,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -243,7 +242,7 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 44,
       columnNumber: 17
     }
   }), __jsx("link", {
@@ -252,37 +251,37 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 45,
       columnNumber: 17
     }
   }), __jsx("link", {
+    href: "https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap",
     rel: "stylesheet",
-    href: "https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism.min.css",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 46,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 49,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55,
+      lineNumber: 50,
       columnNumber: 17
     }
   }, __jsx(H1, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56,
+      lineNumber: 51,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -290,14 +289,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57,
+      lineNumber: 52,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 53,
       columnNumber: 29
     }
   }, "Jason Roundtree - Blog")))), __jsx(ToggleBtn, {
@@ -307,25 +306,17 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63,
+      lineNumber: 58,
       columnNumber: 17
     }
   })), __jsx(Main, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 65,
       columnNumber: 13
     }
-  }, props.children), __jsx("script", {
-    src: "https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/prism.min.js",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 71,
-      columnNumber: 13
-    }
-  }));
+  }, props.children));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (HeaderLayout);
@@ -2024,15 +2015,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "moment");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var prism_react_renderer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prism-react-renderer */ "prism-react-renderer");
+/* harmony import */ var prism_react_renderer__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var prism_react_renderer_themes_nightOwl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prism-react-renderer/themes/nightOwl */ "prism-react-renderer/themes/nightOwl");
+/* harmony import */ var prism_react_renderer_themes_nightOwl__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer_themes_nightOwl__WEBPACK_IMPORTED_MODULE_6__);
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/pages/post/[slug].js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 
 
-const PBody = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withConfig({
-  displayName: "slug__PBody",
+
+ // import Prism from 'prismjs/components/prism-core'
+
+
+
+const DivBody = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
+  displayName: "slug__DivBody",
   componentId: "sc-1e354jq-0"
 })(["margin-top:1.5em;font-size:1.15em;line-height:1.75em;"]);
 const PDesc = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withConfig({
@@ -2047,23 +2048,94 @@ const PDate = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(PDesc).wi
 })(["font-size:1.15em;color:", ";"], ({
   theme
 }) => theme.text);
-{
-  /* <pre>
-     <code className="language-js">
-         ${section.code}
-     </code>
-  </pre> */
+const Pre = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.pre.withConfig({
+  displayName: "slug__Pre",
+  componentId: "sc-1e354jq-3"
+})(["font-family:'Courier Prime',monospace;font-size:.85em;text-align:left;margin:1em 0;padding:0.5em;& .token-line{line-height:1.3em;height:1.3em;}"]);
+const LineNo = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.span.withConfig({
+  displayName: "slug__LineNo",
+  componentId: "sc-1e354jq-4"
+})(["display:inline-block;width:2em;user-select:none;opacity:0.3;"]);
+
+function formatParagraphBlock(block) {
+  return __jsx("p", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42,
+      columnNumber: 12
+    }
+  }, block);
+}
+
+function formatCodeBlock(block) {
+  return __jsx(prism_react_renderer__WEBPACK_IMPORTED_MODULE_5___default.a, _extends({}, prism_react_renderer__WEBPACK_IMPORTED_MODULE_5__["defaultProps"], {
+    theme: prism_react_renderer_themes_nightOwl__WEBPACK_IMPORTED_MODULE_6___default.a,
+    code: block,
+    language: "jsx",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47,
+      columnNumber: 9
+    }
+  }), ({
+    className,
+    style,
+    tokens,
+    getLineProps,
+    getTokenProps
+  }) => __jsx(Pre, {
+    className: className,
+    style: style,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 49,
+      columnNumber: 13
+    }
+  }, tokens.map((line, i) => __jsx("div", _extends({}, getLineProps({
+    line,
+    key: i
+  }), {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51,
+      columnNumber: 17
+    }
+  }), __jsx(LineNo, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52,
+      columnNumber: 21
+    }
+  }, i + 1), line.map((token, key) => __jsx("span", _extends({}, getTokenProps({
+    token,
+    key
+  }), {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53,
+      columnNumber: 47
+    }
+  })))))));
 }
 
 function Post(props) {
-  console.log('propsPost: ', props.body); // let postContent = ''
-  // props.body.forEach(section => {
-  //         if (section._type === 'block') {
-  //             postContent += section.children[0].text
-  //         } else if (section._type === 'code') {
-  //             postContent += section.code
-  //         }
-  // })
+  console.log('propsPost: ', props.body);
+  const postContent = [];
+  props.body.forEach(section => {
+    if (section._type === 'block') {
+      let formattedPara = formatParagraphBlock(section.children[0].text);
+      postContent.push(formattedPara);
+    } else if (section._type === 'code') {
+      let formattedCode = formatCodeBlock(section.code);
+      postContent.push(formattedCode);
+    }
+  }); // console.log('postContent: ', postContent)
 
   return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     onToggleThemeClick: props.onToggleThemeClick,
@@ -2071,64 +2143,45 @@ function Post(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41,
+      lineNumber: 77,
       columnNumber: 9
     }
   }, __jsx("article", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45,
+      lineNumber: 81,
       columnNumber: 13
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 82,
       columnNumber: 17
     }
   }, props.title), __jsx(PDesc, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 83,
       columnNumber: 17
     }
   }, props.description), __jsx(PDate, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48,
+      lineNumber: 84,
       columnNumber: 17
     }
-  }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(props._createdAt).format("LL")), __jsx(PBody, {
+  }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(props._createdAt).format("LL")), __jsx(DivBody, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 86,
       columnNumber: 17
     }
-  }), __jsx("pre", {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 53,
-      columnNumber: 17
-    }
-  }, __jsx("code", {
-    className: "language-js",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 54,
-      columnNumber: 21
-    }
-  }, `
-        function test() { 
-            return 'hello hello!'
-        }
-                        `))));
+  }, postContent.map(content => content))));
 }
 
 Post.getInitialProps = async function (context) {
@@ -2149,7 +2202,7 @@ Post.getInitialProps = async function (context) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 5:
 /*!************************************!*\
   !*** multi ./pages/post/[slug].js ***!
   \************************************/
@@ -2191,6 +2244,28 @@ module.exports = require("moment");
 /***/ (function(module, exports) {
 
 module.exports = require("next/head");
+
+/***/ }),
+
+/***/ "prism-react-renderer":
+/*!***************************************!*\
+  !*** external "prism-react-renderer" ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("prism-react-renderer");
+
+/***/ }),
+
+/***/ "prism-react-renderer/themes/nightOwl":
+/*!*******************************************************!*\
+  !*** external "prism-react-renderer/themes/nightOwl" ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("prism-react-renderer/themes/nightOwl");
 
 /***/ }),
 

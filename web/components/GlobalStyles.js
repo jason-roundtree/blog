@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     body {
         background: ${({ theme }) => theme.body};
         color: ${({ theme }) => theme.text};
+        font-family: 'Open Sans', sans-serif;
     }
 
     * {
@@ -21,7 +22,7 @@ export const GlobalStyles = createGlobalStyle`
         /* font-family: 'Archivo Narrow', sans-serif; */
         /* font-family: 'Nanum Gothic', sans-serif; */
         /* font-family: 'Lato', sans-serif; */
-        font-family: 'Open Sans', sans-serif;
+        
         font-weight: 300;
         color: var(--primary-color)
     }
@@ -52,5 +53,8 @@ export const GlobalStyles = createGlobalStyle`
 
     .selectedTag.selectedTag {
         background-color: var(--primary-darker)
+    }
+    pre {
+        font-family: 'Courier Prime', monospace;
     }
 `
