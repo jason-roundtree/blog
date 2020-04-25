@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import moment from 'moment'
 import HeaderLayout from '../components/HeaderLayout'
 import KeywordTags from '../components/KeywordTags'
+import sortStrings from '../utils/sortStrings.js'
 
 const ListItem = styled.li`
     margin: 15px 0 0 15px;
@@ -14,7 +15,6 @@ const ListItem = styled.li`
     border: 1px solid var(--primary-darker);
 `
 const ListItemLink = styled.a`
-    /* font-family: 'Cuprum', sans-serif; */
     font-family: 'Fjalla One', sans-serif;
     font-weight: 400;
     &:hover {
@@ -32,11 +32,11 @@ const TagListItem = styled.li`
     background: ${({ theme }) => theme.primaryColor};
 `
 const DescP = styled.p`
-    font-size: .7em;
+    font-size: .6em;
     color: ${({ theme }) => theme.primaryColor};
 `
 const DateP = styled.p`
-    font-size: .55em;
+    font-size: .5em;
 `
 
 // removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
@@ -110,7 +110,6 @@ function Index({
     }, [filteredTags])
 
     function handleTagFilter(e) {
-        // console.log('e.currentTarget.id: ', e.currentTarget.id)
         const selectedTagID = e.currentTarget.id
         if (selectedTagID === 'clearFilter') {
             setFilteredTags([])
@@ -163,7 +162,7 @@ function Index({
                             {moment.utc(_createdAt).format("LL")}
                         </DateP>
                         <ul>
-                            {tags.map(tag => {
+                            {sortStrings(tags).map(tag => {
                                 return (
                                     <TagListItem key={tag._id}>
                                         {tag.name}

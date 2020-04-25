@@ -33,7 +33,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return themes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "colors", function() { return colors; });
 var colors = {
-  white: "rgb(250,250,250)",
+  white: "rgb(252, 249, 237)",
   darkGrey: "rgb(54, 53, 55)",
   primaryColor: "rgb(3, 152, 252)",
   primaryColorDarker: "rgb(0, 85, 143)",
@@ -163,33 +163,33 @@ function HeaderLayout(props) {
       columnNumber: 17
     }
   }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap",
     rel: "stylesheet",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 47,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 50,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 51,
       columnNumber: 17
     }
   }, __jsx(H1, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 52,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -197,14 +197,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 53,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 54,
       columnNumber: 29
     }
   }, "Jason Roundtree - Blog")))), __jsx(ToggleBtn, {
@@ -214,14 +214,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 59,
       columnNumber: 17
     }
   })), __jsx(Main, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 66,
       columnNumber: 13
     }
   }, props.children));
@@ -28639,6 +28639,76 @@ Prism.languages.yml = Prism.languages.yaml;
 
 /***/ }),
 
+/***/ "./node_modules/prism-react-renderer/themes/dracula/index.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/prism-react-renderer/themes/dracula/index.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// Original: https://github.com/dracula/visual-studio-code
+// Converted automatically using ./tools/themeFromVsCode
+var theme = {
+  plain: {
+    color: "#F8F8F2",
+    backgroundColor: "#282A36"
+  },
+  styles: [{
+    types: ["prolog", "constant", "builtin"],
+    style: {
+      color: "rgb(189, 147, 249)"
+    }
+  }, {
+    types: ["inserted", "function"],
+    style: {
+      color: "rgb(80, 250, 123)"
+    }
+  }, {
+    types: ["deleted"],
+    style: {
+      color: "rgb(255, 85, 85)"
+    }
+  }, {
+    types: ["changed"],
+    style: {
+      color: "rgb(255, 184, 108)"
+    }
+  }, {
+    types: ["punctuation", "symbol"],
+    style: {
+      color: "rgb(248, 248, 242)"
+    }
+  }, {
+    types: ["string", "char", "tag", "selector"],
+    style: {
+      color: "rgb(255, 121, 198)"
+    }
+  }, {
+    types: ["keyword", "variable"],
+    style: {
+      color: "rgb(189, 147, 249)",
+      fontStyle: "italic"
+    }
+  }, {
+    types: ["comment"],
+    style: {
+      color: "rgb(98, 114, 164)"
+    }
+  }, {
+    types: ["attr-name"],
+    style: {
+      color: "rgb(241, 250, 140)"
+    }
+  }]
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (theme);
+
+
+/***/ }),
+
 /***/ "./node_modules/prism-react-renderer/themes/duotoneDark/index.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/prism-react-renderer/themes/duotoneDark/index.js ***!
@@ -28716,112 +28786,6 @@ var theme = {
     types: ["important"],
     style: {
       color: "#c4b9fe"
-    }
-  }]
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (theme);
-
-
-/***/ }),
-
-/***/ "./node_modules/prism-react-renderer/themes/nightOwl/index.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/prism-react-renderer/themes/nightOwl/index.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// Original: https://github.com/sdras/night-owl-vscode-theme
-// Converted automatically using ./tools/themeFromVsCode
-var theme = {
-  plain: {
-    color: "#d6deeb",
-    backgroundColor: "#011627"
-  },
-  styles: [{
-    types: ["changed"],
-    style: {
-      color: "rgb(162, 191, 252)",
-      fontStyle: "italic"
-    }
-  }, {
-    types: ["deleted"],
-    style: {
-      color: "rgba(239, 83, 80, 0.56)",
-      fontStyle: "italic"
-    }
-  }, {
-    types: ["inserted", "attr-name"],
-    style: {
-      color: "rgb(173, 219, 103)",
-      fontStyle: "italic"
-    }
-  }, {
-    types: ["comment"],
-    style: {
-      color: "rgb(99, 119, 119)",
-      fontStyle: "italic"
-    }
-  }, {
-    types: ["string", "url"],
-    style: {
-      color: "rgb(173, 219, 103)"
-    }
-  }, {
-    types: ["variable"],
-    style: {
-      color: "rgb(214, 222, 235)"
-    }
-  }, {
-    types: ["number"],
-    style: {
-      color: "rgb(247, 140, 108)"
-    }
-  }, {
-    types: ["builtin", "char", "constant", "function"],
-    style: {
-      color: "rgb(130, 170, 255)"
-    }
-  }, {
-    // This was manually added after the auto-generation
-    // so that punctuations are not italicised
-    types: ["punctuation"],
-    style: {
-      color: "rgb(199, 146, 234)"
-    }
-  }, {
-    types: ["selector", "doctype"],
-    style: {
-      color: "rgb(199, 146, 234)",
-      fontStyle: "italic"
-    }
-  }, {
-    types: ["class-name"],
-    style: {
-      color: "rgb(255, 203, 139)"
-    }
-  }, {
-    types: ["tag", "operator", "keyword"],
-    style: {
-      color: "rgb(127, 219, 202)"
-    }
-  }, {
-    types: ["boolean"],
-    style: {
-      color: "rgb(255, 88, 116)"
-    }
-  }, {
-    types: ["property"],
-    style: {
-      color: "rgb(128, 203, 196)"
-    }
-  }, {
-    types: ["namespace"],
-    style: {
-      color: "rgb(178, 204, 214)"
     }
   }]
 };
@@ -35058,7 +35022,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var prism_react_renderer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! prism-react-renderer */ "./node_modules/prism-react-renderer/dist/index.js");
-/* harmony import */ var prism_react_renderer_themes_nightOwl__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prism-react-renderer/themes/nightOwl */ "./node_modules/prism-react-renderer/themes/nightOwl/index.js");
+/* harmony import */ var prism_react_renderer_themes_dracula__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prism-react-renderer/themes/dracula */ "./node_modules/prism-react-renderer/themes/dracula/index.js");
 
 
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/pages/post/[slug].js";
@@ -35071,55 +35035,62 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
 
-var DivBody = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].div.withConfig({
-  displayName: "slug__DivBody",
+var Article = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].article.withConfig({
+  displayName: "slug__Article",
   componentId: "sc-1e354jq-0"
 })(["margin-top:1.5em;font-size:1.15em;line-height:1.75em;"]);
 var PDesc = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
   displayName: "slug__PDesc",
   componentId: "sc-1e354jq-1"
-})(["font-size:1.25em;color:", ";margin:3px 0 0;"], function (_ref) {
+})(["font-size:1.1em;color:", ";margin:3px 0 0;"], function (_ref) {
   var theme = _ref.theme;
   return theme.primaryColor;
 });
 var PDate = Object(styled_components__WEBPACK_IMPORTED_MODULE_5__["default"])(PDesc).withConfig({
   displayName: "slug__PDate",
   componentId: "sc-1e354jq-2"
-})(["font-size:1.15em;color:", ";"], function (_ref2) {
+})(["font-size:1em;color:", ";"], function (_ref2) {
   var theme = _ref2.theme;
   return theme.text;
 });
+var PBlock = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
+  displayName: "slug__PBlock",
+  componentId: "sc-1e354jq-3"
+})(["margin-bottom:1em;"]); // TODO: fix overflow and add horizontal scroll
+
 var Pre = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].pre.withConfig({
   displayName: "slug__Pre",
-  componentId: "sc-1e354jq-3"
-})(["font-family:'Courier Prime',monospace;font-size:.85em;text-align:left;margin:1em 0;padding:0.5em;& .token-line{line-height:1.3em;height:1.3em;}"]);
+  componentId: "sc-1e354jq-4"
+})(["font-family:'Nanum Gothic Coding',monospace;font-size:.9em;overflow:auto;text-align:left;margin:1em 0;padding:0.5em;& .token-line{line-height:1.3em;height:1.3em;}"]);
 var LineNo = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].span.withConfig({
   displayName: "slug__LineNo",
-  componentId: "sc-1e354jq-4"
-})(["display:inline-block;width:2em;user-select:none;opacity:0.3;"]);
+  componentId: "sc-1e354jq-5"
+})(["display:inline-block;width:2em;user-select:none;opacity:0.3;"]); // TODO: add block type for blockquote-like content
 
-function formatParagraphBlock(block) {
-  return __jsx("p", {
+function formatParagraphBlock(content, key) {
+  return __jsx(PBlock, {
+    key: key,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 51,
       columnNumber: 12
     }
-  }, block);
+  }, content);
 }
 
-function formatCodeBlock(block) {
+function prismafyCodeBlock(content, _key) {
   var _this = this;
 
   return __jsx(prism_react_renderer__WEBPACK_IMPORTED_MODULE_7__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, prism_react_renderer__WEBPACK_IMPORTED_MODULE_7__["defaultProps"], {
-    theme: prism_react_renderer_themes_nightOwl__WEBPACK_IMPORTED_MODULE_8__["default"],
-    code: block,
+    theme: prism_react_renderer_themes_dracula__WEBPACK_IMPORTED_MODULE_8__["default"],
+    code: content,
     language: "jsx",
+    key: _key,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 56,
       columnNumber: 9
     }
   }), function (_ref3) {
@@ -35134,8 +35105,8 @@ function formatCodeBlock(block) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49,
-        columnNumber: 13
+        lineNumber: 64,
+        columnNumber: 17
       }
     }, tokens.map(function (line, i) {
       return __jsx("div", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, getLineProps({
@@ -35145,15 +35116,15 @@ function formatCodeBlock(block) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51,
-          columnNumber: 17
+          lineNumber: 66,
+          columnNumber: 25
         }
       }), __jsx(LineNo, {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52,
-          columnNumber: 21
+          lineNumber: 67,
+          columnNumber: 29
         }
       }, i + 1), line.map(function (token, key) {
         return __jsx("span", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, getTokenProps({
@@ -35163,8 +35134,8 @@ function formatCodeBlock(block) {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 53,
-            columnNumber: 47
+            lineNumber: 70,
+            columnNumber: 37
           }
         }));
       }));
@@ -35175,13 +35146,11 @@ function formatCodeBlock(block) {
 function Post(props) {
   console.log('propsPost: ', props.body);
   var postContent = [];
-  props.body.forEach(function (section) {
+  props.body && props.body.forEach(function (section) {
     if (section._type === 'block') {
-      var formattedPara = formatParagraphBlock(section.children[0].text);
-      postContent.push(formattedPara);
+      postContent.push(formatParagraphBlock(section.children[0].text, section._key));
     } else if (section._type === 'code') {
-      var formattedCode = formatCodeBlock(section.code);
-      postContent.push(formattedCode);
+      postContent.push(prismafyCodeBlock(section.code, section._key));
     }
   }); // console.log('postContent: ', postContent)
 
@@ -35191,42 +35160,42 @@ function Post(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 98,
       columnNumber: 9
     }
   }, __jsx("article", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 102,
       columnNumber: 13
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
+      lineNumber: 103,
       columnNumber: 17
     }
   }, props.title), __jsx(PDesc, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 104,
       columnNumber: 17
     }
   }, props.description), __jsx(PDate, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 106,
       columnNumber: 17
     }
-  }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(props._createdAt).format("LL")), __jsx(DivBody, {
+  }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(props._createdAt).format("LL")), __jsx(Article, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 107,
       columnNumber: 17
     }
   }, postContent.map(function (content) {

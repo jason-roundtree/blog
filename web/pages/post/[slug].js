@@ -3,26 +3,33 @@ import HeaderLayout from '../../components/HeaderLayout'
 import styled from 'styled-components'
 import moment from 'moment'
 // import Prism from 'prismjs/components/prism-core'
-import Highlight, { defaultProps } from "prism-react-renderer"
-import prismTheme from 'prism-react-renderer/themes/nightOwl'
+import Highlight, { defaultProps } from 'prism-react-renderer'
+import prismTheme from 'prism-react-renderer/themes/dracula'
 
-const DivBody = styled.div`
+const Article = styled.article`
     margin-top: 1.5em;
     font-size: 1.15em;
     line-height: 1.75em;
 `
 const PDesc = styled.p`
-    font-size: 1.25em;
+    font-size: 1.1em;
     color: ${({ theme }) => theme.primaryColor};
     margin: 3px 0 0;
 `
 const PDate = styled(PDesc)`
-    font-size: 1.15em;
+    font-size: 1em;
     color: ${({ theme }) => theme.text};
 `
+const PBlock = styled.p`
+    margin-bottom: 1em;
+`
+// TODO: fix overflow and add horizontal scroll
 const Pre = styled.pre`
-    font-family: 'Courier Prime', monospace;
-    font-size: .85em;
+    /* font-family: 'Courier Prime', monospace;
+    font-family: 'Cutive Mono', monospace; */
+    font-family: 'Nanum Gothic Coding', monospace;
+    font-size: .9em;
+    overflow: auto;
     text-align: left;
     margin: 1em 0;
     padding: 0.5em;
@@ -30,6 +37,7 @@ const Pre = styled.pre`
         line-height: 1.3em;
         height: 1.3em;
     }
+    /* box-shadow: 0px 6px 7px -4px; */
 `
 const LineNo = styled.span`
     display: inline-block;
@@ -37,23 +45,34 @@ const LineNo = styled.span`
     user-select: none;
     opacity: 0.3;
 `
+// TODO: add block type for blockquote-like content
 
-function formatParagraphBlock(block) {
-    return <p>{block}</p>
+function formatParagraphBlock(content, key) {
+    return <PBlock key={key}>{content}</PBlock>
 }
 
-function formatCodeBlock(block) {
+function prismafyCodeBlock(content, _key) {
     return (
-        <Highlight {...defaultProps} theme={prismTheme} code={block} language="jsx">
+        <Highlight 
+            {...defaultProps} 
+            theme={prismTheme} 
+            code={content} 
+            language="jsx"
+            key={_key}
+        >
             {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <Pre className={className} style={style}>
-                {tokens.map((line, i) => (
-                <div {...getLineProps({ line, key: i })}>
-                    <LineNo>{i + 1}</LineNo>
-                    {line.map((token, key) => <span {...getTokenProps({ token, key })} />)}
-                </div>
-                ))}
-            </Pre>
+                <Pre className={className} style={style}>
+                    {tokens.map((line, i) => (
+                        <div {...getLineProps({ line, key: i })}>
+                            <LineNo>{i + 1}</LineNo>
+                            {line.map((token, key) => {
+                                return (
+                                    <span {...getTokenProps({ token, key })} />
+                                )
+                            })}
+                        </div>
+                    ))}
+                </Pre>
             )}
         </Highlight>
     )
@@ -62,14 +81,16 @@ function formatCodeBlock(block) {
 function Post(props) {
     console.log('propsPost: ', props.body)
     const postContent = []
-    props.body.forEach(section => {
-            if (section._type === 'block') {
-                let formattedPara = formatParagraphBlock(section.children[0].text)
-                postContent.push(formattedPara)
-            } else if (section._type === 'code') {
-                let formattedCode = formatCodeBlock(section.code)
-                postContent.push(formattedCode)
-            }
+    props.body && props.body.forEach(section => {
+        if (section._type === 'block') {
+            postContent.push(
+                formatParagraphBlock(section.children[0].text, section._key)
+            )
+        } else if (section._type === 'code') {
+            postContent.push(
+                prismafyCodeBlock(section.code, section._key)
+            )
+        }
     })
 
     // console.log('postContent: ', postContent)
@@ -81,11 +102,11 @@ function Post(props) {
             <article>
                 <h2>{props.title}</h2>
                 <PDesc>{props.description}</PDesc>
+                {/* // TODO: Add _updatedAt field? */}
                 <PDate>{moment.utc(props._createdAt).format("LL")}</PDate>
-                {/* <PBody>{props.body.map(section => section.children)}</PBody> */}
-                <DivBody>
+                <Article>
                     {postContent.map(content => content)}
-                </DivBody>
+                </Article>
             
             </article>
         </HeaderLayout>

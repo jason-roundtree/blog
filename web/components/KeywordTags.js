@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import sortStrings from '../utils/sortStrings.js'
 
 // const TagsContainer = styled.div`
 //     display: flex;
@@ -27,14 +28,12 @@ const TagCount = styled.span`
 
 function KeywordTags(props) {
     // console.log('props: ', props)
-    props.tags.sort((a, b) => {
-        return (a.name > b.name) ? 1 : -1
-    })
+    const tags = sortStrings(props.tags)
     
     return (
         <div>
             {/* this length check prevents `All Posts` button from rendering prior to the rest of the tag buttons */}
-            {props.tags.length > 0 && (
+            {tags.length > 0 && (
                 <TagBtn
                     onClick={props.handleTagFilter}
                     id='clearFilter'
@@ -48,7 +47,7 @@ function KeywordTags(props) {
                 </TagBtn>
             )}
             
-            {props.tags.map(tag => (
+            {tags.map(tag => (
                 tag.count > 0 && (
                     <TagBtn 
                         key={tag.name}

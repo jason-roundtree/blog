@@ -12,7 +12,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return themes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "colors", function() { return colors; });
 var colors = {
-  white: "rgb(250,250,250)",
+  white: "rgb(252, 249, 237)",
   darkGrey: "rgb(54, 53, 55)",
   primaryColor: "rgb(3, 152, 252)",
   primaryColorDarker: "rgb(0, 85, 143)",

@@ -126,7 +126,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return themes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "colors", function() { return colors; });
 const colors = {
-  white: `rgb(250,250,250)`,
+  white: `rgb(252, 249, 237)`,
   darkGrey: `rgb(54, 53, 55)`,
   primaryColor: `rgb(3, 152, 252)`,
   primaryColorDarker: `rgb(0, 85, 143)`,
@@ -255,33 +255,33 @@ function HeaderLayout(props) {
       columnNumber: 17
     }
   }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap",
     rel: "stylesheet",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 47,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 50,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 51,
       columnNumber: 17
     }
   }, __jsx(H1, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 52,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -289,14 +289,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 53,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 54,
       columnNumber: 29
     }
   }, "Jason Roundtree - Blog")))), __jsx(ToggleBtn, {
@@ -306,14 +306,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 59,
       columnNumber: 17
     }
   })), __jsx(Main, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 66,
       columnNumber: 13
     }
   }, props.children));
@@ -336,9 +336,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _utils_sortStrings_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/sortStrings.js */ "./utils/sortStrings.js");
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/components/KeywordTags.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
  // const TagsContainer = styled.div`
 //     display: flex;
 //     justify-content: center;
@@ -356,27 +358,25 @@ const TagCount = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.span.w
 
 function KeywordTags(props) {
   // console.log('props: ', props)
-  props.tags.sort((a, b) => {
-    return a.name > b.name ? 1 : -1;
-  });
+  const tags = Object(_utils_sortStrings_js__WEBPACK_IMPORTED_MODULE_2__["default"])(props.tags);
   return __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35,
+      lineNumber: 34,
       columnNumber: 9
     }
-  }, props.tags.length > 0 && __jsx(TagBtn, {
+  }, tags.length > 0 && __jsx(TagBtn, {
     onClick: props.handleTagFilter,
     id: "clearFilter",
     className: props.filteredTags.length > 0 ? '' : 'selectedTag',
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38,
+      lineNumber: 37,
       columnNumber: 17
     }
-  }, "All Posts"), props.tags.map(tag => tag.count > 0 && __jsx(TagBtn, {
+  }, "All Posts"), tags.map(tag => tag.count > 0 && __jsx(TagBtn, {
     key: tag.name,
     id: tag._id,
     onClick: props.handleTagFilter,
@@ -384,14 +384,14 @@ function KeywordTags(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 52,
       columnNumber: 21
     }
   }, tag.name, "\xA0", __jsx(TagCount, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 64,
       columnNumber: 25
     }
   }, "(", tag.count, ")"))));
@@ -2097,12 +2097,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _components_HeaderLayout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/HeaderLayout */ "./components/HeaderLayout.js");
 /* harmony import */ var _components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/KeywordTags */ "./components/KeywordTags.js");
+/* harmony import */ var _utils_sortStrings_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/sortStrings.js */ "./utils/sortStrings.js");
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/pages/index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
  // import useSWR from 'swr'
+
 
 
 
@@ -2129,13 +2131,13 @@ const TagListItem = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.li.
 const DescP = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withConfig({
   displayName: "pages__DescP",
   componentId: "nuslkc-3"
-})(["font-size:.7em;color:", ";"], ({
+})(["font-size:.6em;color:", ";"], ({
   theme
 }) => theme.primaryColor);
 const DateP = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withConfig({
   displayName: "pages__DateP",
   componentId: "nuslkc-4"
-})(["font-size:.55em;"]); // removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
+})(["font-size:.5em;"]); // removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
 
 function uniquePostsArray(posts) {
   return [...new Set(posts.map(postObj => {
@@ -2210,7 +2212,6 @@ function Index({
   }, [filteredTags]);
 
   function handleTagFilter(e) {
-    // console.log('e.currentTarget.id: ', e.currentTarget.id)
     const selectedTagID = e.currentTarget.id;
 
     if (selectedTagID === 'clearFilter') {
@@ -2232,14 +2233,14 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 132,
+        lineNumber: 131,
         columnNumber: 9
       }
     }, __jsx("h2", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 137,
+        lineNumber: 136,
         columnNumber: 13
       }
     }, "Filter by Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -2249,14 +2250,14 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 138,
+        lineNumber: 137,
         columnNumber: 13
       }
     }), __jsx("h2", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 144,
+        lineNumber: 143,
         columnNumber: 13
       }
     }, "Posts:"), postsToRender.map(({
@@ -2271,7 +2272,7 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 154,
+        lineNumber: 153,
         columnNumber: 21
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -2280,44 +2281,44 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 155,
+        lineNumber: 154,
         columnNumber: 25
       }
     }, __jsx(ListItemLink, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 159,
+        lineNumber: 158,
         columnNumber: 29
       }
     }, title)), __jsx(DescP, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 161,
+        lineNumber: 160,
         columnNumber: 25
       }
     }, description), __jsx(DateP, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 162,
+        lineNumber: 161,
         columnNumber: 25
       }
     }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 165,
+        lineNumber: 164,
         columnNumber: 25
       }
-    }, tags.map(tag => {
+    }, Object(_utils_sortStrings_js__WEBPACK_IMPORTED_MODULE_7__["default"])(tags).map(tag => {
       return __jsx(TagListItem, {
         key: tag._id,
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 168,
+          lineNumber: 167,
           columnNumber: 37
         }
       }, tag.name);
@@ -2345,6 +2346,23 @@ async function getStaticProps() {
   };
 }
 /* harmony default export */ __webpack_exports__["default"] = (Index);
+
+/***/ }),
+
+/***/ "./utils/sortStrings.js":
+/*!******************************!*\
+  !*** ./utils/sortStrings.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (list => {
+  return list.sort((a, b) => {
+    return a.name > b.name ? 1 : -1;
+  });
+});
 
 /***/ }),
 

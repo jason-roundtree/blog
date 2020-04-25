@@ -126,7 +126,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return themes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "colors", function() { return colors; });
 const colors = {
-  white: `rgb(250,250,250)`,
+  white: `rgb(252, 249, 237)`,
   darkGrey: `rgb(54, 53, 55)`,
   primaryColor: `rgb(3, 152, 252)`,
   primaryColorDarker: `rgb(0, 85, 143)`,
@@ -255,33 +255,33 @@ function HeaderLayout(props) {
       columnNumber: 17
     }
   }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap",
     rel: "stylesheet",
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46,
+      lineNumber: 47,
       columnNumber: 17
     }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
+      lineNumber: 50,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 51,
       columnNumber: 17
     }
   }, __jsx(H1, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 52,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -289,14 +289,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 53,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 54,
       columnNumber: 29
     }
   }, "Jason Roundtree - Blog")))), __jsx(ToggleBtn, {
@@ -306,14 +306,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58,
+      lineNumber: 59,
       columnNumber: 17
     }
   })), __jsx(Main, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65,
+      lineNumber: 66,
       columnNumber: 13
     }
   }, props.children));
@@ -2017,8 +2017,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var prism_react_renderer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prism-react-renderer */ "prism-react-renderer");
 /* harmony import */ var prism_react_renderer__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var prism_react_renderer_themes_nightOwl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prism-react-renderer/themes/nightOwl */ "prism-react-renderer/themes/nightOwl");
-/* harmony import */ var prism_react_renderer_themes_nightOwl__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer_themes_nightOwl__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var prism_react_renderer_themes_dracula__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prism-react-renderer/themes/dracula */ "prism-react-renderer/themes/dracula");
+/* harmony import */ var prism_react_renderer_themes_dracula__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer_themes_dracula__WEBPACK_IMPORTED_MODULE_6__);
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/pages/post/[slug].js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -2032,51 +2032,58 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 
-const DivBody = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
-  displayName: "slug__DivBody",
+const Article = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.article.withConfig({
+  displayName: "slug__Article",
   componentId: "sc-1e354jq-0"
 })(["margin-top:1.5em;font-size:1.15em;line-height:1.75em;"]);
 const PDesc = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withConfig({
   displayName: "slug__PDesc",
   componentId: "sc-1e354jq-1"
-})(["font-size:1.25em;color:", ";margin:3px 0 0;"], ({
+})(["font-size:1.1em;color:", ";margin:3px 0 0;"], ({
   theme
 }) => theme.primaryColor);
 const PDate = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(PDesc).withConfig({
   displayName: "slug__PDate",
   componentId: "sc-1e354jq-2"
-})(["font-size:1.15em;color:", ";"], ({
+})(["font-size:1em;color:", ";"], ({
   theme
 }) => theme.text);
+const PBlock = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withConfig({
+  displayName: "slug__PBlock",
+  componentId: "sc-1e354jq-3"
+})(["margin-bottom:1em;"]); // TODO: fix overflow and add horizontal scroll
+
 const Pre = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.pre.withConfig({
   displayName: "slug__Pre",
-  componentId: "sc-1e354jq-3"
-})(["font-family:'Courier Prime',monospace;font-size:.85em;text-align:left;margin:1em 0;padding:0.5em;& .token-line{line-height:1.3em;height:1.3em;}"]);
+  componentId: "sc-1e354jq-4"
+})(["font-family:'Nanum Gothic Coding',monospace;font-size:.9em;overflow:auto;text-align:left;margin:1em 0;padding:0.5em;& .token-line{line-height:1.3em;height:1.3em;}"]);
 const LineNo = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.span.withConfig({
   displayName: "slug__LineNo",
-  componentId: "sc-1e354jq-4"
-})(["display:inline-block;width:2em;user-select:none;opacity:0.3;"]);
+  componentId: "sc-1e354jq-5"
+})(["display:inline-block;width:2em;user-select:none;opacity:0.3;"]); // TODO: add block type for blockquote-like content
 
-function formatParagraphBlock(block) {
-  return __jsx("p", {
+function formatParagraphBlock(content, key) {
+  return __jsx(PBlock, {
+    key: key,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42,
+      lineNumber: 51,
       columnNumber: 12
     }
-  }, block);
+  }, content);
 }
 
-function formatCodeBlock(block) {
+function prismafyCodeBlock(content, _key) {
   return __jsx(prism_react_renderer__WEBPACK_IMPORTED_MODULE_5___default.a, _extends({}, prism_react_renderer__WEBPACK_IMPORTED_MODULE_5__["defaultProps"], {
-    theme: prism_react_renderer_themes_nightOwl__WEBPACK_IMPORTED_MODULE_6___default.a,
-    code: block,
+    theme: prism_react_renderer_themes_dracula__WEBPACK_IMPORTED_MODULE_6___default.a,
+    code: content,
     language: "jsx",
+    key: _key,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47,
+      lineNumber: 56,
       columnNumber: 9
     }
   }), ({
@@ -2091,8 +2098,8 @@ function formatCodeBlock(block) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49,
-      columnNumber: 13
+      lineNumber: 64,
+      columnNumber: 17
     }
   }, tokens.map((line, i) => __jsx("div", _extends({}, getLineProps({
     line,
@@ -2101,39 +2108,39 @@ function formatCodeBlock(block) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
-      columnNumber: 17
+      lineNumber: 66,
+      columnNumber: 25
     }
   }), __jsx(LineNo, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
-      columnNumber: 21
+      lineNumber: 67,
+      columnNumber: 29
     }
-  }, i + 1), line.map((token, key) => __jsx("span", _extends({}, getTokenProps({
-    token,
-    key
-  }), {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 53,
-      columnNumber: 47
-    }
-  })))))));
+  }, i + 1), line.map((token, key) => {
+    return __jsx("span", _extends({}, getTokenProps({
+      token,
+      key
+    }), {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 70,
+        columnNumber: 37
+      }
+    }));
+  })))));
 }
 
 function Post(props) {
   console.log('propsPost: ', props.body);
   const postContent = [];
-  props.body.forEach(section => {
+  props.body && props.body.forEach(section => {
     if (section._type === 'block') {
-      let formattedPara = formatParagraphBlock(section.children[0].text);
-      postContent.push(formattedPara);
+      postContent.push(formatParagraphBlock(section.children[0].text, section._key));
     } else if (section._type === 'code') {
-      let formattedCode = formatCodeBlock(section.code);
-      postContent.push(formattedCode);
+      postContent.push(prismafyCodeBlock(section.code, section._key));
     }
   }); // console.log('postContent: ', postContent)
 
@@ -2143,42 +2150,42 @@ function Post(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77,
+      lineNumber: 98,
       columnNumber: 9
     }
   }, __jsx("article", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81,
+      lineNumber: 102,
       columnNumber: 13
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82,
+      lineNumber: 103,
       columnNumber: 17
     }
   }, props.title), __jsx(PDesc, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83,
+      lineNumber: 104,
       columnNumber: 17
     }
   }, props.description), __jsx(PDate, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84,
+      lineNumber: 106,
       columnNumber: 17
     }
-  }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(props._createdAt).format("LL")), __jsx(DivBody, {
+  }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(props._createdAt).format("LL")), __jsx(Article, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 86,
+      lineNumber: 107,
       columnNumber: 17
     }
   }, postContent.map(content => content))));
@@ -2258,14 +2265,14 @@ module.exports = require("prism-react-renderer");
 
 /***/ }),
 
-/***/ "prism-react-renderer/themes/nightOwl":
-/*!*******************************************************!*\
-  !*** external "prism-react-renderer/themes/nightOwl" ***!
-  \*******************************************************/
+/***/ "prism-react-renderer/themes/dracula":
+/*!******************************************************!*\
+  !*** external "prism-react-renderer/themes/dracula" ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("prism-react-renderer/themes/nightOwl");
+module.exports = require("prism-react-renderer/themes/dracula");
 
 /***/ }),
 
