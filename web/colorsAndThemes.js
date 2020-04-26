@@ -1,3 +1,6 @@
+import duotoneLight from 'prism-react-renderer/themes/duotoneLight'
+import duotoneDark from 'prism-react-renderer/themes/duotoneDark'
+
 const colors = {
     white: `rgb(252, 249, 237)`,
     darkGrey: `rgb(54, 53, 55)`,
@@ -14,7 +17,8 @@ const themes = {
         primaryColor: `${colors.secondaryColor}`,
         secondaryColor: `${colors.primaryColorDarker}`,
         iconSrc: '/images/sun.svg',
-        iconAlt: 'Icon of moon for "Dark Mode" theme'
+        iconAlt: 'Icon of moon for "Dark Mode" theme',
+        syntax: duotoneDark
     },
     light: {
         body: `${colors.white}`,
@@ -22,7 +26,8 @@ const themes = {
         primaryColor: `${colors.primaryColorDarker}`,
         secondaryColor: `${colors.secondaryColor}`,
         iconSrc: '/images/moon.svg',
-        iconAlt: 'Icon of sun for "Light Mode" theme'
+        iconAlt: 'Icon of sun for "Light Mode" theme',
+        syntax: duotoneLight
     }
 }
 

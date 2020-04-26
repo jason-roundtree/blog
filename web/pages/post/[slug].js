@@ -4,9 +4,11 @@ import styled from 'styled-components'
 import moment from 'moment'
 // import Prism from 'prismjs/components/prism-core'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import prismTheme from 'prism-react-renderer/themes/dracula'
+import themes from '../../colorsAndThemes'
+// TODO: import both light and dark theme in one line. Can it also be combined with above improt?
+console.log('themes: ', themes)
 
-const Article = styled.article`
+const MainContent = styled.div`
     margin-top: 1.5em;
     font-size: 1.15em;
     line-height: 1.75em;
@@ -47,40 +49,47 @@ const LineNo = styled.span`
 `
 // TODO: add block type for blockquote-like content
 
-function formatParagraphBlock(content, key) {
-    return <PBlock key={key}>{content}</PBlock>
-}
 
-function prismafyCodeBlock(content, _key) {
-    return (
-        <Highlight 
-            {...defaultProps} 
-            theme={prismTheme} 
-            code={content} 
-            language="jsx"
-            key={_key}
-        >
-            {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                <Pre className={className} style={style}>
-                    {tokens.map((line, i) => (
-                        <div {...getLineProps({ line, key: i })}>
-                            <LineNo>{i + 1}</LineNo>
-                            {line.map((token, key) => {
-                                return (
-                                    <span {...getTokenProps({ token, key })} />
-                                )
-                            })}
-                        </div>
-                    ))}
-                </Pre>
-            )}
-        </Highlight>
-    )
-}
 
 function Post(props) {
-    console.log('propsPost: ', props.body)
+    console.log('propsPost: ', props)
     const postContent = []
+    function formatParagraphBlock(content, key) {
+        return <PBlock key={key}>{content}</PBlock>
+    }
+    
+    function prismafyCodeBlock(content, _key) {
+        return (
+            <Highlight 
+                {...defaultProps} 
+                theme={
+                    props.themeString === 'light'
+                        ? themes.light.syntax
+                        : themes.dark.syntax
+                } 
+                code={content} 
+                language="jsx"
+                key={_key}
+            >
+                {({ className, style, tokens, getLineProps, getTokenProps }) => (
+                    <Pre className={className} style={style}>
+                        {tokens.map((line, i) => (
+                            <div {...getLineProps({ line, key: i })}>
+                                <LineNo>{i + 1}</LineNo>
+                                {line.map((token, key) => {
+                                    return (
+                                        <span {...getTokenProps({ token, key })} />
+                                    )
+                                })}
+                            </div>
+                        ))}
+                    </Pre>
+                )}
+            </Highlight>
+        )
+    }
+
+    
     props.body && props.body.forEach(section => {
         if (section._type === 'block') {
             postContent.push(
@@ -104,10 +113,9 @@ function Post(props) {
                 <PDesc>{props.description}</PDesc>
                 {/* // TODO: Add _updatedAt field? */}
                 <PDate>{moment.utc(props._createdAt).format("LL")}</PDate>
-                <Article>
+                <MainContent>
                     {postContent.map(content => content)}
-                </Article>
-            
+                </MainContent>
             </article>
         </HeaderLayout>
     )

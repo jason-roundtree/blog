@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -125,6 +125,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return themes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "colors", function() { return colors; });
+/* harmony import */ var prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prism-react-renderer/themes/duotoneLight */ "prism-react-renderer/themes/duotoneLight");
+/* harmony import */ var prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prism-react-renderer/themes/duotoneDark */ "prism-react-renderer/themes/duotoneDark");
+/* harmony import */ var prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1__);
+
+
 const colors = {
   white: `rgb(252, 249, 237)`,
   darkGrey: `rgb(54, 53, 55)`,
@@ -140,7 +146,8 @@ const themes = {
     primaryColor: `${colors.secondaryColor}`,
     secondaryColor: `${colors.primaryColorDarker}`,
     iconSrc: '/images/sun.svg',
-    iconAlt: 'Icon of moon for "Dark Mode" theme'
+    iconAlt: 'Icon of moon for "Dark Mode" theme',
+    syntax: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default.a
   },
   light: {
     body: `${colors.white}`,
@@ -148,7 +155,8 @@ const themes = {
     primaryColor: `${colors.primaryColorDarker}`,
     secondaryColor: `${colors.secondaryColor}`,
     iconSrc: '/images/moon.svg',
-    iconAlt: 'Icon of sun for "Light Mode" theme'
+    iconAlt: 'Icon of sun for "Light Mode" theme',
+    syntax: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a
   }
 };
 
@@ -2017,8 +2025,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var prism_react_renderer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prism-react-renderer */ "prism-react-renderer");
 /* harmony import */ var prism_react_renderer__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var prism_react_renderer_themes_dracula__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prism-react-renderer/themes/dracula */ "prism-react-renderer/themes/dracula");
-/* harmony import */ var prism_react_renderer_themes_dracula__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer_themes_dracula__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _colorsAndThemes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../colorsAndThemes */ "./colorsAndThemes.js");
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/pages/post/[slug].js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -2031,9 +2038,11 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
  // import Prism from 'prismjs/components/prism-core'
 
 
+ // TODO: import both light and dark theme in one line. Can it also be combined with above improt?
 
-const Article = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.article.withConfig({
-  displayName: "slug__Article",
+console.log('themes: ', _colorsAndThemes__WEBPACK_IMPORTED_MODULE_6__["default"]);
+const MainContent = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
+  displayName: "slug__MainContent",
   componentId: "sc-1e354jq-0"
 })(["margin-top:1.5em;font-size:1.15em;line-height:1.75em;"]);
 const PDesc = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withConfig({
@@ -2062,80 +2071,81 @@ const LineNo = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.span.wit
   componentId: "sc-1e354jq-5"
 })(["display:inline-block;width:2em;user-select:none;opacity:0.3;"]); // TODO: add block type for blockquote-like content
 
-function formatParagraphBlock(content, key) {
-  return __jsx(PBlock, {
-    key: key,
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 51,
-      columnNumber: 12
-    }
-  }, content);
-}
+function Post(props) {
+  console.log('propsPost: ', props);
+  const postContent = [];
 
-function prismafyCodeBlock(content, _key) {
-  return __jsx(prism_react_renderer__WEBPACK_IMPORTED_MODULE_5___default.a, _extends({}, prism_react_renderer__WEBPACK_IMPORTED_MODULE_5__["defaultProps"], {
-    theme: prism_react_renderer_themes_dracula__WEBPACK_IMPORTED_MODULE_6___default.a,
-    code: content,
-    language: "jsx",
-    key: _key,
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 56,
-      columnNumber: 9
-    }
-  }), ({
-    className,
-    style,
-    tokens,
-    getLineProps,
-    getTokenProps
-  }) => __jsx(Pre, {
-    className: className,
-    style: style,
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 64,
-      columnNumber: 17
-    }
-  }, tokens.map((line, i) => __jsx("div", _extends({}, getLineProps({
-    line,
-    key: i
-  }), {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 66,
-      columnNumber: 25
-    }
-  }), __jsx(LineNo, {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 67,
-      columnNumber: 29
-    }
-  }, i + 1), line.map((token, key) => {
-    return __jsx("span", _extends({}, getTokenProps({
-      token,
-      key
+  function formatParagraphBlock(content, key) {
+    return __jsx(PBlock, {
+      key: key,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 58,
+        columnNumber: 16
+      }
+    }, content);
+  }
+
+  function prismafyCodeBlock(content, _key) {
+    return __jsx(prism_react_renderer__WEBPACK_IMPORTED_MODULE_5___default.a, _extends({}, prism_react_renderer__WEBPACK_IMPORTED_MODULE_5__["defaultProps"], {
+      theme: props.themeString === 'light' ? _colorsAndThemes__WEBPACK_IMPORTED_MODULE_6__["default"].light.syntax : _colorsAndThemes__WEBPACK_IMPORTED_MODULE_6__["default"].dark.syntax,
+      code: content,
+      language: "jsx",
+      key: _key,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 63,
+        columnNumber: 13
+      }
+    }), ({
+      className,
+      style,
+      tokens,
+      getLineProps,
+      getTokenProps
+    }) => __jsx(Pre, {
+      className: className,
+      style: style,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 75,
+        columnNumber: 21
+      }
+    }, tokens.map((line, i) => __jsx("div", _extends({}, getLineProps({
+      line,
+      key: i
     }), {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 70,
-        columnNumber: 37
+        lineNumber: 77,
+        columnNumber: 29
       }
-    }));
-  })))));
-}
+    }), __jsx(LineNo, {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 78,
+        columnNumber: 33
+      }
+    }, i + 1), line.map((token, key) => {
+      return __jsx("span", _extends({}, getTokenProps({
+        token,
+        key
+      }), {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 81,
+          columnNumber: 41
+        }
+      }));
+    })))));
+  }
 
-function Post(props) {
-  console.log('propsPost: ', props.body);
-  const postContent = [];
   props.body && props.body.forEach(section => {
     if (section._type === 'block') {
       postContent.push(formatParagraphBlock(section.children[0].text, section._key));
@@ -2150,42 +2160,42 @@ function Post(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98,
+      lineNumber: 107,
       columnNumber: 9
     }
   }, __jsx("article", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 111,
       columnNumber: 13
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103,
+      lineNumber: 112,
       columnNumber: 17
     }
   }, props.title), __jsx(PDesc, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 104,
+      lineNumber: 113,
       columnNumber: 17
     }
   }, props.description), __jsx(PDate, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106,
+      lineNumber: 115,
       columnNumber: 17
     }
-  }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(props._createdAt).format("LL")), __jsx(Article, {
+  }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(props._createdAt).format("LL")), __jsx(MainContent, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107,
+      lineNumber: 116,
       columnNumber: 17
     }
   }, postContent.map(content => content))));
@@ -2209,7 +2219,7 @@ Post.getInitialProps = async function (context) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!************************************!*\
   !*** multi ./pages/post/[slug].js ***!
   \************************************/
@@ -2265,14 +2275,25 @@ module.exports = require("prism-react-renderer");
 
 /***/ }),
 
-/***/ "prism-react-renderer/themes/dracula":
-/*!******************************************************!*\
-  !*** external "prism-react-renderer/themes/dracula" ***!
-  \******************************************************/
+/***/ "prism-react-renderer/themes/duotoneDark":
+/*!**********************************************************!*\
+  !*** external "prism-react-renderer/themes/duotoneDark" ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("prism-react-renderer/themes/dracula");
+module.exports = require("prism-react-renderer/themes/duotoneDark");
+
+/***/ }),
+
+/***/ "prism-react-renderer/themes/duotoneLight":
+/*!***********************************************************!*\
+  !*** external "prism-react-renderer/themes/duotoneLight" ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("prism-react-renderer/themes/duotoneLight");
 
 /***/ }),
 

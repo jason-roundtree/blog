@@ -32,6 +32,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return themes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "colors", function() { return colors; });
+/* harmony import */ var prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prism-react-renderer/themes/duotoneLight */ "./node_modules/prism-react-renderer/themes/duotoneLight/index.js");
+/* harmony import */ var prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prism-react-renderer/themes/duotoneDark */ "./node_modules/prism-react-renderer/themes/duotoneDark/index.js");
+
+
 var colors = {
   white: "rgb(252, 249, 237)",
   darkGrey: "rgb(54, 53, 55)",
@@ -47,7 +51,8 @@ var themes = {
     primaryColor: "".concat(colors.secondaryColor),
     secondaryColor: "".concat(colors.primaryColorDarker),
     iconSrc: '/images/sun.svg',
-    iconAlt: 'Icon of moon for "Dark Mode" theme'
+    iconAlt: 'Icon of moon for "Dark Mode" theme',
+    syntax: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   light: {
     body: "".concat(colors.white),
@@ -55,7 +60,8 @@ var themes = {
     primaryColor: "".concat(colors.primaryColorDarker),
     secondaryColor: "".concat(colors.secondaryColor),
     iconSrc: '/images/moon.svg',
-    iconAlt: 'Icon of sun for "Light Mode" theme'
+    iconAlt: 'Icon of sun for "Light Mode" theme',
+    syntax: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 };
 
@@ -28639,76 +28645,6 @@ Prism.languages.yml = Prism.languages.yaml;
 
 /***/ }),
 
-/***/ "./node_modules/prism-react-renderer/themes/dracula/index.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/prism-react-renderer/themes/dracula/index.js ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// Original: https://github.com/dracula/visual-studio-code
-// Converted automatically using ./tools/themeFromVsCode
-var theme = {
-  plain: {
-    color: "#F8F8F2",
-    backgroundColor: "#282A36"
-  },
-  styles: [{
-    types: ["prolog", "constant", "builtin"],
-    style: {
-      color: "rgb(189, 147, 249)"
-    }
-  }, {
-    types: ["inserted", "function"],
-    style: {
-      color: "rgb(80, 250, 123)"
-    }
-  }, {
-    types: ["deleted"],
-    style: {
-      color: "rgb(255, 85, 85)"
-    }
-  }, {
-    types: ["changed"],
-    style: {
-      color: "rgb(255, 184, 108)"
-    }
-  }, {
-    types: ["punctuation", "symbol"],
-    style: {
-      color: "rgb(248, 248, 242)"
-    }
-  }, {
-    types: ["string", "char", "tag", "selector"],
-    style: {
-      color: "rgb(255, 121, 198)"
-    }
-  }, {
-    types: ["keyword", "variable"],
-    style: {
-      color: "rgb(189, 147, 249)",
-      fontStyle: "italic"
-    }
-  }, {
-    types: ["comment"],
-    style: {
-      color: "rgb(98, 114, 164)"
-    }
-  }, {
-    types: ["attr-name"],
-    style: {
-      color: "rgb(241, 250, 140)"
-    }
-  }]
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (theme);
-
-
-/***/ }),
-
 /***/ "./node_modules/prism-react-renderer/themes/duotoneDark/index.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/prism-react-renderer/themes/duotoneDark/index.js ***!
@@ -28786,6 +28722,97 @@ var theme = {
     types: ["important"],
     style: {
       color: "#c4b9fe"
+    }
+  }]
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (theme);
+
+
+/***/ }),
+
+/***/ "./node_modules/prism-react-renderer/themes/duotoneLight/index.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/prism-react-renderer/themes/duotoneLight/index.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// Duotone Light
+// Author: Simurai, adapted from DuoTone themes for Atom (http://simurai.com/projects/2016/01/01/duotone-themes)
+// Conversion: Bram de Haan (http://atelierbram.github.io/Base2Tone-prism/output/prism/prism-base2tone-evening-dark.css)
+// Generated with Base16 Builder (https://github.com/base16-builder/base16-builder)
+var theme = {
+  plain: {
+    backgroundColor: "#faf8f5",
+    color: "#728fcb"
+  },
+  styles: [{
+    types: ["comment", "prolog", "doctype", "cdata", "punctuation"],
+    style: {
+      color: "#b6ad9a"
+    }
+  }, {
+    types: ["namespace"],
+    style: {
+      opacity: 0.7
+    }
+  }, {
+    types: ["tag", "operator", "number"],
+    style: {
+      color: "#063289"
+    }
+  }, {
+    types: ["property", "function"],
+    style: {
+      color: "#b29762"
+    }
+  }, {
+    types: ["tag-id", "selector", "atrule-id"],
+    style: {
+      color: "#2d2006"
+    }
+  }, {
+    types: ["attr-name"],
+    style: {
+      color: "#896724"
+    }
+  }, {
+    types: ["boolean", "string", "entity", "url", "attr-value", "keyword", "control", "directive", "unit", "statement", "regex", "at-rule"],
+    style: {
+      color: "#728fcb"
+    }
+  }, {
+    types: ["placeholder", "variable"],
+    style: {
+      color: "#93abdc"
+    }
+  }, {
+    types: ["deleted"],
+    style: {
+      textDecorationLine: "line-through"
+    }
+  }, {
+    types: ["inserted"],
+    style: {
+      textDecorationLine: "underline"
+    }
+  }, {
+    types: ["italic"],
+    style: {
+      fontStyle: "italic"
+    }
+  }, {
+    types: ["important", "bold"],
+    style: {
+      fontWeight: "bold"
+    }
+  }, {
+    types: ["important"],
+    style: {
+      color: "#896724"
     }
   }]
 };
@@ -35022,7 +35049,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var prism_react_renderer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! prism-react-renderer */ "./node_modules/prism-react-renderer/dist/index.js");
-/* harmony import */ var prism_react_renderer_themes_dracula__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prism-react-renderer/themes/dracula */ "./node_modules/prism-react-renderer/themes/dracula/index.js");
+/* harmony import */ var _colorsAndThemes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../colorsAndThemes */ "./colorsAndThemes.js");
 
 
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/pages/post/[slug].js";
@@ -35034,9 +35061,11 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
  // import Prism from 'prismjs/components/prism-core'
 
 
+ // TODO: import both light and dark theme in one line. Can it also be combined with above improt?
 
-var Article = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].article.withConfig({
-  displayName: "slug__Article",
+console.log('themes: ', _colorsAndThemes__WEBPACK_IMPORTED_MODULE_8__["default"]);
+var MainContent = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].div.withConfig({
+  displayName: "slug__MainContent",
   componentId: "sc-1e354jq-0"
 })(["margin-top:1.5em;font-size:1.15em;line-height:1.75em;"]);
 var PDesc = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].p.withConfig({
@@ -35067,85 +35096,86 @@ var LineNo = styled_components__WEBPACK_IMPORTED_MODULE_5__["default"].span.with
   componentId: "sc-1e354jq-5"
 })(["display:inline-block;width:2em;user-select:none;opacity:0.3;"]); // TODO: add block type for blockquote-like content
 
-function formatParagraphBlock(content, key) {
-  return __jsx(PBlock, {
-    key: key,
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 51,
-      columnNumber: 12
-    }
-  }, content);
-}
+function Post(props) {
+  console.log('propsPost: ', props);
+  var postContent = [];
 
-function prismafyCodeBlock(content, _key) {
-  var _this = this;
-
-  return __jsx(prism_react_renderer__WEBPACK_IMPORTED_MODULE_7__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, prism_react_renderer__WEBPACK_IMPORTED_MODULE_7__["defaultProps"], {
-    theme: prism_react_renderer_themes_dracula__WEBPACK_IMPORTED_MODULE_8__["default"],
-    code: content,
-    language: "jsx",
-    key: _key,
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 56,
-      columnNumber: 9
-    }
-  }), function (_ref3) {
-    var className = _ref3.className,
-        style = _ref3.style,
-        tokens = _ref3.tokens,
-        getLineProps = _ref3.getLineProps,
-        getTokenProps = _ref3.getTokenProps;
-    return __jsx(Pre, {
-      className: className,
-      style: style,
-      __self: _this,
+  function formatParagraphBlock(content, key) {
+    return __jsx(PBlock, {
+      key: key,
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 64,
-        columnNumber: 17
+        lineNumber: 58,
+        columnNumber: 16
       }
-    }, tokens.map(function (line, i) {
-      return __jsx("div", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, getLineProps({
-        line: line,
-        key: i
-      }), {
+    }, content);
+  }
+
+  function prismafyCodeBlock(content, _key) {
+    var _this = this;
+
+    return __jsx(prism_react_renderer__WEBPACK_IMPORTED_MODULE_7__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, prism_react_renderer__WEBPACK_IMPORTED_MODULE_7__["defaultProps"], {
+      theme: props.themeString === 'light' ? _colorsAndThemes__WEBPACK_IMPORTED_MODULE_8__["default"].light.syntax : _colorsAndThemes__WEBPACK_IMPORTED_MODULE_8__["default"].dark.syntax,
+      code: content,
+      language: "jsx",
+      key: _key,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 63,
+        columnNumber: 13
+      }
+    }), function (_ref3) {
+      var className = _ref3.className,
+          style = _ref3.style,
+          tokens = _ref3.tokens,
+          getLineProps = _ref3.getLineProps,
+          getTokenProps = _ref3.getTokenProps;
+      return __jsx(Pre, {
+        className: className,
+        style: style,
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66,
-          columnNumber: 25
+          lineNumber: 75,
+          columnNumber: 21
         }
-      }), __jsx(LineNo, {
-        __self: _this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 67,
-          columnNumber: 29
-        }
-      }, i + 1), line.map(function (token, key) {
-        return __jsx("span", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, getTokenProps({
-          token: token,
-          key: key
+      }, tokens.map(function (line, i) {
+        return __jsx("div", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, getLineProps({
+          line: line,
+          key: i
         }), {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 70,
-            columnNumber: 37
+            lineNumber: 77,
+            columnNumber: 29
           }
+        }), __jsx(LineNo, {
+          __self: _this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 78,
+            columnNumber: 33
+          }
+        }, i + 1), line.map(function (token, key) {
+          return __jsx("span", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, getTokenProps({
+            token: token,
+            key: key
+          }), {
+            __self: _this,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 81,
+              columnNumber: 41
+            }
+          }));
         }));
       }));
-    }));
-  });
-}
+    });
+  }
 
-function Post(props) {
-  console.log('propsPost: ', props.body);
-  var postContent = [];
   props.body && props.body.forEach(function (section) {
     if (section._type === 'block') {
       postContent.push(formatParagraphBlock(section.children[0].text, section._key));
@@ -35160,42 +35190,42 @@ function Post(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 98,
+      lineNumber: 107,
       columnNumber: 9
     }
   }, __jsx("article", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 111,
       columnNumber: 13
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103,
+      lineNumber: 112,
       columnNumber: 17
     }
   }, props.title), __jsx(PDesc, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 104,
+      lineNumber: 113,
       columnNumber: 17
     }
   }, props.description), __jsx(PDate, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106,
+      lineNumber: 115,
       columnNumber: 17
     }
-  }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(props._createdAt).format("LL")), __jsx(Article, {
+  }, moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(props._createdAt).format("LL")), __jsx(MainContent, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107,
+      lineNumber: 116,
       columnNumber: 17
     }
   }, postContent.map(function (content) {

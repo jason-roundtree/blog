@@ -104,6 +104,12 @@ module.exports =
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return themes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "colors", function() { return colors; });
+/* harmony import */ var prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prism-react-renderer/themes/duotoneLight */ "prism-react-renderer/themes/duotoneLight");
+/* harmony import */ var prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prism-react-renderer/themes/duotoneDark */ "prism-react-renderer/themes/duotoneDark");
+/* harmony import */ var prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1__);
+
+
 const colors = {
   white: `rgb(252, 249, 237)`,
   darkGrey: `rgb(54, 53, 55)`,
@@ -119,7 +125,8 @@ const themes = {
     primaryColor: `${colors.secondaryColor}`,
     secondaryColor: `${colors.primaryColorDarker}`,
     iconSrc: '/images/sun.svg',
-    iconAlt: 'Icon of moon for "Dark Mode" theme'
+    iconAlt: 'Icon of moon for "Dark Mode" theme',
+    syntax: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default.a
   },
   light: {
     body: `${colors.white}`,
@@ -127,7 +134,8 @@ const themes = {
     primaryColor: `${colors.primaryColorDarker}`,
     secondaryColor: `${colors.secondaryColor}`,
     iconSrc: '/images/moon.svg',
-    iconAlt: 'Icon of sun for "Light Mode" theme'
+    iconAlt: 'Icon of sun for "Light Mode" theme',
+    syntax: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a
   }
 };
 
@@ -301,6 +309,28 @@ function MyApp({
 
 module.exports = __webpack_require__(/*! private-next-pages/_app.js */"./pages/_app.js");
 
+
+/***/ }),
+
+/***/ "prism-react-renderer/themes/duotoneDark":
+/*!**********************************************************!*\
+  !*** external "prism-react-renderer/themes/duotoneDark" ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("prism-react-renderer/themes/duotoneDark");
+
+/***/ }),
+
+/***/ "prism-react-renderer/themes/duotoneLight":
+/*!***********************************************************!*\
+  !*** external "prism-react-renderer/themes/duotoneLight" ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("prism-react-renderer/themes/duotoneLight");
 
 /***/ }),
 
