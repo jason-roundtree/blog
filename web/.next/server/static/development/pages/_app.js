@@ -110,6 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1__);
 
 
+console.log("duotoneLight: ", prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a);
 const colors = {
   white: `rgb(252, 249, 237)`,
   darkGrey: `rgb(54, 53, 55)`,
@@ -126,7 +127,8 @@ const themes = {
     secondaryColor: `${colors.primaryColorDarker}`,
     iconSrc: '/images/sun.svg',
     iconAlt: 'Icon of moon for "Dark Mode" theme',
-    syntax: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default.a
+    syntax: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default.a,
+    asideBackground: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default.a.plain.backgroundColor
   },
   light: {
     body: `${colors.white}`,
@@ -135,7 +137,8 @@ const themes = {
     secondaryColor: `${colors.secondaryColor}`,
     iconSrc: '/images/moon.svg',
     iconAlt: 'Icon of sun for "Light Mode" theme',
-    syntax: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a
+    syntax: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a,
+    asideBackground: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a.plain.backgroundColor
   }
 };
 
@@ -172,7 +175,9 @@ const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["createGloba
         color: ${({
   theme
 }) => theme.text};
-        font-family: 'Open Sans', sans-serif;
+        /* font-family: 'Open Sans', sans-serif;
+        font-family: 'Poppins', sans-serif; */
+        font-family: 'Nunito Sans', sans-serif;
     }
 
     * {

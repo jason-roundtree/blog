@@ -131,6 +131,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1__);
 
 
+console.log("duotoneLight: ", prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a);
 const colors = {
   white: `rgb(252, 249, 237)`,
   darkGrey: `rgb(54, 53, 55)`,
@@ -147,7 +148,8 @@ const themes = {
     secondaryColor: `${colors.primaryColorDarker}`,
     iconSrc: '/images/sun.svg',
     iconAlt: 'Icon of moon for "Dark Mode" theme',
-    syntax: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default.a
+    syntax: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default.a,
+    asideBackground: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default.a.plain.backgroundColor
   },
   light: {
     body: `${colors.white}`,
@@ -156,7 +158,8 @@ const themes = {
     secondaryColor: `${colors.secondaryColor}`,
     iconSrc: '/images/moon.svg',
     iconAlt: 'Icon of sun for "Light Mode" theme',
-    syntax: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a
+    syntax: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a,
+    asideBackground: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a.plain.backgroundColor
   }
 };
 
@@ -236,25 +239,7 @@ function HeaderLayout(props) {
       columnNumber: 17
     }
   }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css2?family=Open+Sans300,400,600&display=swap",
-    rel: "stylesheet",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 43,
-      columnNumber: 17
-    }
-  }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap",
-    rel: "stylesheet",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 44,
-      columnNumber: 17
-    }
-  }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css2?family=Cuprum&family=Fjalla+One&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400&display=swap",
     rel: "stylesheet",
     __self: this,
     __source: {
@@ -263,7 +248,16 @@ function HeaderLayout(props) {
       columnNumber: 17
     }
   }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap",
+    rel: "stylesheet",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 17
+    }
+  }), __jsx("link", {
+    href: "https://fonts.googleapis.com/css2?family=Cuprum&family=Fjalla+One&display=swap",
     rel: "stylesheet",
     __self: this,
     __source: {
@@ -271,25 +265,34 @@ function HeaderLayout(props) {
       lineNumber: 47,
       columnNumber: 17
     }
+  }), __jsx("link", {
+    href: "https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap",
+    rel: "stylesheet",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48,
+      columnNumber: 17
+    }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 51,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 52,
       columnNumber: 17
     }
   }, __jsx(H1, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 53,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -297,14 +300,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 54,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 55,
       columnNumber: 29
     }
   }, "Jason Roundtree - Blog")))), __jsx(ToggleBtn, {
@@ -314,14 +317,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 60,
       columnNumber: 17
     }
   })), __jsx(Main, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 67,
       columnNumber: 13
     }
   }, props.children));
@@ -2062,31 +2065,63 @@ const PDate = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(PDesc).wi
 const PBlock = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withConfig({
   displayName: "slug__PBlock",
   componentId: "tg0oky-3"
-})(["margin-bottom:1em;"]); // TODO: fix overflow and add horizontal scroll
+})(["margin-bottom:1em;"]);
+const AsideBlock = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
+  displayName: "slug__AsideBlock",
+  componentId: "tg0oky-4"
+})(["margin-bottom:1em;padding:1em 2em;background-color:", ";font-size:.9em;"], ({
+  theme
+}) => theme.asideBackground); // TODO: fix overflow and add horizontal scroll
 
 const Pre = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.pre.withConfig({
   displayName: "slug__Pre",
-  componentId: "tg0oky-4"
+  componentId: "tg0oky-5"
 })(["font-family:'Nanum Gothic Coding',monospace;font-size:.9em;overflow:auto;text-align:left;margin:1em 0;padding:0.5em;& .token-line{line-height:1.3em;height:1.3em;}"]);
 const LineNo = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.span.withConfig({
   displayName: "slug__LineNo",
-  componentId: "tg0oky-5"
+  componentId: "tg0oky-6"
 })(["display:inline-block;width:2em;user-select:none;opacity:0.3;"]); // TODO: add block type for blockquote-like content
 
 function Post(props) {
   console.log('propsPost: ', props);
   const postContent = [];
 
-  function formatParagraphBlock(content, key) {
+  function paragraphBlock(content, key) {
     return __jsx(PBlock, {
       key: key,
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 55,
+        lineNumber: 61,
         columnNumber: 16
       }
     }, content);
+  }
+
+  function asideStringNewlines(content, key) {
+    const contentArray = content.split('\n');
+    console.log('contentArray: ', contentArray);
+    const renderedLines = [];
+
+    for (const line of contentArray) {
+      renderedLines.push(__jsx("div", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 69,
+          columnNumber: 32
+        }
+      }, line));
+    }
+
+    return __jsx(AsideBlock, {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 71,
+        columnNumber: 16
+      }
+    }, renderedLines); // return <AsideBlock key={key}>{content}</AsideBlock>
   }
 
   function prismafyCodeBlock(content, _key) {
@@ -2098,7 +2133,7 @@ function Post(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 60,
+        lineNumber: 77,
         columnNumber: 13
       }
     }), ({
@@ -2113,7 +2148,7 @@ function Post(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 72,
+        lineNumber: 89,
         columnNumber: 21
       }
     }, tokens.map((line, i) => __jsx("div", _extends({}, getLineProps({
@@ -2123,14 +2158,14 @@ function Post(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 74,
+        lineNumber: 91,
         columnNumber: 29
       }
     }), __jsx(LineNo, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 75,
+        lineNumber: 92,
         columnNumber: 33
       }
     }, i + 1), line.map((token, key) => {
@@ -2141,7 +2176,7 @@ function Post(props) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 78,
+          lineNumber: 95,
           columnNumber: 41
         }
       }));
@@ -2149,10 +2184,13 @@ function Post(props) {
   }
 
   props.body && props.body.forEach(section => {
+    // TODO: change to switch:
     if (section._type === 'block') {
-      postContent.push(formatParagraphBlock(section.children[0].text, section._key));
+      postContent.push(paragraphBlock(section.children[0].text, section._key));
     } else if (section._type === 'code') {
       postContent.push(prismafyCodeBlock(section.code, section._key));
+    } else if (section._type === 'post_aside') {
+      postContent.push(asideStringNewlines(section.string_content, section._key));
     }
   });
   return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2161,42 +2199,42 @@ function Post(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 102,
+      lineNumber: 128,
       columnNumber: 9
     }
   }, __jsx("article", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106,
+      lineNumber: 132,
       columnNumber: 13
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 107,
+      lineNumber: 133,
       columnNumber: 17
     }
   }, props.title), __jsx(PDesc, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108,
+      lineNumber: 134,
       columnNumber: 17
     }
   }, props.description), __jsx(PDate, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110,
+      lineNumber: 136,
       columnNumber: 17
     }
   }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(props._createdAt).format("LL")), __jsx(MainContent, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111,
+      lineNumber: 137,
       columnNumber: 17
     }
   }, postContent.map(content => content))));

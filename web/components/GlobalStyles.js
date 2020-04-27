@@ -12,7 +12,9 @@ export const GlobalStyles = createGlobalStyle`
     body {
         background: ${({ theme }) => theme.body};
         color: ${({ theme }) => theme.text};
-        font-family: 'Open Sans', sans-serif;
+        /* font-family: 'Open Sans', sans-serif;
+        font-family: 'Poppins', sans-serif; */
+        font-family: 'Nunito Sans', sans-serif;
     }
 
     * {

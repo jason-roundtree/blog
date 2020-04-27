@@ -1,7 +1,6 @@
 import client from '../client'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-// import useSWR from 'swr'
 import styled from 'styled-components'
 import moment from 'moment'
 import HeaderLayout from '../components/HeaderLayout'

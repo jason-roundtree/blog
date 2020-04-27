@@ -131,6 +131,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1__);
 
 
+console.log("duotoneLight: ", prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a);
 const colors = {
   white: `rgb(252, 249, 237)`,
   darkGrey: `rgb(54, 53, 55)`,
@@ -147,7 +148,8 @@ const themes = {
     secondaryColor: `${colors.primaryColorDarker}`,
     iconSrc: '/images/sun.svg',
     iconAlt: 'Icon of moon for "Dark Mode" theme',
-    syntax: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default.a
+    syntax: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default.a,
+    asideBackground: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default.a.plain.backgroundColor
   },
   light: {
     body: `${colors.white}`,
@@ -156,7 +158,8 @@ const themes = {
     secondaryColor: `${colors.secondaryColor}`,
     iconSrc: '/images/moon.svg',
     iconAlt: 'Icon of sun for "Light Mode" theme',
-    syntax: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a
+    syntax: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a,
+    asideBackground: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a.plain.backgroundColor
   }
 };
 
@@ -236,25 +239,7 @@ function HeaderLayout(props) {
       columnNumber: 17
     }
   }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css2?family=Open+Sans300,400,600&display=swap",
-    rel: "stylesheet",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 43,
-      columnNumber: 17
-    }
-  }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap",
-    rel: "stylesheet",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 44,
-      columnNumber: 17
-    }
-  }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css2?family=Cuprum&family=Fjalla+One&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400&display=swap",
     rel: "stylesheet",
     __self: this,
     __source: {
@@ -263,7 +248,16 @@ function HeaderLayout(props) {
       columnNumber: 17
     }
   }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap",
+    rel: "stylesheet",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46,
+      columnNumber: 17
+    }
+  }), __jsx("link", {
+    href: "https://fonts.googleapis.com/css2?family=Cuprum&family=Fjalla+One&display=swap",
     rel: "stylesheet",
     __self: this,
     __source: {
@@ -271,25 +265,34 @@ function HeaderLayout(props) {
       lineNumber: 47,
       columnNumber: 17
     }
+  }), __jsx("link", {
+    href: "https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap",
+    rel: "stylesheet",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 48,
+      columnNumber: 17
+    }
   })), __jsx(Header, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50,
+      lineNumber: 51,
       columnNumber: 13
     }
   }, __jsx("nav", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51,
+      lineNumber: 52,
       columnNumber: 17
     }
   }, __jsx(H1, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52,
+      lineNumber: 53,
       columnNumber: 21
     }
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -297,14 +300,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53,
+      lineNumber: 54,
       columnNumber: 25
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54,
+      lineNumber: 55,
       columnNumber: 29
     }
   }, "Jason Roundtree - Blog")))), __jsx(ToggleBtn, {
@@ -314,14 +317,14 @@ function HeaderLayout(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59,
+      lineNumber: 60,
       columnNumber: 17
     }
   })), __jsx(Main, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 67,
       columnNumber: 13
     }
   }, props.children));
@@ -2111,7 +2114,6 @@ var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
- // import useSWR from 'swr'
 
 
 
@@ -2241,14 +2243,14 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 131,
+        lineNumber: 130,
         columnNumber: 9
       }
     }, __jsx("h2", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 136,
+        lineNumber: 135,
         columnNumber: 13
       }
     }, "Filter by Tags:"), __jsx(_components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -2258,14 +2260,14 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 137,
+        lineNumber: 136,
         columnNumber: 13
       }
     }), __jsx("h2", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 143,
+        lineNumber: 142,
         columnNumber: 13
       }
     }, "Posts:"), postsToRender.map(({
@@ -2280,7 +2282,7 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 153,
+        lineNumber: 152,
         columnNumber: 21
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -2289,35 +2291,35 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 154,
+        lineNumber: 153,
         columnNumber: 25
       }
     }, __jsx(ListItemLink, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 158,
+        lineNumber: 157,
         columnNumber: 29
       }
     }, title)), __jsx(DescP, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 160,
+        lineNumber: 159,
         columnNumber: 25
       }
     }, description), __jsx(DateP, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 161,
+        lineNumber: 160,
         columnNumber: 25
       }
     }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 164,
+        lineNumber: 163,
         columnNumber: 25
       }
     }, Object(_utils_sortObjProperties_js__WEBPACK_IMPORTED_MODULE_7__["default"])(tags).map(tag => {
@@ -2326,7 +2328,7 @@ function Index({
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 167,
+          lineNumber: 166,
           columnNumber: 37
         }
       }, tag.name);

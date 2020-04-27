@@ -23,6 +23,12 @@ const PDate = styled(PDesc)`
 const PBlock = styled.p`
     margin-bottom: 1em;
 `
+const AsideBlock = styled.div`
+    margin-bottom: 1em;
+    padding: 1em 2em;
+    background-color: ${({ theme }) => theme.asideBackground};
+    font-size: .9em;
+`
 // TODO: fix overflow and add horizontal scroll
 const Pre = styled.pre`
     /* font-family: 'Courier Prime', monospace;
@@ -49,10 +55,21 @@ const LineNo = styled.span`
 
 function Post(props) {
     console.log('propsPost: ', props)
-
     const postContent = []
-    function formatParagraphBlock(content, key) {
+
+    function paragraphBlock(content, key) {
         return <PBlock key={key}>{content}</PBlock>
+    }
+
+    function asideStringNewlines(content, key) {
+        const contentArray = content.split('\n')
+        console.log('contentArray: ', contentArray)
+        const renderedLines = []
+        for (const line of contentArray) {
+            renderedLines.push(<div>{line}</div>)
+        }
+        return <AsideBlock>{renderedLines}</AsideBlock>
+        // return <AsideBlock key={key}>{content}</AsideBlock>
     }
     
     function prismafyCodeBlock(content, _key) {
@@ -87,13 +104,22 @@ function Post(props) {
     }
 
     props.body && props.body.forEach(section => {
+        // TODO: change to switch:
         if (section._type === 'block') {
             postContent.push(
-                formatParagraphBlock(section.children[0].text, section._key)
+                paragraphBlock(
+                    section.children[0].text, section._key
+                )
             )
         } else if (section._type === 'code') {
             postContent.push(
                 prismafyCodeBlock(section.code, section._key)
+            )
+        } else if (section._type === 'post_aside') {
+            postContent.push(
+                asideStringNewlines(
+                    section.string_content, section._key
+                )
             )
         }
     })

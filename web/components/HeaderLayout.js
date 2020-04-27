@@ -40,10 +40,11 @@ function HeaderLayout(props) {
             <Head>
                 <title>Jason Roundtree - Blog</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                <link href="https://fonts.googleapis.com/css2?family=Open+Sans300,400,600&display=swap" rel="stylesheet"></link>
+                {/* <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"></link>
+                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap" rel="stylesheet"></link> */}
+                <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400&display=swap" rel="stylesheet"></link>
                 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet"></link>
                 <link href="https://fonts.googleapis.com/css2?family=Cuprum&family=Fjalla+One&display=swap" rel="stylesheet"></link>
-                {/* <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet"></link> */}
                 <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet"></link>
             </Head>
 
