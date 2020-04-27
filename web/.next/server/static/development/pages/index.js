@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -344,7 +344,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _utils_sortStrings_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/sortStrings.js */ "./utils/sortStrings.js");
+/* harmony import */ var _utils_sortObjProperties_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/sortObjProperties.js */ "./utils/sortObjProperties.js");
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/components/KeywordTags.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -366,7 +366,7 @@ const TagCount = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.span.w
 
 function KeywordTags(props) {
   // console.log('props: ', props)
-  const tags = Object(_utils_sortStrings_js__WEBPACK_IMPORTED_MODULE_2__["default"])(props.tags);
+  const tags = Object(_utils_sortObjProperties_js__WEBPACK_IMPORTED_MODULE_2__["default"])(props.tags);
   return __jsx("div", {
     __self: this,
     __source: {
@@ -2105,7 +2105,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _components_HeaderLayout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/HeaderLayout */ "./components/HeaderLayout.js");
 /* harmony import */ var _components_KeywordTags__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/KeywordTags */ "./components/KeywordTags.js");
-/* harmony import */ var _utils_sortStrings_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/sortStrings.js */ "./utils/sortStrings.js");
+/* harmony import */ var _utils_sortObjProperties_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/sortObjProperties.js */ "./utils/sortObjProperties.js");
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/pages/index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -2284,8 +2284,8 @@ function Index({
         columnNumber: 21
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-      href: "/post/[slug]",
-      as: `/post/${slug.current}`,
+      href: "/posts/[slug]",
+      as: `/posts/${slug.current}`,
       __self: this,
       __source: {
         fileName: _jsxFileName,
@@ -2320,7 +2320,7 @@ function Index({
         lineNumber: 164,
         columnNumber: 25
       }
-    }, Object(_utils_sortStrings_js__WEBPACK_IMPORTED_MODULE_7__["default"])(tags).map(tag => {
+    }, Object(_utils_sortObjProperties_js__WEBPACK_IMPORTED_MODULE_7__["default"])(tags).map(tag => {
       return __jsx(TagListItem, {
         key: tag._id,
         __self: this,
@@ -2357,24 +2357,24 @@ async function getStaticProps() {
 
 /***/ }),
 
-/***/ "./utils/sortStrings.js":
-/*!******************************!*\
-  !*** ./utils/sortStrings.js ***!
-  \******************************/
+/***/ "./utils/sortObjProperties.js":
+/*!************************************!*\
+  !*** ./utils/sortObjProperties.js ***!
+  \************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (list => {
-  return list.sort((a, b) => {
+/* harmony default export */ __webpack_exports__["default"] = (arrayOfObjects => {
+  return arrayOfObjects.sort((a, b) => {
     return a.name > b.name ? 1 : -1;
   });
 });
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

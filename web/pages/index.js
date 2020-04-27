@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import moment from 'moment'
 import HeaderLayout from '../components/HeaderLayout'
 import KeywordTags from '../components/KeywordTags'
-import sortStrings from '../utils/sortStrings.js'
+import sortObjProperties from '../utils/sortObjProperties.js'
 
 const ListItem = styled.li`
     margin: 15px 0 0 15px;
@@ -152,8 +152,8 @@ function Index({
                 }) => (
                     <ListItem key={_id}>
                         <Link
-                            href='/post/[slug]'
-                            as={`/post/${slug.current}`}
+                            href='/posts/[slug]'
+                            as={`/posts/${slug.current}`}
                         >
                             <ListItemLink>{title}</ListItemLink>
                         </Link>
@@ -162,7 +162,7 @@ function Index({
                             {moment.utc(_createdAt).format("LL")}
                         </DateP>
                         <ul>
-                            {sortStrings(tags).map(tag => {
+                            {sortObjProperties(tags).map(tag => {
                                 return (
                                     <TagListItem key={tag._id}>
                                         {tag.name}

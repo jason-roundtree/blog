@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import sortStrings from '../utils/sortStrings.js'
+import sortObjProperties from '../utils/sortObjProperties.js'
 
 // const TagsContainer = styled.div`
 //     display: flex;
@@ -28,7 +28,7 @@ const TagCount = styled.span`
 
 function KeywordTags(props) {
     // console.log('props: ', props)
-    const tags = sortStrings(props.tags)
+    const tags = sortObjProperties(props.tags)
     
     return (
         <div>
