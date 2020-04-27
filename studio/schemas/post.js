@@ -20,7 +20,8 @@ export default {
             type: 'array',
             of: [
                 { type: 'block' },
-                { type: 'code' }
+                { type: 'code' },
+                { type: 'post_aside' }
             ]
         },
         {
