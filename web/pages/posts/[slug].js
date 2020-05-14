@@ -1,9 +1,8 @@
 import client from '../../client'
-import HeaderLayout from '../../components/HeaderLayout'
 import styled from 'styled-components'
 import moment from 'moment'
-import Prism from 'prismjs/components/prism-core'
 import Highlight, { defaultProps } from 'prism-react-renderer'
+import HeaderLayout from '../../components/HeaderLayout'
 import themes from '../../colorsAndThemes'
 
 const MainContent = styled.div`
@@ -28,11 +27,13 @@ const AsideBlock = styled.div`
     padding: 1em 2em;
     background-color: ${({ theme }) => theme.asideBackground};
     font-size: .9em;
+    /* TODO: dynamically change border and text according to theme? */
+    /* light text: rgb(178, 151, 98) */
+    /* light border: */
+    /* border-left: 1px solid var(--primary-color); */
+    border-left: 1px solid rgba(114, 143, 203, .5);
 `
-// TODO: fix overflow and add horizontal scroll
 const Pre = styled.pre`
-    /* font-family: 'Courier Prime', monospace;
-    font-family: 'Cutive Mono', monospace; */
     font-family: 'Nanum Gothic Coding', monospace;
     font-size: .9em;
     overflow: auto;
@@ -40,7 +41,7 @@ const Pre = styled.pre`
     margin: 1em 0;
     padding: 0.5em;
     & .token-line {
-        line-height: 1.3em;
+        line-height: 1.4em;
         height: 1.3em;
     }
     /* box-shadow: 0px 6px 7px -4px; */
@@ -51,25 +52,49 @@ const LineNo = styled.span`
     user-select: none;
     opacity: 0.3;
 `
-// TODO: add block type for blockquote-like content
+const ExternalLink = styled.a`
+    text-decoration: underline;
+`
 
 function Post(props) {
     console.log('propsPost: ', props)
-    const postContent = []
 
-    function paragraphBlock(content, key) {
-        return <PBlock key={key}>{content}</PBlock>
+    const postContent = []
+    
+    function paragraphBlock(section) {
+        // console.log('paraSection: ', section)
+        const blockContent = []
+        for (let i = 0; i < section.children.length; i++) {
+            // console.log('section.children[i]:', section.children[i])
+            if (section.children[i].marks.length > 0) {
+                for (let j = 0; j < section.markDefs.length; j++) {
+                    if (section.markDefs[j]._key === section.children[i].marks[0]) {
+                        blockContent.push(
+                            <ExternalLink 
+                                href={section.markDefs[j].href}
+                                target="_blank"
+                            >
+                                {section.children[i].text}
+                            </ExternalLink>
+                        )
+                    }
+                }
+            } else {
+                blockContent.push(section.children[i].text)
+            }
+        }
+        // console.log('block: ', blockContent)
+        return <PBlock key={section._key}>{blockContent}</PBlock>
     }
 
-    function asideStringNewlines(content, key) {
+    function asideStringNewlines(content, _key) {
         const contentArray = content.split('\n')
-        console.log('contentArray: ', contentArray)
+        // console.log('contentArray: ', contentArray)
         const renderedLines = []
-        for (const line of contentArray) {
-            renderedLines.push(<div>{line}</div>)
+        for (let i = 0; i < contentArray.length; i++) {
+            renderedLines.push(<div key={i}>{contentArray[i]}</div>)
         }
-        return <AsideBlock>{renderedLines}</AsideBlock>
-        // return <AsideBlock key={key}>{content}</AsideBlock>
+        return <AsideBlock key={_key}>{renderedLines}</AsideBlock>
     }
     
     function prismafyCodeBlock(content, _key) {
@@ -107,21 +132,22 @@ function Post(props) {
         // TODO: change to switch:
         if (section._type === 'block') {
             postContent.push(
-                paragraphBlock(
-                    section.children[0].text, section._key
-                )
+                paragraphBlock(section)
             )
-        } else if (section._type === 'code') {
+        } 
+        else if (section._type === 'code') {
             postContent.push(
                 prismafyCodeBlock(section.code, section._key)
             )
-        } else if (section._type === 'post_aside') {
+        } 
+        else if (section._type === 'post_aside') {
             postContent.push(
                 asideStringNewlines(
-                    section.string_content, section._key
+                    section.str_content_newline, section._key
                 )
             )
         }
+        console.log('postContent: ', postContent)
     })
 
     return (
@@ -153,7 +179,7 @@ export async function getStaticPaths() {
     const paths = posts.map(post => ({
         params: { slug: post.slug.current },
     }))
-    // We'll pre-render only these paths at build time.
+    // Pre-render only these paths at build time.
     // { fallback: false } means other routes should 404.
     return { paths, fallback: false }
 }
