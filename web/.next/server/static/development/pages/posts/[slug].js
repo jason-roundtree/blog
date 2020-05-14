@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -131,7 +131,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1__);
 
 
-console.log("duotoneLight: ", prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a);
 const colors = {
   white: `rgb(252, 249, 237)`,
   darkGrey: `rgb(54, 53, 55)`,
@@ -2023,16 +2022,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../client */ "./client.js");
-/* harmony import */ var _components_HeaderLayout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/HeaderLayout */ "./components/HeaderLayout.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "moment");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prismjs/components/prism-core */ "prismjs/components/prism-core");
-/* harmony import */ var prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_core__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var prism_react_renderer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prism-react-renderer */ "prism-react-renderer");
-/* harmony import */ var prism_react_renderer__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _colorsAndThemes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../colorsAndThemes */ "./colorsAndThemes.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "moment");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var prism_react_renderer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prism-react-renderer */ "prism-react-renderer");
+/* harmony import */ var prism_react_renderer__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prism_react_renderer__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_HeaderLayout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/HeaderLayout */ "./components/HeaderLayout.js");
+/* harmony import */ var _colorsAndThemes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../colorsAndThemes */ "./colorsAndThemes.js");
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/pages/posts/[slug].js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -2045,95 +2042,125 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 
-
-const MainContent = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
+const MainContent = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.withConfig({
   displayName: "slug__MainContent",
   componentId: "tg0oky-0"
 })(["margin-top:1.5em;font-size:1.15em;line-height:1.75em;"]);
-const PDesc = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withConfig({
+const PDesc = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.p.withConfig({
   displayName: "slug__PDesc",
   componentId: "tg0oky-1"
 })(["font-size:1.1em;color:", ";margin:3px 0 0;"], ({
   theme
 }) => theme.primaryColor);
-const PDate = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(PDesc).withConfig({
+const PDate = styled_components__WEBPACK_IMPORTED_MODULE_2___default()(PDesc).withConfig({
   displayName: "slug__PDate",
   componentId: "tg0oky-2"
 })(["font-size:1em;color:", ";"], ({
   theme
 }) => theme.text);
-const PBlock = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.p.withConfig({
+const PBlock = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.p.withConfig({
   displayName: "slug__PBlock",
   componentId: "tg0oky-3"
 })(["margin-bottom:1em;"]);
-const AsideBlock = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
+const AsideBlock = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.withConfig({
   displayName: "slug__AsideBlock",
   componentId: "tg0oky-4"
-})(["margin-bottom:1em;padding:1em 2em;background-color:", ";font-size:.9em;"], ({
+})(["margin-bottom:1em;padding:1em 2em;background-color:", ";font-size:.9em;border-left:1px solid rgba(114,143,203,.5);"], ({
   theme
-}) => theme.asideBackground); // TODO: fix overflow and add horizontal scroll
-
-const Pre = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.pre.withConfig({
+}) => theme.asideBackground);
+const Pre = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.pre.withConfig({
   displayName: "slug__Pre",
   componentId: "tg0oky-5"
-})(["font-family:'Nanum Gothic Coding',monospace;font-size:.9em;overflow:auto;text-align:left;margin:1em 0;padding:0.5em;& .token-line{line-height:1.3em;height:1.3em;}"]);
-const LineNo = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.span.withConfig({
+})(["font-family:'Nanum Gothic Coding',monospace;font-size:.9em;overflow:auto;text-align:left;margin:1em 0;padding:0.5em;& .token-line{line-height:1.4em;height:1.3em;}"]);
+const LineNo = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.span.withConfig({
   displayName: "slug__LineNo",
   componentId: "tg0oky-6"
-})(["display:inline-block;width:2em;user-select:none;opacity:0.3;"]); // TODO: add block type for blockquote-like content
+})(["display:inline-block;width:2em;user-select:none;opacity:0.3;"]);
+const ExternalLink = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.a.withConfig({
+  displayName: "slug__ExternalLink",
+  componentId: "tg0oky-7"
+})(["text-decoration:underline;"]);
 
 function Post(props) {
   console.log('propsPost: ', props);
   const postContent = [];
 
-  function paragraphBlock(content, key) {
+  function paragraphBlock(section) {
+    // console.log('paraSection: ', section)
+    const blockContent = [];
+
+    for (let i = 0; i < section.children.length; i++) {
+      // console.log('section.children[i]:', section.children[i])
+      if (section.children[i].marks.length > 0) {
+        for (let j = 0; j < section.markDefs.length; j++) {
+          if (section.markDefs[j]._key === section.children[i].marks[0]) {
+            blockContent.push(__jsx(ExternalLink, {
+              href: section.markDefs[j].href,
+              target: "_blank",
+              __self: this,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 73,
+                columnNumber: 29
+              }
+            }, section.children[i].text));
+          }
+        }
+      } else {
+        blockContent.push(section.children[i].text);
+      }
+    } // console.log('block: ', blockContent)
+
+
     return __jsx(PBlock, {
-      key: key,
+      key: section._key,
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 61,
+        lineNumber: 87,
         columnNumber: 16
       }
-    }, content);
+    }, blockContent);
   }
 
-  function asideStringNewlines(content, key) {
-    const contentArray = content.split('\n');
-    console.log('contentArray: ', contentArray);
+  function asideStringNewlines(content, _key) {
+    const contentArray = content.split('\n'); // console.log('contentArray: ', contentArray)
+
     const renderedLines = [];
 
-    for (const line of contentArray) {
+    for (let i = 0; i < contentArray.length; i++) {
       renderedLines.push(__jsx("div", {
+        key: i,
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69,
+          lineNumber: 95,
           columnNumber: 32
         }
-      }, line));
+      }, contentArray[i]));
     }
 
     return __jsx(AsideBlock, {
+      key: _key,
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 71,
+        lineNumber: 97,
         columnNumber: 16
       }
-    }, renderedLines); // return <AsideBlock key={key}>{content}</AsideBlock>
+    }, renderedLines);
   }
 
   function prismafyCodeBlock(content, _key) {
-    return __jsx(prism_react_renderer__WEBPACK_IMPORTED_MODULE_6___default.a, _extends({}, prism_react_renderer__WEBPACK_IMPORTED_MODULE_6__["defaultProps"], {
-      theme: props.themeString === 'light' ? _colorsAndThemes__WEBPACK_IMPORTED_MODULE_7__["default"].light.syntax : _colorsAndThemes__WEBPACK_IMPORTED_MODULE_7__["default"].dark.syntax,
+    return __jsx(prism_react_renderer__WEBPACK_IMPORTED_MODULE_4___default.a, _extends({}, prism_react_renderer__WEBPACK_IMPORTED_MODULE_4__["defaultProps"], {
+      theme: props.themeString === 'light' ? _colorsAndThemes__WEBPACK_IMPORTED_MODULE_6__["default"].light.syntax : _colorsAndThemes__WEBPACK_IMPORTED_MODULE_6__["default"].dark.syntax,
       code: content,
       language: "jsx",
       key: _key,
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 77,
+        lineNumber: 102,
         columnNumber: 13
       }
     }), ({
@@ -2148,7 +2175,7 @@ function Post(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 89,
+        lineNumber: 114,
         columnNumber: 21
       }
     }, tokens.map((line, i) => __jsx("div", _extends({}, getLineProps({
@@ -2158,14 +2185,14 @@ function Post(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 91,
+        lineNumber: 116,
         columnNumber: 29
       }
     }), __jsx(LineNo, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 92,
+        lineNumber: 117,
         columnNumber: 33
       }
     }, i + 1), line.map((token, key) => {
@@ -2176,7 +2203,7 @@ function Post(props) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95,
+          lineNumber: 120,
           columnNumber: 41
         }
       }));
@@ -2186,55 +2213,57 @@ function Post(props) {
   props.body && props.body.forEach(section => {
     // TODO: change to switch:
     if (section._type === 'block') {
-      postContent.push(paragraphBlock(section.children[0].text, section._key));
+      postContent.push(paragraphBlock(section));
     } else if (section._type === 'code') {
       postContent.push(prismafyCodeBlock(section.code, section._key));
     } else if (section._type === 'post_aside') {
-      postContent.push(asideStringNewlines(section.string_content, section._key));
+      postContent.push(asideStringNewlines(section.str_content_newline, section._key));
     }
+
+    console.log('postContent: ', postContent);
   });
-  return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_5__["default"], {
     onToggleThemeClick: props.onToggleThemeClick,
     themeString: props.themeString,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 128,
+      lineNumber: 154,
       columnNumber: 9
     }
   }, __jsx("article", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 132,
+      lineNumber: 158,
       columnNumber: 13
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133,
+      lineNumber: 159,
       columnNumber: 17
     }
   }, props.title), __jsx(PDesc, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 134,
+      lineNumber: 160,
       columnNumber: 17
     }
   }, props.description), __jsx(PDate, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 136,
+      lineNumber: 162,
       columnNumber: 17
     }
-  }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(props._createdAt).format("LL")), __jsx(MainContent, {
+  }, moment__WEBPACK_IMPORTED_MODULE_3___default.a.utc(props._createdAt).format("LL")), __jsx(MainContent, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 137,
+      lineNumber: 163,
       columnNumber: 17
     }
   }, postContent.map(content => content))));
@@ -2252,7 +2281,7 @@ async function getStaticPaths() {
     params: {
       slug: post.slug.current
     }
-  })); // We'll pre-render only these paths at build time.
+  })); // Pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
 
   return {
@@ -2286,7 +2315,7 @@ async function getStaticProps(context) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!*************************************!*\
   !*** multi ./pages/posts/[slug].js ***!
   \*************************************/
@@ -2361,17 +2390,6 @@ module.exports = require("prism-react-renderer/themes/duotoneDark");
 /***/ (function(module, exports) {
 
 module.exports = require("prism-react-renderer/themes/duotoneLight");
-
-/***/ }),
-
-/***/ "prismjs/components/prism-core":
-/*!************************************************!*\
-  !*** external "prismjs/components/prism-core" ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("prismjs/components/prism-core");
 
 /***/ }),
 

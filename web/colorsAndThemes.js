@@ -1,6 +1,5 @@
 import duotoneLight from 'prism-react-renderer/themes/duotoneLight'
 import duotoneDark from 'prism-react-renderer/themes/duotoneDark'
-console.log("duotoneLight: ", duotoneLight)
 
 const colors = {
     white: `rgb(252, 249, 237)`,
