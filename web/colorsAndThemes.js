@@ -7,7 +7,9 @@ const colors = {
     primaryColor: `rgb(3, 152, 252)`, 
     primaryColorDarker: `rgb(0, 85, 143)`,
     secondaryColor: `rgb(250, 223, 147)`,
-    tertiaryColor: `rgb(16, 46, 36)`
+    tertiaryColor: `rgb(16, 46, 36)`,
+    articleLinksLight: `rgb(114, 143, 203)`,
+    articleLinksDark: `rgb(255, 204, 153)`,
 }
 
 const themes = {
@@ -20,6 +22,7 @@ const themes = {
         iconAlt: 'Icon of moon for "Dark Mode" theme',
         syntax: duotoneDark,
         asideBackground: duotoneDark.plain.backgroundColor,
+        articleLinks: colors.articleLinksDark
     },
     light: {
         body: `${colors.white}`,
@@ -30,6 +33,7 @@ const themes = {
         iconAlt: 'Icon of sun for "Light Mode" theme',
         syntax: duotoneLight,
         asideBackground: duotoneLight.plain.backgroundColor,
+        articleLinks: colors.articleLinksLight
     }
 }
 

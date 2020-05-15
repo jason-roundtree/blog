@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import moment from 'moment'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import HeaderLayout from '../../components/HeaderLayout'
-import themes from '../../colorsAndThemes'
+import themes, { colors } from '../../colorsAndThemes'
 
 const MainContent = styled.div`
     margin-top: 1.5em;
@@ -54,6 +54,7 @@ const LineNo = styled.span`
 `
 const ExternalLink = styled.a`
     text-decoration: underline;
+    color: ${({ theme }) => theme.articleLinks};
 `
 
 function Post(props) {
@@ -61,18 +62,19 @@ function Post(props) {
 
     const postContent = []
     
+    // TODO: change these to use functional loops?:
     function paragraphBlock(section) {
         // console.log('paraSection: ', section)
         const blockContent = []
         for (let i = 0; i < section.children.length; i++) {
-            // console.log('section.children[i]:', section.children[i])
             if (section.children[i].marks.length > 0) {
                 for (let j = 0; j < section.markDefs.length; j++) {
                     if (section.markDefs[j]._key === section.children[i].marks[0]) {
                         blockContent.push(
                             <ExternalLink 
-                                href={section.markDefs[j].href}
                                 target="_blank"
+                                href={section.markDefs[j].href}
+                                key={section.markDefs[j]._key}
                             >
                                 {section.children[i].text}
                             </ExternalLink>
@@ -83,7 +85,7 @@ function Post(props) {
                 blockContent.push(section.children[i].text)
             }
         }
-        // console.log('block: ', blockContent)
+        console.log('block: ', blockContent)
         return <PBlock key={section._key}>{blockContent}</PBlock>
     }
 
@@ -129,23 +131,26 @@ function Post(props) {
     }
 
     props.body && props.body.forEach(section => {
-        // TODO: change to switch:
-        if (section._type === 'block') {
-            postContent.push(
-                paragraphBlock(section)
-            )
-        } 
-        else if (section._type === 'code') {
-            postContent.push(
-                prismafyCodeBlock(section.code, section._key)
-            )
-        } 
-        else if (section._type === 'post_aside') {
-            postContent.push(
-                asideStringNewlines(
-                    section.str_content_newline, section._key
+        switch(section._type) {
+            case 'block':
+                postContent.push(
+                    paragraphBlock(section)
                 )
-            )
+                break
+            case 'code':
+                postContent.push(
+                    prismafyCodeBlock(section.code, section._key)
+                )
+                break
+            case 'post_aside':
+                postContent.push(
+                    asideStringNewlines(
+                        section.str_content_newline, section._key
+                    )
+                )
+                break
+            // default:
+            //     console.log('default case')
         }
         console.log('postContent: ', postContent)
     })
