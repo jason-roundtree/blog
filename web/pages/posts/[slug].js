@@ -1,3 +1,5 @@
+// import { useEffect, useState } from 'react'
+import Link from 'next/link'
 import client from '../../client'
 import styled from 'styled-components'
 import moment from 'moment'
@@ -56,9 +58,37 @@ const ExternalLink = styled.a`
     text-decoration: underline;
     color: ${({ theme }) => theme.articleLinks};
 `
+const Button = styled.button`
+    font-size: .8em;
+    font-weight: bold;
+    /* color: ${({ theme }) => theme.primaryColor}; */
+    display: block; 
+    margin: auto;
+    /* background-color: ${({ theme }) => theme.secondaryColor};
+    &:hover {
+        background-color: ${({ theme }) => theme.primaryColor};
+        color: ${({ theme }) => theme.secondaryColor};
+    } */
+`
 
 function Post(props) {
-    console.log('propsPost: ', props)
+    // console.log('propsPost: ', props)
+
+    // useEffect(() => {
+    //     window.addEventListener('scroll', handleScroll)
+    //     return () => window.removeEventListener('scroll', handleScroll)
+    // }, [])
+
+    // function handleScroll(e) {
+    //     console.log('handleScroll e: ', e.target.scrollingElement.scrollTop)
+    // }
+
+    function handleScrollToTop() {
+        window.scroll({
+            top: 0, 
+            behavior: 'smooth'
+        })
+    }
 
     const postContent = []
     
@@ -85,7 +115,7 @@ function Post(props) {
                 blockContent.push(section.children[i].text)
             }
         }
-        console.log('block: ', blockContent)
+        // console.log('blockContent: ', blockContent)
         return <PBlock key={section._key}>{blockContent}</PBlock>
     }
 
@@ -152,15 +182,18 @@ function Post(props) {
             // default:
             //     console.log('default case')
         }
-        console.log('postContent: ', postContent)
+        // console.log('postContent: ', postContent)
     })
+
 
     return (
         <HeaderLayout 
             onToggleThemeClick={props.onToggleThemeClick}
             themeString={props.themeString}
         >
-            <article>
+            <article
+                // onScroll={handleScroll}
+            >
                 <h2>{props.title}</h2>
                 <PDesc>{props.description}</PDesc>
                 {/* // TODO: Add _updatedAt field? */}
@@ -169,6 +202,24 @@ function Post(props) {
                     {postContent.map(content => content)}
                 </MainContent>
             </article>
+
+            <Button
+                onClick={handleScrollToTop}
+            >
+                {/* ⬆︎ */}
+                Back to top
+                {/* ⬆︎ */}
+            </Button>
+            <br />
+            <Link href="/">
+                <a>
+                    <Button>
+                        Blog Home
+                    </Button>
+                </a>
+            </Link>
+            
+
         </HeaderLayout>
     )
 }

@@ -7,18 +7,17 @@ import sortObjProperties from '../utils/sortObjProperties.js'
 //     flex-wrap: wrap;
 // `
 const TagBtn = styled.button`
-    padding: 7px 10px;
     margin: 15px 0 0 15px;
+    /* padding: 7px 10px;
     color: var(--secondary-color);
     font-size: 1em;
     border: none;
     background-color: var(--primary-color);
-    /* font-family: 'Lustria', serif; */
     font-family: 'Nanum Gothic Coding', monospace;
     &:hover {
         cursor: pointer;
         background-color: var(--primary-darker);
-    }
+    } */
 `
 const TagCount = styled.span`
     font-family: 'Fjalla One', sans-serif;

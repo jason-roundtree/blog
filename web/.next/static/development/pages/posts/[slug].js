@@ -16,33 +16,37 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var colors = {
-  white: "rgb(252, 249, 237)",
+  offWhite: "rgb(252, 249, 237)",
   darkGrey: "rgb(54, 53, 55)",
   primaryColor: "rgb(3, 152, 252)",
   primaryColorDarker: "rgb(0, 85, 143)",
   secondaryColor: "rgb(250, 223, 147)",
-  tertiaryColor: "rgb(16, 46, 36)"
+  tertiaryColor: "rgb(16, 46, 36)",
+  articleLinksLight: "rgb(114, 143, 203)",
+  articleLinksDark: "rgb(255, 204, 153)"
 };
 var themes = {
   dark: {
-    body: "".concat(colors.darkGrey),
-    text: "".concat(colors.white),
-    primaryColor: "".concat(colors.secondaryColor),
-    secondaryColor: "".concat(colors.primaryColorDarker),
+    body: colors.darkGrey,
+    text: colors.offWhite,
+    primaryColor: colors.secondaryColor,
+    secondaryColor: colors.primaryColorDarker,
     iconSrc: '/images/sun.svg',
     iconAlt: 'Icon of moon for "Dark Mode" theme',
     syntax: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1__["default"],
-    asideBackground: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1__["default"].plain.backgroundColor
+    asideBackground: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1__["default"].plain.backgroundColor,
+    articleLinks: colors.articleLinksDark
   },
   light: {
-    body: "".concat(colors.white),
-    text: "".concat(colors.darkGrey),
-    primaryColor: "".concat(colors.primaryColorDarker),
-    secondaryColor: "".concat(colors.secondaryColor),
+    body: colors.offWhite,
+    text: colors.darkGrey,
+    primaryColor: colors.primaryColorDarker,
+    secondaryColor: colors.secondaryColor,
     iconSrc: '/images/moon.svg',
     iconAlt: 'Icon of sun for "Light Mode" theme',
     syntax: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0__["default"],
-    asideBackground: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0__["default"].plain.backgroundColor
+    asideBackground: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0__["default"].plain.backgroundColor,
+    articleLinks: colors.articleLinksLight
   }
 };
 
@@ -98,7 +102,7 @@ var ToggleBtn = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].img.wi
 
 function HeaderLayout(props) {
   // console.log('HeaderLayout props: ', props)
-  var theme = props.themeString === 'light' ? _colorsAndThemes__WEBPACK_IMPORTED_MODULE_4__["default"]['light'] : _colorsAndThemes__WEBPACK_IMPORTED_MODULE_4__["default"]['dark'];
+  var BtnTheme = props.themeString === 'light' ? _colorsAndThemes__WEBPACK_IMPORTED_MODULE_4__["default"]['light'] : _colorsAndThemes__WEBPACK_IMPORTED_MODULE_4__["default"]['dark'];
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __self: this,
     __source: {
@@ -195,8 +199,8 @@ function HeaderLayout(props) {
       columnNumber: 29
     }
   }, "Jason Roundtree - Blog")))), __jsx(ToggleBtn, {
-    src: "".concat(theme.iconSrc),
-    alt: "".concat(theme.iconAlt),
+    src: "".concat(BtnTheme.iconSrc),
+    alt: "".concat(BtnTheme.iconAlt),
     onClick: props.onToggleThemeClick,
     __self: this,
     __source: {
@@ -29418,83 +29422,108 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var prism_react_renderer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prism-react-renderer */ "./node_modules/prism-react-renderer/dist/index.js");
-/* harmony import */ var _components_HeaderLayout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/HeaderLayout */ "./components/HeaderLayout.js");
-/* harmony import */ var _colorsAndThemes__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../colorsAndThemes */ "./colorsAndThemes.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var prism_react_renderer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prism-react-renderer */ "./node_modules/prism-react-renderer/dist/index.js");
+/* harmony import */ var _components_HeaderLayout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/HeaderLayout */ "./components/HeaderLayout.js");
+/* harmony import */ var _colorsAndThemes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../colorsAndThemes */ "./colorsAndThemes.js");
 
 var _jsxFileName = "/Users/jasonroundtree/projects/blog/web/pages/posts/[slug].js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+// import { useEffect, useState } from 'react'
 
 
 
 
 
-var MainContent = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
+
+var MainContent = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
   displayName: "slug__MainContent",
   componentId: "tg0oky-0"
 })(["margin-top:1.5em;font-size:1.15em;line-height:1.75em;"]);
-var PDesc = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].p.withConfig({
+var PDesc = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].p.withConfig({
   displayName: "slug__PDesc",
   componentId: "tg0oky-1"
 })(["font-size:1.1em;color:", ";margin:3px 0 0;"], function (_ref) {
   var theme = _ref.theme;
   return theme.primaryColor;
 });
-var PDate = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(PDesc).withConfig({
+var PDate = Object(styled_components__WEBPACK_IMPORTED_MODULE_3__["default"])(PDesc).withConfig({
   displayName: "slug__PDate",
   componentId: "tg0oky-2"
 })(["font-size:1em;color:", ";"], function (_ref2) {
   var theme = _ref2.theme;
   return theme.text;
 });
-var PBlock = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].p.withConfig({
+var PBlock = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].p.withConfig({
   displayName: "slug__PBlock",
   componentId: "tg0oky-3"
 })(["margin-bottom:1em;"]);
-var AsideBlock = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
+var AsideBlock = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div.withConfig({
   displayName: "slug__AsideBlock",
   componentId: "tg0oky-4"
 })(["margin-bottom:1em;padding:1em 2em;background-color:", ";font-size:.9em;border-left:1px solid rgba(114,143,203,.5);"], function (_ref3) {
   var theme = _ref3.theme;
   return theme.asideBackground;
 });
-var Pre = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].pre.withConfig({
+var Pre = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].pre.withConfig({
   displayName: "slug__Pre",
   componentId: "tg0oky-5"
 })(["font-family:'Nanum Gothic Coding',monospace;font-size:.9em;overflow:auto;text-align:left;margin:1em 0;padding:0.5em;& .token-line{line-height:1.4em;height:1.3em;}"]);
-var LineNo = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].span.withConfig({
+var LineNo = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].span.withConfig({
   displayName: "slug__LineNo",
   componentId: "tg0oky-6"
 })(["display:inline-block;width:2em;user-select:none;opacity:0.3;"]);
-var ExternalLink = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].a.withConfig({
+var ExternalLink = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].a.withConfig({
   displayName: "slug__ExternalLink",
   componentId: "tg0oky-7"
-})(["text-decoration:underline;"]);
+})(["text-decoration:underline;color:", ";"], function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.articleLinks;
+});
+var Button = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].button.withConfig({
+  displayName: "slug__Button",
+  componentId: "tg0oky-8"
+})(["font-size:.8em;font-weight:bold;display:block;margin:auto;"]);
 
 function Post(props) {
-  console.log('propsPost: ', props);
-  var postContent = [];
+  // console.log('propsPost: ', props)
+  // useEffect(() => {
+  //     window.addEventListener('scroll', handleScroll)
+  //     return () => window.removeEventListener('scroll', handleScroll)
+  // }, [])
+  // function handleScroll(e) {
+  //     console.log('handleScroll e: ', e.target.scrollingElement.scrollTop)
+  // }
+  function handleScrollToTop() {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  var postContent = []; // TODO: change these to use functional loops?:
 
   function paragraphBlock(section) {
     // console.log('paraSection: ', section)
     var blockContent = [];
 
     for (var i = 0; i < section.children.length; i++) {
-      // console.log('section.children[i]:', section.children[i])
       if (section.children[i].marks.length > 0) {
         for (var j = 0; j < section.markDefs.length; j++) {
           if (section.markDefs[j]._key === section.children[i].marks[0]) {
             blockContent.push(__jsx(ExternalLink, {
-              href: section.markDefs[j].href,
               target: "_blank",
+              href: section.markDefs[j].href,
+              key: section.markDefs[j]._key,
               __self: this,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 73,
+                lineNumber: 104,
                 columnNumber: 29
               }
             }, section.children[i].text));
@@ -29503,7 +29532,7 @@ function Post(props) {
       } else {
         blockContent.push(section.children[i].text);
       }
-    } // console.log('block: ', blockContent)
+    } // console.log('blockContent: ', blockContent)
 
 
     return __jsx(PBlock, {
@@ -29511,7 +29540,7 @@ function Post(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 87,
+        lineNumber: 119,
         columnNumber: 16
       }
     }, blockContent);
@@ -29528,7 +29557,7 @@ function Post(props) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95,
+          lineNumber: 127,
           columnNumber: 32
         }
       }, contentArray[i]));
@@ -29539,7 +29568,7 @@ function Post(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 97,
+        lineNumber: 129,
         columnNumber: 16
       }
     }, renderedLines);
@@ -29548,30 +29577,30 @@ function Post(props) {
   function prismafyCodeBlock(content, _key) {
     var _this = this;
 
-    return __jsx(prism_react_renderer__WEBPACK_IMPORTED_MODULE_4__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, prism_react_renderer__WEBPACK_IMPORTED_MODULE_4__["defaultProps"], {
-      theme: props.themeString === 'light' ? _colorsAndThemes__WEBPACK_IMPORTED_MODULE_6__["default"].light.syntax : _colorsAndThemes__WEBPACK_IMPORTED_MODULE_6__["default"].dark.syntax,
+    return __jsx(prism_react_renderer__WEBPACK_IMPORTED_MODULE_5__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, prism_react_renderer__WEBPACK_IMPORTED_MODULE_5__["defaultProps"], {
+      theme: props.themeString === 'light' ? _colorsAndThemes__WEBPACK_IMPORTED_MODULE_7__["default"].light.syntax : _colorsAndThemes__WEBPACK_IMPORTED_MODULE_7__["default"].dark.syntax,
       code: content,
       language: "jsx",
       key: _key,
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 102,
+        lineNumber: 134,
         columnNumber: 13
       }
-    }), function (_ref4) {
-      var className = _ref4.className,
-          style = _ref4.style,
-          tokens = _ref4.tokens,
-          getLineProps = _ref4.getLineProps,
-          getTokenProps = _ref4.getTokenProps;
+    }), function (_ref5) {
+      var className = _ref5.className,
+          style = _ref5.style,
+          tokens = _ref5.tokens,
+          getLineProps = _ref5.getLineProps,
+          getTokenProps = _ref5.getTokenProps;
       return __jsx(Pre, {
         className: className,
         style: style,
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114,
+          lineNumber: 146,
           columnNumber: 21
         }
       }, tokens.map(function (line, i) {
@@ -29582,14 +29611,14 @@ function Post(props) {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 116,
+            lineNumber: 148,
             columnNumber: 29
           }
         }), __jsx(LineNo, {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 117,
+            lineNumber: 149,
             columnNumber: 33
           }
         }, i + 1), line.map(function (token, key) {
@@ -29600,7 +29629,7 @@ function Post(props) {
             __self: _this,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 120,
+              lineNumber: 152,
               columnNumber: 41
             }
           }));
@@ -29610,64 +29639,107 @@ function Post(props) {
   }
 
   props.body && props.body.forEach(function (section) {
-    // TODO: change to switch:
-    if (section._type === 'block') {
-      postContent.push(paragraphBlock(section));
-    } else if (section._type === 'code') {
-      postContent.push(prismafyCodeBlock(section.code, section._key));
-    } else if (section._type === 'post_aside') {
-      postContent.push(asideStringNewlines(section.str_content_newline, section._key));
-    }
+    switch (section._type) {
+      case 'block':
+        postContent.push(paragraphBlock(section));
+        break;
 
-    console.log('postContent: ', postContent);
+      case 'code':
+        postContent.push(prismafyCodeBlock(section.code, section._key));
+        break;
+
+      case 'post_aside':
+        postContent.push(asideStringNewlines(section.str_content_newline, section._key));
+        break;
+      // default:
+      //     console.log('default case')
+    } // console.log('postContent: ', postContent)
+
   });
-  return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  return __jsx(_components_HeaderLayout__WEBPACK_IMPORTED_MODULE_6__["default"], {
     onToggleThemeClick: props.onToggleThemeClick,
     themeString: props.themeString,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 154,
+      lineNumber: 190,
       columnNumber: 9
     }
   }, __jsx("article", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 158,
+      lineNumber: 194,
       columnNumber: 13
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 159,
+      lineNumber: 197,
       columnNumber: 17
     }
   }, props.title), __jsx(PDesc, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 160,
+      lineNumber: 198,
       columnNumber: 17
     }
   }, props.description), __jsx(PDate, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 162,
+      lineNumber: 200,
       columnNumber: 17
     }
-  }, moment__WEBPACK_IMPORTED_MODULE_3___default.a.utc(props._createdAt).format("LL")), __jsx(MainContent, {
+  }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(props._createdAt).format("LL")), __jsx(MainContent, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 163,
+      lineNumber: 201,
       columnNumber: 17
     }
   }, postContent.map(function (content) {
     return content;
-  }))));
+  }))), __jsx(Button, {
+    onClick: handleScrollToTop,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 206,
+      columnNumber: 13
+    }
+  }, "Back to top"), __jsx("br", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 213,
+      columnNumber: 13
+    }
+  }), __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    href: "/",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 214,
+      columnNumber: 13
+    }
+  }, __jsx("a", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 215,
+      columnNumber: 17
+    }
+  }, __jsx(Button, {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 216,
+      columnNumber: 21
+    }
+  }, "Blog Home"))));
 }
 
 // Post.getInitialProps = async function(context) {

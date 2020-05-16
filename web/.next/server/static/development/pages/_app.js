@@ -111,33 +111,37 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const colors = {
-  white: `rgb(252, 249, 237)`,
+  offWhite: `rgb(252, 249, 237)`,
   darkGrey: `rgb(54, 53, 55)`,
   primaryColor: `rgb(3, 152, 252)`,
   primaryColorDarker: `rgb(0, 85, 143)`,
   secondaryColor: `rgb(250, 223, 147)`,
-  tertiaryColor: `rgb(16, 46, 36)`
+  tertiaryColor: `rgb(16, 46, 36)`,
+  articleLinksLight: `rgb(114, 143, 203)`,
+  articleLinksDark: `rgb(255, 204, 153)`
 };
 const themes = {
   dark: {
-    body: `${colors.darkGrey}`,
-    text: `${colors.white}`,
-    primaryColor: `${colors.secondaryColor}`,
-    secondaryColor: `${colors.primaryColorDarker}`,
+    body: colors.darkGrey,
+    text: colors.offWhite,
+    primaryColor: colors.secondaryColor,
+    secondaryColor: colors.primaryColorDarker,
     iconSrc: '/images/sun.svg',
     iconAlt: 'Icon of moon for "Dark Mode" theme',
     syntax: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default.a,
-    asideBackground: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default.a.plain.backgroundColor
+    asideBackground: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1___default.a.plain.backgroundColor,
+    articleLinks: colors.articleLinksDark
   },
   light: {
-    body: `${colors.white}`,
-    text: `${colors.darkGrey}`,
-    primaryColor: `${colors.primaryColorDarker}`,
-    secondaryColor: `${colors.secondaryColor}`,
+    body: colors.offWhite,
+    text: colors.darkGrey,
+    primaryColor: colors.primaryColorDarker,
+    secondaryColor: colors.secondaryColor,
     iconSrc: '/images/moon.svg',
     iconAlt: 'Icon of sun for "Light Mode" theme',
     syntax: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a,
-    asideBackground: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a.plain.backgroundColor
+    asideBackground: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0___default.a.plain.backgroundColor,
+    articleLinks: colors.articleLinksLight
   }
 };
 
@@ -217,9 +221,23 @@ const GlobalStyles = styled_components__WEBPACK_IMPORTED_MODULE_0__["createGloba
 }) => theme.text};
     }
 
+    button {
+        padding: 7px 10px;
+        color: var(--secondary-color);
+        font-size: 1em;
+        border: none;
+        background-color: var(--primary-color);
+        font-family: 'Nanum Gothic Coding', monospace;
+        &:hover {
+            cursor: pointer;
+            background-color: var(--primary-darker);
+        }
+    }
+
     .selectedTag.selectedTag {
         background-color: var(--primary-darker)
     }
+
     pre {
         font-family: 'Courier Prime', monospace;
     }
