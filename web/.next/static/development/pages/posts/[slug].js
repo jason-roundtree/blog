@@ -29488,14 +29488,7 @@ var ExternalLink = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].a.w
 var Button = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].button.withConfig({
   displayName: "slug__Button",
   componentId: "tg0oky-8"
-<<<<<<< HEAD
 })(["font-size:.8em;font-weight:bold;display:block;margin:auto;"]);
-=======
-})(["font-size:.8em;font-weight:bold;color:", ";display:block;margin:auto;"], function (_ref5) {
-  var theme = _ref5.theme;
-  return theme.primaryColor;
-});
->>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9
 
 function Post(props) {
   // console.log('propsPost: ', props)
@@ -29530,7 +29523,7 @@ function Post(props) {
               __self: this,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 104,
+                lineNumber: 103,
                 columnNumber: 29
               }
             }, section.children[i].text));
@@ -29547,7 +29540,7 @@ function Post(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 119,
+        lineNumber: 118,
         columnNumber: 16
       }
     }, blockContent);
@@ -29564,7 +29557,7 @@ function Post(props) {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 127,
+          lineNumber: 126,
           columnNumber: 32
         }
       }, contentArray[i]));
@@ -29575,7 +29568,7 @@ function Post(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 129,
+        lineNumber: 128,
         columnNumber: 16
       }
     }, renderedLines);
@@ -29592,31 +29585,22 @@ function Post(props) {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 134,
+        lineNumber: 133,
         columnNumber: 13
       }
-<<<<<<< HEAD
     }), function (_ref5) {
       var className = _ref5.className,
           style = _ref5.style,
           tokens = _ref5.tokens,
           getLineProps = _ref5.getLineProps,
           getTokenProps = _ref5.getTokenProps;
-=======
-    }), function (_ref6) {
-      var className = _ref6.className,
-          style = _ref6.style,
-          tokens = _ref6.tokens,
-          getLineProps = _ref6.getLineProps,
-          getTokenProps = _ref6.getTokenProps;
->>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9
       return __jsx(Pre, {
         className: className,
         style: style,
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 146,
+          lineNumber: 145,
           columnNumber: 21
         }
       }, tokens.map(function (line, i) {
@@ -29627,14 +29611,14 @@ function Post(props) {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 148,
+            lineNumber: 147,
             columnNumber: 29
           }
         }), __jsx(LineNo, {
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 149,
+            lineNumber: 148,
             columnNumber: 33
           }
         }, i + 1), line.map(function (token, key) {
@@ -29645,7 +29629,7 @@ function Post(props) {
             __self: _this,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 152,
+              lineNumber: 151,
               columnNumber: 41
             }
           }));
@@ -29678,42 +29662,42 @@ function Post(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 190,
+      lineNumber: 189,
       columnNumber: 9
     }
   }, __jsx("article", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 194,
+      lineNumber: 193,
       columnNumber: 13
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 197,
+      lineNumber: 196,
       columnNumber: 17
     }
   }, props.title), __jsx(PDesc, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 198,
+      lineNumber: 197,
       columnNumber: 17
     }
   }, props.description), __jsx(PDate, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 200,
+      lineNumber: 199,
       columnNumber: 17
     }
   }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(props._createdAt).format("LL")), __jsx(MainContent, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 201,
+      lineNumber: 200,
       columnNumber: 17
     }
   }, postContent.map(function (content) {
@@ -29723,14 +29707,14 @@ function Post(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 206,
+      lineNumber: 205,
       columnNumber: 13
     }
   }, "Back to top"), __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 213,
+      lineNumber: 212,
       columnNumber: 13
     }
   }), __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -29738,21 +29722,21 @@ function Post(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 214,
+      lineNumber: 213,
       columnNumber: 13
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 215,
+      lineNumber: 214,
       columnNumber: 17
     }
   }, __jsx(Button, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 216,
+      lineNumber: 215,
       columnNumber: 21
     }
   }, "Blog Home"))));
@@ -29772,7 +29756,7 @@ var __N_SSG = true;
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /*!********************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fposts%2F%5Bslug%5D&absolutePagePath=%2FUsers%2Fjasonroundtree%2Fprojects%2Fblog%2Fweb%2Fpages%2Fposts%2F%5Bslug%5D.js ***!
   \********************************************************************************************************************************************************************/
@@ -29795,5 +29779,5 @@ module.exports = dll_c2e10d183b950a67d9e7;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=[slug].js.map
