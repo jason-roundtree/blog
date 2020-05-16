@@ -232,7 +232,15 @@ function Post(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 159,
+=======
+<<<<<<< HEAD:web/.next/static/webpack/static/development/pages/posts/[slug].js.5edada5f1ee0e310da5c.hot-update.js
+      lineNumber: 160,
+=======
+      lineNumber: 159,
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9:web/.next/static/webpack/static/development/pages/posts/[slug].js.0c06e906a537169875c8.hot-update.js
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9
       columnNumber: 9
     }
   }, __jsx("article", {
@@ -240,35 +248,75 @@ function Post(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 163,
+=======
+<<<<<<< HEAD:web/.next/static/webpack/static/development/pages/posts/[slug].js.5edada5f1ee0e310da5c.hot-update.js
+      lineNumber: 164,
+=======
+      lineNumber: 163,
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9:web/.next/static/webpack/static/development/pages/posts/[slug].js.0c06e906a537169875c8.hot-update.js
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9
       columnNumber: 13
     }
   }, __jsx("h2", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 166,
+=======
+<<<<<<< HEAD:web/.next/static/webpack/static/development/pages/posts/[slug].js.5edada5f1ee0e310da5c.hot-update.js
+      lineNumber: 167,
+=======
+      lineNumber: 166,
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9:web/.next/static/webpack/static/development/pages/posts/[slug].js.0c06e906a537169875c8.hot-update.js
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9
       columnNumber: 17
     }
   }, props.title), __jsx(PDesc, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 167,
+=======
+<<<<<<< HEAD:web/.next/static/webpack/static/development/pages/posts/[slug].js.5edada5f1ee0e310da5c.hot-update.js
+      lineNumber: 168,
+=======
+      lineNumber: 167,
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9:web/.next/static/webpack/static/development/pages/posts/[slug].js.0c06e906a537169875c8.hot-update.js
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9
       columnNumber: 17
     }
   }, props.description), __jsx(PDate, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 169,
+=======
+<<<<<<< HEAD:web/.next/static/webpack/static/development/pages/posts/[slug].js.5edada5f1ee0e310da5c.hot-update.js
+      lineNumber: 170,
+=======
+      lineNumber: 169,
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9:web/.next/static/webpack/static/development/pages/posts/[slug].js.0c06e906a537169875c8.hot-update.js
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9
       columnNumber: 17
     }
   }, moment__WEBPACK_IMPORTED_MODULE_3___default.a.utc(props._createdAt).format("LL")), __jsx(MainContent, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
+<<<<<<< HEAD
       lineNumber: 170,
+=======
+<<<<<<< HEAD:web/.next/static/webpack/static/development/pages/posts/[slug].js.5edada5f1ee0e310da5c.hot-update.js
+      lineNumber: 171,
+=======
+      lineNumber: 170,
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9:web/.next/static/webpack/static/development/pages/posts/[slug].js.0c06e906a537169875c8.hot-update.js
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9
       columnNumber: 17
     }
   }, postContent.map(function (content) {
@@ -291,4 +339,12 @@ var __N_SSG = true;
 /***/ })
 
 })
+<<<<<<< HEAD
 //# sourceMappingURL=[slug].js.0c06e906a537169875c8.hot-update.js.map
+=======
+<<<<<<< HEAD:web/.next/static/webpack/static/development/pages/posts/[slug].js.5edada5f1ee0e310da5c.hot-update.js
+//# sourceMappingURL=[slug].js.5edada5f1ee0e310da5c.hot-update.js.map
+=======
+//# sourceMappingURL=[slug].js.0c06e906a537169875c8.hot-update.js.map
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9:web/.next/static/webpack/static/development/pages/posts/[slug].js.0c06e906a537169875c8.hot-update.js
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9

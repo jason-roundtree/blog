@@ -29488,7 +29488,14 @@ var ExternalLink = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].a.w
 var Button = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].button.withConfig({
   displayName: "slug__Button",
   componentId: "tg0oky-8"
+<<<<<<< HEAD
 })(["font-size:.8em;font-weight:bold;display:block;margin:auto;"]);
+=======
+})(["font-size:.8em;font-weight:bold;color:", ";display:block;margin:auto;"], function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.primaryColor;
+});
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9
 
 function Post(props) {
   // console.log('propsPost: ', props)
@@ -29588,12 +29595,21 @@ function Post(props) {
         lineNumber: 134,
         columnNumber: 13
       }
+<<<<<<< HEAD
     }), function (_ref5) {
       var className = _ref5.className,
           style = _ref5.style,
           tokens = _ref5.tokens,
           getLineProps = _ref5.getLineProps,
           getTokenProps = _ref5.getTokenProps;
+=======
+    }), function (_ref6) {
+      var className = _ref6.className,
+          style = _ref6.style,
+          tokens = _ref6.tokens,
+          getLineProps = _ref6.getLineProps,
+          getTokenProps = _ref6.getTokenProps;
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9
       return __jsx(Pre, {
         className: className,
         style: style,

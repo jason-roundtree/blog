@@ -61,7 +61,7 @@ const ExternalLink = styled.a`
 const Button = styled.button`
     font-size: .8em;
     font-weight: bold;
-    /* color: ${({ theme }) => theme.primaryColor}; */
+    color: ${({ theme }) => theme.primaryColor};
     display: block; 
     margin: auto;
     /* background-color: ${({ theme }) => theme.secondaryColor};

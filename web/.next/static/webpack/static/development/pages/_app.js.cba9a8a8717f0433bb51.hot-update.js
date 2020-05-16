@@ -38,7 +38,15 @@ var themes = {
     articleLinks: colors.articleLinksDark
   },
   light: {
+<<<<<<< HEAD
     body: colors.white,
+=======
+<<<<<<< HEAD:web/.next/static/webpack/static/development/pages/_app.js.ea136c5c78860da7969f.hot-update.js
+    body: colors.offWhite,
+=======
+    body: colors.white,
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9:web/.next/static/webpack/static/development/pages/_app.js.cba9a8a8717f0433bb51.hot-update.js
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9
     text: colors.darkGrey,
     primaryColor: colors.primaryColorDarker,
     secondaryColor: colors.secondaryColor,
@@ -54,4 +62,12 @@ var themes = {
 /***/ })
 
 })
+<<<<<<< HEAD
 //# sourceMappingURL=_app.js.cba9a8a8717f0433bb51.hot-update.js.map
+=======
+<<<<<<< HEAD:web/.next/static/webpack/static/development/pages/_app.js.ea136c5c78860da7969f.hot-update.js
+//# sourceMappingURL=_app.js.ea136c5c78860da7969f.hot-update.js.map
+=======
+//# sourceMappingURL=_app.js.cba9a8a8717f0433bb51.hot-update.js.map
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9:web/.next/static/webpack/static/development/pages/_app.js.cba9a8a8717f0433bb51.hot-update.js
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9

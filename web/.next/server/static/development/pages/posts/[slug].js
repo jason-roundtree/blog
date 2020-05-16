@@ -2093,7 +2093,13 @@ const ExternalLink = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.a.
 const Button = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.button.withConfig({
   displayName: "slug__Button",
   componentId: "tg0oky-8"
+<<<<<<< HEAD
 })(["font-size:.8em;font-weight:bold;display:block;margin:auto;"]);
+=======
+})(["font-size:.8em;font-weight:bold;color:", ";display:block;margin:auto;"], ({
+  theme
+}) => theme.primaryColor);
+>>>>>>> 4423bd26ae712fba298eea121f641f6add3b93b9
 
 function Post(props) {
   // console.log('propsPost: ', props)
