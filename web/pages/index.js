@@ -162,11 +162,11 @@ function Index({
                         </DateP>
                         <ul>
                             {sortObjProperties(tags).map(tag => {
-                                return (
+                                return 
                                     <TagListItem key={tag._id}>
                                         {tag.name}
                                     </TagListItem>
-                                )
+                                
                             })}
                         </ul>
                     </ListItem>

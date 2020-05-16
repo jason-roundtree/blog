@@ -16,33 +16,37 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var colors = {
-  white: "rgb(252, 249, 237)",
+  offWhite: "rgb(252, 249, 237)",
   darkGrey: "rgb(54, 53, 55)",
   primaryColor: "rgb(3, 152, 252)",
   primaryColorDarker: "rgb(0, 85, 143)",
   secondaryColor: "rgb(250, 223, 147)",
-  tertiaryColor: "rgb(16, 46, 36)"
+  tertiaryColor: "rgb(16, 46, 36)",
+  articleLinksLight: "rgb(114, 143, 203)",
+  articleLinksDark: "rgb(255, 204, 153)"
 };
 var themes = {
   dark: {
-    body: "".concat(colors.darkGrey),
-    text: "".concat(colors.white),
-    primaryColor: "".concat(colors.secondaryColor),
-    secondaryColor: "".concat(colors.primaryColorDarker),
+    body: colors.darkGrey,
+    text: colors.offWhite,
+    primaryColor: colors.secondaryColor,
+    secondaryColor: colors.primaryColorDarker,
     iconSrc: '/images/sun.svg',
     iconAlt: 'Icon of moon for "Dark Mode" theme',
     syntax: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1__["default"],
-    asideBackground: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1__["default"].plain.backgroundColor
+    asideBackground: prism_react_renderer_themes_duotoneDark__WEBPACK_IMPORTED_MODULE_1__["default"].plain.backgroundColor,
+    articleLinks: colors.articleLinksDark
   },
   light: {
-    body: "".concat(colors.white),
-    text: "".concat(colors.darkGrey),
-    primaryColor: "".concat(colors.primaryColorDarker),
-    secondaryColor: "".concat(colors.secondaryColor),
+    body: colors.offWhite,
+    text: colors.darkGrey,
+    primaryColor: colors.primaryColorDarker,
+    secondaryColor: colors.secondaryColor,
     iconSrc: '/images/moon.svg',
     iconAlt: 'Icon of sun for "Light Mode" theme',
     syntax: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0__["default"],
-    asideBackground: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0__["default"].plain.backgroundColor
+    asideBackground: prism_react_renderer_themes_duotoneLight__WEBPACK_IMPORTED_MODULE_0__["default"].plain.backgroundColor,
+    articleLinks: colors.articleLinksLight
   }
 };
 
@@ -65,7 +69,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function _templateObject() {
-  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    :root {\n        --primary-color: ", ";\n        --primary-darker: ", ";\n        --secondary-color: ", ";\n        --tertiary-color: ", ";\n    }\n\n    body {\n        background: ", ";\n        color: ", ";\n        /* font-family: 'Open Sans', sans-serif;\n        font-family: 'Poppins', sans-serif; */\n        font-family: 'Nunito Sans', sans-serif;\n    }\n\n    * {\n        margin: 0;\n        padding: 0;\n        box-sizing: border-box;\n        /* font-family: 'Archivo Narrow', sans-serif; */\n        /* font-family: 'Nanum Gothic', sans-serif; */\n        /* font-family: 'Lato', sans-serif; */\n        \n        font-weight: 300;\n        color: var(--primary-color)\n    }\n\n    h2 {\n        font-size: 1.5em;\n        margin-top: 1.5em;\n        font-family: 'Cuprum', sans-serif;\n        font-family: 'Fjalla One', sans-serif;\n    }\n\n    main {\n        padding: 0 2.5em 2.5em 2.5em;\n    }\n\n    a {\n        text-decoration: none;\n    }\n\n    li {\n        list-style: none;\n    }\n\n    p {\n        line-height: 1.5em;\n        color: ", ";\n    }\n\n    .selectedTag.selectedTag {\n        background-color: var(--primary-darker)\n    }\n    pre {\n        font-family: 'Courier Prime', monospace;\n    }\n"]);
+  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    :root {\n        --primary-color: ", ";\n        --primary-darker: ", ";\n        --secondary-color: ", ";\n        --tertiary-color: ", ";\n    }\n\n    body {\n        background: ", ";\n        color: ", ";\n        /* font-family: 'Open Sans', sans-serif;\n        font-family: 'Poppins', sans-serif; */\n        font-family: 'Nunito Sans', sans-serif;\n    }\n\n    * {\n        margin: 0;\n        padding: 0;\n        box-sizing: border-box;\n        /* font-family: 'Archivo Narrow', sans-serif; */\n        /* font-family: 'Nanum Gothic', sans-serif; */\n        /* font-family: 'Lato', sans-serif; */\n        \n        font-weight: 300;\n        color: var(--primary-color)\n    }\n\n    h2 {\n        font-size: 1.5em;\n        margin-top: 1.5em;\n        font-family: 'Cuprum', sans-serif;\n        font-family: 'Fjalla One', sans-serif;\n    }\n\n    main {\n        padding: 0 2.5em 2.5em 2.5em;\n    }\n\n    a {\n        text-decoration: none;\n    }\n\n    li {\n        list-style: none;\n    }\n\n    p {\n        line-height: 1.5em;\n        color: ", ";\n    }\n\n    button {\n        padding: 7px 10px;\n        color: var(--secondary-color);\n        font-size: 1em;\n        border: none;\n        background-color: var(--primary-color);\n        font-family: 'Nanum Gothic Coding', monospace;\n        &:hover {\n            cursor: pointer;\n            background-color: var(--primary-darker);\n        }\n    }\n\n    .selectedTag.selectedTag {\n        background-color: var(--primary-darker)\n    }\n\n    pre {\n        font-family: 'Courier Prime', monospace;\n    }\n"]);
 
   _templateObject = function _templateObject() {
     return data;

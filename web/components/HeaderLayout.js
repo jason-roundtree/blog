@@ -31,7 +31,7 @@ const ToggleBtn = styled.img`
 
 function HeaderLayout(props) {
     // console.log('HeaderLayout props: ', props)
-    const theme = props.themeString === 'light'
+    const BtnTheme = props.themeString === 'light'
         ? themes['light']
         : themes['dark']
 
@@ -58,8 +58,8 @@ function HeaderLayout(props) {
                     {/* <Span>a web dev blog, by </Span><a href='http://jasonroundtree.info/' target="_blank">jason roundtree</a> */}
                 </nav>
                 <ToggleBtn
-                    src={`${theme.iconSrc}`}
-                    alt={`${theme.iconAlt}`}
+                    src={`${BtnTheme.iconSrc}`}
+                    alt={`${BtnTheme.iconAlt}`}
                     onClick={props.onToggleThemeClick}
                 ></ToggleBtn>
             </Header>

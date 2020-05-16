@@ -53,9 +53,23 @@ export const GlobalStyles = createGlobalStyle`
         color: ${({ theme }) => theme.text};
     }
 
+    button {
+        padding: 7px 10px;
+        color: var(--secondary-color);
+        font-size: 1em;
+        border: none;
+        background-color: var(--primary-color);
+        font-family: 'Nanum Gothic Coding', monospace;
+        &:hover {
+            cursor: pointer;
+            background-color: var(--primary-darker);
+        }
+    }
+
     .selectedTag.selectedTag {
         background-color: var(--primary-darker)
     }
+
     pre {
         font-family: 'Courier Prime', monospace;
     }

@@ -19,7 +19,9 @@ export default {
             name: 'body',
             type: 'array',
             of: [
-                { type: 'block' },
+                { 
+                    type: 'block', 
+                },
                 { type: 'code' },
                 { type: 'post_aside' }
             ]
