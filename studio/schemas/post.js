@@ -32,6 +32,14 @@ export default {
             type: 'boolean'
         },
         {
+            title: 'Manual Published Date',
+            name: 'manual_pub_date',
+            type: 'date',
+            // options: {
+            //     dateFormat: 'YYYY-MM-DD',
+            // }
+        },
+        {
             title: 'Image',
             name: 'image',
             type: 'image'
