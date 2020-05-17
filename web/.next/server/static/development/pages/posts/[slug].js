@@ -2096,14 +2096,14 @@ const Button = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.button.w
 })(["font-size:.8em;font-weight:bold;display:block;margin:auto;"]);
 
 function Post(props) {
-  // console.log('propsPost: ', props)
-  // useEffect(() => {
+  console.log('propsPost: ', props); // useEffect(() => {
   //     window.addEventListener('scroll', handleScroll)
   //     return () => window.removeEventListener('scroll', handleScroll)
   // }, [])
   // function handleScroll(e) {
   //     console.log('handleScroll e: ', e.target.scrollingElement.scrollTop)
   // }
+
   function handleScrollToTop() {
     window.scroll({
       top: 0,
@@ -2293,11 +2293,11 @@ function Post(props) {
       lineNumber: 199,
       columnNumber: 17
     }
-  }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(props._createdAt).format("LL")), __jsx(MainContent, {
+  }, props.manual_pub_date ? moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(props.manual_pub_date).format("LL") : moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(props._createdAt).format("LL")), __jsx(MainContent, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 200,
+      lineNumber: 205,
       columnNumber: 17
     }
   }, postContent.map(content => content))), __jsx(Button, {
@@ -2305,14 +2305,14 @@ function Post(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 205,
+      lineNumber: 210,
       columnNumber: 13
     }
   }, "Back to top"), __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 212,
+      lineNumber: 217,
       columnNumber: 13
     }
   }), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -2320,21 +2320,21 @@ function Post(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 213,
+      lineNumber: 218,
       columnNumber: 13
     }
   }, __jsx("a", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 214,
+      lineNumber: 219,
       columnNumber: 17
     }
   }, __jsx(Button, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 215,
+      lineNumber: 220,
       columnNumber: 21
     }
   }, "Blog Home"))));

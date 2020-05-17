@@ -2276,6 +2276,7 @@ function Index({
     }, "Posts:"), postsToRender.map(({
       _id,
       _createdAt,
+      manual_pub_date,
       description,
       slug,
       title,
@@ -2285,7 +2286,7 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 152,
+        lineNumber: 153,
         columnNumber: 21
       }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -2294,35 +2295,35 @@ function Index({
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 153,
+        lineNumber: 154,
         columnNumber: 25
       }
     }, __jsx(ListItemLink, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 157,
+        lineNumber: 158,
         columnNumber: 29
       }
     }, title)), __jsx(DescP, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 159,
+        lineNumber: 160,
         columnNumber: 25
       }
     }, description), __jsx(DateP, {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 160,
+        lineNumber: 161,
         columnNumber: 25
       }
-    }, moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
+    }, manual_pub_date ? moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(manual_pub_date).format("LL") : moment__WEBPACK_IMPORTED_MODULE_4___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 163,
+        lineNumber: 167,
         columnNumber: 25
       }
     }, Object(_utils_sortObjProperties_js__WEBPACK_IMPORTED_MODULE_7__["default"])(tags).map(tag => {
@@ -2333,7 +2334,7 @@ function Index({
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 166,
+          lineNumber: 170,
           columnNumber: 37
         }
       }, tag.name);

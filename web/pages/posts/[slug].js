@@ -71,7 +71,7 @@ const Button = styled.button`
 `
 
 function Post(props) {
-    // console.log('propsPost: ', props)
+    console.log('propsPost: ', props)
 
     // useEffect(() => {
     //     window.addEventListener('scroll', handleScroll)
@@ -196,7 +196,12 @@ function Post(props) {
                 <h2>{props.title}</h2>
                 <PDesc>{props.description}</PDesc>
                 {/* // TODO: Add _updatedAt field? */}
-                <PDate>{moment.utc(props._createdAt).format("LL")}</PDate>
+                <PDate>
+                    {props.manual_pub_date 
+                        ? moment.utc(props.manual_pub_date).format("LL")
+                        : moment.utc(props._createdAt).format("LL")
+                    }
+                </PDate>
                 <MainContent>
                     {postContent.map(content => content)}
                 </MainContent>

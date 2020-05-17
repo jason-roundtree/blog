@@ -144,6 +144,7 @@ function Index({
                 ({ 
                     _id, 
                     _createdAt,
+                    manual_pub_date,
                     description, 
                     slug,
                     title, 
@@ -158,7 +159,10 @@ function Index({
                         </Link>
                         <DescP>{description}</DescP>
                         <DateP>
-                            {moment.utc(_createdAt).format("LL")}
+                            {manual_pub_date 
+                                ? moment.utc(manual_pub_date).format("LL")
+                                : moment.utc(_createdAt).format("LL")
+                            }
                         </DateP>
                         <ul>
                             {sortObjProperties(tags).map(tag => {
