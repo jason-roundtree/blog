@@ -1,7 +1,7 @@
 {
   "name": "web",
   "version": "1.0.0",
-  "description": "Blog by Jason Roundtree",
+  "description": "Web Development & Programming Blog by Jason Roundtree",
   "main": "index.js",
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",
