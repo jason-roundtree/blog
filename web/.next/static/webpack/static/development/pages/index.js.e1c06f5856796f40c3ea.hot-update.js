@@ -108,9 +108,8 @@ function Index(_ref5) {
       tags = _ref5.tags,
       themeString = _ref5.themeString,
       onToggleThemeClick = _ref5.onToggleThemeClick;
+  console.log('posts: ', posts); // console.log('tags: ', tags)
 
-  // console.log('posts: ', posts)
-  // console.log('tags: ', tags)
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(posts),
       allPosts = _useState[0];
 
@@ -204,6 +203,7 @@ function Index(_ref5) {
     }, "Posts:"), postsToRender.map(function (_ref6) {
       var _id = _ref6._id,
           _createdAt = _ref6._createdAt,
+          manual_pub_date = _ref6.manual_pub_date,
           description = _ref6.description,
           slug = _ref6.slug,
           title = _ref6.title,
@@ -213,7 +213,7 @@ function Index(_ref5) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 152,
+          lineNumber: 153,
           columnNumber: 21
         }
       }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -222,46 +222,44 @@ function Index(_ref5) {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 153,
+          lineNumber: 154,
           columnNumber: 25
         }
       }, __jsx(ListItemLink, {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 157,
+          lineNumber: 158,
           columnNumber: 29
         }
       }, title)), __jsx(DescP, {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 159,
+          lineNumber: 160,
           columnNumber: 25
         }
       }, description), __jsx(DateP, {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 160,
+          lineNumber: 161,
           columnNumber: 25
         }
-      }, manual_pub_date ? moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(manual_pub_date).format("LL") : moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(props._createdAt).format("LL")), __jsx("ul", {
+      }, manual_pub_date ? moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(manual_pub_date).format("LL") : moment__WEBPACK_IMPORTED_MODULE_6___default.a.utc(_createdAt).format("LL")), __jsx("ul", {
         __self: _this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 166,
+          lineNumber: 167,
           columnNumber: 25
         }
       }, Object(_utils_sortObjProperties_js__WEBPACK_IMPORTED_MODULE_9__["default"])(tags).map(function (tag) {
-        return;
-
-        __jsx(TagListItem, {
+        return __jsx(TagListItem, {
           key: tag._id,
           __self: _this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 169,
+            lineNumber: 170,
             columnNumber: 37
           }
         }, tag.name);
@@ -276,4 +274,4 @@ var __N_SSG = true;
 /***/ })
 
 })
-//# sourceMappingURL=index.js.0a0c32be4d8be34fc9cb.hot-update.js.map
+//# sourceMappingURL=index.js.e1c06f5856796f40c3ea.hot-update.js.map

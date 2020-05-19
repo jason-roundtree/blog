@@ -74,7 +74,7 @@ function Index({
     themeString,
     onToggleThemeClick
 }) {
-    // console.log('posts: ', posts)
+    console.log('posts: ', posts)
     // console.log('tags: ', tags)
     const [ allPosts ] = useState(posts)
     const [ filteredPosts, setFilteredPosts ] = useState([])
@@ -166,11 +166,11 @@ function Index({
                         </DateP>
                         <ul>
                             {sortObjProperties(tags).map(tag => {
-                                return 
+                                return (
                                     <TagListItem key={tag._id}>
                                         {tag.name}
                                     </TagListItem>
-                                
+                                )
                             })}
                         </ul>
                     </ListItem>
@@ -182,7 +182,7 @@ function Index({
 
 export async function getStaticProps() {
     const posts = await client.fetch(`
-        *[ _type == "post" ]{
+        *[ _type == "post" && published ]{
             ..., 
             tags[]->{_id, name}
         }

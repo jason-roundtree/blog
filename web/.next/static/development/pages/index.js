@@ -31741,9 +31741,8 @@ function Index(_ref5) {
       tags = _ref5.tags,
       themeString = _ref5.themeString,
       onToggleThemeClick = _ref5.onToggleThemeClick;
+  console.log('posts: ', posts); // console.log('tags: ', tags)
 
-  // console.log('posts: ', posts)
-  // console.log('tags: ', tags)
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(posts),
       allPosts = _useState[0];
 
@@ -31888,9 +31887,7 @@ function Index(_ref5) {
           columnNumber: 25
         }
       }, Object(_utils_sortObjProperties_js__WEBPACK_IMPORTED_MODULE_9__["default"])(tags).map(function (tag) {
-        return;
-
-        __jsx(TagListItem, {
+        return __jsx(TagListItem, {
           key: tag._id,
           __self: _this,
           __source: {

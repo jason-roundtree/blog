@@ -2185,8 +2185,8 @@ function Index({
   themeString,
   onToggleThemeClick
 }) {
-  // console.log('posts: ', posts)
-  // console.log('tags: ', tags)
+  console.log('posts: ', posts); // console.log('tags: ', tags)
+
   const {
     0: allPosts
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(posts);
@@ -2327,9 +2327,7 @@ function Index({
         columnNumber: 25
       }
     }, Object(_utils_sortObjProperties_js__WEBPACK_IMPORTED_MODULE_7__["default"])(tags).map(tag => {
-      return;
-
-      __jsx(TagListItem, {
+      return __jsx(TagListItem, {
         key: tag._id,
         __self: this,
         __source: {
@@ -2344,7 +2342,7 @@ function Index({
 
 async function getStaticProps() {
   const posts = await _client__WEBPACK_IMPORTED_MODULE_1__["default"].fetch(`
-        *[ _type == "post" ]{
+        *[ _type == "post" && published ]{
             ..., 
             tags[]->{_id, name}
         }
