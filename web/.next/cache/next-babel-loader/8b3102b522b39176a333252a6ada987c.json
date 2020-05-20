@@ -1,1 +1,0 @@
-{"ast":null,"code":"export default (arrayOfObjects => {\n  return arrayOfObjects.sort((a, b) => {\n    return a.name > b.name ? 1 : -1;\n  });\n});","map":null,"metadata":{},"sourceType":"module"}
