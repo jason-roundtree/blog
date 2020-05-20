@@ -59,6 +59,7 @@ function getTagCountsData(tags) {
                     "count": count(
                         *[ 
                             _type == "post" && 
+                            published &&
                             $tagID in tags[]._ref 
                         ]
                     )
@@ -74,13 +75,13 @@ function Index({
     themeString,
     onToggleThemeClick
 }) {
-    console.log('posts: ', posts)
-    // console.log('tags: ', tags)
+    // console.log('posts: ', posts)
+    console.log('tags: ', tags)
     const [ allPosts ] = useState(posts)
     const [ filteredPosts, setFilteredPosts ] = useState([])
     const [ tagCounts, setTagCounts ] = useState([])
     const [ filteredTags, setFilteredTags ] = useState([])
-    // console.log('tagCounts: ', tagCounts)
+    console.log('tagCounts: ', tagCounts)
 
     useEffect(() => {
         getTagCountsData(tags)
