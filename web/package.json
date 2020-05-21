@@ -20,6 +20,7 @@
     "swr": "^0.1.18"
   },
   "devDependencies": {
+    "@svgr/webpack": "^5.4.0",
     "babel-plugin-styled-components": "^1.10.7",
     "jest": "^25.5.0"
   },
