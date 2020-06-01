@@ -23,7 +23,8 @@ export default {
                     type: 'block', 
                 },
                 { type: 'code' },
-                { type: 'post_aside' }
+                { type: 'inline_code' },
+                { type: 'post_aside' },
             ]
         },
         {
