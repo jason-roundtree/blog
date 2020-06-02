@@ -21,9 +21,11 @@ export default {
             of: [
                 { 
                     type: 'block', 
+                    of: [{
+                        type: 'inline_code'
+                    }]
                 },
                 { type: 'code' },
-                { type: 'inline_code' },
                 { type: 'post_aside' },
             ]
         },

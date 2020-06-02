@@ -1,7 +1,7 @@
 export default {
     title: 'Inline Code',
     name: 'inline_code',
-    type: 'document',
+    type: 'object',
     fields: [
         {
             title: 'String Content Inline',
