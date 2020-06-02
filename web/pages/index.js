@@ -127,7 +127,6 @@ function Index({
         : allPosts
 
     return (
-        // TODO: is there a better way to render HeaderLayout instead of using in here and in [slug] (and any other separate pages that I add? Checkout next.js _document)
         <HeaderLayout 
             onToggleThemeClick={onToggleThemeClick} 
             themeString={themeString}

@@ -54,6 +54,13 @@ const LineNo = styled.span`
     user-select: none;
     opacity: 0.3;
 `
+const InlineCode = styled.span`
+    display: inline-block;
+    padding: 0 5px;
+    border-radius: 3px;
+    background-color: ${({ theme }) => theme.secondaryColor};
+    /* && { color: 'red'; } */
+`
 const ExternalLink = styled.a`
     text-decoration: underline;
     color: ${({ theme }) => theme.articleLinks};
@@ -93,10 +100,23 @@ function Post(props) {
     
     // TODO: change these to use functional loops?:
     function paragraphBlock(section) {
-        // console.log('paraSection: ', section)
+        console.log('paraSection: ', section)
         const blockContent = []
         for (let i = 0; i < section.children.length; i++) {
-            if (section.children[i].marks.length > 0) {
+            // TODO: find a better way to check type of section
+            // inline code
+            if (!section.children[i].marks) {
+                console.log('check')
+                blockContent.push(
+                    <InlineCode>
+                        {/* {" "}  */}
+                        {section.children[i].str_content_inline}
+                        {/* {" "}  */}
+                    </InlineCode>
+                )
+            }
+            // external link
+            else if (section.children[i].marks.length > 0) {
                 for (let j = 0; j < section.markDefs.length; j++) {
                     if (section.markDefs[j]._key === section.children[i].marks[0]) {
                         blockContent.push(
@@ -110,7 +130,9 @@ function Post(props) {
                         )
                     }
                 }
-            } else {
+            } 
+            // unformatted block
+            else {
                 blockContent.push(section.children[i].text)
             }
         }

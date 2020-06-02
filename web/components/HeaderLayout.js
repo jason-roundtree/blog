@@ -2,8 +2,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 import styled from 'styled-components'
 import themes from '../colorsAndThemes'
-// import moon from '../public/images/moon.svg'
-// import sun from '../public/images/sun.svg'
 
 const Main = styled.main`
     max-width: 750px;
@@ -25,10 +23,6 @@ const ToggleBtn = styled.img`
     height: 1.8em;
     width: 1.8em;
     &:hover { cursor: pointer; }
-    /* &:active {
-        height: 1.6em;
-        width: 1.6em;
-    } */
 `
 
 function HeaderLayout(props) {
@@ -62,11 +56,6 @@ function HeaderLayout(props) {
                 <ToggleBtn
                     src={`${BtnTheme.iconSrc}`}
                     alt={`${BtnTheme.iconAlt}`}
-                    // src={
-                    //     props.themeString === 'light'
-                    //         ? sun
-                    //         : moon
-                    // }
                     onClick={props.onToggleThemeClick}
                 ></ToggleBtn>
             </Header>

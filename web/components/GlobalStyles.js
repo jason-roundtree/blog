@@ -8,15 +8,6 @@ export const GlobalStyles = createGlobalStyle`
         --secondary-color: ${colors.secondaryColor};
         --tertiary-color: ${colors.tertiaryColor};
     }
-
-    body {
-        background: ${({ theme }) => theme.body};
-        color: ${({ theme }) => theme.text};
-        /* font-family: 'Open Sans', sans-serif;
-        font-family: 'Poppins', sans-serif; */
-        font-family: 'Nunito Sans', sans-serif;
-    }
-
     * {
         margin: 0;
         padding: 0;
@@ -24,9 +15,17 @@ export const GlobalStyles = createGlobalStyle`
         /* font-family: 'Archivo Narrow', sans-serif; */
         /* font-family: 'Nanum Gothic', sans-serif; */
         /* font-family: 'Lato', sans-serif; */
-        
         font-weight: 300;
-        color: var(--primary-color)
+        /* color: var(--primary-color); */
+        color: ${({ theme }) => theme.primaryColor};
+    }
+    
+    body {
+        background: ${({ theme }) => theme.body};
+        color: ${({ theme }) => theme.text};
+        /* font-family: 'Open Sans', sans-serif;
+        font-family: 'Poppins', sans-serif; */
+        font-family: 'Nunito Sans', sans-serif;
     }
 
     h2 {
