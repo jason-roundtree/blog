@@ -8,6 +8,7 @@ import comment from './comment'
 import author from './author'
 import tag from './tag'
 import postAside from './postAside'
+import postAsideWithCode from './postAsideWithCode'
 import inlineCode from './inlineCode'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -21,6 +22,7 @@ export default createSchema({
     author,
     tag,
     postAside,
+    postAsideWithCode,
     inlineCode
   ])
 })
