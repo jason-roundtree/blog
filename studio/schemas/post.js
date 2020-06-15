@@ -27,6 +27,7 @@ export default {
                 },
                 { type: 'code' },
                 { type: 'post_aside' },
+                { type: 'post_aside_with_code' }
             ]
         },
         {
