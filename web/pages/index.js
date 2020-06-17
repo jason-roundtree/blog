@@ -76,12 +76,12 @@ function Index({
     onToggleThemeClick
 }) {
     // console.log('posts: ', posts)
-    console.log('tags: ', tags)
+    // console.log('tags: ', tags)
     const [ allPosts ] = useState(posts)
     const [ filteredPosts, setFilteredPosts ] = useState([])
     const [ tagCounts, setTagCounts ] = useState([])
     const [ filteredTags, setFilteredTags ] = useState([])
-    console.log('tagCounts: ', tagCounts)
+    // console.log('tagCounts: ', tagCounts)
 
     useEffect(() => {
         getTagCountsData(tags)

@@ -95,7 +95,7 @@ const Button = styled.button`
 `
 
 function Post(props) {
-    console.log('propsPost: ', props)
+    // console.log('propsPost: ', props)
 
     // useEffect(() => {
     //     window.addEventListener('scroll', handleScroll)
@@ -118,7 +118,7 @@ function Post(props) {
     // TODO: change these to use functional loops?
     // TODO: move these to a separate file
     function paragraphBlock(section) {
-        console.log('paragraphBlock: ', section)
+        // console.log('paragraphBlock: ', section)
         const blockContent = []
         for (let i = 0; i < section.children.length; i++) {
             // TODO: find a better way to check type of section
@@ -152,7 +152,6 @@ function Post(props) {
                 blockContent.push(section.children[i].text)
             }
         }
-        // console.log('blockContent: ', blockContent)
         return <PBlock key={section._key}>{blockContent}</PBlock>
     }
 
@@ -166,11 +165,11 @@ function Post(props) {
     }
     
     function asideWithCode(content, _key) {
-        console.log('asideWithCode: ', content)
+        // console.log('asideWithCode: ', content)
         const renderedContent = []
         for (let i = 0; i < content.length; i++) {
             const { children } = content[i]
-            console.log('children: ', children)
+            // console.log('children: ', children)
             if (children.length > 1) {
                 for (let j = 0; j < children.length; j++) {
                     // inline text
@@ -179,7 +178,7 @@ function Post(props) {
                         renderedContent.push(children[j].text)
                     } 
                     else if (children[j].marks && children[j].marks.length > 0) {
-                        console.log('content.markDefs: ', content[i].markDefs)
+                        // console.log('content.markDefs: ', content[i].markDefs)
                         for (let k = 0; k < content[i].markDefs.length; k++) {
                             if (content[i].markDefs[k]._key === children[j].marks[0]) {
                                 renderedContent.push(
@@ -205,7 +204,6 @@ function Post(props) {
                 }
             } 
             else if (children.length === 1 && children[0].text[0] === '*') {
-                console.log('jdsjdasjdjsadsjska')
                 renderedContent.push(
                     <AsteriskedComment>
                         {children[0].text}
@@ -221,7 +219,7 @@ function Post(props) {
                 )
             }
         }
-        console.log('renderedContent: ', renderedContent)
+        // console.log('renderedContent: ', renderedContent)
         return <AsideBlock>{renderedContent}</AsideBlock>
     }
 
@@ -276,7 +274,7 @@ function Post(props) {
                 )
                 break
             case 'post_aside_with_code':
-                console.log('section.body: ', section.body)
+                // console.log('section.body: ', section.body)
                 postContent.push(
                     asideWithCode(
                         section.body, section._key
