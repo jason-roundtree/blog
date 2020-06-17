@@ -29,11 +29,14 @@ const AsideBlock = styled.div`
     padding: 1em 2em;
     background-color: ${({ theme }) => theme.asideBackground};
     font-size: .9em;
+    line-height: 1.25em;
     /* TODO: dynamically change border and text according to theme? */
     /* light text: rgb(178, 151, 98) */
     /* light border: */
     /* border-left: 1px solid var(--primary-color); */
-    border-left: 1px solid rgba(114, 143, 203, .5);
+    border: 1px solid rgba(114, 143, 203, .5);
+    border-left: 2px solid rgba(114, 143, 203, .5);
+    
 `
 const Pre = styled.pre`
     font-family: 'Nanum Gothic Coding', monospace;
@@ -54,12 +57,26 @@ const LineNo = styled.span`
     user-select: none;
     opacity: 0.3;
 `
+// TODO: add different font
 const InlineCode = styled.span`
+    font-family: 'Nanum Gothic Coding', monospace;
     display: inline-block;
     padding: 0 5px;
     border-radius: 3px;
     background-color: ${({ theme }) => theme.secondaryColor};
-    /* && { color: 'red'; } */
+`
+const AsideCode = styled(InlineCode)`
+    font-size: .9em;
+    margin-bottom: 1em;
+`
+const AsideCodeDescription = styled.p`
+    display: block;
+    font-weight: 400;
+`
+const AsteriskedComment = styled.p`
+margin-top: -.5em;
+margin-bottom: 1em;
+
 `
 const ExternalLink = styled.a`
     text-decoration: underline;
@@ -98,20 +115,19 @@ function Post(props) {
 
     const postContent = []
     
-    // TODO: change these to use functional loops?:
+    // TODO: change these to use functional loops?
+    // TODO: move these to a separate file
     function paragraphBlock(section) {
-        console.log('paraSection: ', section)
+        console.log('paragraphBlock: ', section)
         const blockContent = []
         for (let i = 0; i < section.children.length; i++) {
             // TODO: find a better way to check type of section
             // inline code
             if (!section.children[i].marks) {
-                console.log('check')
+                // console.log('paragraphBlock inline code')
                 blockContent.push(
                     <InlineCode>
-                        {/* {" "}  */}
                         {section.children[i].str_content_inline}
-                        {/* {" "}  */}
                     </InlineCode>
                 )
             }
@@ -142,7 +158,6 @@ function Post(props) {
 
     function asideStringNewlines(content, _key) {
         const contentArray = content.split('\n')
-        // console.log('contentArray: ', contentArray)
         const renderedLines = []
         for (let i = 0; i < contentArray.length; i++) {
             renderedLines.push(<div key={i}>{contentArray[i]}</div>)
@@ -150,6 +165,66 @@ function Post(props) {
         return <AsideBlock key={_key}>{renderedLines}</AsideBlock>
     }
     
+    function asideWithCode(content, _key) {
+        console.log('asideWithCode: ', content)
+        const renderedContent = []
+        for (let i = 0; i < content.length; i++) {
+            const { children } = content[i]
+            console.log('children: ', children)
+            if (children.length > 1) {
+                for (let j = 0; j < children.length; j++) {
+                    // inline text
+                    if (children[j].text) {
+                        // console.log('children[j].text: ', children[j].text)
+                        renderedContent.push(children[j].text)
+                    } 
+                    else if (children[j].marks && children[j].marks.length > 0) {
+                        console.log('content.markDefs: ', content[i].markDefs)
+                        for (let k = 0; k < content[i].markDefs.length; k++) {
+                            if (content[i].markDefs[k]._key === children[j].marks[0]) {
+                                renderedContent.push(
+                                    <ExternalLink 
+                                        target="_blank"
+                                        href={content[i].markDefs[k].href}
+                                        key={content[i].markDefs[k]._key}
+                                    >
+                                        {content[i].children[j].text}
+                                    </ExternalLink>
+                                )
+                            }
+                        }
+                    }
+                   
+                    else {
+                        renderedContent.push(
+                            <AsideCode>
+                                {children[j].str_content_inline}
+                            </AsideCode>
+                        )
+                    }
+                }
+            } 
+            else if (children.length === 1 && children[0].text[0] === '*') {
+                console.log('jdsjdasjdjsadsjska')
+                renderedContent.push(
+                    <AsteriskedComment>
+                        {children[0].text}
+                    </AsteriskedComment>
+                )
+            }
+            else {
+                // inline code description
+                renderedContent.push(
+                    <AsideCodeDescription>
+                        {children[0].text}
+                    </AsideCodeDescription>
+                )
+            }
+        }
+        console.log('renderedContent: ', renderedContent)
+        return <AsideBlock>{renderedContent}</AsideBlock>
+    }
+
     function prismafyCodeBlock(content, _key) {
         return (
             <Highlight 
@@ -197,6 +272,14 @@ function Post(props) {
                 postContent.push(
                     asideStringNewlines(
                         section.str_content_newline, section._key
+                    )
+                )
+                break
+            case 'post_aside_with_code':
+                console.log('section.body: ', section.body)
+                postContent.push(
+                    asideWithCode(
+                        section.body, section._key
                     )
                 )
                 break
