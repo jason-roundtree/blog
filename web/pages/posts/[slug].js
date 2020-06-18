@@ -6,6 +6,7 @@ import moment from 'moment'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import HeaderLayout from '../../components/HeaderLayout'
 import themes, { colors } from '../../colorsAndThemes'
+import matchExtLinkMarkDef from '../../utils/matchExtLinkMarkDef'
 
 const MainContent = styled.div`
     margin-top: 1.5em;
@@ -59,6 +60,7 @@ const LineNo = styled.span`
 `
 const InlineCode = styled.span`
     /* font-family: 'Nanum Gothic Coding', monospace; */
+    font-family: 'Courier Prime', monospace;
     display: inline-block;
     padding: 0 5px;
     border-radius: 3px;
@@ -120,22 +122,41 @@ function Post(props) {
                     </InlineCode>
                 )
             }
+            // returns href of external link that matches href mark with actual href info
             else if (section.children[i].marks.length > 0) {
-                for (let j = 0; j < section.markDefs.length; j++) {
-                    if (section.markDefs[j]._key === section.children[i].marks[0]) {
-                        blockContent.push(
-                            <ExternalLink 
-                                target="_blank"
-                                href={section.markDefs[j].href}
-                                key={section.markDefs[j]._key}
-                            >
-                                {section.children[i].text}
-                            </ExternalLink>
-                        )
-                    }
-                }
+                const hrefTarget = matchExtLinkMarkDef(
+                    section.children[i], 
+                    section.markDefs
+                )
+                console.log('xx section.children[i]: ',section.children[i])
+                console.log('xx section.markDefs: ', section.markDefs)
+                console.log('xx hrefTarget: ', hrefTarget)
+                hrefTarget && (
+                    blockContent.push(
+                        <ExternalLink 
+                            target="_blank"
+                            href={hrefTarget.href}
+                            key={hrefTarget._key}
+                        >
+                            {hrefTarget.text}
+                        </ExternalLink>
+                    )
+                )
+                // for (let j = 0; j < section.markDefs.length; j++) {
+                //     if (section.markDefs[j]._key === section.children[i].marks[0]) {
+                //         blockContent.push(
+                //             <ExternalLink 
+                //                 target="_blank"
+                //                 href={section.markDefs[j].href}
+                //                 key={section.markDefs[j]._key}
+                //             >
+                //                 {section.children[i].text}
+                //             </ExternalLink>
+                //         )
+                //     }
+                // }
             } 
-            // unformatted block
+            // unformatted text block
             else {
                 blockContent.push(section.children[i].text)
             }
@@ -157,7 +178,6 @@ function Post(props) {
         const renderedContent = []
         for (let i = 0; i < content.length; i++) {
             const { children } = content[i]
-            // console.log('children: ', children)
             if (children.length > 1) {
                 for (let j = 0; j < children.length; j++) {
                     // inline text
@@ -166,6 +186,24 @@ function Post(props) {
                         renderedContent.push(children[j].text)
                     } 
                     else if (children[j].marks && children[j].marks.length > 0) {
+                        // console.log('children[j]: ', children[j])
+                        // console.log('content[i]: ', content[i])
+                        // const hrefTarget = matchExtLinkMarkDef(
+                        //     children[j], 
+                        //     content[i].markDefs
+                        // )
+                        // console.log('hrefTarget: ', hrefTarget)
+                        // hrefTarget && (
+                        //     blockContent.push(
+                        //         <ExternalLink 
+                        //             target="_blank"
+                        //             href={hrefTarget.href}
+                        //             key={hrefTarget._key}
+                        //         >
+                        //             {hrefTarget.text}
+                        //         </ExternalLink>
+                        //     )
+                        // )
                         for (let k = 0; k < content[i].markDefs.length; k++) {
                             if (content[i].markDefs[k]._key === children[j].marks[0]) {
                                 renderedContent.push(

@@ -1,8 +1,7 @@
 import Document from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
-// https://styled-components.com/docs/advanced#nextjs
-
+// Not exactly sure how all this is working but here's more info: https://styled-components.com/docs/advanced#nextjs
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet()
