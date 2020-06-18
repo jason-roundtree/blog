@@ -1,5 +1,5 @@
 export default arrayOfObjects => {
-    return arrayOfObjects.sort((a, b) => {
-        return (a.name > b.name) ? 1 : -1
-    })
+    return arrayOfObjects.sort((a, b) => (
+        (a.name > b.name) ? 1 : -1
+    ))
 }
