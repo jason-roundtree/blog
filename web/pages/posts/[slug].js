@@ -57,9 +57,8 @@ const LineNo = styled.span`
     user-select: none;
     opacity: 0.3;
 `
-// TODO: add different font
 const InlineCode = styled.span`
-    font-family: 'Nanum Gothic Coding', monospace;
+    /* font-family: 'Nanum Gothic Coding', monospace; */
     display: inline-block;
     padding: 0 5px;
     border-radius: 3px;
@@ -68,15 +67,16 @@ const InlineCode = styled.span`
 const AsideCode = styled(InlineCode)`
     font-size: .9em;
     margin-bottom: 1em;
+    font-family: 'Courier Prime', monospace;
 `
 const AsideCodeDescription = styled.p`
     display: block;
     font-weight: 400;
 `
 const AsteriskedComment = styled.p`
-margin-top: -.5em;
-margin-bottom: 1em;
-
+    margin-top: -.5em;
+    margin-bottom: 1em;
+    font-style: italic;
 `
 const ExternalLink = styled.a`
     text-decoration: underline;
@@ -96,16 +96,6 @@ const Button = styled.button`
 
 function Post(props) {
     // console.log('propsPost: ', props)
-
-    // useEffect(() => {
-    //     window.addEventListener('scroll', handleScroll)
-    //     return () => window.removeEventListener('scroll', handleScroll)
-    // }, [])
-
-    // function handleScroll(e) {
-    //     console.log('handleScroll e: ', e.target.scrollingElement.scrollTop)
-    // }
-
     function handleScrollToTop() {
         window.scroll({
             top: 0, 
@@ -122,7 +112,6 @@ function Post(props) {
         const blockContent = []
         for (let i = 0; i < section.children.length; i++) {
             // TODO: find a better way to check type of section
-            // inline code
             if (!section.children[i].marks) {
                 // console.log('paragraphBlock inline code')
                 blockContent.push(
@@ -131,7 +120,6 @@ function Post(props) {
                     </InlineCode>
                 )
             }
-            // external link
             else if (section.children[i].marks.length > 0) {
                 for (let j = 0; j < section.markDefs.length; j++) {
                     if (section.markDefs[j]._key === section.children[i].marks[0]) {
@@ -178,7 +166,6 @@ function Post(props) {
                         renderedContent.push(children[j].text)
                     } 
                     else if (children[j].marks && children[j].marks.length > 0) {
-                        // console.log('content.markDefs: ', content[i].markDefs)
                         for (let k = 0; k < content[i].markDefs.length; k++) {
                             if (content[i].markDefs[k]._key === children[j].marks[0]) {
                                 renderedContent.push(
@@ -193,7 +180,6 @@ function Post(props) {
                             }
                         }
                     }
-                   
                     else {
                         renderedContent.push(
                             <AsideCode>
@@ -211,7 +197,6 @@ function Post(props) {
                 )
             }
             else {
-                // inline code description
                 renderedContent.push(
                     <AsideCodeDescription>
                         {children[0].text}

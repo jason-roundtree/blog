@@ -42,6 +42,7 @@ function HeaderLayout(props) {
                 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet"></link>
                 <link href="https://fonts.googleapis.com/css2?family=Cuprum&family=Fjalla+One&display=swap" rel="stylesheet"></link>
                 <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet"></link>
+                <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet"></link>
             </Head>
 
             <Header>
