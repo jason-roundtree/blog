@@ -5,17 +5,10 @@ function matchExtLinkMarkDef(sectionChild, sectionMarkDefs) {
         if (sectionMarkDefs[i]._key === sectionChild.marks[0]) {
             return {
                 href: sectionMarkDefs[i].href,
-                key: sectionMarkDefs[i]._key,
+                _key: sectionMarkDefs[i]._key,
                 text: sectionChild.text
             }
         }
-        // sectionMarkDefs[i]._key === sectionChild.marks[0] && (
-        //     {
-        //         href: sectionMarkDefs[i].href,
-        //         key: sectionMarkDefs[i]._key,
-        //         text: sectionChild.text
-        //     }
-        // )
     }
 }
 

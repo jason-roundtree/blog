@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import moment from 'moment'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import HeaderLayout from '../../components/HeaderLayout'
-import themes, { colors } from '../../colorsAndThemes'
+import themes from '../../colorsAndThemes'
 import matchExtLinkMarkDef from '../../utils/matchExtLinkMarkDef'
 
 const MainContent = styled.div`
@@ -50,7 +50,6 @@ const Pre = styled.pre`
         line-height: 1.4em;
         height: 1.3em;
     }
-    /* box-shadow: 0px 6px 7px -4px; */
 `
 const LineNo = styled.span`
     display: inline-block;
@@ -59,7 +58,6 @@ const LineNo = styled.span`
     opacity: 0.3;
 `
 const InlineCode = styled.span`
-    /* font-family: 'Nanum Gothic Coding', monospace; */
     font-family: 'Courier Prime', monospace;
     display: inline-block;
     padding: 0 5px;
@@ -106,9 +104,8 @@ function Post(props) {
     }
 
     const postContent = []
-    
     // TODO: change these to use functional loops?
-    // TODO: move these to a separate file
+    // TODO: move some of these functions to a separate file so this file is cleaner
     function paragraphBlock(section) {
         // console.log('paragraphBlock: ', section)
         const blockContent = []
@@ -128,9 +125,6 @@ function Post(props) {
                     section.children[i], 
                     section.markDefs
                 )
-                // console.log('xx section.children[i]: ',section.children[i])
-                // console.log('xx section.markDefs: ', section.markDefs)
-                // console.log('xx hrefTarget: ', hrefTarget)
                 hrefTarget && (
                     blockContent.push(
                         <ExternalLink 
@@ -142,19 +136,6 @@ function Post(props) {
                         </ExternalLink>
                     )
                 )
-                // for (let j = 0; j < section.markDefs.length; j++) {
-                //     if (section.markDefs[j]._key === section.children[i].marks[0]) {
-                //         blockContent.push(
-                //             <ExternalLink 
-                //                 target="_blank"
-                //                 href={section.markDefs[j].href}
-                //                 key={section.markDefs[j]._key}
-                //             >
-                //                 {section.children[i].text}
-                //             </ExternalLink>
-                //         )
-                //     }
-                // }
             } 
             // unformatted text block
             else {
@@ -182,41 +163,40 @@ function Post(props) {
                 for (let j = 0; j < children.length; j++) {
                     // inline text
                     if (children[j].text) {
-                        // console.log('children[j].text: ', children[j].text)
                         renderedContent.push(children[j].text)
                     } 
                     else if (children[j].marks && children[j].marks.length > 0) {
                         // console.log('children[j]: ', children[j])
                         // console.log('content[i]: ', content[i])
-                        // const hrefTarget = matchExtLinkMarkDef(
-                        //     children[j], 
-                        //     content[i].markDefs
-                        // )
-                        // console.log('hrefTarget: ', hrefTarget)
-                        // hrefTarget && (
-                        //     blockContent.push(
-                        //         <ExternalLink 
-                        //             target="_blank"
-                        //             href={hrefTarget.href}
-                        //             key={hrefTarget._key}
-                        //         >
-                        //             {hrefTarget.text}
-                        //         </ExternalLink>
-                        //     )
-                        // )
-                        for (let k = 0; k < content[i].markDefs.length; k++) {
-                            if (content[i].markDefs[k]._key === children[j].marks[0]) {
-                                renderedContent.push(
-                                    <ExternalLink 
-                                        target="_blank"
-                                        href={content[i].markDefs[k].href}
-                                        key={content[i].markDefs[k]._key}
-                                    >
-                                        {content[i].children[j].text}
-                                    </ExternalLink>
-                                )
-                            }
-                        }
+                        const hrefTarget = matchExtLinkMarkDef(
+                            children[j], 
+                            content[i].markDefs
+                        )
+                        console.log('hrefTarget: ', hrefTarget)
+                        hrefTarget && (
+                            blockContent.push(
+                                <ExternalLink 
+                                    target="_blank"
+                                    href={hrefTarget.href}
+                                    key={hrefTarget._key}
+                                >
+                                    {hrefTarget.text}
+                                </ExternalLink>
+                            )
+                        )
+                        // for (let k = 0; k < content[i].markDefs.length; k++) {
+                        //     if (content[i].markDefs[k]._key === children[j].marks[0]) {
+                        //         renderedContent.push(
+                        //             <ExternalLink 
+                        //                 target="_blank"
+                        //                 href={content[i].markDefs[k].href}
+                        //                 key={content[i].markDefs[k]._key}
+                        //             >
+                        //                 {content[i].children[j].text}
+                        //             </ExternalLink>
+                        //         )
+                        //     }
+                        // }
                     }
                     else {
                         renderedContent.push(

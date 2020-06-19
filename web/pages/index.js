@@ -9,13 +9,14 @@ import sortObjProperties from '../utils/sortObjProperties.js'
 
 const ListItem = styled.li`
     margin: 15px 0 0 15px;
-    padding: 10px 15px;
+    padding: 7px 10px;
     font-size: 1.75em;
     border: 1px solid var(--primary-darker);
 `
 const ListItemLink = styled.a`
     font-family: 'Fjalla One', sans-serif;
     font-weight: 400;
+    font-size: .75em;
     &:hover {
         cursor: pointer;
         color: ${({ theme }) => theme.primaryColor};
