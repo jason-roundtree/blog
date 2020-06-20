@@ -149,7 +149,9 @@ function Post(props) {
         const contentArray = content.split('\n')
         const renderedLines = []
         for (let i = 0; i < contentArray.length; i++) {
-            renderedLines.push(<div key={i}>{contentArray[i]}</div>)
+            renderedLines.push(
+                <div key={i}>{contentArray[i]}</div>
+            )
         }
         return <AsideBlock key={_key}>{renderedLines}</AsideBlock>
     }
@@ -172,7 +174,6 @@ function Post(props) {
                             children[j], 
                             content[i].markDefs
                         )
-                        console.log('hrefTarget: ', hrefTarget)
                         hrefTarget && (
                             blockContent.push(
                                 <ExternalLink 
@@ -184,19 +185,6 @@ function Post(props) {
                                 </ExternalLink>
                             )
                         )
-                        // for (let k = 0; k < content[i].markDefs.length; k++) {
-                        //     if (content[i].markDefs[k]._key === children[j].marks[0]) {
-                        //         renderedContent.push(
-                        //             <ExternalLink 
-                        //                 target="_blank"
-                        //                 href={content[i].markDefs[k].href}
-                        //                 key={content[i].markDefs[k]._key}
-                        //             >
-                        //                 {content[i].children[j].text}
-                        //             </ExternalLink>
-                        //         )
-                        //     }
-                        // }
                     }
                     else {
                         renderedContent.push(
