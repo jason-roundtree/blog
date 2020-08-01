@@ -27,7 +27,7 @@ const TagCount = styled.span`
 
 function KeywordTags(props) {
     // console.log('props: ', props)
-    const tags = sortObjProperties(props.tags)
+    const tags = sortObjProperties(props.tags, 'name')
     
     return (
         <div>

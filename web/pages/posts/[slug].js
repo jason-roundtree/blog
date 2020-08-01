@@ -4,7 +4,7 @@ import client from '../../client'
 import styled from 'styled-components'
 import moment from 'moment'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import HeaderLayout from '../../components/HeaderLayout'
+import Layout from '../../components/Layout'
 import themes from '../../colorsAndThemes'
 import matchExtLinkMarkDef from '../../utils/matchExtLinkMarkDef'
 
@@ -13,16 +13,16 @@ const MainContent = styled.div`
     font-size: 1.15em;
     line-height: 1.75em;
 `
-const PDesc = styled.p`
-    font-size: 1.1em;
+const PostDescription = styled.p`
+    font-size: 1.3em;
     color: ${({ theme }) => theme.primaryColor};
     margin: 3px 0 0;
 `
-const PDate = styled(PDesc)`
+const PostDate = styled(PostDescription)`
     font-size: 1em;
     color: ${({ theme }) => theme.text};
 `
-const PBlock = styled.p`
+const ArticleBlock = styled.div`
     margin-bottom: 1em;
 `
 const AsideBlock = styled.div`
@@ -46,6 +46,7 @@ const Pre = styled.pre`
     text-align: left;
     margin: 1em 0;
     padding: 0.5em;
+    /* TODO: is this doing anything? */
     & .token-line {
         line-height: 1.4em;
         height: 1.3em;
@@ -70,13 +71,15 @@ const AsideCode = styled(InlineCode)`
     font-family: 'Courier Prime', monospace;
 `
 const AsideCodeDescription = styled.p`
+    margin-top: 1.1em;
     display: block;
     font-weight: 400;
 `
-const AsteriskedComment = styled.p`
+const CodeNote = styled.p`
     margin-top: -.5em;
-    margin-bottom: 1em;
+    margin-bottom: 1.2em;
     font-style: italic;
+    color: ${({ theme }) => theme.primaryColor};
 `
 const ExternalLink = styled.a`
     text-decoration: underline;
@@ -93,9 +96,16 @@ const Button = styled.button`
         color: ${({ theme }) => theme.secondaryColor};
     } */
 `
+const H3 = styled.h3`
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 1.5em;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Cuprum', sans-serif;
+`
 
 function Post(props) {
-    // console.log('propsPost: ', props)
+    console.log('propsPost: ', props)
     function handleScrollToTop() {
         window.scroll({
             top: 0, 
@@ -137,12 +147,16 @@ function Post(props) {
                     )
                 )
             } 
+            else if (section.style === 'h3') {
+                blockContent.push(<H3 key={section._key}>{section.children[0].text}</H3>)
+            }
             // unformatted text block
             else {
                 blockContent.push(section.children[i].text)
             }
         }
-        return <PBlock key={section._key}>{blockContent}</PBlock>
+        console.log('blockContent: ', blockContent)
+        return <ArticleBlock key={section._key}>{blockContent}</ArticleBlock>
     }
 
     function asideStringNewlines(content, _key) {
@@ -167,25 +181,27 @@ function Post(props) {
                     if (children[j].text) {
                         renderedContent.push(children[j].text)
                     } 
-                    else if (children[j].marks && children[j].marks.length > 0) {
-                        // console.log('children[j]: ', children[j])
-                        // console.log('content[i]: ', content[i])
-                        const hrefTarget = matchExtLinkMarkDef(
-                            children[j], 
-                            content[i].markDefs
-                        )
-                        hrefTarget && (
-                            blockContent.push(
-                                <ExternalLink 
-                                    target="_blank"
-                                    href={hrefTarget.href}
-                                    key={hrefTarget._key}
-                                >
-                                    {hrefTarget.text}
-                                </ExternalLink>
-                            )
-                        )
-                    }
+                    // TODO: i don't think this is currently setup correctly since it pushes to blockContent but should probably be renderedContent. There's currently no ext links within a code aside so add some to test (add some to git log part?):
+                    // else if (children[j].marks && children[j].marks.length > 0) {
+                    //     // console.log('children[j]: ', children[j])
+                    //     // console.log('content[i]: ', content[i])
+                    //     const hrefTarget = matchExtLinkMarkDef(
+                    //         children[j], 
+                    //         content[i].markDefs
+                    //     )
+                    //     hrefTarget && (
+                    //         console.log('CXXCXXCXCXXCXCX') ||
+                    //         blockContent.push(
+                    //             <ExternalLink 
+                    //                 target="_blank"
+                    //                 href={hrefTarget.href}
+                    //                 key={hrefTarget._key}
+                    //             >
+                    //                 {hrefTarget.text}
+                    //             </ExternalLink>
+                    //         )
+                    //     )
+                    // }
                     else {
                         renderedContent.push(
                             <AsideCode>
@@ -195,11 +211,12 @@ function Post(props) {
                     }
                 }
             } 
+            // TODO: Remove asterisk from sanity and fix rendering if necessary
             else if (children.length === 1 && children[0].text[0] === '*') {
                 renderedContent.push(
-                    <AsteriskedComment>
-                        {children[0].text}
-                    </AsteriskedComment>
+                    <CodeNote>
+                        {children[0].text.slice(1)}
+                    </CodeNote>
                 )
             }
             else {
@@ -280,22 +297,20 @@ function Post(props) {
 
 
     return (
-        <HeaderLayout 
+        <Layout 
             onToggleThemeClick={props.onToggleThemeClick}
             themeString={props.themeString}
         >
-            <article
-                // onScroll={handleScroll}
-            >
+            <article>
                 <h2>{props.title}</h2>
-                <PDesc>{props.description}</PDesc>
+                <PostDescription>{props.description}</PostDescription>
                 {/* // TODO: Add _updatedAt field? */}
-                <PDate>
+                <PostDate>
                     {props.manual_pub_date 
                         ? moment.utc(props.manual_pub_date).format("LL")
                         : moment.utc(props._createdAt).format("LL")
                     }
-                </PDate>
+                </PostDate>
                 <MainContent>
                     {postContent.map(content => content)}
                 </MainContent>
@@ -317,8 +332,7 @@ function Post(props) {
                 </a>
             </Link>
             
-
-        </HeaderLayout>
+        </Layout>
     )
 }
 

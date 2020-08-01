@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
-import HeaderLayout from '../components/HeaderLayout'
+import Layout from '../components/Layout'
 import KeywordTags from '../components/KeywordTags'
 import sortObjProperties from '../utils/sortObjProperties.js'
 
@@ -126,9 +126,9 @@ function Index({
     const postsToRender = filteredPosts.length > 0 
         ? filteredPosts 
         : allPosts
-
+    console.log('postsToRender: ', postsToRender)
     return (
-        <HeaderLayout 
+        <Layout 
             onToggleThemeClick={onToggleThemeClick} 
             themeString={themeString}
         >
@@ -141,7 +141,7 @@ function Index({
             />
 
             <h2>Posts:</h2>
-            {postsToRender.map(
+            {sortObjProperties(postsToRender, 'manual_pub_date').map(
                 ({ 
                     _id, 
                     _createdAt,
@@ -166,7 +166,7 @@ function Index({
                             }
                         </DateP>
                         <ul>
-                            {sortObjProperties(tags).map(tag => {
+                            {sortObjProperties(tags, 'name').map(tag => {
                                 return (
                                     <TagListItem key={tag._id}>
                                         {tag.name}
@@ -177,7 +177,7 @@ function Index({
                     </ListItem>
                 )
             )}
-        </HeaderLayout>
+        </Layout>
     )
 }
 

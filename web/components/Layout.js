@@ -34,14 +34,15 @@ function Layout(props) {
     return (
         <>
             <Head>
+                {/* TODO: figure out how to get analytics to work with server rendered */}
                 {/* Global site tag (gtag.js) - Google Analytics */}
-                <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128287631-2"></script>
+                {/* <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128287631-2"></script>
                 <script>
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments)}
                     gtag('js', new Date());
                     gtag('config', 'UA-128287631-2');
-                </script>
+                </script> */}
 
                 <title>Jason Roundtree - Blog</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
