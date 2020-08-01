@@ -12,26 +12,19 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        /* font-family: 'Archivo Narrow', sans-serif; */
-        /* font-family: 'Nanum Gothic', sans-serif; */
-        /* font-family: 'Lato', sans-serif; */
         font-weight: 300;
-        /* color: var(--primary-color); */
         color: ${({ theme }) => theme.primaryColor};
     }
     
     body {
         background: ${({ theme }) => theme.body};
         color: ${({ theme }) => theme.text};
-        /* font-family: 'Open Sans', sans-serif;
-        font-family: 'Poppins', sans-serif; */
         font-family: 'Nunito Sans', sans-serif;
     }
 
     h2 {
-        font-size: 1.5em;
+        font-size: 1.75em;
         margin-top: 1.5em;
-        font-family: 'Cuprum', sans-serif;
         font-family: 'Fjalla One', sans-serif;
     }
 
