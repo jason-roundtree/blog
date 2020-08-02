@@ -105,7 +105,7 @@ const H3 = styled.h3`
 `
 
 function Post(props) {
-    console.log('propsPost: ', props)
+    // console.log('propsPost: ', props)
     function handleScrollToTop() {
         window.scroll({
             top: 0, 
@@ -155,7 +155,7 @@ function Post(props) {
                 blockContent.push(section.children[i].text)
             }
         }
-        console.log('blockContent: ', blockContent)
+        // console.log('blockContent: ', blockContent)
         return <ArticleBlock key={section._key}>{blockContent}</ArticleBlock>
     }
 
@@ -176,6 +176,7 @@ function Post(props) {
         for (let i = 0; i < content.length; i++) {
             const { children } = content[i]
             if (children.length > 1) {
+                // console.log('children: ', children)
                 for (let j = 0; j < children.length; j++) {
                     // inline text
                     if (children[j].text) {
@@ -204,7 +205,7 @@ function Post(props) {
                     // }
                     else {
                         renderedContent.push(
-                            <AsideCode>
+                            <AsideCode key={children[j]._key}>
                                 {children[j].str_content_inline}
                             </AsideCode>
                         )
@@ -214,21 +215,21 @@ function Post(props) {
             // TODO: Remove asterisk from sanity and fix rendering if necessary
             else if (children.length === 1 && children[0].text[0] === '*') {
                 renderedContent.push(
-                    <CodeNote>
+                    <CodeNote key={children[0]._key}>
                         {children[0].text.slice(1)}
                     </CodeNote>
                 )
             }
             else {
                 renderedContent.push(
-                    <AsideCodeDescription>
+                    <AsideCodeDescription key={children[0]._key}>
                         {children[0].text}
                     </AsideCodeDescription>
                 )
             }
         }
         // console.log('renderedContent: ', renderedContent)
-        return <AsideBlock>{renderedContent}</AsideBlock>
+        return <AsideBlock key={_key}>{renderedContent}</AsideBlock>
     }
 
     function prismafyCodeBlock(content, _key) {

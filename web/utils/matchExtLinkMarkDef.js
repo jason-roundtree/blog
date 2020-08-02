@@ -1,6 +1,4 @@
 function matchExtLinkMarkDef(sectionChild, sectionMarkDefs) {
-    // console.log('sectionChild: ', sectionChild)
-    // console.log('sectionMarkDefs: ', sectionMarkDefs)
     for (let i = 0; i < sectionMarkDefs.length; i++) {
         if (sectionMarkDefs[i]._key === sectionChild.marks[0]) {
             return {

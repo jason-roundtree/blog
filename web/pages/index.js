@@ -126,13 +126,12 @@ function Index({
     const postsToRender = filteredPosts.length > 0 
         ? filteredPosts 
         : allPosts
-    console.log('postsToRender: ', postsToRender)
+    // console.log('postsToRender: ', postsToRender)
     return (
         <Layout 
             onToggleThemeClick={onToggleThemeClick} 
             themeString={themeString}
         >
-            
             <h2>Filter by Tags:</h2>
             <KeywordTags 
                 tags={tagCounts}
