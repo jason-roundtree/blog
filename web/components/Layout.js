@@ -34,20 +34,21 @@ function Layout(props) {
     return (
         <>
             <Head>
-                {/* TODO: figure out how to get analytics to work with server rendered */}
                 {/* Global site tag (gtag.js) - Google Analytics */}
-                {/* <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128287631-2"></script>
-                <script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments)}
-                    gtag('js', new Date());
-                    gtag('config', 'UA-128287631-2');
-                </script> */}
+                <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128287631-2"></script>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html:`
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments)}
+                            gtag('js', new Date());
+                            gtag('config', 'UA-128287631-2');
+                        `
+                    }}
+                />
 
                 <title>Jason Roundtree - Blog</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                {/* <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"></link>
-                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap" rel="stylesheet"></link> */}
                 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400&display=swap" rel="stylesheet"></link>
                 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet"></link>
                 <link href="https://fonts.googleapis.com/css2?family=Cuprum&family=Fjalla+One&display=swap" rel="stylesheet"></link>
