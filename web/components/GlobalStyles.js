@@ -65,6 +65,7 @@ export const GlobalStyles = createGlobalStyle`
     pre {
         font-family: 'Courier Prime', monospace;
     }
+    
     @media screen and (max-width: 600px) {
         body {
             font-size: 80%;

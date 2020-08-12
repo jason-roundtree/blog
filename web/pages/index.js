@@ -12,15 +12,15 @@ const ListItem = styled.li`
     padding: 7px 10px;
     font-size: 1.75em;
     border: 1px solid var(--primary-darker);
+    &:hover {
+        cursor: pointer;
+        background-color: ${({ theme }) => theme.secondaryColor};
+    }
 `
 const ListItemLink = styled.a`
     font-family: 'Fjalla One', sans-serif;
     font-weight: 400;
     font-size: .75em;
-    &:hover {
-        cursor: pointer;
-        color: ${({ theme }) => theme.primaryColor};
-    }
 `
 const TagListItem = styled.li`
     display: inline-block;
@@ -150,30 +150,30 @@ function Index({
                     title, 
                     tags
                 }) => (
-                    <ListItem key={_id}>
-                        <Link
-                            href='/posts/[slug]'
-                            as={`/posts/${slug.current}`}
-                        >
+                    <Link
+                        href='/posts/[slug]'
+                        as={`/posts/${slug.current}`}
+                    >
+                        <ListItem key={_id}>
                             <ListItemLink>{title}</ListItemLink>
-                        </Link>
-                        <DescP>{description}</DescP>
-                        <DateP>
-                            {manual_pub_date 
-                                ? moment.utc(manual_pub_date).format("LL")
-                                : moment.utc(_createdAt).format("LL")
-                            }
-                        </DateP>
-                        <ul>
-                            {sortObjProperties(tags, 'name').map(tag => {
-                                return (
-                                    <TagListItem key={tag._id}>
-                                        {tag.name}
-                                    </TagListItem>
-                                )
-                            })}
-                        </ul>
-                    </ListItem>
+                            <DescP>{description}</DescP>
+                            <DateP>
+                                {manual_pub_date 
+                                    ? moment.utc(manual_pub_date).format("LL")
+                                    : moment.utc(_createdAt).format("LL")
+                                }
+                            </DateP>
+                            <ul>
+                                {sortObjProperties(tags, 'name').map(tag => {
+                                    return (
+                                        <TagListItem key={tag._id}>
+                                            {tag.name}
+                                        </TagListItem>
+                                    )
+                                })}
+                            </ul>
+                        </ListItem>
+                    </Link>
                 )
             )}
         </Layout>
