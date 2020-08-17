@@ -153,6 +153,7 @@ function Index({
                     <Link
                         href='/posts/[slug]'
                         as={`/posts/${slug.current}`}
+                        key={_id}
                     >
                         <ListItem key={_id}>
                             <ListItemLink>{title}</ListItemLink>
