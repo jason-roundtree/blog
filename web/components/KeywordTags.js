@@ -27,12 +27,12 @@ const TagCount = styled.span`
 
 function KeywordTags(props) {
     // console.log('props: ', props)
-    const tags = sortObjProperties(props.tags, 'name')
+    const tags = props.tags.length > 0 ? sortObjProperties(props.tags, 'name') : null
     
     return (
         <div>
-            {/* this length check prevents `All Posts` button from rendering prior to the rest of the tag buttons */}
-            {tags.length > 0 && (
+            {/* this prevents `All Posts` button from rendering prior to the rest of the tag buttons */}
+            {tags && (
                 <TagBtn
                     onClick={props.handleTagFilter}
                     id='clearFilter'
@@ -46,7 +46,7 @@ function KeywordTags(props) {
                 </TagBtn>
             )}
             
-            {tags.map(tag => (
+            {tags && tags.map(tag => (
                 tag.count > 0 && (
                     <TagBtn 
                         key={tag.name}

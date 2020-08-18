@@ -1,4 +1,4 @@
-// import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import client from '../../client'
 import styled from 'styled-components'
@@ -105,7 +105,14 @@ const H3 = styled.h3`
 `
 
 function Post(props) {
+    const [articleBtmPos, setArticleBtmPos] = useState(0)
     // console.log('propsPost: ', props)
+    
+    useEffect(() => {
+        const articleBottom = document.querySelector('article').getClientRects()[0].bottom
+        setArticleBtmPos(articleBottom)
+    }, [])
+
     function handleScrollToTop() {
         window.scroll({
             top: 0, 
@@ -181,29 +188,7 @@ function Post(props) {
                     // inline text
                     if (children[j].text) {
                         renderedContent.push(children[j].text)
-                    } 
-                    // TODO: i don't think this is currently setup correctly since it pushes to blockContent but should probably be renderedContent. There's currently no ext links within a code aside so add some to test (add some to git log part?):
-                    // else if (children[j].marks && children[j].marks.length > 0) {
-                    //     // console.log('children[j]: ', children[j])
-                    //     // console.log('content[i]: ', content[i])
-                    //     const hrefTarget = matchExtLinkMarkDef(
-                    //         children[j], 
-                    //         content[i].markDefs
-                    //     )
-                    //     hrefTarget && (
-                    //         console.log('CXXCXXCXCXXCXCX') ||
-                    //         blockContent.push(
-                    //             <ExternalLink 
-                    //                 target="_blank"
-                    //                 href={hrefTarget.href}
-                    //                 key={hrefTarget._key}
-                    //             >
-                    //                 {hrefTarget.text}
-                    //             </ExternalLink>
-                    //         )
-                    //     )
-                    // }
-                    else {
+                    } else {
                         renderedContent.push(
                             <AsideCode key={children[j]._key}>
                                 {children[j].str_content_inline}
@@ -317,19 +302,17 @@ function Post(props) {
                 </MainContent>
             </article>
 
-            <Button
-                onClick={handleScrollToTop}
-            >
-                {/* ⬆︎ */}
-                Back to top
-                {/* ⬆︎ */}
-            </Button>
+            {articleBtmPos > 1000 && (
+                <Button onClick={handleScrollToTop}>
+                    Back to top
+                </Button>
+            )}
+            
             <br />
+
             <Link href="/">
                 <a>
-                    <Button>
-                        Blog Home
-                    </Button>
+                    <Button>Blog Home</Button>
                 </a>
             </Link>
             
