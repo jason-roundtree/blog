@@ -3,7 +3,7 @@ import duotoneDark from 'prism-react-renderer/themes/duotoneDark'
 
 const colors = {
     offWhite: `rgb(252, 249, 237)`,
-    darkGrey: `rgb(54, 53, 55)`,
+    darkGrey: `rgb(45, 45, 45)`,
     primaryColor: `rgb(3, 152, 252)`, 
     primaryColorDarker: `rgb(0, 85, 143)`,
     secondaryColor: `rgb(250, 223, 147)`,

@@ -10,7 +10,7 @@ import matchExtLinkMarkDef from '../../utils/matchExtLinkMarkDef'
 
 const MainContent = styled.div`
     margin-top: 1.5em;
-    font-size: 1.15em;
+    font-size: 1.25em;
     line-height: 1.75em;
 `
 const PostDescription = styled.p`
@@ -19,18 +19,19 @@ const PostDescription = styled.p`
     margin: 3px 0 0;
 `
 const PostDate = styled(PostDescription)`
-    font-size: 1em;
+    font-size: 1.2em;
     color: ${({ theme }) => theme.text};
 `
 const ArticleBlock = styled.div`
     margin-bottom: 1em;
+    color: ${({ theme }) => theme.text};
 `
 const AsideBlock = styled.div`
     margin-bottom: 1em;
     padding: 1em 2em;
     background-color: ${({ theme }) => theme.asideBackground};
     font-size: .9em;
-    line-height: 1.25em;
+    line-height: 1.5em;
     /* TODO: dynamically change border and text according to theme? */
     /* light text: rgb(178, 151, 98) */
     /* light border: */
@@ -41,7 +42,7 @@ const AsideBlock = styled.div`
 `
 const Pre = styled.pre`
     font-family: 'Nanum Gothic Coding', monospace;
-    font-size: .9em;
+    font-size: .85em;
     overflow: auto;
     text-align: left;
     margin: 1em 0;
@@ -58,15 +59,17 @@ const LineNo = styled.span`
     user-select: none;
     opacity: 0.3;
 `
-const InlineCode = styled.span`
+const InlineCodeMain = styled.span`
     font-family: 'Courier Prime', monospace;
     display: inline-block;
-    padding: 0 5px;
+    font-size: .85em;
+    line-height: 1.3;
     border-radius: 3px;
     background-color: ${({ theme }) => theme.secondaryColor};
+    padding: 1px 3px;
 `
-const AsideCode = styled(InlineCode)`
-    font-size: .9em;
+const AsideCode = styled(InlineCodeMain)`
+    padding: 0 5px;
     margin-bottom: 1em;
     font-family: 'Courier Prime', monospace;
 `
@@ -131,9 +134,9 @@ function Post(props) {
             if (!section.children[i].marks) {
                 // console.log('paragraphBlock inline code')
                 blockContent.push(
-                    <InlineCode>
+                    <InlineCodeMain>
                         {section.children[i].str_content_inline}
-                    </InlineCode>
+                    </InlineCodeMain>
                 )
             }
             // returns href of external link that matches href mark with actual href info

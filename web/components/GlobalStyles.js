@@ -29,7 +29,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     main {
-        padding: 0 2.5em 2.5em 2.5em;
+        padding: 0 2.25em 2.25em 2.25em;
     }
 
     a {
