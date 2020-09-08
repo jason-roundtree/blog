@@ -54,7 +54,7 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Nanum Gothic Coding', monospace;
         &:hover {
             cursor: pointer;
-            background-color: var(--primary-darker);
+            /* background-color: var(--primary-darker); */
         }
     }
 

@@ -5,10 +5,14 @@ const TagBtn = styled.button`
     margin: 15px 0 0 15px;
     background-color: ${({ theme }) => theme.listItemBgColor};
     color: ${({ theme }) => theme.primaryColor};
-    &:hover {
-        background-color: ${({ theme }) => theme.secondaryColor};
-    }
-    ${({active, theme }) => active && `
+    /* &:hover {
+        background-color: ${({ active, theme }) => {
+            return !active 
+                ? theme.listItemBgColor
+                : theme.secondaryColor
+        }};
+    } */
+    ${({ active, theme }) => active && `
         background-color: ${theme.secondaryColor}
     `}
 `
