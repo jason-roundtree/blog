@@ -58,10 +58,6 @@ export const GlobalStyles = createGlobalStyle`
         }
     }
 
-    .selectedTag.selectedTag {
-        background-color: var(--primary-darker)
-    }
-
     pre {
         font-family: 'Courier Prime', monospace;
     }

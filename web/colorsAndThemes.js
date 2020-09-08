@@ -22,7 +22,8 @@ const themes = {
         iconAlt: 'Icon of moon for "Dark Mode" theme',
         syntax: duotoneDark,
         asideBackground: duotoneDark.plain.backgroundColor,
-        articleLinks: colors.articleLinksDark
+        articleLinks: colors.articleLinksDark,
+        listItemBgColor: colors.primaryColor
     },
     light: {
         body: colors.offWhite,
@@ -33,7 +34,8 @@ const themes = {
         iconAlt: 'Icon of sun for "Light Mode" theme',
         syntax: duotoneLight,
         asideBackground: duotoneLight.plain.backgroundColor,
-        articleLinks: colors.articleLinksLight
+        articleLinks: colors.articleLinksLight,
+        listItemBgColor: 'white'
     }
 }
 

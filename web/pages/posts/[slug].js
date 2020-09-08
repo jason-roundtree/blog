@@ -32,10 +32,6 @@ const AsideBlock = styled.div`
     background-color: ${({ theme }) => theme.asideBackground};
     font-size: .9em;
     line-height: 1.5em;
-    /* TODO: dynamically change border and text according to theme? */
-    /* light text: rgb(178, 151, 98) */
-    /* light border: */
-    /* border-left: 1px solid var(--primary-color); */
     border: 1px solid rgba(114, 143, 203, .5);
     border-left: 2px solid rgba(114, 143, 203, .5);
     
@@ -47,7 +43,7 @@ const Pre = styled.pre`
     text-align: left;
     margin: 1em 0;
     padding: 0.5em;
-    /* TODO: is this doing anything? */
+    /* TODO: is this really doing much? */
     & .token-line {
         line-height: 1.4em;
         height: 1.3em;
@@ -93,11 +89,6 @@ const Button = styled.button`
     font-weight: bold;
     display: block; 
     margin: auto;
-    /* background-color: ${({ theme }) => theme.secondaryColor};
-    &:hover {
-        background-color: ${({ theme }) => theme.primaryColor};
-        color: ${({ theme }) => theme.secondaryColor};
-    } */
 `
 const H3 = styled.h3`
     font-size: 1.5em;
@@ -106,7 +97,11 @@ const H3 = styled.h3`
     font-family: 'Fjalla One', sans-serif;
     font-family: 'Cuprum', sans-serif;
 `
-
+const PostImg = styled.img`
+    display: block;
+    width: 100%;
+    margin: 1em 0;
+`
 function Post(props) {
     const [articleBtmPos, setArticleBtmPos] = useState(0)
     // console.log('propsPost: ', props)
@@ -134,7 +129,7 @@ function Post(props) {
             if (!section.children[i].marks) {
                 // console.log('paragraphBlock inline code')
                 blockContent.push(
-                    <InlineCodeMain>
+                    <InlineCodeMain key={section.children[i]._key}>
                         {section.children[i].str_content_inline}
                     </InlineCodeMain>
                 )
@@ -292,6 +287,10 @@ function Post(props) {
         >
             <article>
                 <h2>{props.title}</h2>
+                <PostImg 
+                    src={props.postImg.url}
+                    alt={`Image of ${props.postImg.description} by ${props.postImg.creditLine}`}
+                />
                 <PostDescription>{props.description}</PostDescription>
                 {/* // TODO: Add _updatedAt field? */}
                 <PostDate>
@@ -342,7 +341,10 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
     const { slug } = context.params
     const post = await client.fetch(`
-        *[_type == "post" && slug.current == $slug][0]
+        *[_type == "post" && slug.current == $slug][0]{
+            ...,
+            "postImg": image.asset->,
+        }
     `, { slug } )
     return { props: post }
 }

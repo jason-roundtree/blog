@@ -45,11 +45,6 @@ export default {
             // }
         },
         {
-            title: 'Image',
-            name: 'image',
-            type: 'image'
-        },
-        {
             title: 'Author',
             name: 'author',
             type: 'reference',
@@ -77,6 +72,11 @@ export default {
             title: 'Slug',
             name: 'slug',
             type: 'slug',
+        },
+        {
+            title: 'Image',
+            name: 'image',
+            type: 'image'
         }
     ]
 }

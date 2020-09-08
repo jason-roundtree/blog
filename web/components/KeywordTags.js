@@ -1,28 +1,21 @@
 import styled from 'styled-components'
 import sortObjProperties from '../utils/sortObjProperties.js'
 
-// const TagsContainer = styled.div`
-//     display: flex;
-//     justify-content: center;
-//     flex-wrap: wrap;
-// `
 const TagBtn = styled.button`
     margin: 15px 0 0 15px;
-    /* padding: 7px 10px;
-    color: var(--secondary-color);
-    font-size: 1em;
-    border: none;
-    background-color: var(--primary-color);
-    font-family: 'Nanum Gothic Coding', monospace;
+    background-color: ${({ theme }) => theme.listItemBgColor};
+    color: ${({ theme }) => theme.primaryColor};
     &:hover {
-        cursor: pointer;
-        background-color: var(--primary-darker);
-    } */
+        background-color: ${({ theme }) => theme.secondaryColor};
+    }
+    ${({active, theme }) => active && `
+        background-color: ${theme.secondaryColor}
+    `}
 `
 const TagCount = styled.span`
     font-family: 'Fjalla One', sans-serif;
-    color: var(--secondary-color);
     font-size: .8em;
+    color: ${({ theme }) => theme.primaryColor};
 `
 
 function KeywordTags(props) {
@@ -31,15 +24,15 @@ function KeywordTags(props) {
     
     return (
         <div>
-            {/* this prevents `All Posts` button from rendering prior to the rest of the tag buttons */}
+            {/* this prevents the `All Posts` button from rendering prior to the rest of the tag buttons and allows me to style the background-color independently of the others */}
             {tags && (
                 <TagBtn
                     onClick={props.handleTagFilter}
                     id='clearFilter'
-                    className={
+                    active={
                         props.filteredTags.length > 0 
-                            ? ''
-                            : 'selectedTag'
+                            ? false
+                            : true
                     }
                 >
                     All Posts
@@ -52,10 +45,10 @@ function KeywordTags(props) {
                         key={tag.name}
                         id={tag._id}
                         onClick={props.handleTagFilter}
-                        className={
+                        active={
                             props.filteredTags.includes(tag._id) 
-                                ? 'selectedTag'
-                                : ''
+                                ? true
+                                : false
                         }
                     >   
                         {tag.name}

@@ -8,13 +8,14 @@ import KeywordTags from '../components/KeywordTags'
 import sortObjProperties from '../utils/sortObjProperties.js'
 
 const ListItem = styled.li`
-    margin: 15px 0 0 15px;
+    margin: 25px 0 0 15px;
     padding: 7px 10px;
     font-size: 1.75em;
-    border: 1px solid var(--primary-darker);
+    background-color: ${({ theme }) => theme.listItemBgColor};
     &:hover {
         cursor: pointer;
         background-color: ${({ theme }) => theme.secondaryColor};
+        border: ${({ theme }) => theme.secondaryColor};
     }
 `
 const ListItemLink = styled.a`
@@ -185,6 +186,7 @@ export async function getStaticProps() {
     const posts = await client.fetch(`
         *[ _type == "post" && published ]{
             ..., 
+            "postImg": image.asset->,
             tags[]->{_id, name}
         }
     `)
