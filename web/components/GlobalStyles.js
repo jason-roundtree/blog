@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-weight: 300;
+        font-weight: 400;
         color: ${({ theme }) => theme.primaryColor};
     }
     
@@ -54,7 +54,6 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Nanum Gothic Coding', monospace;
         &:hover {
             cursor: pointer;
-            /* background-color: var(--primary-darker); */
         }
     }
 

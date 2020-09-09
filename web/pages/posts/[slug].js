@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import moment from 'moment'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import Layout from '../../components/Layout'
+import PostImg from '../../components/PostImg'
 import themes from '../../colorsAndThemes'
 import matchExtLinkMarkDef from '../../utils/matchExtLinkMarkDef'
 
@@ -13,13 +14,16 @@ const MainContent = styled.div`
     font-size: 1.25em;
     line-height: 1.75em;
 `
+const PostTitle = styled.h2`
+`
 const PostDescription = styled.p`
     font-size: 1.3em;
+    font-weight: 600;
     color: ${({ theme }) => theme.primaryColor};
-    margin: 3px 0 0;
 `
 const PostDate = styled(PostDescription)`
-    font-size: 1.2em;
+    font-weight: 400;
+    font-size: 1em;
     color: ${({ theme }) => theme.text};
 `
 const ArticleBlock = styled.div`
@@ -34,7 +38,6 @@ const AsideBlock = styled.div`
     line-height: 1.5em;
     border: 1px solid rgba(114, 143, 203, .5);
     border-left: 2px solid rgba(114, 143, 203, .5);
-    
 `
 const Pre = styled.pre`
     font-family: 'Nanum Gothic Coding', monospace;
@@ -97,14 +100,11 @@ const H3 = styled.h3`
     font-family: 'Fjalla One', sans-serif;
     font-family: 'Cuprum', sans-serif;
 `
-const PostImg = styled.img`
-    display: block;
-    width: 100%;
-    margin: 1em 0;
-`
+
+
 function Post(props) {
     const [articleBtmPos, setArticleBtmPos] = useState(0)
-    // console.log('propsPost: ', props)
+    console.log('propsPost: ', props)
     
     useEffect(() => {
         const articleBottom = document.querySelector('article').getClientRects()[0].bottom
@@ -286,12 +286,10 @@ function Post(props) {
             themeString={props.themeString}
         >
             <article>
-                <h2>{props.title}</h2>
-                <PostImg 
-                    src={props.postImg.url}
-                    alt={`Image of ${props.postImg.description} by ${props.postImg.creditLine}`}
-                />
+                <PostTitle>{props.title}</PostTitle>
+                
                 <PostDescription>{props.description}</PostDescription>
+
                 {/* // TODO: Add _updatedAt field? */}
                 <PostDate>
                     {props.manual_pub_date 
@@ -299,6 +297,9 @@ function Post(props) {
                         : moment.utc(props._createdAt).format("LL")
                     }
                 </PostDate>
+
+                <PostImg postImg={props.postImg} />
+
                 <MainContent>
                     {postContent.map(content => content)}
                 </MainContent>

@@ -7,7 +7,7 @@ import Layout from '../components/Layout'
 import KeywordTags from '../components/KeywordTags'
 import sortObjProperties from '../utils/sortObjProperties.js'
 
-const ListItem = styled.li`
+const PostContainer = styled.li`
     margin: 25px 0 0 15px;
     padding: 7px 10px;
     font-size: 1.75em;
@@ -18,10 +18,17 @@ const ListItem = styled.li`
         border: ${({ theme }) => theme.secondaryColor};
     }
 `
-const ListItemLink = styled.a`
+const Title = styled.h3`
     font-family: 'Fjalla One', sans-serif;
     font-weight: 400;
     font-size: .75em;
+`
+const Description = styled.p`
+    font-size: .6em;
+    color: ${({ theme }) => theme.primaryColor};
+`
+const Date = styled.p`
+    font-size: .5em;
 `
 const TagListItem = styled.li`
     display: inline-block;
@@ -32,13 +39,7 @@ const TagListItem = styled.li`
     color: ${({ theme }) => theme.secondaryColor};
     background: ${({ theme }) => theme.primaryColor};
 `
-const DescP = styled.p`
-    font-size: .6em;
-    color: ${({ theme }) => theme.primaryColor};
-`
-const DateP = styled.p`
-    font-size: .5em;
-`
+
 
 // removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
 function uniquePostsArray(posts) {
@@ -156,15 +157,15 @@ function Index({
                         as={`/posts/${slug.current}`}
                         key={_id}
                     >
-                        <ListItem key={_id}>
-                            <ListItemLink>{title}</ListItemLink>
-                            <DescP>{description}</DescP>
-                            <DateP>
+                        <PostContainer key={_id} tabIndex="0">
+                            <Title>{title}</Title>
+                            <Description>{description}</Description>
+                            <Date>
                                 {manual_pub_date 
                                     ? moment.utc(manual_pub_date).format("LL")
                                     : moment.utc(_createdAt).format("LL")
                                 }
-                            </DateP>
+                            </Date>
                             <ul>
                                 {sortObjProperties(tags, 'name').map(tag => {
                                     return (
@@ -174,7 +175,7 @@ function Index({
                                     )
                                 })}
                             </ul>
-                        </ListItem>
+                        </PostContainer>
                     </Link>
                 )
             )}

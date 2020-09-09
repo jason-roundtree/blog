@@ -16,8 +16,14 @@ const Header = styled.header`
     justify-content: space-between;
     align-items: center;
 `
-const H1 = styled.h1`
+const SiteTitleH1 = styled.h1`
     font-size: 1.5em;
+`
+const SiteTitleText = styled.a`
+    font-weight: 300;
+    &:hover {
+        cursor: pointer;
+    }
 `
 const ToggleBtn = styled.img`
     height: 1.8em;
@@ -53,7 +59,7 @@ function Layout(props) {
                 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
                 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
                 <link rel="manifest" href="/site.webmanifest"/>
-                <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400&display=swap" rel="stylesheet"/>
+                <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600&display=swap" rel="stylesheet"/>
                 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet"/>
                 <link href="https://fonts.googleapis.com/css2?family=Cuprum&family=Fjalla+One&display=swap" rel="stylesheet"/>
                 <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet"/>
@@ -62,11 +68,11 @@ function Layout(props) {
 
             <Header>
                 <nav>
-                    <H1>
+                    <SiteTitleH1>
                         <Link href='/'>
-                            <a>Jason Roundtree - Blog</a>
+                            <SiteTitleText>Jason Roundtree - Blog</SiteTitleText>
                         </Link>
-                    </H1>
+                    </SiteTitleH1>
                     {/* <Span>a web dev blog, by </Span><a href='http://jasonroundtree.info/' target="_blank">jason roundtree</a> */}
                 </nav>
                 <ToggleBtn
