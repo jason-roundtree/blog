@@ -104,7 +104,7 @@ const H3 = styled.h3`
 
 function Post(props) {
     const [articleBtmPos, setArticleBtmPos] = useState(0)
-    console.log('propsPost: ', props)
+    // console.log('Post props: ', props)
     
     useEffect(() => {
         const articleBottom = document.querySelector('article').getClientRects()[0].bottom

@@ -25,14 +25,16 @@ const PhotoCredit = styled.p`
 `
 
 function PostImage(props) {
-    console.log('PI props: ', props)
+    // console.log('PI props: ', props)
     const [isLoaded, setIsLoaded] = useState(false);
     return (
         <PostImgContainer>
             <PostImg 
                 onLoad={() => setIsLoaded(true)}
+                onBeforeUnload={() => setIsLoaded(false)}
                 src={props.postImg.url}
                 alt={`Image of ${props.postImg.description} by ${props.postImg.creditLine}`}
+                // TODO: move these style tags to Styled Components?
                 style={{ opacity: isLoaded ? 1 : 0 }}
             />
         
