@@ -101,7 +101,6 @@ const H3 = styled.h3`
     font-family: 'Cuprum', sans-serif;
 `
 
-
 function Post(props) {
     const [articleBtmPos, setArticleBtmPos] = useState(0)
     // console.log('Post props: ', props)

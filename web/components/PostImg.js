@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 const PostImgContainer = styled.div`
@@ -16,8 +16,7 @@ const PostImg = styled.img`
 const PostLqipImg = styled(PostImg)`
     position: absolute;
     width: 100%;
-    filter: blur(10px);
-    transform: scale(1.1);
+    transform: scale(1);
     transition: visibility 0ms ease 400ms;
 `
 const PhotoCredit = styled.p`
@@ -27,23 +26,36 @@ const PhotoCredit = styled.p`
 function PostImage(props) {
     // console.log('PI props: ', props)
     const [isLoaded, setIsLoaded] = useState(false);
+    // const [fullImgUrl, setFullImgUrl] = useState(null)
+    // const [lqipImgUrl, setLqipImgUrl] = useState(null)
+    // console.log('isLoaded: ', isLoaded)
+
+    // useEffect(() => {
+    //     console.log('useEffect')
+    // }, [])
+
+    // function handleOnLoad() {
+    //     console.log('handleOnLoad: ', isLoaded)
+    // }
+
     return (
         <PostImgContainer>
-            <PostImg 
-                onLoad={() => setIsLoaded(true)}
-                onBeforeUnload={() => setIsLoaded(false)}
-                src={props.postImg.url}
-                alt={`Image of ${props.postImg.description} by ${props.postImg.creditLine}`}
-                // TODO: move these style tags to Styled Components?
-                style={{ opacity: isLoaded ? 1 : 0 }}
-            />
-        
             <PostLqipImg 
                 src={props.postImg.metadata.lqip}
                 alt={`Image of ${props.postImg.description} by ${props.postImg.creditLine}`}
                 style={{ visibility: isLoaded ? "hidden" : "visible" }}
             />
 
+            <PostImg 
+                // key set to unique value ensures that LQIP image doesn't persist on page refresh
+                key={Date.now()}
+                onLoad={() => setIsLoaded(true)}
+                src={props.postImg.url}
+                alt={`Image of ${props.postImg.description} by ${props.postImg.creditLine}`}
+                // TODO: move these style tags to Styled Components?
+                style={{ opacity: isLoaded ? 1 : 0 }}
+            />
+        
             <PhotoCredit>
                 Photo by 
                     <a href={props.postImg.source.url} target="_blank">
