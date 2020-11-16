@@ -100,7 +100,13 @@ const H3 = styled.h3`
     font-family: 'Fjalla One', sans-serif;
     font-family: 'Cuprum', sans-serif;
 `
-
+const ListItem = styled.li`
+    /* &:before {
+        content: ''
+    } */
+    list-style-type: square;
+    color: ${({ theme }) => theme.text};
+`
 function Post(props) {
     const [articleBtmPos, setArticleBtmPos] = useState(0)
     // console.log('Post props: ', props)
@@ -117,16 +123,36 @@ function Post(props) {
         })
     }
 
+    function formatListItem(listItemParts) {
+        // console.log('formatListItem ', listItemParts)
+        const listItem = []
+        for (let i = 0; i < listItemParts.length; i++) {
+            if (listItemParts[i]._type === 'inline_code') {
+                listItem.push(
+                    <InlineCodeMain key={listItemParts._key}>
+                        {listItemParts[i].str_content_inline}
+                    </InlineCodeMain>
+                )
+            }
+            else {
+                listItem.push(listItemParts[i].text)
+            }
+            
+        }
+        // console.log('listItem: ', listItem)
+        return listItem
+    }
+
     const postContent = []
     // TODO: change these to use functional loops?
     // TODO: move some of these functions to a separate file so this file is cleaner
     function paragraphBlock(section) {
-        // console.log('paragraphBlock: ', section)
+        // console.log('paragraphBlock section: ', section)
         const blockContent = []
         for (let i = 0; i < section.children.length; i++) {
             // TODO: find a better way to check type of section
             if (!section.children[i].marks) {
-                // console.log('paragraphBlock inline code')
+                // console.log('section.children[i]: ', section.children[i])
                 blockContent.push(
                     <InlineCodeMain key={section.children[i]._key}>
                         {section.children[i].str_content_inline}
@@ -245,37 +271,50 @@ function Post(props) {
         )
     }
 
+    let list = []
     props.body && props.body.forEach(section => {
-        switch(section._type) {
-            case 'block':
+        if (section.listItem) {
+            list.push(
+                <ListItem>{formatListItem(section.children)}</ListItem>
+            )
+        } else {
+            if (list.length > 0) {
                 postContent.push(
-                    paragraphBlock(section)
+                    <ul>{list}</ul>
                 )
-                break
-            case 'code':
-                postContent.push(
-                    prismafyCodeBlock(section.code, section._key)
-                )
-                break
-            case 'post_aside':
-                postContent.push(
-                    asideStringNewlines(
-                        section.str_content_newline, section._key
+                list = []
+            }
+            switch(section._type) {
+                case 'block':
+                    postContent.push(
+                        paragraphBlock(section)
                     )
-                )
-                break
-            case 'post_aside_with_code':
-                // console.log('section.body: ', section.body)
-                postContent.push(
-                    asideWithCode(
-                        section.body, section._key
+                    break
+                case 'code':
+                    postContent.push(
+                        prismafyCodeBlock(section.code, section._key)
                     )
-                )
-                break
-            // default:
-            //     console.log('default case')
+                    break
+                case 'post_aside':
+                    postContent.push(
+                        asideStringNewlines(
+                            section.str_content_newline, section._key
+                        )
+                    )
+                    break
+                case 'post_aside_with_code':
+                    // console.log('section.body: ', section.body)
+                    postContent.push(
+                        asideWithCode(
+                            section.body, section._key
+                        )
+                    )
+                    break
+                // default:
+                //     console.log('default case')
+            }
+            // console.log('postContent: ', postContent)
         }
-        // console.log('postContent: ', postContent)
     })
 
 
