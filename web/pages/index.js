@@ -40,7 +40,6 @@ const TagListItem = styled.li`
     background: ${({ theme }) => theme.primaryColor};
 `
 
-
 // removes duplicate post objects by converting each post into a JSON string so that they can be compared and filtered using `new Set`, then parsing the final unique array of posts back to a normal array of objects
 function uniquePostsArray(posts) {
     return [

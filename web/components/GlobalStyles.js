@@ -56,10 +56,6 @@ export const GlobalStyles = createGlobalStyle`
             cursor: pointer;
         }
     }
-
-    pre {
-        font-family: 'Courier Prime', monospace;
-    }
     
     @media screen and (max-width: 600px) {
         body {

@@ -40,8 +40,8 @@ const AsideBlock = styled.div`
     border-left: 2px solid rgba(114, 143, 203, .5);
 `
 const Pre = styled.pre`
-    font-family: 'Nanum Gothic Coding', monospace;
-    font-size: .85em;
+    font-family: 'Fira Mono', monospace;
+    font-size: .80em;
     overflow: auto;
     text-align: left;
     margin: 1em 0;
@@ -59,7 +59,7 @@ const LineNo = styled.span`
     opacity: 0.3;
 `
 const InlineCodeMain = styled.span`
-    font-family: 'Courier Prime', monospace;
+    font-family: 'Fira Mono', monospace;
     display: inline-block;
     font-size: .85em;
     line-height: 1.3;
@@ -97,7 +97,6 @@ const H3 = styled.h3`
     font-size: 1.5em;
     font-weight: bold;
     margin-top: 1.5em;
-    font-family: 'Fjalla One', sans-serif;
     font-family: 'Cuprum', sans-serif;
 `
 const ListItem = styled.li`
