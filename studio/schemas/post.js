@@ -28,6 +28,7 @@ export default {
                 { type: 'code' },
                 // TODO: update these type names:
                 { type: 'post_aside' },
+                { type: 'post_aside_note' },
                 { type: 'post_aside_with_code' }
             ]
         },

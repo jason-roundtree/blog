@@ -8,6 +8,7 @@ import comment from './comment'
 import author from './author'
 import tag from './tag'
 import postAside from './postAside'
+import postAsideNote from './postAsideNote'
 import postAsideWithCode from './postAsideWithCode'
 import inlineCode from './inlineCode'
 
@@ -22,6 +23,7 @@ export default createSchema({
     author,
     tag,
     postAside,
+    postAsideNote,
     postAsideWithCode,
     inlineCode
   ])

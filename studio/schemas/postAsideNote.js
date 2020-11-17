@@ -1,22 +1,20 @@
 export default {
-    title: 'Post Aside with Code',
-    name: 'post_aside_with_code',
+    title: 'Post Aside Note',
+    name: 'post_aside_note',
     type: 'document',
     fields: [
         {
-            title: 'Body',
-            name: 'body',
+            title: 'String Content',
+            name: 'str_content',
             type: 'array',
             of: [
                 { type: 'text' },
-                { type: 'code' },
                 { 
                     type: 'block', 
                     of: [{
                         type: 'inline_code'
                     }]
                 },
-                
             ]
         }
     ]

@@ -32,12 +32,12 @@ const ArticleBlock = styled.div`
 `
 const AsideBlock = styled.div`
     margin-bottom: 1em;
-    padding: 1em 2em;
+    padding: 1em 1.5em;
     background-color: ${({ theme }) => theme.asideBackground};
     font-size: .9em;
     line-height: 1.5em;
     border: 1px solid rgba(114, 143, 203, .5);
-    border-left: 2px solid rgba(114, 143, 203, .5);
+    /* border-left: 5px solid rgba(114, 143, 203, .5); */
 `
 const Pre = styled.pre`
     font-family: 'Fira Mono', monospace;
@@ -67,10 +67,9 @@ const InlineCodeMain = styled.span`
     background-color: ${({ theme }) => theme.secondaryColor};
     padding: 1px 3px;
 `
+// TODO: why does this format inline code in asideWithCode all wonky when I remove the 0 padding
 const AsideCode = styled(InlineCodeMain)`
     padding: 0 5px;
-    margin-bottom: 1em;
-    font-family: 'Courier Prime', monospace;
 `
 const AsideCodeDescription = styled.p`
     margin-top: 1.1em;
@@ -78,7 +77,7 @@ const AsideCodeDescription = styled.p`
     font-weight: 400;
 `
 const CodeNote = styled.p`
-    margin-top: -.5em;
+    /* margin-top: -.5em; */
     margin-bottom: 1.2em;
     font-style: italic;
     color: ${({ theme }) => theme.primaryColor};
@@ -98,6 +97,16 @@ const H3 = styled.h3`
     font-weight: bold;
     margin-top: 1.5em;
     font-family: 'Cuprum', sans-serif;
+`
+const UL = styled.ul`
+    margin-bottom: 15px;
+`
+const InfoIcon = styled.img`
+    float: left;
+    margin: 0 15px 0 0;
+    @media screen and (max-width: 600px) {
+        margin: 0 5px 0 0;
+    }
 `
 const ListItem = styled.li`
     /* &:before {
@@ -123,22 +132,18 @@ function Post(props) {
     }
 
     function formatListItem(listItemParts) {
-        // console.log('formatListItem ', listItemParts)
         const listItem = []
         for (let i = 0; i < listItemParts.length; i++) {
             if (listItemParts[i]._type === 'inline_code') {
                 listItem.push(
-                    <InlineCodeMain key={listItemParts._key}>
+                    <InlineCodeMain key={listItemParts[i]._key}>
                         {listItemParts[i].str_content_inline}
                     </InlineCodeMain>
                 )
-            }
-            else {
+            } else {
                 listItem.push(listItemParts[i].text)
             }
-            
         }
-        // console.log('listItem: ', listItem)
         return listItem
     }
 
@@ -193,13 +198,17 @@ function Post(props) {
         const renderedLines = []
         for (let i = 0; i < contentArray.length; i++) {
             renderedLines.push(
-                <div key={i}>{contentArray[i]}</div>
+                <p key={i}>{contentArray[i]}</p>
             )
         }
-        return <AsideBlock key={_key}>{renderedLines}</AsideBlock>
+        return (
+            <AsideBlock key={_key}>
+                {renderedLines}
+            </AsideBlock>
+        )
     }
     
-    function asideWithCode(content, _key) {
+    function asideWithCode(content, _key, isAsideNote) {
         // console.log('asideWithCode: ', content)
         const renderedContent = []
         for (let i = 0; i < content.length; i++) {
@@ -227,6 +236,10 @@ function Post(props) {
                     </CodeNote>
                 )
             }
+            // aside note with no special formatting
+            else if (isAsideNote) {
+                renderedContent.push(children[0].text)
+            }
             else {
                 renderedContent.push(
                     <AsideCodeDescription key={children[0]._key}>
@@ -236,7 +249,23 @@ function Post(props) {
             }
         }
         // console.log('renderedContent: ', renderedContent)
-        return <AsideBlock key={_key}>{renderedContent}</AsideBlock>
+        return (
+            <AsideBlock key={_key}>
+                {isAsideNote && (
+                    <InfoIcon 
+                        src="/info.svg" 
+                        width="40" 
+                        height="40" 
+                        alt="info icon" 
+                    /> 
+                )}
+                {renderedContent}
+            </AsideBlock>
+        )
+    }
+
+    function asideNote(content, _key) {
+        return asideWithCode(content, _key, true)
     }
 
     function prismafyCodeBlock(content, _key) {
@@ -272,6 +301,7 @@ function Post(props) {
 
     let list = []
     props.body && props.body.forEach(section => {
+        // console.log('section._type: ', section._type)
         if (section.listItem) {
             list.push(
                 <ListItem>{formatListItem(section.children)}</ListItem>
@@ -279,7 +309,7 @@ function Post(props) {
         } else {
             if (list.length > 0) {
                 postContent.push(
-                    <ul>{list}</ul>
+                    <UL>{list}</UL>
                 )
                 list = []
             }
@@ -301,12 +331,14 @@ function Post(props) {
                         )
                     )
                     break
-                case 'post_aside_with_code':
-                    // console.log('section.body: ', section.body)
+                case 'post_aside_note':
                     postContent.push(
-                        asideWithCode(
-                            section.body, section._key
-                        )
+                        asideNote(section.str_content, section._key)
+                    )
+                    break
+                case 'post_aside_with_code':
+                    postContent.push(
+                        asideWithCode(section.body, section._key)
                     )
                     break
                 // default:
