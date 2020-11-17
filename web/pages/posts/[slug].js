@@ -8,6 +8,7 @@ import Layout from '../../components/Layout'
 import PostImg from '../../components/PostImg'
 import themes from '../../colorsAndThemes'
 import matchExtLinkMarkDef from '../../utils/matchExtLinkMarkDef'
+// import img from '/img.svg'
 
 const MainContent = styled.div`
     margin-top: 1.5em;
@@ -104,6 +105,9 @@ const UL = styled.ul`
 const InfoIcon = styled.img`
     float: left;
     margin: 0 15px 0 0;
+    border-radius: 50%;
+    background-color: ${({ theme }) => theme.secondaryColor};;
+    /* box-shadow: 0 0 15px white; */
     @media screen and (max-width: 600px) {
         margin: 0 5px 0 0;
     }
