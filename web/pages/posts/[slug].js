@@ -15,8 +15,8 @@ const MainContent = styled.div`
     font-size: 1.25em;
     line-height: 1.75em;
 `
-const PostTitle = styled.h2`
-`
+// const PostTitle = styled.h2`
+// `
 const PostDescription = styled.p`
     font-size: 1.3em;
     font-weight: 600;
@@ -102,12 +102,13 @@ const H3 = styled.h3`
 const UL = styled.ul`
     margin-bottom: 15px;
 `
+
 const InfoIcon = styled.img`
     float: left;
     margin: 0 15px 0 0;
     border-radius: 50%;
-    background-color: ${({ theme }) => theme.secondaryColor};;
-    /* box-shadow: 0 0 15px white; */
+    background-color: ${({ theme }) => theme.secondaryColor};
+    box-shadow: ${({ theme }) => `0 0 15px ${theme.secondaryColor}`};
     @media screen and (max-width: 600px) {
         margin: 0 5px 0 0;
     }
@@ -359,7 +360,7 @@ function Post(props) {
             themeString={props.themeString}
         >
             <article>
-                <PostTitle>{props.title}</PostTitle>
+                <h2>{props.title}</h2>
                 
                 <PostDescription>{props.description}</PostDescription>
 
