@@ -15,8 +15,6 @@ const MainContent = styled.div`
     font-size: 1.25em;
     line-height: 1.75em;
 `
-// const PostTitle = styled.h2`
-// `
 const PostDescription = styled.p`
     font-size: 1.3em;
     font-weight: 600;
@@ -45,8 +43,9 @@ const Pre = styled.pre`
     font-size: .80em;
     overflow: auto;
     text-align: left;
-    margin: 1em 0;
+    margin: 0 0 1em;
     padding: 0.5em;
+    background-color: ${({ theme }) => theme.asideBackground};
     /* TODO: is this really doing much? */
     & .token-line {
         line-height: 1.4em;
@@ -99,16 +98,21 @@ const H3 = styled.h3`
     margin-top: 1.5em;
     font-family: 'Cuprum', sans-serif;
 `
+const H4 = styled.h4`
+    font-size: 1.25em;
+    font-weight: bold;
+    margin: 1.5em 0 0;
+    font-family: 'Cuprum', sans-serif;
+`
 const UL = styled.ul`
     margin-bottom: 15px;
 `
-
 const InfoIcon = styled.img`
     float: left;
     margin: 0 15px 0 0;
     border-radius: 50%;
     background-color: ${({ theme }) => theme.secondaryColor};
-    box-shadow: ${({ theme }) => `0 0 15px ${theme.secondaryColor}`};
+    box-shadow: ${({ theme }) => `0 0 20px ${theme.secondaryColor}`};
     @media screen and (max-width: 600px) {
         margin: 0 5px 0 0;
     }
@@ -120,6 +124,7 @@ const ListItem = styled.li`
     list-style-type: square;
     color: ${({ theme }) => theme.text};
 `
+
 function Post(props) {
     const [articleBtmPos, setArticleBtmPos] = useState(0)
     // console.log('Post props: ', props)
@@ -188,6 +193,9 @@ function Post(props) {
             } 
             else if (section.style === 'h3') {
                 blockContent.push(<H3 key={section._key}>{section.children[0].text}</H3>)
+            }
+            else if (section.style === 'h4') {
+                blockContent.push(<H4 key={section._key}>{section.children[0].text}</H4>)
             }
             // unformatted text block
             else {
@@ -303,17 +311,17 @@ function Post(props) {
             </Highlight>
         )
     }
-
+    // TODO: test if list rendering works correctly with multiple lists in post
     let list = []
     props.body && props.body.forEach(section => {
-        // console.log('section._type: ', section._type)
         if (section.listItem) {
             list.push(
-                <ListItem>{formatListItem(section.children)}</ListItem>
+                <ListItem key={section._key}>{formatListItem(section.children)}</ListItem>
             )
         } else {
             if (list.length > 0) {
                 postContent.push(
+                    // TODO: why is React key error being thrown here?
                     <UL>{list}</UL>
                 )
                 list = []
@@ -352,7 +360,6 @@ function Post(props) {
             // console.log('postContent: ', postContent)
         }
     })
-
 
     return (
         <Layout 

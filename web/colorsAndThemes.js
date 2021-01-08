@@ -33,7 +33,8 @@ const themes = {
         iconSrc: '/moon.svg',
         iconAlt: 'Icon of sun for "Light Mode" theme',
         syntax: duotoneLight,
-        asideBackground: duotoneLight.plain.backgroundColor,
+        asideBackground: '#fdfcfb',
+        // asideBackground: duotoneLight.plain.backgroundColor,
         articleLinks: colors.articleLinksLight,
         listItemBgColor: 'white'
     }
