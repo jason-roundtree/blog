@@ -11,6 +11,7 @@ import postAside from './postAside'
 import postAsideNote from './postAsideNote'
 import postAsideWithCode from './postAsideWithCode'
 import inlineCode from './inlineCode'
+import codeNoLineNumber from './codeNoLineNumber'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -25,6 +26,7 @@ export default createSchema({
     postAside,
     postAsideNote,
     postAsideWithCode,
-    inlineCode
+    inlineCode,
+    codeNoLineNumber
   ])
 })

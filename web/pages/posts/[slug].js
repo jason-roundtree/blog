@@ -281,7 +281,7 @@ function Post(props) {
         return asideWithCode(content, _key, true)
     }
 
-    function prismafyCodeBlock(content, _key) {
+    function prismafyCodeBlock(content, _key, lang, showLineNo) {
         return (
             <Highlight 
                 {...defaultProps} 
@@ -291,14 +291,15 @@ function Post(props) {
                         : themes.dark.syntax
                 } 
                 code={content} 
-                language="jsx"
+                // TODO: make language dynamic
+                language={lang}
                 key={_key}
             >
                 {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                    <Pre className={className} style={style}>
+                    <Pre className={className}>
                         {tokens.map((line, i) => (
                             <div {...getLineProps({ line, key: i })}>
-                                <LineNo>{i + 1}</LineNo>
+                                {showLineNo && <LineNo>{i + 1}</LineNo>}
                                 {line.map((token, key) => {
                                     return (
                                         <span {...getTokenProps({ token, key })} />
@@ -314,6 +315,7 @@ function Post(props) {
     // TODO: test if list rendering works correctly with multiple lists in post
     let list = []
     props.body && props.body.forEach(section => {
+        console.log('section: ', section)
         if (section.listItem) {
             list.push(
                 <ListItem key={section._key}>{formatListItem(section.children)}</ListItem>
@@ -334,7 +336,22 @@ function Post(props) {
                     break
                 case 'code':
                     postContent.push(
-                        prismafyCodeBlock(section.code, section._key)
+                        prismafyCodeBlock(
+                            section.code, 
+                            section._key, 
+                            section.language,
+                            true
+                        )
+                    )
+                    break
+                case 'code_no_line_number':
+                    postContent.push(
+                        prismafyCodeBlock(
+                            section.code.code, 
+                            section._key, 
+                            section.code.language, 
+                            false
+                        )
                     )
                     break
                 case 'post_aside':

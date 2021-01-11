@@ -26,6 +26,7 @@ export default {
                     }]
                 },
                 { type: 'code' },
+                { type: 'code_no_line_number' },
                 // TODO: update these type names:
                 { type: 'post_aside' },
                 { type: 'post_aside_note' },

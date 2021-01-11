@@ -7,8 +7,8 @@ const PostImgContainer = styled.div`
 `
 const PostImg = styled.img`
     position: relative;
-    top: 0;
-    left: 0;
+    /* top: 0;
+    left: 0; */
     display: block;
     width: 100%;
     transition: opacity 400ms ease 0ms;
