@@ -315,7 +315,7 @@ function Post(props) {
     // TODO: test if list rendering works correctly with multiple lists in post
     let list = []
     props.body && props.body.forEach(section => {
-        console.log('section: ', section)
+        // console.log('section: ', section)
         if (section.listItem) {
             list.push(
                 <ListItem key={section._key}>{formatListItem(section.children)}</ListItem>
