@@ -314,19 +314,22 @@ function Post(props) {
     }
     // TODO: test if list rendering works correctly with multiple lists in post
     let list = []
+    let listGroupKey = ''
     props.body && props.body.forEach(section => {
         // console.log('section: ', section)
         if (section.listItem) {
             list.push(
                 <ListItem key={section._key}>{formatListItem(section.children)}</ListItem>
             )
+            listGroupKey += section._key
         } else {
             if (list.length > 0) {
                 postContent.push(
-                    // TODO: why is React key error being thrown here?
-                    <UL>{list}</UL>
+                    // TODO: why is key needed on this UL here?
+                    <UL key={listGroupKey}>{list}</UL>
                 )
                 list = []
+                listGroupKey = ''
             }
             switch(section._type) {
                 case 'block':

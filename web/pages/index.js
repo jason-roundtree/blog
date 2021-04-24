@@ -12,9 +12,10 @@ const PostContainer = styled.li`
     padding: 7px 10px;
     font-size: 1.75em;
     background-color: ${({ theme }) => theme.listItemBgColor};
+    transition: background 300ms;
     &:hover {
         cursor: pointer;
-        background-color: ${({ theme }) => theme.secondaryColor};
+        background: ${({ theme }) => theme.secondaryColor};
         border: ${({ theme }) => theme.secondaryColor};
     }
 `
@@ -87,9 +88,7 @@ function Index({
 
     useEffect(() => {
         getTagCountsData(tags)
-            .then(tagCounts => {
-                setTagCounts(tagCounts)
-            })
+            .then(tagCounts => setTagCounts(tagCounts))
             .catch(err => console.log('error getting tag counts: ', err))
     }, [])
 
