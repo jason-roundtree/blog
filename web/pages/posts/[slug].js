@@ -141,17 +141,44 @@ function Post(props) {
         })
     }
 
-    function formatListItem(listItemParts) {
+    function formatExternalHref(sectionChild, sectionMarkDefs) {
+        const subBlockContent = []
+        const hrefTarget = matchExtLinkMarkDef(
+            sectionChild, 
+            sectionMarkDefs
+        )
+        hrefTarget && (
+            subBlockContent.push(
+                <ExternalLink 
+                    target="_blank"
+                    href={hrefTarget.href}
+                    key={hrefTarget._key}
+                >
+                    {hrefTarget.text}
+                </ExternalLink>
+            )
+        )
+        return subBlockContent
+    }
+
+    function formatListItem(sectionChildren, markDefs) {
+        // console.log(`sectionChildren: `, sectionChildren)
         const listItem = []
-        for (let i = 0; i < listItemParts.length; i++) {
-            if (listItemParts[i]._type === 'inline_code') {
+        for (let i = 0; i < sectionChildren.length; i++) {
+            if (sectionChildren[i].marks && sectionChildren[i].marks.length > 0) {
                 listItem.push(
-                    <InlineCodeMain key={listItemParts[i]._key}>
-                        {listItemParts[i].str_content_inline}
+                    formatExternalHref(sectionChildren[i], markDefs)
+                )
+            }
+            else if (sectionChildren[i]._type === 'inline_code') {
+                listItem.push(
+                    <InlineCodeMain key={sectionChildren[i]._key}>
+                        {sectionChildren[i].str_content_inline}
                     </InlineCodeMain>
                 )
-            } else {
-                listItem.push(listItemParts[i].text)
+            } 
+            else {
+                listItem.push(sectionChildren[i].text)
             }
         }
         return listItem
@@ -175,29 +202,25 @@ function Post(props) {
             }
             // returns href of external link that matches href mark with actual href info
             else if (section.children[i].marks.length > 0) {
-                const hrefTarget = matchExtLinkMarkDef(
-                    section.children[i], 
-                    section.markDefs
-                )
-                hrefTarget && (
-                    blockContent.push(
-                        <ExternalLink 
-                            target="_blank"
-                            href={hrefTarget.href}
-                            key={hrefTarget._key}
-                        >
-                            {hrefTarget.text}
-                        </ExternalLink>
-                    )
+                blockContent.push(
+                    formatExternalHref(section.children[i], section.markDefs)
                 )
             } 
             else if (section.style === 'h3') {
-                blockContent.push(<H3 key={section._key}>{section.children[0].text}</H3>)
+                blockContent.push(
+                    <H3 key={section._key}>
+                        {section.children[0].text}
+                    </H3>
+                )
             }
             else if (section.style === 'h4') {
-                blockContent.push(<H4 key={section._key}>{section.children[0].text}</H4>)
+                blockContent.push(
+                    <H4 key={section._key}>
+                        {section.children[0].text}
+                    </H4>
+                )
             }
-            // unformatted text block
+            // Unformatted text block:
             else {
                 blockContent.push(section.children[i].text)
             }
@@ -316,21 +339,27 @@ function Post(props) {
     let list = []
     let listGroupKey = ''
     props.body && props.body.forEach(section => {
-        // console.log('section: ', section)
+        // console.log('section >>> ', section)
         if (section.listItem) {
             list.push(
-                <ListItem key={section._key}>{formatListItem(section.children)}</ListItem>
+                <ListItem key={section._key}>
+                    {formatListItem(section.children, section.markDefs)}
+                </ListItem>
             )
             listGroupKey += section._key
-        } else {
-            if (list.length > 0) {
-                postContent.push(
-                    // TODO: why is key needed on this UL here?
-                    <UL key={listGroupKey}>{list}</UL>
-                )
-                list = []
-                listGroupKey = ''
-            }
+        } 
+            
+        if (list.length > 0) {
+            // console.log('list: ', list)
+            postContent.push(
+                // TODO: why is key needed on this UL here?
+                <UL key={listGroupKey}>{list}</UL>
+            )
+            list = []
+            listGroupKey = ''
+        }
+
+        else {
             switch(section._type) {
                 case 'block':
                     postContent.push(
