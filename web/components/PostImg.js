@@ -15,9 +15,10 @@ const PostImg = styled.img`
 `
 const PostLqipImg = styled(PostImg)`
     position: absolute;
-    width: 100%;
-    transform: scale(1);
-    transition: visibility 0ms ease 400ms;
+    /* width: 100%; */
+    /* TODO: what exactly are these supposed to be doing? */
+    /* transform: scale(1);
+    transition: visibility 0ms ease 400ms; */
 `
 const PhotoCredit = styled.p`
     text-align: center;

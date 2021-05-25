@@ -338,9 +338,10 @@ function Post(props) {
     // TODO: test if list rendering works correctly with multiple lists in post
     let list = []
     let listGroupKey = ''
-    props.body && props.body.forEach(section => {
-        // console.log('section >>> ', section)
+    props.body && props.body.forEach((section, i, arr) => {
+        
         if (section.listItem) {
+            // console.log('section.listItem', section)
             list.push(
                 <ListItem key={section._key}>
                     {formatListItem(section.children, section.markDefs)}
@@ -348,18 +349,21 @@ function Post(props) {
             )
             listGroupKey += section._key
         } 
-            
-        if (list.length > 0) {
-            // console.log('list: ', list)
+
+        if (
+            // If the current section isn't a list item, but the list array has items, then we know the end of the list was just passed and we can now group the list items under a <ul> for rendering:
+            !section.listItem && (list.length > 0) ||
+            // This case ensures that a list is properly rendered when the last element of a post is a list:
+            section.listItem && (i === arr.length - 1)
+        ) {
             postContent.push(
-                // TODO: why is key needed on this UL here?
                 <UL key={listGroupKey}>{list}</UL>
             )
             list = []
             listGroupKey = ''
         }
 
-        else {
+        if (!section.listItem) {
             switch(section._type) {
                 case 'block':
                     postContent.push(
@@ -479,15 +483,5 @@ export async function getStaticProps(context) {
     `, { slug } )
     return { props: post }
 }
-  
-// Post.getInitialProps = async function(context) {
-//     // default the slug so that it doesn't return "undefined"
-//     // console.log('context: ', context)
-//     const { slug = "" } = context.query
-//     const data = await client.fetch(`
-//         *[_type == "post" && slug.current == $slug][0]
-//     `, { slug })
-//     return data
-// }
 
 export default Post
