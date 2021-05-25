@@ -140,43 +140,47 @@ function Index({
             />
 
             <h2>Posts:</h2>
-            {sortObjProperties(postsToRender, 'manual_pub_date').map(
-                ({ 
-                    _id, 
-                    _createdAt,
-                    manual_pub_date,
-                    description, 
-                    slug,
-                    title, 
-                    tags
-                }) => (
-                    <Link
-                        href='/posts/[slug]'
-                        as={`/posts/${slug.current}`}
-                        key={_id}
-                    >
-                        <PostContainer key={_id} tabIndex="0">
-                            <Title>{title}</Title>
-                            <Description>{description}</Description>
-                            <Date>
-                                {manual_pub_date 
-                                    ? moment.utc(manual_pub_date).format("LL")
-                                    : moment.utc(_createdAt).format("LL")
-                                }
-                            </Date>
-                            <ul>
-                                {sortObjProperties(tags, 'name').map(tag => {
-                                    return (
-                                        <TagListItem key={tag._id}>
-                                            {tag.name}
-                                        </TagListItem>
-                                    )
-                                })}
-                            </ul>
-                        </PostContainer>
-                    </Link>
-                )
-            )}
+            <ul>
+                {sortObjProperties(postsToRender, 'manual_pub_date').map(
+                    ({ 
+                        _id, 
+                        _createdAt,
+                        manual_pub_date,
+                        description, 
+                        slug,
+                        title, 
+                        tags
+                    }) => (
+                        <Link
+                            href='/posts/[slug]'
+                            as={`/posts/${slug.current}`}
+                            key={_id}
+                        >
+                            <a>
+                                <PostContainer key={_id} tabIndex="0">
+                                    <Title>{title}</Title>
+                                    <Description>{description}</Description>
+                                    <Date>
+                                        {manual_pub_date 
+                                            ? moment.utc(manual_pub_date).format("LL")
+                                            : moment.utc(_createdAt).format("LL")
+                                        }
+                                    </Date>
+                                    <ul>
+                                        {sortObjProperties(tags, 'name').map(tag => {
+                                            return (
+                                                <TagListItem key={tag._id}>
+                                                    {tag.name}
+                                                </TagListItem>
+                                            )
+                                        })}
+                                    </ul>
+                                </PostContainer>
+                            </a>
+                        </Link>
+                    )
+                )}
+            </ul>
         </Layout>
     )
 }

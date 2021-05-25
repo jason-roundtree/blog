@@ -359,6 +359,7 @@ function Post(props) {
             postContent.push(
                 <UL key={listGroupKey}>{list}</UL>
             )
+            // Clear list tracking variables so that subsequent lists will render correctly:
             list = []
             listGroupKey = ''
         }
