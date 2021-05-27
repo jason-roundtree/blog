@@ -85,6 +85,8 @@ const CodeNote = styled.p`
 const ExternalLink = styled.a`
     text-decoration: underline;
     color: ${({ theme }) => theme.articleLinks};
+    /* display:inline-block; */
+    word-break: break-word;
 `
 const Button = styled.button`
     font-size: .8em;
