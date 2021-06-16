@@ -7,6 +7,7 @@ export default {
             title: 'Title',
             name: 'title',
             type: 'string',
+            validation: Rule => Rule.required()
         },
         {
             title: 'Description',
@@ -42,6 +43,7 @@ export default {
             title: 'Manual Published Date',
             name: 'manual_pub_date',
             type: 'date',
+            validation: Rule => Rule.required()
             // options: {
             //     dateFormat: 'YYYY-MM-DD',
             // }

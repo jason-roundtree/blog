@@ -29,9 +29,9 @@ const PhotoCredit = styled.p`
 
 function PostImage({ postImg }) {
     // console.log('postImg: ', postImg)
-    const [isLoaded, setIsLoaded] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false)
     const { width, height } = postImg.metadata.dimensions
-    // console.log('with/height: ', width + "/" + height)
+
     return (
         <PostImgContainer>
             <PostLqipImg 

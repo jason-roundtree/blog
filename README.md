@@ -11,7 +11,7 @@ My personal blog, made with the following technologies:
 ## TODOs
 - [ ] add internal links between posts
 - [ ] fix tags associated with unpublished posts to not be displayed
-- [ ] prevent top-of-post list bullets from being rendered where post image gets rendered prior to image being rendered
+- [ ] prevent top-of-post list bullets from being rendered where post image should be before it's loaded
 - [ ] what's going on with the flicker on the background of the most recent post when dark/light modes are toggled?
 - [ ] store theme preference in local storage
 - [ ] add logic that checks if manual published date is set before sorting
