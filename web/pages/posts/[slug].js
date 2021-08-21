@@ -162,6 +162,7 @@ function Post(props) {
         return subBlockContent
     }
 
+    // TODO: figure out how to add text formatting (bold, italic) to list items
     function formatListItem(sectionChildren, markDefs) {
         // console.log(`sectionChildren: `, sectionChildren)
         const listItem = []
@@ -336,13 +337,17 @@ function Post(props) {
             </Highlight>
         )
     }
+
+    function postBodyImage(content) {
+        console.log('content: ', content)
+    }
+
     // TODO: test if list rendering works correctly with multiple lists in post
     let list = []
     let listGroupKey = ''
     props.body && props.body.forEach((section, i, arr) => {
-        
+        // console.log('section: ', section, '----\n')
         if (section.listItem) {
-            // console.log('section.listItem', section)
             list.push(
                 <ListItem key={section._key}>
                     {formatListItem(section.children, section.markDefs)}
@@ -367,6 +372,11 @@ function Post(props) {
 
         if (!section.listItem) {
             switch(section._type) {
+                case 'image': 
+                    postContent.push(
+                        postBodyImage(section)
+                    )
+                    break
                 case 'block':
                     postContent.push(
                         paragraphBlock(section)
@@ -480,6 +490,10 @@ export async function getStaticProps(context) {
     const post = await client.fetch(`
         *[_type == "post" && slug.current == $slug][0]{
             ...,
+            body[]{ 
+                ..., 
+                asset->
+            },
             "postImg": image.asset->,
         }
     `, { slug } )

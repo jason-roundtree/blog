@@ -21,6 +21,21 @@ export default {
             type: 'array',
             of: [
                 { 
+                    type: 'image',
+                    fields: [
+                        {
+                            name: 'caption',
+                            type: 'string',
+                            title: 'Caption',
+                        },
+                        {
+                            name: 'alt_text',
+                            type: 'string',
+                            title: 'Alt Text',
+                        }
+                    ] 
+                },
+                { 
                     type: 'block', 
                     of: [{
                         type: 'inline_code'
