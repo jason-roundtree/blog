@@ -21,27 +21,13 @@ export default {
             type: 'array',
             of: [
                 { 
-                    type: 'image',
-                    fields: [
-                        {
-                            name: 'caption',
-                            type: 'string',
-                            title: 'Caption',
-                        },
-                        {
-                            name: 'alt_text',
-                            type: 'string',
-                            title: 'Alt Text',
-                        }
-                    ] 
-                },
-                { 
                     type: 'block', 
                     of: [{
                         type: 'inline_code'
                     }]
                 },
                 { type: 'code' },
+                { type: 'post_body_image' },
                 { type: 'code_no_line_number' },
                 // TODO: update these type names:
                 { type: 'post_aside' },

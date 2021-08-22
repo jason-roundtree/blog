@@ -302,6 +302,7 @@ function Post(props) {
         )
     }
 
+    // TODO: Why does inline code no longer work with new Sanity Studio layout??
     function asideNote(content, _key) {
         return asideWithCode(content, _key, true)
     }
@@ -338,10 +339,6 @@ function Post(props) {
         )
     }
 
-    function postBodyImage(content) {
-        console.log('content: ', content)
-    }
-
     // TODO: test if list rendering works correctly with multiple lists in post
     let list = []
     let listGroupKey = ''
@@ -372,9 +369,14 @@ function Post(props) {
 
         if (!section.listItem) {
             switch(section._type) {
-                case 'image': 
+                case 'post_body_image': 
                     postContent.push(
-                        postBodyImage(section)
+                        <PostImg 
+                            key={section._key}
+                            postImg={section.asset} 
+                            altText={section.alt_text}
+                            caption={section.caption}
+                        />
                     )
                     break
                 case 'block':
@@ -491,12 +493,13 @@ export async function getStaticProps(context) {
         *[_type == "post" && slug.current == $slug][0]{
             ...,
             body[]{ 
-                ..., 
+                ...,
                 asset->
             },
-            "postImg": image.asset->,
+            "postImg": image.asset->
         }
     `, { slug } )
+    // console.log('POST: ', post)
     return { props: post }
 }
 
